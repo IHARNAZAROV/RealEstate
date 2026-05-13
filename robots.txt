@@ -1,0 +1,36 @@
+User-agent: *
+# Разрешаем индексацию всего сайта
+Allow: /
+
+# Разрешаем доступ к статике (важно для SEO и корректного рендера)
+Allow: /*.js
+Allow: /*.css
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.svg
+Allow: /*.webp
+Allow: /favicon.ico
+
+# Закрываем технические и потенциально дублирующие разделы
+Disallow: /cgi-bin/
+Disallow: /search/
+Disallow: /?s=
+Disallow: /adminka_objects/
+Disallow: /api/
+Disallow: /backups/
+Disallow: /scripts/
+
+# Карта сайта
+Sitemap: https://turko.by/sitemap.xml
+
+
+# ================================
+# Правила для Яндекса
+# ================================
+User-agent: Yandex
+Allow: /
+
+# Игнорируем незначащие GET-параметры
+Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content
+Clean-param: etext

@@ -1,0 +1,1104 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Задачи — Админка</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="/adminka_objects/admin-premium.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       BASE / RESET
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+      background: linear-gradient(180deg, #0f141a 0%, #0b0f14 100%);
+      min-height: 100vh;
+      color: #e5e7eb;
+    }
+
+    /* ============================================================
+       HEADER
+    ============================================================ */
+    .dashboard-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 28px;
+      background: #0f141a;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 17px;
+      font-weight: 600;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .breadcrumbs .project { font-weight: 400; color: #9ca3af; }
+    .breadcrumbs .sep    { color: #4b5563; }
+
+    /* ---- nav pills ---- */
+    .admin-nav {
+      display: flex;
+      gap: 6px;
+    }
+
+    .admin-nav a {
+      display: inline-flex;
+      align-items: center;
+      height: 34px;
+      padding: 0 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #9ca3af;
+      text-decoration: none;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      transition: background .15s, color .15s, border-color .15s;
+    }
+    .admin-nav a:hover {
+      background: rgba(255,255,255,0.07);
+      color: #e5e7eb;
+    }
+    .admin-nav a.active {
+      background: rgba(255,255,255,0.10);
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.16);
+    }
+
+    /* ---- header right ---- */
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .search-wrap {
+      position: relative;
+    }
+    .search-wrap svg {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      color: #6b7280;
+      pointer-events: none;
+    }
+    #searchInput {
+      height: 34px;
+      width: 200px;
+      padding: 0 10px 0 32px;
+      background: rgba(255,255,255,0.06);
+      color: #e5e7eb;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      font-size: 13px;
+      transition: background .15s, border-color .15s;
+    }
+    #searchInput::placeholder { color: #6b7280; }
+    #searchInput:focus {
+      outline: none;
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(255,255,255,0.24);
+    }
+
+    /* ============================================================
+       MAIN LAYOUT
+    ============================================================ */
+    .tasks-layout {
+      display: flex;
+      gap: 0;
+      min-height: calc(100vh - 61px);
+    }
+
+    /* ---- sidebar ---- */
+    .sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.02);
+      border-right: 1px solid rgba(255,255,255,0.06);
+      padding: 20px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sidebar-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #4b5563;
+      padding: 0 8px;
+      margin-bottom: 4px;
+    }
+
+    .board-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #9ca3af;
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: left;
+      transition: background .15s, color .15s, border-color .15s;
+      width: 100%;
+      min-height: 36px;
+    }
+    .board-btn:hover {
+      background: rgba(255,255,255,0.06);
+      color: #e5e7eb;
+    }
+    .board-btn.active {
+      background: rgba(255,255,255,0.10);
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.14);
+    }
+    .board-btn .board-count {
+      margin-left: auto;
+      font-size: 11px;
+      background: rgba(255,255,255,0.10);
+      color: #9ca3af;
+      padding: 1px 7px;
+      border-radius: 20px;
+    }
+
+    .add-board-btn {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      font-size: 13px;
+      color: #6b7280;
+      background: transparent;
+      border: 1px dashed rgba(255,255,255,0.12);
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      transition: color .15s, border-color .15s;
+    }
+    .add-board-btn:hover {
+      color: #9ca3af;
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    /* ---- main content ---- */
+    .tasks-main {
+      flex: 1;
+      padding: 24px 28px;
+      overflow: auto;
+    }
+
+    /* ============================================================
+       ADD TASK BAR
+    ============================================================ */
+    .add-task-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+
+    .admin-switch-btn {
+      background: #111;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 15px;
+      transition: 0.2s;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .admin-switch-btn:hover {
+      background: #333;
+    }
+    #taskInput {
+      flex: 1;
+      min-width: 200px;
+      height: 42px;
+      padding: 0 14px;
+      background: rgba(255,255,255,0.06);
+      color: #e5e7eb;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      font-size: 14px;
+      transition: background .15s, border-color .15s;
+    }
+    #taskInput::placeholder { color: #4b5563; }
+    #taskInput:focus {
+      outline: none;
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    /* custom selects wrapper */
+    .selects-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .custom-select-wrap {
+      position: relative;
+    }
+    .custom-select-wrap select {
+      appearance: none;
+      -webkit-appearance: none;
+      height: 42px;
+      padding: 0 32px 0 12px;
+      background: rgba(255,255,255,0.06);
+      color: #e5e7eb;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .custom-select-wrap select:focus { outline: none; }
+    .custom-select-wrap select:hover { background: rgba(255,255,255,0.10); }
+    .custom-select-wrap::after {
+      content: "";
+      position: absolute;
+      right: 11px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid #6b7280;
+      pointer-events: none;
+    }
+    .custom-select-wrap select option { background: #161b22; color: #e5e7eb; }
+
+    .add-task-btn {
+      height: 42px;
+      padding: 0 20px;
+      background: rgba(99,102,241,0.18);
+      color: #a5b4fc;
+      border: 1px solid rgba(99,102,241,0.35);
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background .15s, border-color .15s;
+    }
+    .add-task-btn:hover {
+      background: rgba(99,102,241,0.28);
+      border-color: rgba(99,102,241,0.55);
+    }
+
+    /* ============================================================
+       FILTER BAR
+    ============================================================ */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .filter-label {
+      font-size: 12px;
+      color: #6b7280;
+      margin-right: 2px;
+    }
+
+    .filter-chip {
+      height: 28px;
+      padding: 0 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #6b7280;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background .15s, color .15s, border-color .15s;
+    }
+    .filter-chip:hover { color: #9ca3af; background: rgba(255,255,255,0.08); }
+    .filter-chip.active {
+      color: #fff;
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    .tasks-meta {
+      margin-left: auto;
+      font-size: 12px;
+      color: #4b5563;
+    }
+
+    /* ============================================================
+       TASK LIST
+    ============================================================ */
+    #taskList {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* ---- empty state ---- */
+    .empty-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 64px 0;
+      color: #374151;
+      text-align: center;
+    }
+    .empty-state svg { width: 48px; height: 48px; opacity: .4; }
+    .empty-state p { font-size: 15px; }
+
+    /* ---- task card ---- */
+    .task-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      cursor: grab;
+      transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease, background .15s;
+      animation: fadeSlideIn .22s ease both;
+    }
+
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .task-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.07);
+    }
+    .task-card.dragging {
+      opacity: .4;
+      cursor: grabbing;
+    }
+    .task-card.drag-over {
+      box-shadow: 0 0 0 2px rgba(99,102,241,0.6);
+    }
+    .task-card.completed {
+      opacity: .45;
+    }
+
+    /* custom checkbox */
+    .task-checkbox {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      border-radius: 5px;
+      border: 2px solid rgba(255,255,255,0.20);
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .15s, border-color .15s;
+    }
+    .task-checkbox:hover { border-color: rgba(255,255,255,0.40); }
+    .task-checkbox.checked {
+      background: rgba(99,102,241,0.70);
+      border-color: rgba(99,102,241,0.80);
+    }
+    .task-checkbox.checked::after {
+      content: "";
+      display: block;
+      width: 4px;
+      height: 7px;
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transform: rotate(45deg) translate(-1px,-1px);
+    }
+
+    .task-text {
+      flex: 1;
+      font-size: 14px;
+      color: #d1d5db;
+      line-height: 1.4;
+      word-break: break-word;
+    }
+    .task-card.completed .task-text {
+      text-decoration: line-through;
+      color: #6b7280;
+    }
+
+    /* badges */
+    .task-badges {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      height: 22px;
+      padding: 0 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+
+    /* priority badges */
+    .badge-urgent   { background: rgba(239,68,68,.18);  color: #fca5a5; }
+    .badge-important{ background: rgba(245,158,11,.18); color: #fcd34d; }
+    .badge-normal   { background: rgba(255,255,255,.07); color: #6b7280; }
+
+    /* category badges */
+    .badge-ui  { background: rgba(99,102,241,.18); color: #a5b4fc; }
+    .badge-seo { background: rgba(34,197,94,.18);  color: #86efac; }
+    .badge-bug { background: rgba(239,68,68,.14);  color: #fca5a5; }
+    .badge-ads { background: rgba(249,115,22,.18); color: #fdba74; }
+
+    /* delete btn */
+    .task-delete {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      color: #374151;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 1;
+      transition: color .15s, background .15s;
+    }
+    .task-delete:hover { color: #ef4444; background: rgba(239,68,68,.12); }
+
+    /* ============================================================
+       DRAG & DROP PLACEHOLDER
+    ============================================================ */
+    .drop-placeholder {
+      height: 52px;
+      border: 2px dashed rgba(99,102,241,0.35);
+      border-radius: 12px;
+      background: rgba(99,102,241,0.05);
+    }
+
+    /* ============================================================
+       BOARD MODAL
+    ============================================================ */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: #161b22;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 16px;
+      padding: 28px 28px 24px;
+      width: 360px;
+      animation: popIn .18s ease;
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(.94); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .modal h3 { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 16px; }
+
+    .modal input[type="text"] {
+      width: 100%;
+      height: 40px;
+      padding: 0 12px;
+      background: rgba(255,255,255,0.06);
+      color: #e5e7eb;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .modal input[type="text"]:focus {
+      outline: none;
+      border-color: rgba(99,102,241,0.5);
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+    .modal-cancel {
+      height: 36px;
+      padding: 0 16px;
+      background: rgba(255,255,255,0.06);
+      color: #9ca3af;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 8px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .modal-confirm {
+      height: 36px;
+      padding: 0 16px;
+      background: rgba(99,102,241,0.22);
+      color: #a5b4fc;
+      border: 1px solid rgba(99,102,241,0.40);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .modal-confirm:hover { background: rgba(99,102,241,0.35); }
+  </style>
+  <script src="/adminka_objects/admin-sidebar.js" defer></script>
+</head>
+<body class="premium-admin">
+
+<div class="admin-layout">
+
+  <aside class="admin-sidebar" data-admin-sidebar></aside>
+
+  <div class="admin-content-wrap">
+
+<!-- ===== HEADER ===== -->
+<header class="dashboard-header">
+  <div class="header-left">
+    <div class="breadcrumbs">
+      <span class="home">Ольга Турко</span>
+      <span class="sep">›</span>
+      <span class="project">turko.by</span>
+    </div>
+  </div>
+
+  <div class="header-right">
+    <div class="search-wrap">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
+        <circle cx="8.5" cy="8.5" r="5.5"/>
+        <path d="M15 15l-3-3" stroke-linecap="round"/>
+      </svg>
+      <input id="searchInput" type="text" placeholder="Поиск задач…">
+    </div>
+  </div>
+</header>
+
+<!-- ===== LAYOUT ===== -->
+<div class="tasks-layout">
+
+  <!-- SIDEBAR: boards -->
+  <aside class="sidebar">
+    <div class="sidebar-label">Доски</div>
+    <div id="boardList"></div>
+    <button class="add-board-btn" id="addBoardBtn">
+      <span>＋</span> Новая доска
+    </button>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="tasks-main">
+
+    <!-- add task bar -->
+    <div class="add-task-bar">
+      <input id="taskInput" type="text" placeholder="Добавить задачу…">
+      <div class="selects-group">
+        <div class="custom-select-wrap">
+          <select id="prioritySelect">
+            <option value="normal">Обычная</option>
+            <option value="important">Важная</option>
+            <option value="urgent">Срочная</option>
+          </select>
+        </div>
+        <div class="custom-select-wrap">
+          <select id="categorySelect">
+            <option value="ui">UI</option>
+            <option value="seo">SEO</option>
+            <option value="bug">Bug</option>
+            <option value="ads">Ads</option>
+          </select>
+        </div>
+      </div>
+      <button class="add-task-btn" id="addTaskBtn">＋ Добавить</button>
+    </div>
+
+    <!-- filter chips -->
+    <div class="filter-bar">
+      <span class="filter-label">Фильтр:</span>
+      <button class="filter-chip active" data-filter="all">Все</button>
+      <button class="filter-chip" data-filter="urgent">Срочные</button>
+      <button class="filter-chip" data-filter="important">Важные</button>
+      <button class="filter-chip" data-filter="normal">Обычные</button>
+      <button class="filter-chip" data-filter="pending">Активные</button>
+      <button class="filter-chip" data-filter="completed">Завершённые</button>
+      <span class="tasks-meta" id="tasksMeta"></span>
+    </div>
+
+    <!-- task list -->
+    <div id="taskList"></div>
+  </main>
+</div>
+
+  </div><!-- /admin-content-wrap -->
+</div><!-- /admin-layout -->
+
+<!-- ===== BOARD MODAL ===== -->
+<div class="modal-overlay" id="boardModal">
+  <div class="modal">
+    <h3>Новая доска</h3>
+    <input type="text" id="boardNameInput" placeholder="Название доски…" maxlength="40">
+    <div class="modal-actions">
+      <button class="modal-cancel" id="boardCancel">Отмена</button>
+      <button class="modal-confirm" id="boardConfirm">Создать</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ================================================================
+   TASKS SYSTEM — vanilla JS
+================================================================ */
+
+const STORAGE_KEY    = 'todo_system_v2';
+const BACKUP_KEY     = 'todo_system_v2_backup';
+const DEFAULT_BOARD  = { id: 'default', name: 'Основная доска', tasks: [] };
+
+/* ----------------------------------------------------------------
+   STATE
+---------------------------------------------------------------- */
+let state = { boards: [clone(DEFAULT_BOARD)], activeBoard: 'default' };
+let dragSrcIndex = null;
+let currentFilter = 'all';
+let searchQuery   = '';
+
+/* ----------------------------------------------------------------
+   UTILS
+---------------------------------------------------------------- */
+function clone(o) { return JSON.parse(JSON.stringify(o)); }
+function uid()    { return Date.now() + '_' + Math.random().toString(36).slice(2, 7); }
+
+function priorityOrder(p) {
+  return p === 'urgent' ? 0 : p === 'important' ? 1 : 2;
+}
+
+/* ----------------------------------------------------------------
+   PERSISTENCE
+---------------------------------------------------------------- */
+function load() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (parsed && Array.isArray(parsed.boards) && parsed.boards.length) {
+        state = parsed;
+        state.boards.forEach(b => { b.tasks = Array.isArray(b.tasks) ? b.tasks : []; });
+        return;
+      }
+    }
+  } catch (_) {}
+
+  // try backup
+  try {
+    const bak = localStorage.getItem(BACKUP_KEY);
+    if (bak) {
+      const parsed = JSON.parse(bak);
+      if (parsed && Array.isArray(parsed.boards) && parsed.boards.length) {
+        state = parsed;
+        state.boards.forEach(b => { b.tasks = Array.isArray(b.tasks) ? b.tasks : []; });
+        return;
+      }
+    }
+  } catch (_) {}
+}
+
+function save() {
+  try {
+    const json = JSON.stringify(state);
+    localStorage.setItem(STORAGE_KEY, json);
+    localStorage.setItem(BACKUP_KEY, json);   // double save
+  } catch (_) {}
+}
+
+/* ----------------------------------------------------------------
+   BOARD HELPERS
+---------------------------------------------------------------- */
+function activeBoard() {
+  return state.boards.find(b => b.id === state.activeBoard) || state.boards[0];
+}
+
+function activeTasks() {
+  const board = activeBoard();
+  if (!board) return [];
+  return Array.isArray(board.tasks) ? board.tasks : [];
+}
+
+function setActiveBoard(id) {
+  state.activeBoard = id;
+  save();
+  renderBoards();
+  renderTasks();
+}
+
+function addBoard(name) {
+  const trimmed = name.trim();
+  if (!trimmed) return;
+  const board = { id: uid(), name: trimmed, tasks: [] };
+  state.boards.push(board);
+  state.activeBoard = board.id;
+  save();
+  renderBoards();
+  renderTasks();
+}
+
+/* ----------------------------------------------------------------
+   TASK HELPERS
+---------------------------------------------------------------- */
+function addTask(text, priority, category) {
+  const trimmed = text.trim();
+  if (!trimmed) return;
+  const board = activeBoard();
+  if (!board) return;
+  board.tasks.push({
+    id:        uid(),
+    text:      trimmed,
+    completed: false,
+    priority:  priority  || 'normal',
+    category:  category  || 'ui',
+    page:      window.location.pathname
+  });
+  save();
+  renderTasks();
+}
+
+function toggleTask(id) {
+  const board = activeBoard();
+  if (!board) return;
+  const task = board.tasks.find(t => t.id === id);
+  if (task) { task.completed = !task.completed; save(); renderTasks(); }
+}
+
+function deleteTask(id) {
+  const board = activeBoard();
+  if (!board) return;
+  board.tasks = board.tasks.filter(t => t.id !== id);
+  save();
+  renderTasks();
+}
+
+/* ----------------------------------------------------------------
+   FILTER & SEARCH
+---------------------------------------------------------------- */
+function filteredTasks() {
+  let tasks = activeTasks().slice();
+
+  // sort by priority
+  tasks.sort((a, b) => priorityOrder(a.priority) - priorityOrder(b.priority));
+
+  // filter
+  if (currentFilter === 'urgent')    tasks = tasks.filter(t => t.priority === 'urgent');
+  if (currentFilter === 'important') tasks = tasks.filter(t => t.priority === 'important');
+  if (currentFilter === 'normal')    tasks = tasks.filter(t => t.priority === 'normal');
+  if (currentFilter === 'pending')   tasks = tasks.filter(t => !t.completed);
+  if (currentFilter === 'completed') tasks = tasks.filter(t => t.completed);
+
+  // search
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase();
+    tasks = tasks.filter(t => t.text.toLowerCase().includes(q));
+  }
+
+  return tasks;
+}
+
+/* ----------------------------------------------------------------
+   RENDER — BOARDS
+---------------------------------------------------------------- */
+function renderBoards() {
+  const list = document.getElementById('boardList');
+  list.innerHTML = '';
+  state.boards.forEach(board => {
+    const count = (board.tasks || []).filter(t => !t.completed).length;
+    const btn = document.createElement('button');
+    btn.className = 'board-btn' + (board.id === state.activeBoard ? ' active' : '');
+    btn.innerHTML = `
+      <span>${escHtml(board.name)}</span>
+      ${count ? `<span class="board-count">${count}</span>` : ''}
+    `;
+    btn.addEventListener('click', () => setActiveBoard(board.id));
+    list.appendChild(btn);
+  });
+}
+
+/* ----------------------------------------------------------------
+   RENDER — TASKS
+---------------------------------------------------------------- */
+function renderTasks() {
+  const list   = document.getElementById('taskList');
+  const meta   = document.getElementById('tasksMeta');
+  const tasks  = filteredTasks();
+  const all    = activeTasks();
+
+  // meta
+  const done   = all.filter(t => t.completed).length;
+  meta.textContent = all.length
+    ? `${done} / ${all.length} завершено`
+    : '';
+
+  if (!tasks.length) {
+    list.innerHTML = `
+      <div class="empty-state">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="6" y="6" width="36" height="36" rx="8"/>
+          <path d="M16 24h16M16 32h10" stroke-linecap="round"/>
+          <path d="M16 16h8" stroke-linecap="round"/>
+        </svg>
+        <p>Задач нет. Добавьте первую!</p>
+      </div>`;
+    return;
+  }
+
+  list.innerHTML = '';
+  tasks.forEach((task, idx) => {
+    const card = document.createElement('div');
+    card.className = 'task-card' + (task.completed ? ' completed' : '');
+    card.dataset.id = task.id;
+    card.draggable = true;
+
+    card.innerHTML = `
+      <div class="task-checkbox${task.completed ? ' checked' : ''}" data-id="${task.id}"></div>
+      <div class="task-text">${escHtml(task.text)}</div>
+      <div class="task-badges">
+        ${priorityBadge(task.priority)}
+        ${categoryBadge(task.category)}
+      </div>
+      <button class="task-delete" data-id="${task.id}" title="Удалить">×</button>
+    `;
+
+    // checkbox
+    card.querySelector('.task-checkbox').addEventListener('click', e => {
+      e.stopPropagation();
+      toggleTask(task.id);
+    });
+
+    // delete
+    card.querySelector('.task-delete').addEventListener('click', e => {
+      e.stopPropagation();
+      deleteTask(task.id);
+    });
+
+    // drag events
+    card.addEventListener('dragstart', onDragStart);
+    card.addEventListener('dragover',  onDragOver);
+    card.addEventListener('dragleave', onDragLeave);
+    card.addEventListener('drop',      onDrop);
+    card.addEventListener('dragend',   onDragEnd);
+
+    list.appendChild(card);
+  });
+}
+
+/* ----------------------------------------------------------------
+   BADGE HELPERS
+---------------------------------------------------------------- */
+function priorityBadge(p) {
+  const map = { urgent: ['badge-urgent', 'Срочно'], important: ['badge-important', 'Важно'], normal: ['badge-normal', 'Обычно'] };
+  const [cls, label] = map[p] || map.normal;
+  return `<span class="badge ${cls}">${label}</span>`;
+}
+
+function categoryBadge(c) {
+  const map = { ui: 'badge-ui', seo: 'badge-seo', bug: 'badge-bug', ads: 'badge-ads' };
+  const cls = map[c] || 'badge-ui';
+  return `<span class="badge ${cls}">${c.toUpperCase()}</span>`;
+}
+
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/* ----------------------------------------------------------------
+   DRAG & DROP
+---------------------------------------------------------------- */
+function getTaskIndexById(id) {
+  const tasks = activeTasks();
+  return tasks.findIndex(t => t.id === id);
+}
+
+function onDragStart(e) {
+  dragSrcIndex = getTaskIndexById(this.dataset.id);
+  this.classList.add('dragging');
+  e.dataTransfer.effectAllowed = 'move';
+}
+
+function onDragOver(e) {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+  document.querySelectorAll('.task-card').forEach(c => c.classList.remove('drag-over'));
+  this.classList.add('drag-over');
+}
+
+function onDragLeave() {
+  this.classList.remove('drag-over');
+}
+
+function onDrop(e) {
+  e.preventDefault();
+  this.classList.remove('drag-over');
+
+  const targetId  = this.dataset.id;
+  const targetIdx = getTaskIndexById(targetId);
+  if (dragSrcIndex === null || dragSrcIndex === targetIdx) return;
+
+  const board  = activeBoard();
+  const tasks  = board.tasks;
+  const [moved] = tasks.splice(dragSrcIndex, 1);
+  tasks.splice(targetIdx, 0, moved);
+
+  save();
+  renderTasks();
+}
+
+function onDragEnd() {
+  document.querySelectorAll('.task-card').forEach(c => {
+    c.classList.remove('dragging', 'drag-over');
+  });
+  dragSrcIndex = null;
+}
+
+/* ----------------------------------------------------------------
+   EVENT BINDINGS
+---------------------------------------------------------------- */
+function bindEvents() {
+  // add task
+  document.getElementById('addTaskBtn').addEventListener('click', doAddTask);
+  document.getElementById('taskInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') doAddTask();
+  });
+
+  function doAddTask() {
+    const input    = document.getElementById('taskInput');
+    const priority = document.getElementById('prioritySelect').value;
+    const category = document.getElementById('categorySelect').value;
+    addTask(input.value, priority, category);
+    input.value = '';
+    input.focus();
+  }
+
+  // filter chips
+  document.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      currentFilter = chip.dataset.filter;
+      renderTasks();
+    });
+  });
+
+  // search
+  document.getElementById('searchInput').addEventListener('input', e => {
+    searchQuery = e.target.value;
+    renderTasks();
+  });
+
+  // add board btn
+  document.getElementById('addBoardBtn').addEventListener('click', () => {
+    document.getElementById('boardModal').classList.add('open');
+    document.getElementById('boardNameInput').value = '';
+    document.getElementById('boardNameInput').focus();
+  });
+
+  // modal cancel
+  document.getElementById('boardCancel').addEventListener('click', closeModal);
+  document.getElementById('boardModal').addEventListener('click', e => {
+    if (e.target === document.getElementById('boardModal')) closeModal();
+  });
+
+  // modal confirm
+  document.getElementById('boardConfirm').addEventListener('click', confirmBoard);
+  document.getElementById('boardNameInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') confirmBoard();
+    if (e.key === 'Escape') closeModal();
+  });
+
+  function closeModal() {
+    document.getElementById('boardModal').classList.remove('open');
+  }
+
+  function confirmBoard() {
+    const name = document.getElementById('boardNameInput').value.trim();
+    if (!name) return;
+    addBoard(name);
+    closeModal();
+  }
+
+  // cross-tab sync
+  window.addEventListener('storage', e => {
+    if (e.key === STORAGE_KEY) {
+      load();
+      renderBoards();
+      renderTasks();
+    }
+  });
+
+  // save on unload
+  window.addEventListener('beforeunload', save);
+}
+
+/* ----------------------------------------------------------------
+   INIT
+---------------------------------------------------------------- */
+function init() {
+  load();
+  renderBoards();
+  renderTasks();
+  bindEvents();
+
+  // auto-focus
+  document.getElementById('taskInput').focus();
+}
+
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Яндекс Директ — Админка</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="/adminka_objects/direct-stats.css">
+  <link rel="stylesheet" href="/adminka_objects/admin-premium.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="/adminka_objects/admin-sidebar.js" defer></script>
+</head>
+<body class="dashboard-theme premium-admin">
+
+<div class="admin-layout">
+
+  <aside class="admin-sidebar" data-admin-sidebar></aside>
+
+  <div class="admin-content-wrap">
+
+<!-- ===== HEADER ===== -->
+<header class="dashboard-header">
+  <div class="header-left">
+    <div class="breadcrumbs">
+      <span class="home">Ольга Турко</span>
+      <span class="sep">›</span>
+      <span class="project">turko.by</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="direct-layout">
+  <!-- Sidebar with navigation -->
+  <!-- Main content area -->
+  <div class="direct-main">
+    <div class="main-header">
+      <h1>Яндекс Директ</h1>
+      <p class="page-subtitle">Управление и аналитика рекламных кампаний</p>
+    </div>
+
+    <!-- Status block -->
+    <section class="direct-section" id="statusSection">
+      <div class="status-card status-card--compact" id="statusCard">
+        <div class="status-icon">🔌</div>
+        <div class="status-content">
+          <h3>Статус подключения</h3>
+          <p id="statusMessage">Яндекс Директ не подключен</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Authorization instructions (visible when not authenticated) -->
+    <section class="direct-section" id="instructionsSection">
+      <div class="instructions-card">
+        <div class="instructions-header">
+          <h3>📋 Инструкция по подключению</h3>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="instructions-content">
+          <ol class="instructions-list">
+            <li>
+              <strong>Создание OAuth-приложения</strong>
+              <p>Перейдите на <a href="https://oauth.yandex.ru/client/new" target="_blank" rel="noopener">https://oauth.yandex.ru/client/new</a></p>
+            </li>
+            <li>
+              <strong>Укажите параметры приложения:</strong>
+              <ul>
+                <li>Название: "Админка рекламных кампаний"</li>
+                <li>Выберите "API Яндекс Директ"</li>
+                <li>Redirect URI: <code id="redirectUri">https://oauth.yandex.ru/verification_code</code></li>
+              </ul>
+            </li>
+            <li>
+              <strong>Получите учётные данные:</strong>
+              <ul>
+                <li>Client ID</li>
+                <li>Client Secret</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Введите данные ниже</strong>
+              <div class="auth-form">
+                <div class="form-field">
+                  <label for="clientId">Client ID:</label>
+                  <input type="text" id="clientId" placeholder="Скопируйте Client ID из OAuth приложения">
+                </div>
+                <div class="form-field">
+                  <label for="clientSecret">Client Secret:</label>
+                  <input type="password" id="clientSecret" placeholder="Скопируйте Client Secret">
+                </div>
+                <div class="form-field">
+                  <label for="accountLogin">Логин кабинета (опционально):</label>
+                  <input type="text" id="accountLogin" placeholder="Логин вашего Яндекс.ID">
+                </div>
+                <button class="btn-primary" data-action="save-credentials">
+                  Сохранить учетные данные
+                </button>
+              </div>
+            </li>
+            <li>
+              <strong>Ввод кода подтверждения</strong>
+              <p>После авторизации Яндекс покажет код на странице <code>verification_code</code>. Скопируйте и вставьте его в поле ниже:</p>
+              <div class="auth-form">
+                <div class="form-field">
+                  <label for="verificationCode">Код подтверждения:</label>
+                  <input type="text" id="verificationCode" placeholder="Вставьте код подтверждения от Яндекса">
+                </div>
+                <button class="btn-primary" data-action="submit-verification-code">
+                  Активировать код
+                </button>
+              </div>
+            </li>
+            <li>
+              <strong>Получение токена</strong>
+              <p>После сохранения нажмите кнопку авторизации и разрешите доступ к аккаунту</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Analytics section (visible when authenticated) -->
+    <section class="direct-section" id="analyticsSection" style="display: none;">
+      <!-- Filters -->
+      <div class="filters-bar">
+        <div class="filter-group">
+          <label for="periodFilter">Период:</label>
+          <select id="periodFilter" onchange="window.DirectAPI.handlePeriodChange()">
+            <option value="1" selected>Сегодня</option>
+            <option value="7">7 дней</option>
+            <option value="30">30 дней</option>
+            <option value="custom">Произвольный диапазон</option>
+          </select>
+          <div id="customDateRange" class="custom-date-range" style="display: none;">
+            <input type="date" id="dateFrom" placeholder="От">
+            <span> — </span>
+            <input type="date" id="dateTo" placeholder="До">
+            <button class="btn-secondary" data-action="apply-date-range">Применить</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label for="deviceFilter">Тип устройства:</label>
+          <select id="deviceFilter" onchange="window.DirectAPI.handleFilterChange()">
+            <option value="all">Все</option>
+            <option value="mobile">Мобильные</option>
+            <option value="desktop">Десктоп</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="campaignScopeFilter">Состав кампаний:</label>
+          <select id="campaignScopeFilter" onchange="window.DirectAPI.handleCampaignScopeChange()">
+            <option value="all_except_archived" selected>Все кроме архивных</option>
+            <option value="all">Все кампании</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="campaignFilter">Кампания:</label>
+          <select id="campaignFilter" onchange="window.DirectAPI.handleFilterChange()">
+            <option value="">Все кампании</option>
+          </select>
+        </div>
+
+        <button class="btn-secondary" data-action="refresh-data">🔄 Обновить</button>
+      </div>
+
+      <!-- Stats cards -->
+      <div class="stats-grid" id="statsGrid">
+        <div class="stat-card">
+          <div class="stat-label">Общий расход</div>
+          <div class="stat-value" id="totalSpent">—</div>
+          <div class="stat-change" id="totalSpentChange"></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Количество кликов</div>
+          <div class="stat-value" id="totalClicks">—</div>
+          <div class="stat-change" id="totalClicksChange"></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Количество показов</div>
+          <div class="stat-value" id="totalImpressions">—</div>
+          <div class="stat-change" id="totalImpressionsChange"></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Средний CTR</div>
+          <div class="stat-value" id="avgCtr">—</div>
+          <div class="stat-change" id="avgCtrChange"></div>
+        </div>
+      </div>
+
+      <div class="insights-groups">
+        <section class="insight-group">
+          <h3>🧩 Технические данные</h3>
+          <div class="insight-summary">
+            <div class="mini-stat">
+              <span class="mini-stat__label">Средний CPC</span>
+              <span class="mini-stat__value" id="avgCpc">—</span>
+            </div>
+            <div class="mini-stat">
+              <span class="mini-stat__label">CPM</span>
+              <span class="mini-stat__value" id="cpmValue">—</span>
+            </div>
+            <div class="mini-stat">
+              <span class="mini-stat__label">Активные кампании</span>
+              <span class="mini-stat__value" id="activeCampaignsCount">—</span>
+            </div>
+          </div>
+          <div class="insight-list" id="technicalBreakdown">
+            <div class="insight-empty">Нет данных по устройствам</div>
+          </div>
+          <div class="insight-list" id="technicalOsBreakdown">
+            <div class="insight-empty">Нет данных по операционным системам</div>
+          </div>
+        </section>
+
+        <section class="insight-group">
+          <h3>👥 Демография</h3>
+          <div class="insight-list" id="demographyBreakdown">
+            <div class="insight-empty">Нет данных по возрасту</div>
+          </div>
+          <div class="insight-list" id="demographyGenderBreakdown">
+            <div class="insight-empty">Нет данных по полу</div>
+          </div>
+        </section>
+
+        <section class="insight-group">
+          <h3>🌍 География</h3>
+          <div class="insight-list" id="geographyBreakdown">
+            <div class="insight-empty">Нет данных по регионам</div>
+          </div>
+        </section>
+
+        <section class="insight-group">
+          <h3>🔗 Источники трафика</h3>
+          <div class="insight-list" id="trafficSourcesBreakdown">
+            <div class="insight-empty">Нет данных по источникам трафика (в отчётах Direct обычно доступны только реклама/поиск)</div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Campaigns table -->
+      <div class="table-wrapper">
+        <div class="table-header">
+          <h3>Рекламные кампании</h3>
+          <input type="text" id="tableSearch" placeholder="🔍 Поиск..." class="table-search">
+        </div>
+        <table class="campaigns-table">
+          <thead>
+            <tr>
+              <th data-sort="name">
+                Кампания <span class="sort-indicator">↕</span>
+              </th>
+              <th data-sort="impressions">
+                Показы <span class="sort-indicator">↕</span>
+              </th>
+              <th data-sort="clicks">
+                Клики <span class="sort-indicator">↕</span>
+              </th>
+              <th data-sort="ctr">
+                CTR <span class="sort-indicator">↕</span>
+              </th>
+              <th data-sort="cost">
+                Расход <span class="sort-indicator">↕</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="campaignsTableBody">
+            <tr class="empty-row">
+              <td colspan="5">Загрузка данных...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Additional analytics cards -->
+      <div class="analytics-grid" id="analyticsGrid">
+        <div class="analytics-card">
+          <h4>💰 Самая дорогая кампания</h4>
+          <div class="analytics-value" id="mostExpensiveCampaign">—</div>
+          <div class="analytics-detail" id="mostExpensiveCost"></div>
+        </div>
+        <div class="analytics-card">
+          <h4>⭐ Лучший CTR</h4>
+          <div class="analytics-value" id="bestCtrCampaign">—</div>
+          <div class="analytics-detail" id="bestCtrValue"></div>
+        </div>
+        <div class="analytics-card">
+          <h4>🎯 Наибольше кликов</h4>
+          <div class="analytics-value" id="mostClicksCampaign">—</div>
+          <div class="analytics-detail" id="mostClicksCount"></div>
+        </div>
+        <div class="analytics-card">
+          <h4>⚠️ Худшая эффективность</h4>
+          <div class="analytics-value" id="worstPerformingCampaign">—</div>
+          <div class="analytics-detail" id="worstPerformingDetail"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Error messages -->
+    <div id="errorContainer" class="error-container"></div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+  </div>
+</main>
+
+  </div><!-- /admin-content-wrap -->
+</div><!-- /admin-layout -->
+
+<script src="/adminka_objects/direct.js"></script>
+</body>
+</html>

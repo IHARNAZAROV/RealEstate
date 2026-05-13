@@ -1,0 +1,5 @@
+deployment:
+  tasks:
+    - export SOURCE=/home/turkoby/public_git/
+    - export TARGET=/home/turkoby/public_html/
+    - /bin/rsync -av --delete $SOURCE $TARGET

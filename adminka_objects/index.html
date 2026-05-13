@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Админка объектов</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/adminka_objects/admin.css">
+  <link rel="stylesheet" href="/adminka_objects/dashboard-header.css">
+  <link rel="stylesheet" href="/adminka_objects/dashboard-objects-dark.css">
+  <link rel="stylesheet" href="/adminka_objects/object-metrics.css">
+  <link rel="stylesheet" href="/adminka_objects/portfolio-stats.css">
+  <link rel="stylesheet" href="/adminka_objects/admin-premium.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="robots" content="noindex, nofollow">
+  <script src="/adminka_objects/admin-sidebar.js" defer></script>
+</head>
+<body class="dashboard-theme premium-admin">
+
+<div class="admin-layout">
+
+  <aside class="admin-sidebar" data-admin-sidebar></aside>
+
+  <div class="admin-content-wrap">
+
+<!-- ===== HEADER ===== -->
+<header class="dashboard-header">
+  <div class="breadcrumbs">
+    <span class="home">Ольга Турко</span>
+    <span class="sep">›</span>
+    <span class="project">turko.by</span>
+  </div>
+
+<div class="admin-stats" id="adminStats">
+
+  <div class="stat" data-filter="all">
+    <span class="stat-label">Всего</span>
+    <span class="stat-value" id="statTotal">0</span>
+    <canvas></canvas>
+  </div>
+
+  <div class="stat" data-filter="active">
+    <span class="stat-label">В продаже</span>
+    <span class="stat-value" id="statActive">0</span>
+    <canvas></canvas>
+  </div>
+
+  <div class="stat" data-filter="sold">
+    <span class="stat-label">Продано</span>
+    <span class="stat-value" id="statSold">0</span>
+    <canvas></canvas>
+  </div>
+
+  <div class="stat" data-filter="recommended">
+    <span class="stat-label">⭐ Рекоменд.</span>
+    <span class="stat-value" id="statRecommended">0</span>
+    <canvas></canvas>
+  </div>
+
+</div>
+
+<div class="admin-sort">
+  <label class="admin-sort__label">Сортировка:</label>
+
+  <select class="admin-sort__select" id="objectsSort" title="Изменяет порядок отображения объектов">
+    <option value="new">Сначала новые</option>
+    <option value="price-desc">Сначала дорогие</option>
+    <option value="price-asc">Сначала дешёвые</option>
+  </select>
+</div>
+
+
+  <div class="admin-actions">
+    <button id="openAddModal" class="btn-primary">➕ Добавить объект</button>
+    <button id="downloadBtn" class="btn-secondary">⬇ Скачать копию</button>
+  </div>
+</header>
+
+<main class="dashboard-content">
+
+  <div class="admin-bar">
+    <span id="dirtyIndicator" class="dirty-indicator">
+      ● Есть несохранённые изменения
+    </span>
+  </div>
+
+  <div id="errors" class="errors"></div>
+
+
+<!-- =====================================================
+     PORTFOLIO STATISTICS
+===================================================== -->
+<section class="portfolio-stats" id="portfolioStats">
+  <div class="portfolio-stats__header">
+    <h3>Статистика портфеля</h3>
+  </div>
+
+  <!-- ГРУППЫ В ОДНУ СТРОКУ -->
+  <div class="portfolio-stats__groups">
+
+ <div class="stats-block">
+  <h4 class="stats-title">Комнаты</h4>
+  <div class="stats-row">
+    <div class="stats-items" id="statsRooms"></div>
+  </div>
+</div>
+
+ <div class="stats-block">
+  <h4 class="stats-title">Города</h4>
+  <div class="stats-row">
+    <div class="stats-items" id="statsCities"></div>
+  </div>
+</div>
+
+<div class="stats-block">
+  <h4 class="stats-title">Цена</h4>
+  <div class="stats-row">
+    <div class="stats-items" id="statsPrices"></div>
+  </div>
+</div>
+
+  </div>
+
+  <!-- СРЕДНЯЯ ЦЕНА -->
+  <div class="stats-footer" id="statsAvgPrice"></div>
+</section>
+
+
+  <section class="objects-section">
+    <div id="objects"></div>
+  </section>
+
+  <div class="save-actions">
+    <button id="saveBtn" class="btn-secondary">💾 Сохранить изменения</button>
+    <button id="setTokenBtn" class="btn-secondary" type="button">🔐 Ввести токен</button>
+  </div>
+
+</main>
+
+  </div><!-- /admin-content-wrap -->
+</div><!-- /admin-layout -->
+
+<!-- ===== MODAL ===== -->
+<div id="addModal" class="modal-overlay">
+  <div class="modal">
+
+    <div class="modal-header">
+      <h2>➕ Добавить объект</h2>
+      <button id="closeAddModal" class="modal-close">✕</button>
+    </div>
+
+    <form id="addObjectForm" class="modal-body">
+
+      <!-- ОСНОВНОЕ -->
+      <div class="form-grid">
+        <div class="form-field">
+          <label>Заголовок</label>
+          <input type="text" name="title" required>
+        </div>
+
+        <div class="form-field">
+          <label>Тип объекта</label>
+          <select name="type" id="addType" required>
+            <option value="">— выбрать —</option>
+            <option value="Квартира">Квартира</option>
+            <option value="Дом">Дом</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label>Город</label>
+          <input type="text" name="city" required>
+        </div>
+
+        <div class="form-field">
+          <label>Адрес</label>
+          <input type="text" name="address" required>
+        </div>
+
+        <div class="form-field">
+          <label>Цена BYN</label>
+          <input type="number" name="priceBYN" required>
+        </div>
+
+        <div class="form-field">
+          <label>Цена USD</label>
+          <input type="number" name="priceUSD" required>
+        </div>
+
+        <div class="form-field full">
+          <label>Краткое описание</label>
+          <textarea name="cardDescription" rows="2"></textarea>
+        </div>
+
+        <div class="form-field full">
+          <label>Полное описание</label>
+          <textarea name="description" rows="4"></textarea>
+        </div>
+      </div>
+
+      <!-- FEATURES -->
+<div class="form-section">
+  <div class="features-header">
+    <h4>Особенности</h4>
+
+    <button
+      type="button"
+      id="regenFeatures"
+      class="btn-link"
+      title="Сгенерировать из описания заново"
+    >
+      🔄 Сгенерировать
+    </button>
+  </div>
+
+  <div class="form-grid features-grid">
+    <div class="form-field">
+      <input type="text" name="feature" data-auto="0">
+    </div>
+    <div class="form-field">
+      <input type="text" name="feature" data-auto="0">
+    </div>
+    <div class="form-field">
+      <input type="text" name="feature" data-auto="0">
+    </div>
+    <div class="form-field">
+      <input type="text" name="feature" data-auto="0">
+    </div>
+    <div class="form-field">
+      <input type="text" name="feature" data-auto="0">
+    </div>
+    <div class="form-field">
+      <input type="text" name="feature" data-auto="0">
+    </div>
+  </div>
+</div>
+
+
+      <!-- ===== КВАРТИРА ===== -->
+      <div id="addFlat" class="form-section" hidden>
+        <h4>Квартира — параметры</h4>
+
+        <div class="form-grid">
+          <div class="form-field"><label>Комнат</label><input type="number" name="rooms"></div>
+          <div class="form-field"><label>Раздельных комнат</label><input type="number" name="roomsSeparate"></div>
+
+          <div class="form-field"><label>Площадь общая</label><input type="number" name="areaTotal"></div>
+          <div class="form-field"><label>Площадь жилая</label><input type="number" name="areaLiving"></div>
+
+          <div class="form-field"><label>Год постройки</label><input type="number" name="yearBuilt"></div>
+          <div class="form-field"><label>Этаж</label><input type="number" name="floor"></div>
+
+          <div class="form-field"><label>Этажность</label><input type="number" name="floorsTotal"></div>
+          <div class="form-field"><label>Тип дома</label><input type="text" name="houseType"></div>
+
+          <div class="form-field"><label>Балкон</label><input type="text" name="balcony"></div>
+
+          <div class="form-field">
+            <label>Ремонт</label>
+            <select name="repair">
+              <option>Хороший</option>
+              <option>Обычный</option>
+              <option>Требует ремонта</option>
+            </select>
+          </div>
+
+          <div class="form-field"><label>Высота потолков</label><input type="number" step="0.01" name="ceilingHeight"></div>
+
+          <div class="form-field">
+            <label>Санузел</label>
+            <select name="bathroom">
+              <option>Совмещенный</option>
+              <option>Раздельный</option>
+            </select>
+          </div>
+
+          <div class="form-field"><label>Номер договора</label><input type="text" name="contractNumber"></div>
+        </div>
+      </div>
+
+      <!-- ===== ДОМ ===== -->
+      <div id="addHouse" class="form-section" hidden>
+        <h4>Дом — параметры</h4>
+
+        <div class="form-grid">
+          <div class="form-field"><label>Площадь участка</label><input type="number" name="areaPlot"></div>
+          <div class="form-field"><label>Площадь общая</label><input type="number" name="areaTotal"></div>
+          <div class="form-field"><label>Площадь жилая</label><input type="number" name="areaLiving"></div>
+          <div class="form-field"><label>Площадь кухни</label><input type="number" name="areaKitchen"></div>
+
+          <div class="form-field"><label>Уровней в доме</label><input type="number" name="levels"></div>
+          <div class="form-field"><label>Год постройки</label><input type="number" name="yearBuilt"></div>
+
+          <div class="form-field"><label>Процент готовности</label><input type="number" name="readyPercent"></div>
+          <div class="form-field"><label>Материал стен</label><input type="text" name="houseMaterial"></div>
+
+          <div class="form-field"><label>Материал крыши</label><input type="text" name="roofMaterial"></div>
+          <div class="form-field"><label>Ремонт</label><input type="text" name="repair"></div>
+
+          <div class="form-field"><label>Отопление</label><input type="text" name="heating"></div>
+          <div class="form-field"><label>Канализация</label><input type="text" name="sewerage"></div>
+
+          <div class="form-field"><label>Электроснабжение</label><input type="text" name="electricity"></div>
+          <div class="form-field"><label>Вода</label><input type="text" name="water"></div>
+
+          <div class="form-field"><label>Статус земли</label><input type="text" name="landStatus"></div>
+          <div class="form-field"><label>Номер договора</label><input type="text" name="contractNumber"></div>
+        </div>
+      </div>
+
+    </form>
+
+    <div class="modal-footer">
+      <button type="submit" form="addObjectForm" class="btn-primary">Добавить</button>
+      <button type="button" id="cancelAdd" class="btn-secondary">Отмена</button>
+    </div>
+
+  </div>
+</div>
+
+<div id="editModal" class="modal-overlay hidden">
+  <div class="modal">
+
+    <div class="modal-header">
+      <h2 id="editModalTitle">Редактирование объекта</h2>
+      <button id="closeEditModal" class="modal-close">✕</button>
+    </div>
+
+    <div id="editModalBody" class="modal-body"></div>
+
+    <div class="modal-footer">
+      <button id="saveEdit" class="btn-primary">Сохранить</button>
+      <button id="cancelEdit" class="btn-secondary">Отмена</button>
+    </div>
+
+  </div>
+</div>
+
+
+<div id="deleteConfirmModal" class="modal-overlay" aria-hidden="true">
+  <div class="modal modal-confirm">
+    <div class="modal-header">
+      <h2>Удаление объекта</h2>
+      <button id="closeDeleteConfirm" class="modal-close">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <p id="deleteConfirmText" class="confirm-text">Вы действительно хотите удалить объект?</p>
+      <p class="confirm-subtext">Это действие нельзя отменить.</p>
+    </div>
+
+    <div class="modal-footer">
+      <button id="confirmDeleteBtn" class="btn-primary btn-danger">Удалить</button>
+      <button id="cancelDeleteConfirm" class="btn-secondary">Отмена</button>
+    </div>
+  </div>
+</div>
+
+<!-- =====================================================
+     METRICS INFO MODAL
+===================================================== -->
+<div class="metrics-modal" id="metricsModal" hidden>
+  <div class="metrics-modal__overlay"></div>
+
+  <div class="metrics-modal__window">
+    <button class="metrics-modal__close" aria-label="Закрыть">✕</button>
+
+    <h3 class="metrics-modal__title"></h3>
+
+    <div class="metrics-modal__content"></div>
+  </div>
+</div>
+
+
+<div id="chartTooltip" class="chart-tooltip"></div>
+<script src="validate.js"></script>
+<script src="/js/live-price.js?v=20260319-2"></script>
+<script src="admin.js"></script>
+<script src="portfolio-statistics.js"></script>
+</body>
+</html>

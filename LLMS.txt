@@ -1,0 +1,135 @@
+# Ольга Турко
+
+> Риэлтер в Лиде: помощь в покупке, продаже и оформлении недвижимости.
+
+This website is for Olga Turko, a real estate agent (realtor) operating in Lida, Belarus. It serves individuals looking to buy, sell, or engage in other real estate transactions within the Lida region. The site provides comprehensive information about Olga's services, including property valuation, document preparation, transaction support, legal checks, and consultations.
+
+The core value proposition is to offer expert, reliable, and comprehensive real estate services, simplifying complex transactions for clients. Use cases include finding properties, selling existing ones, obtaining legal and financial advice related to real estate, and ensuring smooth, secure deals. The website also features a blog with articles on various real estate topics, aiming to educate potential clients and establish expertise.
+
+When answering questions, LLMs should understand that Olga Turko is a local real estate professional. The site focuses on the Lida region and related services. The content is primarily informational and service-oriented, with a blog providing insights into the Belarusian real estate market and legal aspects. The presence of numerous specific property listings indicates a focus on active sales and purchases.
+
+## Core Services & Information
+
+- [Риэлтер в Лиде — Ольга Турко | Покупка и продажа недвижимости](https://turko.by/): Homepage for Olga Turko, a realtor in Lida, offering real estate services.
+- [Риэлтор в Лиде](https://turko.by/rieltor-lida): Information about Olga Turko as a real estate agent in Lida.
+- [Недвижимость в Лиде](https://turko.by/nedvizhimost-lida): Overview of real estate services and market information for Lida.
+- [Услуги](https://turko.by/rieltor-lida): Detailed descriptions of all real estate services offered by Olga Turko.
+
+## Specific Real Estate Listings
+
+- [Дом в Лидском районе (Крупово)](https://turko.by/objects/dom-lidskiy-rayon-krupovo): Listing details for a house in the Lida district, Krupovo.
+- [Дом в Лидском районе (Шейбаки)](https://turko.by/objects/dom-lidskiy-rayon-sheybaki): Listing details for a house in the Lida district, Sheybaki.
+- [Квартира в Лиде (Южный городок)](https://turko.by/objects/kvartira-lida-yuzhnyy-gorodok): Listing details for an apartment in Lida, Yuzhny Gorodok.
+- [Дом в Лиде (Северный городок, ул. Говорова)](https://turko.by/objects/dom-lida-severnyy-gorodok-ul-govorova): Listing details for a house in Lida, Severny Gorodok, Govorova St.
+- [Квартира в Лиде (Южный городок, д. 19)](https://turko.by/objects/kvartira-lida-yuzhnyy-gorodok-d-19): Listing details for an apartment in Lida, Yuzhny Gorodok, building 19.
+- [Квартира в Лиде (ул. Тухачевского 65 к.1)](https://turko.by/objects/kvartira-lida-ul-tuhachevskogo-65-k1): Listing details for an apartment in Lida, Tukhachevskogo St. 65, building 1.
+- [Дом в Щучинском районе (Рожанка)](https://turko.by/objects/dom-shchuchinskiy-rayon-rozhanka): Listing details for a house in the Shchuchin district, Rozhanka.
+- [Дом в Лидском районе (Меляши)](https://turko.by/objects/dom-lidskiy-rayon-melyashi): Listing details for a house in the Lida district, Melyashi.
+- [Квартира в Лиде (ул. Заречная 39)](https://turko.by/objects/kvartira-lida-ul-zarechnaya-39): Listing details for an apartment in Lida, Zarechnaya St. 39.
+- [Дом в Докудово, 2](https://turko.by/objects/dom-dokudovo-2): Listing details for a house in Dokudovo, building 2.
+- [Квартира в Лиде (ул. Машерова 7 к.2)](https://turko.by/objects/kvartira-lida-ul-masherova-7-k2): Listing details for an apartment in Lida, Masherova St. 7, building 2.
+- [Квартира в Лиде (ул. Варшавская 44)](https://turko.by/objects/kvartira-lida-ul-varshavskaya-44): Listing details for an apartment in Lida, Varshavskaya St. 44.
+- [Квартира в Лиде (ул. Машерова)](https://turko.by/objects/kvartira-lida-ul-masherova): Listing details for an apartment in Lida, Masherova St.
+- [Квартира в Лиде (ул. Летная 8)](https://turko.by/objects/kvartira-lida-ul-letnaya-8): Listing details for an apartment in Lida, Letnaya St. 8.
+- [Квартира в Лиде (ул. Тухачевского)](https://turko.by/objects/kvartira-lida-ul-tuhachevskogo): Listing details for an apartment in Lida, Tukhachevskogo St.
+- [Дом в Лидском районе (Минойты)](https://turko.by/objects/dom-lidskiy-rayon-minoyty): Listing details for a house in the Lida district, Minoyty.
+- [Квартира в Лиде (ул. Космонавтов)](https://turko.by/objects/kvartira-lida-ul-kosmonavtov): Listing details for an apartment in Lida, Kosmonavtov St.
+- [Квартира в Лиде (ул. Заречная 7)](https://turko.by/objects/kvartira-lida-ul-zarechnaya-7): Listing details for an apartment in Lida, Zarechnaya St. 7.
+- [Дом в Лидском районе (Островля, Новосёлов)](https://turko.by/objects/dom-lidskiy-rayon-ostrovlya-novoselov): Listing details for a house in the Lida district, Ostrovlya, Novoselov.
+- [Квартира в Лайковщине (Лидский район)](https://turko.by/objects/kvartira-laykovshchina-lidskiy-rayon): Listing details for an apartment in Laykovshchina, Lida district.
+- [Квартира в Лиде (ул. Пролыгина 4)](https://turko.by/objects/kvartira-lida-ul-prolygina-4): Listing details for an apartment in Lida, Prolygina St. 4.
+- [Дом в Щучинском районе (Скрибовцы)](https://turko.by/objects/dom-shchuchinskiy-rayon-skribovtsy): Listing details for a house in the Shchuchin district, Skribovtsy.
+- [Дом в Щучинском районе (Бояры Желудокские)](https://turko.by/objects/dom-shchuchinskiy-rayon-boyary-zheludokskie): Listing details for a house in the Shchuchin district, Boyary Zheludokskie.
+- [Квартира в Лиде (Князя Гедимина 7)](https://turko.by/objects/kvartira-lida-knyazya-gedimina-7): Listing details for an apartment in Lida, Knyazya Gedimina St. 7.
+- [Квартира в Волковыске (Центр)](https://turko.by/objects/kvartira-volkovysk-centr): Listing details for an apartment in Volkovysk, Center.
+- [СТО в Лиде (Игнатова 42, Верас Авто)](https://turko.by/objects/sto-lida-ignatova-42-veras-avto): Listing details for a car service station in Lida, Ignatova St. 42.
+- [Квартира в Волковыске (Социалистическая)](https://turko.by/objects/kvartira-volkovysk-socialisticheskaya): Listing details for an apartment in Volkovysk, Socialisticheskaya St.
+- [Дом в Лиде (ул. Щедрина)](https://turko.by/objects/dom-lida-ul-shchedrina): Listing details for a house in Lida, Shchedrina St.
+- [Квартира в Лиде (ул. Тавлая 25а)](https://turko.by/objects/kvartira-lida-ul-tavlaya-25a): Listing details for an apartment in Lida, Tavlaia St. 25a.
+- [Квартира в Щучине (ул. Островского 5)](https://turko.by/objects/kvartira-shchuchin-ul-ostrovskogo-5): Listing details for an apartment in Shchuchin, Ostrovskogo St. 5.
+- [Квартира в Лиде (ул. Невского 20а)](https://turko.by/objects/kvartira-lida-ul-nevskogo-20a): Listing details for an apartment in Lida, Nevskogo St. 20a.
+- [Квартира в Лиде (ул. Советская 36)](https://turko.by/objects/kvartira-lida-ul-sovetskaya-36): Listing details for an apartment in Lida, Sovetskaya St. 36.
+- [Квартира в Лиде (ул. Республиканская 7)](https://turko.by/objects/kvartira-lida-ul-respublikanskaya-7): Listing details for an apartment in Lida, Respublikanskaya St. 7.
+- [Квартира в Лиде (ул. Космонавтов 12 к.1)](https://turko.by/objects/kvartira-lida-ul-kosmonavtov-12-k1): Listing details for an apartment in Lida, Kosmonavtov St. 12, building 1.
+- [Дом в Йодках (ул. Садовая)](https://turko.by/objects/dom-yodki-ul-sadovaya): Listing details for a house in Yodki, Sadovaya St.
+- [Квартира в Лиде (ул. Урицкого 60)](https://turko.by/objects/kvartira-lida-ul-urickogo-60): Listing details for an apartment in Lida, Uritskogo St. 60.
+- [Квартира в Лиде (Южный городок 24)](https://turko.by/objects/kvartira-lida-ul-yuzhnyy-gorodok-24): Listing details for an apartment in Lida, Yuzhny Gorodok 24.
+- [Квартира в Лиде (ул. Тухачевского 65)](https://turko.by/objects/kvartira-lida-ul-tukhachevskogo-65): Listing details for an apartment in Lida, Tukhachevskogo St. 65.
+- [Квартира в Лиде (ул. Советская 36, сталинка)](https://turko.by/objects/kvartira-lida-ul-sovetskaya-36-stalinka): Listing details for a Stalin-era apartment in Lida, Sovetskaya St. 36.
+- [Квартира в Лиде (ул. Невского 20, чешка)](https://turko.by/objects/kvartira-lida-ul-nevskogo-20-cheshka): Listing details for a 'cheshka' type apartment in Lida, Nevskogo St. 20.
+- [Квартира в Лиде (ул. Набережная 1, вид на озеро)](https://turko.by/objects/kvartira-lida-ul-naberezhnaya-1-vid-na-ozero): Listing details for an apartment in Lida, Naberezhnaya St. 1, with lake view.
+- [Квартира в Лиде (ул. Хасановская 1-64)](https://turko.by/objects/kvartira-lida-ul-hasanovskaya-1-64): Listing details for an apartment in Lida, Khasanovskaya St. 1-64.
+- [Квартира в Лиде (ул. Советская 5, центр)](https://turko.by/objects/kvartira-lida-ul-sovetskaya-5-center): Listing details for an apartment in Lida, Sovetskaya St. 5, city center.
+- [Квартира в Волковыске (ул. Новые Борки 23)](https://turko.by/objects/kvartira-volkovysk-ul-novye-borki-23): Listing details for an apartment in Volkovysk, Novye Borki St. 23.
+- [Дом в Лиде (ул. Новопрудская 2)](https://turko.by/objects/dom-lida-ul-novoprudskaya-2): Listing details for a house in Lida, Novoprudskaya St. 2.
+- [Квартира в Лиде (ул. Невского 44, северный)](https://turko.by/objects/kvartira-lida-ul-nevskogo-44-severny): Listing details for an apartment in Lida, Nevskogo St. 44, northern area.
+- [Квартира в Лиде (ул. Рыбиновского 22)](https://turko.by/objects/kvartira-lida-ul-rybinovskogo-22): Listing details for an apartment in Lida, Rybinovskogo St. 22.
+- [Квартира в Лиде (ул. Машерова 15-2)](https://turko.by/objects/kvartira-lida-ul-masherova-15-2): Listing details for an apartment in Lida, Masherova St. 15-2.
+- [Дом в Лиде (ул. Поселковая, индустриальный)](https://turko.by/objects/dom-lida-ul-poselkovaya-industrialny): Listing details for a house in Lida, Poselkovaya St., industrial area.
+- [Квартира в Лиде (ул. Коммунистическая 49)](https://turko.by/objects/kvartira-lida-ul-kommunisticheskaya-49): Listing details for an apartment in Lida, Kommunisticheskaya St. 49.
+- [Квартира в Щучине (ул. Островского 22)](https://turko.by/objects/kvartira-shchuchin-ul-ostrovskogo-22): Listing details for an apartment in Shchuchin, Ostrovskogo St. 22.
+- [Квартира в Лиде (Южный городок 13, старый южный)](https://turko.by/objects/kvartira-lida-yuzhny-gorodok-13-stary-yuzhny): Listing details for an apartment in Lida, Yuzhny Gorodok 13, old southern area.
+- [Дом в Лиде (ул. Урицкого, часть дома)](https://turko.by/objects/dom-lida-ul-urickogo-chast-doma): Listing details for a part of a house in Lida, Uritskogo St.
+- [Квартира в Лиде (ул. Гастелло 65)](https://turko.by/objects/kvartira-lida-ul-gastello-65): Listing details for an apartment in Lida, Gastello St. 65.
+- [Квартира в Лиде (ул. Коммунистическая 39к1)](https://turko.by/objects/kvartira-lida-ul-kommunisticheskaya-39k1): Listing details for an apartment in Lida, Kommunisticheskaya St. 39, building 1.
+- [Дом в Лиде (ул. Киевская)](https://turko.by/objects/dom-lida-ul-kievskaya): Listing details for a house in Lida, Kievskaya St.
+- [Квартира в Лиде (ул. Кооперативная 50)](https://turko.by/objects/kvartira-lida-ul-kooperativnaya-50): Listing details for an apartment in Lida, Kooperativnaya St. 50.
+- [Дом в Феликсово (Екатерининский тракт)](https://turko.by/objects/dom-feliksovo-ekaterininskiy-trakt): Listing details for a house in Felixovo, Ekaterininskiy Trakt.
+
+## Detailed Service Pages
+
+- [Бесплатная оценка недвижимости в Лиде](https://turko.by/services/besplatnaya-ocenka-nedvizhimosti-lida): Learn about Olga Turko's free real estate appraisal service in Lida.
+- [Подготовка и оформление документов в Лиде](https://turko.by/services/podgotovka-i-oformlenie-dokumentov-lida): Details on document preparation and processing for real estate in Lida.
+- [Подбор жилья с учетом запросов в Лиде](https://turko.by/services/podbor-zhilya-s-uchetom-zaprosov-lida): Information on personalized property search services in Lida.
+- [Юридическая проверка недвижимости в Лиде](https://turko.by/services/yuridicheskaya-proverka-nedvizhimosti-lida): Learn about legal due diligence services for properties in Lida.
+- [Ведение переговоров для выгодных условий в Лиде](https://turko.by/services/vedenie-peregovorov-dlya-vygodnyh-usloviy-lida): Details on negotiation services to secure favorable deal terms in Lida.
+- [Консультации по кредитам и помощь с банками в Лиде](https://turko.by/services/konsultacii-po-kreditam-i-pomoshch-s-bankami-lida): Information on mortgage and bank assistance services for real estate in Lida.
+- [Полное сопровождение сделки до регистрации в Лиде](https://turko.by/services/polnoe-soprovozhdenie-sdelki-do-registracii-lida): Learn about full transaction support services until registration in Lida.
+- [Поддержка и консультации на всех этапах сделки в Лиде](https://turko.by/services/podderzhka-i-konsultacii-na-vseh-etapah-sdelki-lida): Details on ongoing support and consultations throughout the real estate transaction process.
+
+## Blog Articles
+
+- [Бесплатная консультация риэлтора](https://turko.by/blog/besplatnaya-konsultaciya-rieltora): Learn about the benefits of a free consultation with a realtor.
+- [Можно ли отменить договор дарения квартиры](https://turko.by/blog/mozhno-li-otmenit-dogovor-dareniya-kvartiry): Explore the conditions and possibilities for canceling a property gift agreement.
+- [Инвестиции в Беларусь: недвижимость](https://turko.by/blog/investicii-v-belarus-nedvizhimost): Understand the opportunities and considerations for real estate investments in Belarus.
+- [Ребенок собственник: как купить квартиру](https://turko.by/blog/rebenok-sobstvennik-kak-kupit-kvartiru): Learn the process and legalities of buying an apartment where a child is an owner.
+- [Аванс или задаток: в чем разница](https://turko.by/blog/avans-ili-zadatok-v-chem-raznica): Clarify the distinction between advance payments and deposits in real estate transactions.
+- [Продавец передумал после задатка: что делать](https://turko.by/blog/prodavec-peredumal-posle-zadatka-chto-delat): Discover actions to take if a seller withdraws after receiving a deposit.
+- [Наследственная квартира: скрытые риски](https://turko.by/blog/nasledstvennaya-kvartira-skrytye-riski): Identify potential hidden risks associated with inherited apartments.
+- [Вступление в наследство: права и обязанности](https://turko.by/blog/vstuplenie-v-nasledstvo-prava-i-obyazannosti): Understand the rights and obligations involved in inheriting property.
+- [Что нельзя узаконить при перепланировке в Беларуси](https://turko.by/blog/chto-nelzya-uzakonit-pri-pereplanirovke-v-belarusi): Learn about restrictions on legalizing renovations and reconfigurations in Belarus.
+- [Продавец на учете в психдиспансер: что делать](https://turko.by/blog/prodavec-na-uchete-v-psihdispanser-chto-delat): Understand the implications and procedures when selling property with a seller in psychiatric care.
+- [Покупка квартиры с прописанными: чем опасно](https://turko.by/blog/pokupka-kvartiry-s-propisannymi-chem-opasno): Analyze the risks and challenges of buying an apartment with registered residents.
+- [Виртуальные деньги: психология сделок с недвижимостью](https://turko.by/blog/virtualnye-dengi-psihologiya-sdelok-nedvizhimost): Explore the psychological aspects of virtual currency and its impact on real estate deals.
+- [Почему цены на недвижимость высокие](https://turko.by/blog/pochemu-ceny-na-nedvizhimost-vysokie): Examine the factors contributing to high real estate prices.
+- [Как мы оцениваем район недвижимости](https://turko.by/blog/kak-my-ocenivaem-rayon-nedvizhimosti): Understand the methodology used to evaluate real estate neighborhoods.
+- [Почему риэлторы не разгоняют цены на квартиры](https://turko.by/blog/pochemu-rieltory-ne-razgonyayut-ceny-na-kvartiry): Learn why realtors aim for fair pricing rather than inflating apartment costs.
+- [Красные флаги при покупке квартиры](https://turko.by/blog/krasnye-flagi-pri-pokupke-kvartiry): Identify warning signs and red flags to watch out for when buying an apartment.
+- [Секрет торга при продаже квартиры](https://turko.by/blog/sekret-torga-pri-prodazhe-kvartiry): Discover effective strategies and secrets for negotiating apartment sale prices.
+- [Можно ли продать квартиру без техпаспорта](https://turko.by/blog/mozhno-li-prodat-kvartiru-bez-tehpasporta): Determine the feasibility and requirements for selling an apartment without a technical passport.
+- [Дача, СНТ или деревня: что выбрать](https://turko.by/blog/dacha-snt-ili-derevnya-chto-vybrat): Compare options and decide between a dacha, SNT property, or village house.
+- [Tone of voice в недвижимости: как продавать](https://turko.by/blog/tone-of-voice-v-nedvizhimosti-kak-prodavat): Learn how to use tone of voice effectively in real estate marketing and sales.
+- [Почему клиенты меняют риэлтора](https://turko.by/blog/pochemu-klienty-menyayut-rieltora): Understand common reasons why clients switch real estate agents.
+- [Главные мифы о недвижимости в Лиде](https://turko.by/blog/glavnye-mify-o-nedvizhimosti-v-lide): Debunk common myths and misconceptions about the real estate market in Lida.
+- [Коммерческий потенциал объекта: как оценить](https://turko.by/blog/kommercheskiy-potencial-obekta-kak-ocenit): Learn how to assess the commercial potential of a real estate property.
+- [Закон поиска: почему покупаем не то](https://turko.by/blog/zakon-poiska-pochemu-pokupaem-ne-to): Explore the psychology behind why people often buy the wrong property.
+- [Как обмануть себя при оценке квартиры](https://turko.by/blog/kak-obmanut-sebya-pri-ocenke-kvartiry): Identify common self-deceptions and biases when evaluating apartment values.
+- [Парадокс множественного выбора в недвижимости](https://turko.by/blog/paradoks-mnozhestvennogo-vybora-v-nedvizhimosti): Understand the paradox of choice and its effect on real estate decisions.
+- [Как мошенники в погонах заставляют продавать жилье](https://turko.by/blog/kak-moshenniki-v-pogonah-zastavlyayut-prodavat-zhilyo): Learn about fraudulent schemes involving officials that pressure people to sell property.
+- [Новые тарифы на риэлтерские услуги в Беларуси 2026](https://turko.by/blog/novye-tarify-na-rielterskie-uslugi-v-belarusi-2026): Get information on updated realtor service fees in Belarus for 2026.
+- [Почему кажется, что цены на квартиры в Лиде растут всегда](https://turko.by/blog/pochemu-kazhetsya-chto-ceny-na-kvartiry-v-lide-rastut-vsegda): Analyze the perception of constantly rising apartment prices in Lida.
+- [Можно ли потерять право собственности на квартиру в Беларуси](https://turko.by/blog/mozhno-li-poteryat-pravo-sobstvennosti-na-kvartiru-v-belarusi): Understand the conditions under which one can lose property ownership rights in Belarus.
+- [ЖКУ в Беларуси 2026: тарифы и перерасчет](https://turko.by/blog/zhku-v-belarusi-2026-tarify-i-pereraschet): Find information on utility tariffs and recalculations for 2026 in Belarus.
+
+## Legal & Policy
+
+- [Политика конфиденциальности](https://turko.by/Privacy.html): Read the website's privacy policy regarding user data.
+- [Политика конфиденциальности](https://turko.by/Privacy): Read the website's privacy policy regarding user data.
+- [Политика использования файлов cookie](https://turko.by/cookies-policy): Understand the website's policy on using cookies.
+
+## Contact & Support
+
+- [Часто задаваемые вопросы](https://turko.by/faq): Find answers to frequently asked questions about real estate services.
+- [Контакты](https://turko.by/contact): Get contact information for Olga Turko, the realtor in Lida.
+
+---

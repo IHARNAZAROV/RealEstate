@@ -1,0 +1,329 @@
+[
+  {
+    "id": "olga-turko",
+    "slug": "olga-turko",
+    "name": "Ольга Турко",
+    "position": "Руководитель филиала",
+    "city": "Лида",
+    "phone": "+375 29 180-95-16",
+    "email": "olgaturko1975@gmail.com",
+    "photo": "images/team/olga-turko.webp",
+    "coverImage": "images/team/olga-turko-cover.webp",
+    "shortDescription": "Специалист по жилой недвижимости в Лиде. Сопровождение сделок купли-продажи квартир и домов от А до Я.",
+    "fullDescription": "С более чем 12 годами опыта в сфере недвижимости, Ольга Турко является руководителем филиала и ведущим специалистом по жилой недвижимости. Её профессиональный подход и глубокие знания рынка позволяют находить оптимальные решения для каждого клиента.",
+    "experience": "12 лет",
+    "specialization": [
+      "Продажа квартир",
+      "Покупка жилья",
+      "Сделки с домами",
+      "Сопровождение сделок"
+    ],
+    "socials": {
+      "instagram": "https://www.instagram.com/rielter_olga_lida",
+      "telegram": "https://t.me/TurkoOlga",
+      "viber": "viber://chat?number=%2B375291809516"
+    },
+    "isManager": true,
+    "rating": 4.9,
+    "deals": 248
+  },
+  {
+    "id": "natalia-kovaleva",
+    "slug": "natalia-kovaleva",
+    "name": "Наталья Ковалёва",
+    "position": "Риэлтер",
+    "city": "Лида",
+    "phone": "+375 29 234-56-78",
+    "email": "kovaleva@germesgroup.by",
+    "photo": "images/team/natalia-kovaleva.webp",
+    "coverImage": "images/team/natalia-kovaleva-cover.webp",
+    "shortDescription": "Специализация — загородная недвижимость и земельные участки. Помогу найти дом вашей мечты.",
+    "fullDescription": "Наталья специализируется на работе с загородной недвижимостью и земельными участками. Её консультации помогли множеству семей найти идеальное место для жизни за пределами города.",
+    "experience": "5 лет",
+    "specialization": [
+      "Загородная недвижимость",
+      "Земельные участки",
+      "Коттеджи",
+      "Аренда домов"
+    ],
+    "socials": {
+      "instagram": "#",
+      "telegram": "#"
+    },
+    "isManager": false,
+    "rating": 4.8,
+    "deals": 156
+  },
+  {
+    "id": "sergey-ivanov",
+    "slug": "sergey-ivanov",
+    "name": "Сергей Иванов",
+    "position": "Риэлтер",
+    "city": "Лида",
+    "phone": "+375 44 312-44-55",
+    "email": "ivanov@germesgroup.by",
+    "photo": "images/team/sergey-ivanov.webp",
+    "coverImage": "images/team/sergey-ivanov-cover.webp",
+    "shortDescription": "Эксперт по коммерческой недвижимости. Офисы, склады, торговые площади в Лиде и районе.",
+    "fullDescription": "Сергей — признанный эксперт по коммерческой недвижимости с 8-летним опытом. Помогает предпринимателям и инвесторам найти идеальные коммерческие площади.",
+    "experience": "8 лет",
+    "specialization": [
+      "Коммерческая недвижимость",
+      "Офисы",
+      "Склады",
+      "Торговые площади"
+    ],
+    "socials": {
+      "telegram": "#",
+      "viber": "viber://chat?number=%2B375443124455"
+    },
+    "isManager": false,
+    "rating": 4.7,
+    "deals": 189
+  },
+  {
+    "id": "elena-sokolova",
+    "slug": "elena-sokolova",
+    "name": "Елена Соколова",
+    "position": "Риэлтер",
+    "city": "Лида",
+    "phone": "+375 29 445-67-89",
+    "email": "sokolova@germesgroup.by",
+    "photo": "images/team/elena-sokolova.webp",
+    "coverImage": "images/team/elena-sokolova-cover.webp",
+    "shortDescription": "Специалист по новостройкам и ипотечным сделкам. Подберу квартиру в новом доме на выгодных условиях.",
+    "fullDescription": "Елена специализируется на новостройках и ипотечном финансировании, помогая клиентам сделать правильный выбор при покупке нового жилья.",
+    "experience": "4 года",
+    "specialization": [
+      "Новостройки",
+      "Ипотечные сделки",
+      "Финансовое консультирование",
+      "Первичное жилье"
+    ],
+    "socials": {
+      "instagram": "#",
+      "telegram": "#",
+      "viber": "viber://chat?number=%2B375294456789"
+    },
+    "isManager": false,
+    "rating": 4.6,
+    "deals": 124
+  },
+  {
+    "id": "andrey-petrov",
+    "slug": "andrey-petrov",
+    "name": "Андрей Петров",
+    "position": "Риэлтер",
+    "city": "Лида",
+    "phone": "+375 44 567-89-01",
+    "email": "petrov@germesgroup.by",
+    "photo": "images/team/andrey-petrov.webp",
+    "coverImage": "images/team/andrey-petrov-cover.webp",
+    "shortDescription": "Продажа и покупка квартир в многоквартирных домах. Опыт сопровождения сложных сделок с долями.",
+    "fullDescription": "Андрей имеет уникальный опыт в работе со сложными сделками, включая операции с долями в недвижимости и многоуровневые сделки.",
+    "experience": "6 лет",
+    "specialization": [
+      "Продажа квартир",
+      "Покупка квартир",
+      "Сделки с долями",
+      "Сложные операции"
+    ],
+    "socials": {
+      "telegram": "#",
+      "vk": "#"
+    },
+    "isManager": false,
+    "rating": 4.8,
+    "deals": 167
+  },
+  {
+    "id": "marina-stepanova",
+    "slug": "marina-stepanova",
+    "name": "Марина Степанова",
+    "position": "Риэлтер",
+    "city": "Лида",
+    "phone": "+375 29 678-90-12",
+    "email": "stepanova@germesgroup.by",
+    "photo": "images/team/marina-stepanova.webp",
+    "coverImage": "images/team/marina-stepanova-cover.webp",
+    "shortDescription": "Помогу продать квартиру быстро и по максимальной цене. Профессиональная подготовка объекта к продаже.",
+    "fullDescription": "Марина специализируется на подготовке объектов к продаже и достижении максимальной цены для своих клиентов. Её маркетинговый подход гарантирует быстрые результаты.",
+    "experience": "3 года",
+    "specialization": [
+      "Продажа квартир",
+      "Подготовка к продаже",
+      "Маркетинг недвижимости",
+      "Переговоры"
+    ],
+    "socials": {
+      "instagram": "#",
+      "telegram": "#",
+      "tiktok": "#"
+    },
+    "isManager": false,
+    "rating": 4.7,
+    "deals": 95
+  },
+  {
+    "id": "dmitry-novikov",
+    "slug": "dmitry-novikov",
+    "name": "Дмитрий Новиков",
+    "position": "Старший риэлтер",
+    "city": "Лида",
+    "phone": "+375 44 789-01-23",
+    "email": "novikov@germesgroup.by",
+    "photo": "images/team/dmitry-novikov.webp",
+    "coverImage": "images/team/dmitry-novikov-cover.webp",
+    "shortDescription": "Специалист по обменным операциям с недвижимостью. Провёл более 150 сделок по обмену жилья.",
+    "fullDescription": "Дмитрий — ведущий специалист по обменным операциям с 10-летним опытом. Его мастерство в координации сложных многоуровневых обменов не имеет аналогов на рынке.",
+    "experience": "10 лет",
+    "specialization": [
+      "Обменные операции",
+      "Многоуровневые сделки",
+      "Координация обменов",
+      "Консультирование"
+    ],
+    "socials": {
+      "telegram": "#",
+      "viber": "viber://chat?number=%2B375447890123"
+    },
+    "isManager": false,
+    "rating": 4.9,
+    "deals": 287
+  },
+  {
+    "id": "irina-morozova",
+    "slug": "irina-morozova",
+    "name": "Ирина Морозова",
+    "position": "Риэлтер",
+    "city": "Лида",
+    "phone": "+375 29 890-12-34",
+    "email": "morozova@germesgroup.by",
+    "photo": "images/team/irina-morozova.webp",
+    "coverImage": "images/team/irina-morozova-cover.webp",
+    "shortDescription": "Работаю с элитной жилой недвижимостью и домами в частном секторе. Индивидуальный подход к каждому клиенту.",
+    "fullDescription": "Ирина специализируется на премиум-сегменте рынка, работая с элитной жилой недвижимостью и уникальными домами. Её персональный подход обеспечивает высочайший уровень обслуживания.",
+    "experience": "5 лет",
+    "specialization": [
+      "Элитная недвижимость",
+      "Частные дома",
+      "Премиум-сегмент",
+      "VIP-клиенты"
+    ],
+    "socials": {
+      "instagram": "#",
+      "telegram": "#"
+    },
+    "isManager": false,
+    "rating": 4.9,
+    "deals": 203
+  },
+  {
+    "id": "alexei-kuzmin",
+    "slug": "alexei-kuzmin",
+    "name": "Алексей Кузьмин",
+    "position": "Риэлтер",
+    "city": "Лида",
+    "phone": "+375 44 234-56-78",
+    "email": "kuzmin@germesgroup.by",
+    "photo": "images/team/alexei-kuzmin.webp",
+    "coverImage": "images/team/alexei-kuzmin-cover.webp",
+    "shortDescription": "Специалист по инвестиционной недвижимости и портфельным стратегиям для инвесторов.",
+    "fullDescription": "Алексей помогает инвесторам строить диверсифицированные портфели недвижимости с высокой доходностью и минимальными рисками.",
+    "experience": "7 лет",
+    "specialization": [
+      "Инвестиционная недвижимость",
+      "Портфельные стратегии",
+      "Доходные объекты",
+      "Анализ рынка"
+    ],
+    "socials": {
+      "telegram": "#",
+      "linkedin": "#"
+    },
+    "isManager": false,
+    "rating": 4.8,
+    "deals": 134
+  },
+  {
+    "id": "victoria-volkova",
+    "slug": "victoria-volkova",
+    "name": "Виктория Волкова",
+    "position": "Риэлтер",
+    "city": "Лида",
+    "phone": "+375 29 345-67-89",
+    "email": "volkova@germesgroup.by",
+    "photo": "images/team/victoria-volkova.webp",
+    "coverImage": "images/team/victoria-volkova-cover.webp",
+    "shortDescription": "Консультант по жилищным программам и государственным субсидиям на жилье.",
+    "fullDescription": "Виктория специализируется на помощи семьям в получении государственной поддержки и различных жилищных программ.",
+    "experience": "4 года",
+    "specialization": [
+      "Государственные программы",
+      "Жилищные субсидии",
+      "Консультирование семей",
+      "Социальное жилье"
+    ],
+    "socials": {
+      "instagram": "#",
+      "telegram": "#"
+    },
+    "isManager": false,
+    "rating": 4.6,
+    "deals": 87
+  },
+  {
+    "id": "konstantin-lebedev",
+    "slug": "konstantin-lebedev",
+    "name": "Константин Лебедев",
+    "position": "Риэлтер",
+    "city": "Лида",
+    "phone": "+375 44 456-78-90",
+    "email": "lebedev@germesgroup.by",
+    "photo": "images/team/konstantin-lebedev.webp",
+    "coverImage": "images/team/konstantin-lebedev-cover.webp",
+    "shortDescription": "Специалист по студиям и однокомнатным квартирам. Отличное знание микро-рынка города.",
+    "fullDescription": "Константин является экспертом по малогабаритному жилому фонду и прекрасно разбирается в особенностях студийных и однокомнатных квартир.",
+    "experience": "3 года",
+    "specialization": [
+      "Студии",
+      "Однокомнатные квартиры",
+      "Студенческое жилье",
+      "Инвестиции в малогабарит"
+    ],
+    "socials": {
+      "telegram": "#",
+      "vk": "#"
+    },
+    "isManager": false,
+    "rating": 4.5,
+    "deals": 112
+  },
+  {
+    "id": "svetlana-romanova",
+    "slug": "svetlana-romanova",
+    "name": "Светлана Романова",
+    "position": "Риэлтер",
+    "city": "Лида",
+    "phone": "+375 29 567-89-01",
+    "email": "romanova@germesgroup.by",
+    "photo": "images/team/svetlana-romanova.webp",
+    "coverImage": "images/team/svetlana-romanova-cover.webp",
+    "shortDescription": "Эксперт по апартаментам и современной архитектуре. Работаю только с премиум-застройками.",
+    "fullDescription": "Светлана консультирует клиентов по современным архитектурным решениям и работает преимущественно с премиум-застройками и инновационными проектами.",
+    "experience": "6 лет",
+    "specialization": [
+      "Апартаменты",
+      "Премиум-застройки",
+      "Современная архитектура",
+      "Дизайнерское жилье"
+    ],
+    "socials": {
+      "instagram": "#",
+      "pinterest": "#"
+    },
+    "isManager": false,
+    "rating": 4.7,
+    "deals": 156
+  }
+]

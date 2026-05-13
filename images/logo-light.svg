@@ -1,0 +1,14 @@
+<svg width="432" height="92" viewBox="0 0 432 92" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">ОЛЬГА ТУРКО недвижимость</title>
+  <desc id="logoDesc">Логотип агентства недвижимости ОЛЬГА ТУРКО</desc>
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F9DFA0"/>
+      <stop offset="100%" stop-color="#D6AC62"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="86" height="86" rx="18" fill="#155945" stroke="url(#gold)" stroke-width="2"/>
+  <path d="M44 20L20 40H26V66H39V52H49V66H62V40H68L44 20Z" fill="url(#gold)"/>
+  <text x="104" y="42" fill="#FFFFFF" font-family="Montserrat, Arial, sans-serif" font-size="36" font-weight="700" letter-spacing="2">ОЛЬГА ТУРКО</text>
+  <text x="104" y="68" fill="#E8E8E8" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="500" letter-spacing="0.8">НЕДВИЖИМОСТЬ • ЛИДА</text>
+</svg>

@@ -1,0 +1,43 @@
+<?php
+$uri = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+
+// /raion/{slug} → raion.php
+if (preg_match('#^/raion/([a-zA-Z0-9_\-]+)/?$#', $uri, $m)) {
+    $_GET['slug'] = $m[1];
+    include __DIR__ . '/raion.php';
+    return;
+}
+
+// /objects/{slug} → object-detail.php
+if (preg_match('#^/objects?/([a-zA-Z0-9_\-]+)/?$#', $uri, $m)) {
+    $_GET['slug'] = $m[1];
+    include __DIR__ . '/object-detail.php';
+    return;
+}
+
+// /blog/{slug} → blog-detail.php
+if (preg_match('#^/blog/([a-zA-Z0-9_\-]+)/?$#', $uri, $m)) {
+    $_GET['slug'] = $m[1];
+    include __DIR__ . '/blog-detail.php';
+    return;
+}
+
+// Clean URL aliases for static HTML pages
+$htmlMap = [
+    '/nedvizhimost-lida' => 'nedvizhimost-lida.html',
+    '/rieltor-lida'      => 'rieltor-lida.html',
+    '/blog'              => 'blog.html',
+    '/contact'           => 'contact.html',
+    '/faq'               => 'faq.html',
+    '/Privacy'           => 'Privacy.html',
+    '/cookies-policy'    => 'cookies-policy.html',
+];
+
+$uriClean = rtrim($uri, '/');
+if (isset($htmlMap[$uriClean])) {
+    include __DIR__ . '/' . $htmlMap[$uriClean];
+    return;
+}
+
+// Serve everything else normally (static files, index.html, PHP scripts)
+return false;

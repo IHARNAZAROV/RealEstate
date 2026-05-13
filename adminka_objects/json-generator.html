@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Генератор JSON объекта недвижимости — Админка</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="stylesheet" href="/adminka_objects/admin.css">
+  <link rel="stylesheet" href="/adminka_objects/dashboard-header.css">
+  <link rel="stylesheet" href="/adminka_objects/admin-premium.css">
+  <link rel="stylesheet" href="/adminka_objects/json-generator.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="/adminka_objects/admin-sidebar.js" defer></script>
+</head>
+<body class="dashboard-theme premium-admin">
+
+<div class="admin-layout">
+
+  <aside class="admin-sidebar" data-admin-sidebar></aside>
+
+  <div class="admin-content-wrap">
+
+    <header class="dashboard-header">
+      <div class="breadcrumbs">
+        <span class="home">Ольга Турко</span>
+        <span class="sep">›</span>
+        <span class="project">Генератор JSON</span>
+      </div>
+    </header>
+
+    <main class="dashboard-content">
+
+      <section class="jsongen">
+
+        <div class="jsongen__header">
+          <h2 class="jsongen__title">Генератор JSON объекта недвижимости</h2>
+          <p class="jsongen__subtitle">
+            Вставьте описание объекта обычным текстом — получите готовый JSON
+            строго по шаблону <code>data/objects.json</code>.
+          </p>
+        </div>
+
+        <div class="jsongen__grid">
+
+          <div class="jsongen__col">
+            <label class="jsongen__label" for="jgInput">
+              Текстовое описание объекта
+            </label>
+            <textarea
+              id="jgInput"
+              class="jsongen__textarea"
+              rows="22"
+              placeholder="Например:&#10;Дом в деревне Крупово Лидского района. Площадь общая 48 м², жилая 30,3 м², участок 30 соток. Бревенчатый, крыша шифер. Цена 35000 USD / 98140 BYN. Колодец, баня, гараж."
+              spellcheck="false"
+            ></textarea>
+
+            <div class="jsongen__field-error" id="jgInputError" hidden>
+              Введите текст описания объекта.
+            </div>
+
+            <div class="jsongen__actions">
+              <button type="button" id="jgGenerate" class="btn-primary">
+                ⚙ Сгенерировать JSON
+              </button>
+              <button type="button" id="jgClear" class="btn-secondary">
+                Очистить
+              </button>
+            </div>
+          </div>
+
+          <div class="jsongen__col">
+            <label class="jsongen__label" for="jgOutput">
+              Готовый JSON
+            </label>
+            <textarea
+              id="jgOutput"
+              class="jsongen__textarea jsongen__textarea--output"
+              rows="22"
+              readonly
+              spellcheck="false"
+              placeholder="JSON появится здесь после нажатия «Сгенерировать»…"
+            ></textarea>
+
+            <div class="jsongen__actions">
+              <button type="button" id="jgCopy" class="btn-secondary">
+                📋 Скопировать JSON
+              </button>
+              <span class="jsongen__toast" id="jgToast" hidden>Скопировано</span>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div><!-- /admin-content-wrap -->
+</div><!-- /admin-layout -->
+
+<script src="/adminka_objects/json-generator.js" defer></script>
+</body>
+</html>

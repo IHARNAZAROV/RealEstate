@@ -1,0 +1,11 @@
+# Second-layer protection for admin panel via HTTP Basic Auth.
+# IMPORTANT: set an absolute path to your real .htpasswd file (outside public web root).
+AuthType Basic
+AuthName "Restricted Admin Area"
+AuthUserFile "/absolute/path/public_html/.htpasswd-adminka"
+Require valid-user
+
+# Extra safety if credentials file is accidentally placed in this directory.
+<Files ".htpasswd*">
+  Require all denied
+</Files>

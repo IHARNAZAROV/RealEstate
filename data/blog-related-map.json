@@ -1,0 +1,33 @@
+{
+  "_comment": "Карта тег → связанная страница (услуга или раздел каталога). Используется в blog-detail.php для автоподбора 2-3 контекстных ссылок к статье. Если в самой статье указано поле relatedLinks — оно перекрывает автоподбор.",
+  "tags": {
+    "оценка недвижимости":      { "title": "Бесплатная оценка квартиры в Лиде", "url": "/services/besplatnaya-ocenka-nedvizhimosti-lida" },
+    "оценка квартиры":           { "title": "Бесплатная оценка квартиры в Лиде", "url": "/services/besplatnaya-ocenka-nedvizhimosti-lida" },
+    "продажа квартиры":          { "title": "Каталог квартир в Лиде", "url": "/nedvizhimost-lida" },
+    "покупка квартиры":          { "title": "Подбор квартиры в Лиде под ваш запрос", "url": "/services/podbor-zhilya-s-uchetom-zaprosov-lida" },
+    "покупка дома":              { "title": "Подбор дома в Лиде и районе", "url": "/services/podbor-zhilya-s-uchetom-zaprosov-lida" },
+    "загородная недвижимость":   { "title": "Каталог недвижимости в Лиде и районе", "url": "/nedvizhimost-lida" },
+    "юридические риски":         { "title": "Юридическая проверка недвижимости", "url": "/services/yuridicheskaya-proverka-nedvizhimosti-lida" },
+    "проверка недвижимости":     { "title": "Юридическая проверка недвижимости", "url": "/services/yuridicheskaya-proverka-nedvizhimosti-lida" },
+    "сделки с недвижимостью":    { "title": "Полное сопровождение сделки до регистрации", "url": "/services/polnoe-soprovozhdenie-sdelki-do-registracii-lida" },
+    "психология сделок":         { "title": "Ведение переговоров для выгодных условий", "url": "/services/vedenie-peregovorov-dlya-vygodnyh-usloviy-lida" },
+    "переговоры":                { "title": "Ведение переговоров для выгодных условий", "url": "/services/vedenie-peregovorov-dlya-vygodnyh-usloviy-lida" },
+    "рынок недвижимости":        { "title": "Актуальные объекты в Лиде", "url": "/nedvizhimost-lida" },
+    "маркетинг недвижимости":    { "title": "Каталог объектов в Лиде", "url": "/nedvizhimost-lida" },
+    "ипотека":                   { "title": "Консультации по кредитам и помощь с банками", "url": "/services/konsultacii-po-kreditam-i-pomoshch-s-bankami-lida" },
+    "наследство":                { "title": "Подготовка и оформление документов", "url": "/services/podgotovka-i-oformlenie-dokumentov-lida" },
+    "законодательство":          { "title": "Подготовка и оформление документов", "url": "/services/podgotovka-i-oformlenie-dokumentov-lida" },
+    "право собственности":       { "title": "Юридическая проверка недвижимости", "url": "/services/yuridicheskaya-proverka-nedvizhimosti-lida" },
+    "мошенники":                 { "title": "Юридическая проверка недвижимости", "url": "/services/yuridicheskaya-proverka-nedvizhimosti-lida" },
+    "безопасность":              { "title": "Полное сопровождение сделки до регистрации", "url": "/services/polnoe-soprovozhdenie-sdelki-do-registracii-lida" },
+    "инвестиции":                { "title": "Каталог недвижимости в Лиде", "url": "/nedvizhimost-lida" },
+    "инвестиции в недвижимость": { "title": "Каталог недвижимости в Лиде", "url": "/nedvizhimost-lida" },
+    "коммерческая недвижимость": { "title": "Каталог недвижимости в Лиде", "url": "/nedvizhimost-lida" },
+    "риэлтерские услуги":        { "title": "Все услуги риэлтера в Лиде", "url": "/rieltor-lida" },
+    "Лида":                      { "title": "Каталог недвижимости в Лиде", "url": "/nedvizhimost-lida" }
+  },
+  "fallback": [
+    { "title": "Каталог недвижимости в Лиде", "url": "/nedvizhimost-lida" },
+    { "title": "Все услуги риэлтера в Лиде", "url": "/rieltor-lida" }
+  ]
+}

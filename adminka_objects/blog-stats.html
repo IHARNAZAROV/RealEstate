@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Статистика блога — Админка</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/adminka_objects/admin.css">
+  <link rel="stylesheet" href="/adminka_objects/dashboard-header.css">
+  <link rel="stylesheet" href="/adminka_objects/dashboard-objects-dark.css">
+  <link rel="stylesheet" href="/adminka_objects/admin-premium.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="robots" content="noindex, nofollow">
+  <script src="/adminka_objects/admin-sidebar.js" defer></script>
+  <style>
+    .bs-wrap { padding: 24px 28px; }
+    .bs-header { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom: 22px; }
+    .bs-header h1 { font-size: 22px; font-weight: 700; color:#fff; margin:0; }
+    .bs-header p  { color:#9ca3af; font-size: 13px; margin-top: 4px; }
+    .bs-summary { display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 22px; }
+    .bs-card { background:#0f141a; border:1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 16px 18px; }
+    .bs-card .lbl { font-size: 12px; color:#9ca3af; text-transform: uppercase; letter-spacing:.04em; }
+    .bs-card .val { font-size: 26px; font-weight: 700; color:#fff; margin-top: 6px; }
+    .bs-toolbar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom: 14px; }
+    .bs-input, .bs-select {
+      background:#0f141a; border:1px solid rgba(255,255,255,0.10); border-radius: 8px;
+      color:#e5e7eb; padding: 8px 12px; font-size: 13px; min-width: 200px;
+    }
+    .bs-input:focus, .bs-select:focus { outline: none; border-color: rgba(96,165,250,.6); }
+    .bs-table-wrap { background:#0f141a; border:1px solid rgba(255,255,255,0.06); border-radius: 12px; overflow:hidden; }
+    table.bs-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .bs-table th, .bs-table td { padding: 12px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05); vertical-align: middle; }
+    .bs-table thead th { color:#9ca3af; font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing:.04em; background: rgba(255,255,255,0.02); cursor: pointer; user-select:none; }
+    .bs-table thead th .arrow { color:#60a5fa; margin-left: 4px; opacity: 0; }
+    .bs-table thead th.sorted .arrow { opacity: 1; }
+    .bs-table tbody tr:hover { background: rgba(255,255,255,0.03); }
+    .bs-table .num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; color:#fff; }
+    .bs-thumb { width: 56px; height: 40px; object-fit: cover; border-radius: 6px; background:#222; }
+    .bs-title-cell { display:flex; align-items:center; gap:12px; min-width: 280px; }
+    .bs-title-cell a { color:#e5e7eb; text-decoration: none; font-weight: 600; }
+    .bs-title-cell a:hover { color:#60a5fa; text-decoration: underline; }
+    .bs-cat { display:inline-block; font-size: 11px; padding: 3px 8px; border-radius: 999px; background: rgba(96,165,250,0.12); color:#93c5fd; }
+    .bs-empty { padding: 40px; text-align: center; color:#6b7280; }
+    .bs-loading { padding: 40px; text-align: center; color:#9ca3af; }
+    .bs-bar { display:inline-block; height: 6px; background: linear-gradient(90deg, #60a5fa, #3b82f6); border-radius: 999px; min-width: 4px; vertical-align: middle; margin-right: 8px; }
+    .bs-rank { display:inline-flex; align-items:center; justify-content:center; width: 24px; height: 24px; border-radius: 6px; background: rgba(255,255,255,0.05); color:#9ca3af; font-weight:600; font-size: 12px; }
+    .bs-rank.top { background: linear-gradient(135deg,#fde68a,#f59e0b); color:#1f1300; }
+  </style>
+</head>
+<body class="dashboard-theme premium-admin">
+
+<div class="admin-layout">
+
+  <aside class="admin-sidebar" data-admin-sidebar></aside>
+
+  <div class="admin-content-wrap">
+
+    <header class="dashboard-header">
+      <div class="breadcrumbs">
+        <span class="home">Ольга Турко</span>
+        <span class="sep">›</span>
+        <span class="project">turko.by</span>
+        <span class="sep">›</span>
+        <span class="project">Статистика блога</span>
+      </div>
+    </header>
+
+    <main class="dashboard-content">
+      <div class="bs-wrap">
+
+        <div class="bs-header">
+          <div>
+            <h1>Статистика блога</h1>
+            <p>Просмотры статей всеми посетителями сайта (общий счётчик).</p>
+          </div>
+          <button id="bsRefresh" class="btn-secondary" type="button">↻ Обновить</button>
+        </div>
+
+        <div class="bs-summary">
+          <div class="bs-card">
+            <div class="lbl">Всего статей</div>
+            <div class="val" id="bsStatTotal">—</div>
+          </div>
+          <div class="bs-card">
+            <div class="lbl">Всего просмотров</div>
+            <div class="val" id="bsStatViews">—</div>
+          </div>
+          <div class="bs-card">
+            <div class="lbl">Среднее на статью</div>
+            <div class="val" id="bsStatAvg">—</div>
+          </div>
+          <div class="bs-card">
+            <div class="lbl">Самая популярная</div>
+            <div class="val" id="bsStatTop" style="font-size:14px; line-height:1.35;">—</div>
+          </div>
+        </div>
+
+        <div class="bs-toolbar">
+          <input type="search" id="bsSearch" class="bs-input" placeholder="Поиск по названию, категории, тегам…" />
+          <select id="bsCategory" class="bs-select">
+            <option value="">Все категории</option>
+          </select>
+          <select id="bsSort" class="bs-select">
+            <option value="views-desc">Сначала популярные</option>
+            <option value="views-asc">Сначала непопулярные</option>
+            <option value="date-desc">Сначала новые</option>
+            <option value="date-asc">Сначала старые</option>
+            <option value="title-asc">По названию A→Я</option>
+          </select>
+        </div>
+
+        <div class="bs-table-wrap">
+          <table class="bs-table">
+            <thead>
+              <tr>
+                <th style="width: 56px;">#</th>
+                <th data-sort="title">Статья <span class="arrow">↕</span></th>
+                <th data-sort="category">Категория <span class="arrow">↕</span></th>
+                <th data-sort="date">Дата <span class="arrow">↕</span></th>
+                <th data-sort="views" class="num sorted">Просмотры <span class="arrow">↓</span></th>
+              </tr>
+            </thead>
+            <tbody id="bsTbody">
+              <tr><td colspan="5" class="bs-loading">Загрузка данных…</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+</div>
+
+<script src="/adminka_objects/blog-stats.js" defer></script>
+</body>
+</html>

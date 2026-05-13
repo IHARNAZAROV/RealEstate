@@ -1,0 +1,137 @@
+AddDefaultCharset UTF-8
+Options -Indexes
+
+RewriteEngine On
+
+# -------------------------------------------------
+# HTTPS + CANONICAL DOMAIN
+# -------------------------------------------------
+
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^turko\.by$ [NC]
+RewriteRule ^ https://turko.by%{REQUEST_URI} [R=301,L]
+
+# -------------------------------------------------
+# REMOVE index.html
+# -------------------------------------------------
+
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+RewriteRule ^(.*/)?index\.html$ https://turko.by/$1 [R=301,L]
+
+# -------------------------------------------------
+# EXCLUDE JSON FROM REWRITE
+# -------------------------------------------------
+
+RewriteRule \.json$ - [L]
+
+# -------------------------------------------------
+# LEGACY URL REDIRECTS
+# -------------------------------------------------
+
+# Only act on the original external request (avoids infinite loops on LiteSpeed
+# where THE_REQUEST gets rewritten on internal subrequests).
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+
+# Old detail filenames with ?slug=... → clean URL
+RewriteCond %{THE_REQUEST} \s/+object-detail(?:\.html)?\?slug=([^\s&]+) [NC]
+RewriteRule ^object-detail(?:\.html)?$ https://turko.by/objects/%1? [R=301,L,NE]
+
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteCond %{THE_REQUEST} \s/+blog-detail(?:\.html)?\?slug=([^\s&]+) [NC]
+RewriteRule ^blog-detail(?:\.html)?$ https://turko.by/blog/%1? [R=301,L,NE]
+
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteCond %{THE_REQUEST} \s/+services-detail(?:\.html)?\?slug=([^\s&]+) [NC]
+RewriteRule ^services-detail(?:\.html)?$ https://turko.by/services/%1? [R=301,L,NE]
+
+# Section URLs with ?slug=... → clean URL  (e.g. /objects?slug=foo → /objects/foo)
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteCond %{THE_REQUEST} \s/+objects/?\?slug=([^\s&]+) [NC]
+RewriteRule ^objects/?$ https://turko.by/objects/%1? [R=301,L,NE]
+
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteCond %{THE_REQUEST} \s/+blog/?\?slug=([^\s&]+) [NC]
+RewriteRule ^blog/?$ https://turko.by/blog/%1? [R=301,L,NE]
+
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteCond %{THE_REQUEST} \s/+services/?\?slug=([^\s&]+) [NC]
+RewriteRule ^services/?$ https://turko.by/services/%1? [R=301,L,NE]
+
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteCond %{THE_REQUEST} \s/+raion(?:\.php)?\?slug=([^\s&]+) [NC]
+RewriteRule ^raion(?:\.php)?$ https://turko.by/raion/%1? [R=301,L,NE]
+
+# Legacy detail URLs without slug → redirect to section index (only .html, not .php)
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^blog-detail(?:\.html)?/?$ https://turko.by/blog [R=301,L]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^object-detail(?:\.html)?/?$ https://turko.by/objects [R=301,L]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^services-detail(?:\.html)?/?$ https://turko.by/rieltor-lida [R=301,L]
+
+# -------------------------------------------------
+# PRETTY ROUTES
+# -------------------------------------------------
+
+RewriteRule ^objects/([^/]+)/?$ /object-detail.php?slug=$1 [L,QSA,NC]
+RewriteRule ^blog/([^/]+)/?$ /blog-detail.php?slug=$1 [L,QSA,NC]
+RewriteRule ^services/([^/]+)/?$ /services-detail.php?slug=$1 [L,QSA,NC]
+RewriteRule ^raion/([^/]+)/?$ /raion.php?slug=$1 [L,QSA,NC]
+
+# -------------------------------------------------
+# PRETTY URL (.html hidden)
+# -------------------------------------------------
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
+
+# -------------------------------------------------
+# GZIP
+# -------------------------------------------------
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# -------------------------------------------------
+# ERRORS
+# -------------------------------------------------
+
+ErrorDocument 404 /404.html
+ErrorDocument 403 /403.html
+
+# -------------------------------------------------
+# CACHE
+# -------------------------------------------------
+
+<IfModule mod_headers.c>
+
+  # HTML
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+
+  # JSON
+  <FilesMatch "\.(json)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </FilesMatch>
+
+  # CSS JS
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=31536000"
+  </FilesMatch>
+
+  # Images fonts
+  <FilesMatch "\.(jpg|jpeg|png|webp|svg|woff2?|ico)$">
+    Header set Cache-Control "public, max-age=31536000"
+  </FilesMatch>
+
+</IfModule>
+
+# -------------------------------------------------
+# ETAG
+# -------------------------------------------------
+
+FileETag MTime Size
