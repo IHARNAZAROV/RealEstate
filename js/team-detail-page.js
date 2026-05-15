@@ -97,7 +97,7 @@
     set('#breadcrumbName',     'textContent', m.name);
     
     /* Page intro section */
-    set('#pageIntroEyebrow',     'textContent', 'Специалист');
+    set('#pageIntroEyebrow',     'textContent', 'Наша команда');
     set('#pageIntroTitle',       'textContent', m.name);
     set('#pageIntroDescription', 'textContent', m.position);
 
