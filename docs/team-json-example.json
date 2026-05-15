@@ -1,0 +1,38 @@
+{
+  "team": [
+    {
+      "id": 1,
+      "slug": "olga-turko",
+      "name": "Ольга Турко",
+      "photo": "/images/team/olga-turko.webp",
+      "position": "Руководитель филиала",
+      "city": "Лида",
+      "phone": "+375291112233",
+      "telegram": "https://t.me/olga_turko",
+      "whatsapp": "https://wa.me/375291112233",
+      "email": "olga@turko.by",
+      "experience": 12,
+      "description": "Эксперт по недвижимости Лиды с 12-летним опытом.",
+      "specialization": "Эксперт по недвижимости Лиды",
+      "achievements": ["340+ закрытых сделок", "Лучший риэлтер года"],
+      "stats": {
+        "deals": 340,
+        "years": 12,
+        "activeObjects": 28,
+        "happyClients": 320
+      },
+      "objects": [
+        {
+          "title": "3-комнатная квартира, ул. Советская, 36",
+          "price": "89 000 $",
+          "image": "/images/objects/pic12.webp",
+          "url": "/object-detail.php?slug=kvartira-lida-ul-sovetskaya-36"
+        }
+      ],
+      "socials": {
+        "instagram": "https://instagram.com/olga",
+        "facebook": "https://facebook.com/olga"
+      }
+    }
+  ]
+}
