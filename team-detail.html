@@ -1,10 +1,11 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#006064">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#155945" />
+  <base href="/" />
 
   <title id="pageTitle">Специалист по недвижимости | ГермесГрупп</title>
   <meta name="description" id="pageDescription" content="Профессиональный риэлтер: сопровождение сделок, консультации и подбор объектов.">
@@ -22,33 +23,54 @@
   <meta name="twitter:description" id="twitterDescription" content="Профессиональная помощь в сделках с недвижимостью">
   <meta name="twitter:image" id="twitterImage" content="">
 
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/style.css" data-versioned>
-  <link rel="stylesheet" href="/css/contact-widget.css">
-  <link rel="stylesheet" href="/css/team-section.css" data-versioned>
-  <link rel="stylesheet" href="/css/team-detail-page.css" data-versioned>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
   <script src="/site-version.php"></script>
+
+  <link rel="preload" href="/fonts/inter/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/montserrat/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="/css/fontawesome/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="/css/fontawesome/css/brands.min.css" />
+  <link rel="stylesheet" href="/css/fontawesome/css/solid.min.css" />
+  <link rel="stylesheet" href="/css/contact-widget.css" />
+  <link rel="stylesheet" href="/css/team-detail-page.css" data-versioned />
 </head>
-<body>
+
+<body id="bg">
 <div class="page-wraper">
-  <header class="site-header header-style-1 nav-wide mobile-sider-drawer-menu">
-    <div class="sticky-header main-bar-wraper navbar-expand-lg">
+
+  <!-- HEADER START -->
+  <header class="site-header nav-wide nav-transparent">
+    <div class="sticky-header is-stuck main-bar-wraper navbar-expand-lg">
       <div class="main-bar">
-        <div class="container header-middle clearfix">
+        <div class="container clearfix">
           <div class="logo-header">
-            <a href="/">
-              <img src="/images/logo-dark.svg" alt="ГермесГрупп" class="site-logo site-logo--dark">
-            </a>
+            <div class="logo-header-inner logo-header-one">
+              <a href="/">
+                <img src="images/logo-light.svg" class="site-logo site-logo--light" alt="logo" />
+              </a>
+            </div>
           </div>
-          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Открыть меню">
-            <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+          <button id="mobile-side-drawer" type="button" class="navbar-toggler" aria-label="Открыть меню">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar icon-bar-first"></span>
+            <span class="icon-bar icon-bar-two"></span>
+            <span class="icon-bar icon-bar-three"></span>
           </button>
-          <div class="header-nav navbar-collapse collapse" id="mainNav">
+          <div class="header-nav nav-dark justify-content-start">
             <ul class="nav navbar-nav">
               <li><a href="/">Главная</a></li>
-              <li><a href="/rieltor-lida">Услуги</a></li>
-              <li><a href="/objects">Объекты</a></li>
+              <li><a href="/rieltor-lida">Обо мне</a></li>
+              <li><a href="/nedvizhimost-lida">Объекты</a></li>
+              <li><a href="/blog">Блог</a></li>
+              <li><a href="/faq">Вопросы</a></li>
               <li><a href="/contact">Контакты</a></li>
             </ul>
           </div>
@@ -56,54 +78,268 @@
       </div>
     </div>
   </header>
-  <main class="site-main team-detail-page">
-    <section class="team-detail-hero">
+  <!-- HEADER END -->
+
+  <!-- MOBILE MENU -->
+  <div class="mnav-overlay" id="mnavOverlay"></div>
+  <nav class="mnav" id="mnav">
+    <div class="mnav-header">
+      <div class="mnav-name">Ольга Турко · Риэлтер · Лида</div>
+    </div>
+    <ul class="mnav-list">
+      <li><a href="/" data-path="/"><i class="fa-solid fa-house"></i><span>Главная</span></a></li>
+      <li><a href="/rieltor-lida" data-path="/rieltor-lida"><i class="fa-solid fa-user"></i><span>Обо мне</span></a></li>
+      <li><a href="/nedvizhimost-lida" data-path="/nedvizhimost-lida"><i class="fa-solid fa-building"></i><span>Объекты</span></a></li>
+      <li><a href="/blog" data-path="/blog"><i class="fa-solid fa-pen-nib"></i><span>Блог</span></a></li>
+      <li><a href="/faq" data-path="/faq"><i class="fa-solid fa-circle-question"></i><span>Вопросы</span></a></li>
+      <li><a href="/contact" data-path="/contact"><i class="fa-solid fa-phone"></i><span>Контакты</span></a></li>
+    </ul>
+    <div class="mnav-cta">
+      <a href="tel:+375291809516" class="mnav-cta-btn">
+        <i class="fa-solid fa-phone"></i> Позвонить мне
+      </a>
+    </div>
+  </nav>
+  <!-- MOBILE MENU END -->
+
+  <!-- PAGE BANNER -->
+  <section class="td-banner">
+    <div class="container">
+      <nav class="td-breadcrumb" aria-label="Хлебные крошки">
+        <ol id="breadcrumbsList" itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="/"><span itemprop="name">Главная</span></a>
+            <meta itemprop="position" content="1">
+          </li>
+          <li aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name" id="breadcrumbName">Специалист</span>
+            <meta itemprop="position" content="2">
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+  <!-- PAGE BANNER END -->
+
+  <!-- MAIN CONTENT -->
+  <main class="site-main">
+
+    <!-- HERO SECTION -->
+    <section class="section-full mobile-page-padding p-t80 p-b80">
       <div class="container">
-        <nav class="team-breadcrumbs" aria-label="Хлебные крошки">
-          <ol id="breadcrumbsList" itemscope itemtype="https://schema.org/BreadcrumbList"></ol>
-        </nav>
-        <div id="heroSkeleton" class="skeleton-block"></div>
-        <div id="heroContent" class="hero-grid" hidden></div>
+
+        <!-- Skeleton -->
+        <div id="heroSkeleton" class="td-skeleton-wrap">
+          <div class="td-skeleton td-skeleton--photo"></div>
+          <div class="td-skeleton-text">
+            <div class="td-skeleton td-skeleton--line td-skeleton--title"></div>
+            <div class="td-skeleton td-skeleton--line"></div>
+            <div class="td-skeleton td-skeleton--line td-skeleton--short"></div>
+            <div class="td-skeleton-grid">
+              <div class="td-skeleton td-skeleton--box"></div>
+              <div class="td-skeleton td-skeleton--box"></div>
+              <div class="td-skeleton td-skeleton--box"></div>
+              <div class="td-skeleton td-skeleton--box"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Content (rendered by JS) -->
+        <div id="heroContent" hidden></div>
+
       </div>
     </section>
+    <!-- HERO SECTION END -->
 
-    <section class="team-about section-full mobile-page-padding p-t80 p-b40">
+    <!-- EXPERIENCES SECTION -->
+    <section class="section-full mobile-page-padding p-t80 p-b80 bg-gray" id="experiencesSection" hidden>
       <div class="container">
-        <div id="aboutContent"></div>
+        <div class="td-exp-grid">
+          <div class="td-exp-left">
+            <div class="td-eyebrow">
+              <span class="td-eyebrow-icon"><i class="fa-solid fa-circle-half-stroke"></i></span>
+              <span id="expEyebrow">МОЙ ОПЫТ</span>
+            </div>
+            <h2 class="td-exp-title" id="expTitle">МОЙ ЛУЧШИЙ ОПЫТ В НЕДВИЖИМОСТИ</h2>
+          </div>
+          <div class="td-exp-right">
+            <p class="td-exp-desc" id="expDesc"></p>
+            <div id="skillBars" class="td-skills"></div>
+          </div>
+        </div>
       </div>
     </section>
+    <!-- EXPERIENCES SECTION END -->
 
-    <section class="team-stats section-full mobile-page-padding p-t40 p-b40">
-      <div class="container"><div id="statsGrid" class="stats-grid"></div></div>
-    </section>
-
-    <section class="team-objects section-full mobile-page-padding p-t40 p-b80 bg-gray">
+    <!-- STATS SECTION -->
+    <section class="section-full mobile-page-padding p-t60 p-b60" id="statsSection" hidden>
       <div class="container">
-        <h2 class="section-title">Объекты риэлтера</h2>
-        <div id="objectsGrid" class="objects-grid"></div>
+        <div id="statsGrid" class="td-stats-grid"></div>
       </div>
     </section>
+    <!-- STATS SECTION END -->
 
-    <section class="team-cta section-full mobile-page-padding p-t80 p-b80">
-      <div class="container"><div id="ctaContent"></div></div>
+    <!-- CTA SECTION -->
+    <section class="section-full mobile-page-padding p-t80 p-b80 bg-gray" id="ctaSection" hidden>
+      <div class="container">
+        <div class="td-cta-wrap">
+          <div class="td-cta-left">
+            <div class="td-eyebrow">
+              <span class="td-eyebrow-icon"><i class="fa-solid fa-circle-half-stroke"></i></span>
+              <span>СВЯЗАТЬСЯ</span>
+            </div>
+            <h2 class="td-cta-title">ОСТАВЬТЕ ЗАЯВКУ —<br>ПЕРЕЗВОНИМ БЫСТРО</h2>
+            <p class="td-cta-desc">Укажите имя и телефон — специалист свяжется с вами в ближайшее время и ответит на все вопросы о недвижимости.</p>
+          </div>
+          <div class="td-cta-right">
+            <form id="ctaForm" class="td-cta-form" novalidate>
+              <div class="td-form-row">
+                <input class="td-input" type="text" name="name" placeholder="Ваше имя" autocomplete="name" required />
+              </div>
+              <div class="td-form-row">
+                <input class="td-input" type="tel" name="phone" placeholder="+375 __ ___ __ __" autocomplete="tel" required />
+              </div>
+              <div class="td-form-row">
+                <textarea class="td-input td-textarea" name="comment" placeholder="Комментарий (необязательно)" rows="3"></textarea>
+              </div>
+              <button type="submit" class="site-button btn-half td-cta-btn">
+                <span>Отправить заявку</span>
+              </button>
+              <p class="td-form-msg" id="ctaFormMsg" hidden></p>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
+    <!-- CTA SECTION END -->
+
   </main>
+  <!-- MAIN CONTENT END -->
+
+  <!-- FOOTER START -->
   <footer class="site-footer footer-large footer-dark footer-wide">
+    <div class="footer-top overlay-wraper">
+      <div class="overlay-main"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="widget widget_about">
+              <div class="logo-footer clearfix p-b15">
+                <a href="/"><img src="images/logo-light.svg" class="site-logo site-logo--light" alt="logo" /></a>
+              </div>
+              <p><b>Найти квартиру — легко. Найти свою — искусство.</b> <br />Я подбираю не абстрактные "варианты", а то самое жильё, где совпадают цена, планировка, настроение и ощущение "вот тут — моё". Потому что важно не просто купить, а попасть в точку</p>
+              <ul class="social-icons sx-social-links">
+                <li><a href="viber://chat?number=%2B375291809516" target="_blank" rel="noopener noreferrer" class="fa-brands fa-viber"></a></li>
+                <li><a href="https://www.tiktok.com/@rieltor_olga_lida" target="_blank" rel="noopener noreferrer" class="fab fa-tiktok"></a></li>
+                <li><a href="https://t.me/TurkoOlga" target="_blank" rel="noopener noreferrer" class="fa-brands fa-telegram"></a></li>
+                <li><a href="https://www.instagram.com/rielter_olga_lida" target="_blank" rel="noopener noreferrer" class="fa-brands fa-square-instagram"></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="widget recent-posts-entry-date">
+              <h5 class="widget-title">Посты в блоге</h5>
+              <div class="widget-post-bx" id="footer-recent-posts"></div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6 footer-col-3">
+            <div class="widget widget_services inline-links">
+              <h5 class="widget-title">Полезные ссылки</h5>
+              <ul>
+                <li><a href="/rieltor-lida">Обо мне</a></li>
+                <li><a href="/nedvizhimost-lida">Объекты</a></li>
+                <li><a href="/blog">Блог</a></li>
+                <li><a href="/contact">Контакты</a></li>
+                <li><a href="/Privacy">Политика конфиденциальности</a></li>
+                <li><a href="/cookies-policy">Политика использования cookies</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="widget widget_address_outer">
+              <h5 class="widget-title">Пора поговорить о вашем доме</h5>
+              <ul class="widget_address">
+                <li>город Лида, бульвар Князя Гедимина, 12</li>
+                <li><a href="mailto:olgaturko1975@gmail.com">olgaturko1975@gmail.com</a></li>
+                <li><a href="tel:+375291809516">(+375) 29 180 95 16</a></li>
+                <li><a href="tel:+375445019090">(+375) 44 501 90 90</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="call-to-action-wrap">
+          <div class="row">
+            <div class="col-lg-7 col-md-6">
+              <div class="call-to-action-left">
+                <h5 class="text-uppercase m-b10 m-t0">Риэлтер Ольга Турко</h5>
+                <span>Практикующий эксперт по эмоциональному позиционированию объектов недвижимости</span>
+                <div class="footer-legal-info">
+                  <p>Свидетельство об аттестации риэлтера № 1931 от 29.02.2024</p>
+                  <p>Услуги по сопровождению сделок с недвижимостью оказываются через лицензированное агентство недвижимости «ГермесГрупп».</p>
+                  <p>Лицензия Министерства юстиции Республики Беларусь на осуществление риэлтерской деятельности № 02240/487 от 07.08.2024</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="footer-bottom overlay-wraper">
       <div class="overlay-main"></div>
-      <div class="container p-t30">
+      <div class="container">
         <div class="row">
           <div class="sx-footer-bot-left">
-            <span class="copyrights-text">© 2026 ГермесГрупп. Все права защищены.</span>
+            <span class="copyrights-text">© 2025 Ольга Турко. Designed By INazarov.</span>
+            <span>Интернет-ресурс turko.by зарегистрирован в Республике Беларусь. Номер ресурса: 212210 Дата регистрации: 12.01.2026</span>
           </div>
         </div>
       </div>
     </div>
   </footer>
+  <!-- FOOTER END -->
+
+  <!-- CONTACT WIDGET -->
+  <div class="cw" data-cw-root>
+    <button class="cw__fab" type="button" aria-label="Открыть способы связи" aria-haspopup="dialog" aria-controls="cw-modal" aria-expanded="false" data-cw-open>
+      <span class="cw__fab-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+          <path d="M4 5.5C4 4.12 5.12 3 6.5 3h11C18.88 3 20 4.12 20 5.5v8c0 1.38-1.12 2.5-2.5 2.5H10l-4.5 4v-4H6.5A2.5 2.5 0 0 1 4 13.5v-8Zm2.5-.5a.5.5 0 0 0-.5.5v8c0 .28.22.5.5.5h1.5c.55 0 1 .45 1 1v.56l2.8-2.49A1 1 0 0 1 12.46 13h5.04a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-11Z"/>
+        </svg>
+      </span>
+    </button>
+    <div class="cw__overlay" data-cw-overlay hidden>
+      <section id="cw-modal" class="cw__modal" role="dialog" aria-modal="true" aria-labelledby="cw-title" aria-describedby="cw-desc" tabindex="-1">
+        <button class="cw__close" type="button" aria-label="Закрыть окно" data-cw-close><span aria-hidden="true">×</span></button>
+        <h2 id="cw-title" class="cw__title">Я всегда на связи</h2>
+        <p id="cw-desc" class="cw__subtitle">Напишите мне — подскажу по покупке или продаже и помогу разобраться в вашей ситуации</p>
+        <div class="cw__content">
+          <section class="cw__qr" aria-label="QR для быстрого перехода в Telegram">
+            <h3 class="cw__qr-title">Сканируйте QR с телефона</h3>
+            <div class="cw__qr-frame">
+              <img class="cw__qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A%2F%2Ft.me%2FTurkoOlga" width="240" height="240" loading="lazy" decoding="async" alt="QR-код для быстрого открытия Telegram">
+            </div>
+          </section>
+          <nav class="cw__actions" aria-label="Способы связи">
+            <a class="cw__action cw__action--whatsapp" href="https://wa.me/375291809516" target="_blank" rel="noopener noreferrer"><span class="cw__action-icon" aria-hidden="true">✆</span><span class="cw__action-label">WhatsApp</span></a>
+            <a class="cw__action cw__action--telegram" href="https://t.me/TurkoOlga" target="_blank" rel="noopener noreferrer"><span class="cw__action-icon" aria-hidden="true">➤</span><span class="cw__action-label">Telegram</span></a>
+            <a class="cw__action cw__action--viber" href="viber://chat?number=%2B375291809516"><span class="cw__action-icon" aria-hidden="true">◉</span><span class="cw__action-label">Viber</span></a>
+          </nav>
+        </div>
+        <a class="cw__phone" href="tel:+375291809516"><span class="cw__phone-caption">Предпочитаете звонить?</span><span class="cw__phone-number">+375291809516</span></a>
+      </section>
+    </div>
+  </div>
+  <!-- CONTACT WIDGET END -->
+
 </div>
-<script>document.body.classList.add("loaded");</script>
-<script src="/js/optimize.js" defer data-versioned></script>
-<script src="/js/services/team-service.js" defer></script>
+
+<script src="/js/optimize.js" defer></script>
+<script src="/js/footer-post.js" defer></script>
 <script src="/js/team-detail-page.js" defer></script>
+<script src="/js/sw-register.js" defer></script>
+<script src="contact-widget.js" defer></script>
 </body>
 </html>

@@ -22,6 +22,13 @@ if (preg_match('#^/blog/([a-zA-Z0-9_\-]+)/?$#', $uri, $m)) {
     return;
 }
 
+// /team/{slug} → team-detail.html (served as static, slug passed via query)
+if (preg_match('#^/team/([a-zA-Z0-9_\-]+)/?$#u', $uri, $m)) {
+    $_GET['slug'] = $m[1];
+    include __DIR__ . '/team-detail.html';
+    return;
+}
+
 // Clean URL aliases for static HTML pages
 $htmlMap = [
     '/nedvizhimost-lida' => 'nedvizhimost-lida.html',

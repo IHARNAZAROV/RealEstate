@@ -1,110 +1,334 @@
 (() => {
-  const $ = (s, p = document) => p.querySelector(s);
-  const parseSlug = () => {
-    const q = new URLSearchParams(location.search).get('slug');
-    if (q) return q;
-    const m = location.pathname.match(/\/team\/([^/?#]+)/);
-    return m ? decodeURIComponent(m[1]) : '';
-  };
+  'use strict';
+
+  /* ── Helpers ── */
+  const $ = (sel, ctx = document) => ctx.querySelector(sel);
+  const safe = (v = '') => String(v).replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c]));
   const slugify = (v = '') => v.toString().toLowerCase().trim().replace(/[^\p{L}\p{N}]+/gu, '-').replace(/(^-|-$)/g, '');
-  const safe = (v = '') => String(v).replace(/[<>&"']/g, (m) => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[m]));
+
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const TEAM_ENDPOINTS = ['/data/team.json', '/team.json', './team.json'];
-  const normalizeTeamPayload = (payload) => Array.isArray(payload) ? payload : (payload && Array.isArray(payload.team) ? payload.team : []);
-  const getTeam = async () => {
-    if (typeof teamService !== 'undefined' && teamService?.getAll) {
+  /* ── Read slug from URL ── */
+  const parseSlug = () => {
+    const q = new URLSearchParams(location.search).get('slug');
+    if (q) return decodeURIComponent(q).trim();
+    const m = location.pathname.match(/\/team\/([^/?#]+)/);
+    return m ? decodeURIComponent(m[1]).trim() : '';
+  };
+
+  /* ── Fetch team data ── */
+  const ENDPOINTS = ['/data/team.json', '/team.json'];
+  const normalise = p => Array.isArray(p) ? p : (p && Array.isArray(p.team) ? p.team : []);
+
+  const fetchTeam = async () => {
+    let last;
+    for (const url of ENDPOINTS) {
       try {
-        const serviceData = await teamService.getAll();
-        const normalizedServiceData = normalizeTeamPayload(serviceData);
-        if (normalizedServiceData.length) return normalizedServiceData;
-      } catch (_) {}
+        const r = await fetch(url, { cache: 'no-store' });
+        if (!r.ok) throw new Error(`${r.status}`);
+        const list = normalise(await r.json());
+        if (list.length) return list;
+      } catch (e) { last = e; }
     }
-    let lastError = null;
-    for (const url of TEAM_ENDPOINTS) {
-      try {
-        const res = await fetch(url, { cache: 'no-store' });
-        if (!res.ok) throw new Error(`${url}: ${res.status}`);
-        const payload = await res.json();
-        const normalized = normalizeTeamPayload(payload);
-        if (normalized.length) return normalized;
-      } catch (e) { lastError = e; }
+    throw last || new Error('team.json unavailable');
+  };
+
+  /* ── Reveal on scroll ── */
+  const initReveal = () => {
+    const nodes = document.querySelectorAll('.td-reveal');
+    if (!('IntersectionObserver' in window) || prefersReduced) {
+      nodes.forEach(n => n.classList.add('is-visible'));
+      return;
     }
-    throw lastError || new Error('Team JSON unavailable');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    nodes.forEach(n => io.observe(n));
   };
 
-  const animateReveal = () => {
-    const nodes = document.querySelectorAll('.reveal');
-    if (!('IntersectionObserver' in window) || prefersReduced) return nodes.forEach((n) => n.classList.add('show'));
-    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } }), { threshold: .15 });
-    nodes.forEach((n) => io.observe(n));
-  };
-
-  const render = (m) => {
-    $('#heroSkeleton').hidden = true;
-    const hero = $('#heroContent');
-    hero.hidden = false;
-    hero.innerHTML = `<div class="hero-photo reveal"><img loading="eager" fetchpriority="high" src="${safe(m.photo)}" alt="${safe(m.name)}"></div>
-    <article class="hero-card reveal"><h1>${safe(m.name)}</h1><p>${safe(m.position || 'Риэлтер')} · ${safe(m.city || 'Лида')}</p><p>${safe(m.description || '')}</p>
-    <div class="hero-actions"><a class="btn-team btn-main" href="tel:${safe(m.phone || '')}">Позвонить</a><a class="btn-team btn-ghost" href="${safe(m.telegram || '#')}" target="_blank" rel="noopener">Telegram</a><a class="btn-team btn-ghost" href="${safe(m.whatsapp || '#')}" target="_blank" rel="noopener">WhatsApp</a><a class="btn-team btn-main" href="#cta-form">Оставить заявку</a></div></article>`;
-
-    const about = [
-      ['Опыт работы', `${m.experience || 0} лет`],['Специализация', m.specialization || '—'],['Направления деятельности', (m.directions || []).join(', ') || 'Покупка, продажа, обмен'],['Достижения', (m.achievements || []).join(', ') || '—'],['Сертификаты/награды', (m.certificates || []).join(', ') || '—'],['Личный подход', m.approach || 'Прозрачная коммуникация и сопровождение на каждом этапе.']
-    ];
-    $('#aboutContent').innerHTML = `<div class="about-grid">${about.map(([k,v])=>`<section class="about-item reveal"><h3>${k}</h3><p>${safe(v)}</p></section>`).join('')}</div>`;
-
-    const stats = m.stats || { deals: m.deals || 0, years: m.experience || 0, activeObjects: (m.objects || []).length, happyClients: m.clients || 0 };
-    $('#statsGrid').innerHTML = [['Сделок',stats.deals],['Опыт лет',stats.years],['Объектов в продаже',stats.activeObjects],['Довольных клиентов',stats.happyClients]].map(([t,v])=>`<article class="stat-card reveal"><p>${t}</p><strong data-counter="${Number(v)||0}">0</strong></article>`).join('');
-
-    const objects = (m.objects || []).slice(0, 6);
-    $('#objectsGrid').innerHTML = objects.length ? objects.map((o)=>`<article class="object-card reveal"><img loading="lazy" src="${safe(o.image || '/images/placeholder.webp')}" alt="${safe(o.title || 'Объект')}"/><h3>${safe(o.title || '')}</h3><p>${safe(o.price || '')}</p></article>`).join('') : '<p>Скоро здесь появятся объекты специалиста.</p>';
-
-    $('#ctaContent').innerHTML = `<div class="cta-box reveal"><h2>Свяжитесь с риэлтером</h2><p>Оставьте заявку — перезвоним в удобное время.</p><form id="cta-form" class="cta-form"><input aria-label="Ваше имя" placeholder="Ваше имя" required><input aria-label="Телефон" placeholder="Телефон" required><textarea aria-label="Комментарий" placeholder="Комментарий"></textarea><button class="btn-team btn-main" type="submit">Отправить</button></form></div>`;
-
-    document.title = `${m.name} — ${m.position} | ГермесГрупп`;
-    $('#pageTitle').textContent = document.title;
-    const d = `${m.name} — ${m.description || 'Риэлтер агентства недвижимости'}`;
-    $('#pageDescription').content = d; $('#ogDescription').content = d; $('#twitterDescription').content = d;
-    $('#ogTitle').content = document.title; $('#twitterTitle').content = document.title;
-    $('#ogImage').content = m.photo || ''; $('#twitterImage').content = m.photo || '';
-    const canonical = `${location.origin}/team/${m.slug || slugify(m.name)}`;
-    $('#canonicalLink').href = canonical; $('#ogUrl').content = canonical;
-
-    const crumbs = $('#breadcrumbsList');
-    crumbs.innerHTML = `<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/"><span itemprop="name">Главная</span></a><meta itemprop="position" content="1"></li><li aria-hidden="true">→</li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name">${safe(m.name)}</span><meta itemprop="position" content="2"></li>`;
-
-    const personSchema = {"@context":"https://schema.org","@type":["Person","RealEstateAgent"],name:m.name,jobTitle:m.position,image:m.photo,telephone:m.phone,email:m.email,address:{"@type":"PostalAddress",addressLocality:m.city},url:canonical,description:m.description};
-    const sc = document.createElement('script'); sc.type = 'application/ld+json'; sc.textContent = JSON.stringify(personSchema); document.head.appendChild(sc);
-    const bsc = document.createElement('script'); bsc.type = 'application/ld+json'; bsc.textContent = JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem",position:1,name:"Главная",item:`${location.origin}/`},{"@type":"ListItem",position:2,name:m.name,item:canonical}]}); document.head.appendChild(bsc);
-
-    animateReveal(); initCounters();
-  };
-
+  /* ── Animated counters ── */
   const initCounters = () => {
-    document.querySelectorAll('[data-counter]').forEach((el) => {
-      const end = Number(el.dataset.counter);
-      let t = 0; const steps = 30; const step = () => { t += 1; el.textContent = Math.round((end / steps) * t); if (t < steps) requestAnimationFrame(step); };
-      step();
+    document.querySelectorAll('[data-count]').forEach(el => {
+      if (prefersReduced) { el.textContent = el.dataset.count; return; }
+      const end = Number(el.dataset.count) || 0;
+      const steps = 40;
+      let i = 0;
+      const tick = () => {
+        i++;
+        el.textContent = Math.round((end / steps) * i);
+        if (i < steps) requestAnimationFrame(tick);
+        else el.textContent = end;
+      };
+      requestAnimationFrame(tick);
     });
   };
 
-  const fallback = () => { $('#heroSkeleton').hidden = true; $('#heroContent').hidden = false; $('#heroContent').innerHTML = '<article class="hero-card"><h1>Специалист не найден</h1><p>Проверьте ссылку или вернитесь на главную.</p><a class="btn-team btn-main" href="/">На главную</a></article>'; };
+  /* ── Animate skill bars ── */
+  const animateBars = () => {
+    document.querySelectorAll('.td-skill-bar[data-pct]').forEach(bar => {
+      const pct = parseInt(bar.dataset.pct, 10) || 0;
+      if (prefersReduced) { bar.style.width = pct + '%'; return; }
+      requestAnimationFrame(() => { bar.style.width = pct + '%'; });
+    });
+  };
 
+  /* ── Build skills from member data ── */
+  const buildSkills = m => {
+    const base = [
+      { name: 'Сопровождение сделок',    pct: Math.min(98, 70 + (m.experience || 0) * 2) },
+      { name: 'Работа с клиентами',       pct: Math.min(97, 72 + Math.round((m.deals || 0) / 20)) },
+      { name: 'Юридическая грамотность',  pct: Math.min(95, 68 + (m.experience || 0) * 2) },
+    ];
+    return base;
+  };
+
+  /* ── Meta & breadcrumb update ── */
+  const updateMeta = (m, slug) => {
+    const canonical = `${location.origin}/team/${slug}`;
+    const title = `${m.name} — ${m.position} | ГермесГрупп`;
+    const desc = m.description || `${m.name} — риэлтер агентства недвижимости ГермесГрупп. Опыт ${m.experience || 0} лет, более ${m.deals || 0} сделок.`;
+
+    document.title = title;
+    const set = (id, attr, val) => { const el = $(id); if (el) el[attr] = val; };
+    set('#pageTitle',          'textContent', title);
+    set('#pageDescription',    'content', desc);
+    set('#ogTitle',            'content', title);
+    set('#ogDescription',      'content', desc);
+    set('#ogImage',            'content', m.photo || '');
+    set('#twitterTitle',       'content', title);
+    set('#twitterDescription', 'content', desc);
+    set('#twitterImage',       'content', m.photo || '');
+    set('#canonicalLink',      'href', canonical);
+    set('#ogUrl',              'content', canonical);
+    set('#breadcrumbName',     'textContent', m.name);
+
+    /* Schema.org Person */
+    const sc = document.createElement('script');
+    sc.type = 'application/ld+json';
+    sc.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': ['Person', 'RealEstateAgent'],
+      name: m.name,
+      jobTitle: m.position,
+      image: m.photo,
+      telephone: m.phone || '',
+      email: m.email || '',
+      address: { '@type': 'PostalAddress', addressLocality: m.city || 'Лида' },
+      url: canonical,
+      description: desc,
+    });
+    document.head.appendChild(sc);
+  };
+
+  /* ── Render social icons for the photo card ── */
+  const renderSocials = m => {
+    const links = [];
+    if (m.telegram)   links.push({ href: m.telegram,   icon: 'fa-brands fa-telegram',         label: 'Telegram' });
+    if (m.viber)      links.push({ href: m.viber,       icon: 'fa-brands fa-viber',            label: 'Viber' });
+    if (m.instagram)  links.push({ href: m.instagram,   icon: 'fa-brands fa-square-instagram', label: 'Instagram' });
+    if (m.whatsapp)   links.push({ href: m.whatsapp,    icon: 'fa-brands fa-whatsapp',         label: 'WhatsApp' });
+    if (m.tiktok)     links.push({ href: m.tiktok,      icon: 'fa-brands fa-tiktok',           label: 'TikTok' });
+
+    /* Default fallbacks for manager */
+    if (!links.length && m.isManager) {
+      links.push(
+        { href: 'https://t.me/TurkoOlga',                         icon: 'fa-brands fa-telegram',         label: 'Telegram' },
+        { href: 'viber://chat?number=%2B375291809516',             icon: 'fa-brands fa-viber',            label: 'Viber' },
+        { href: 'https://www.instagram.com/rielter_olga_lida',    icon: 'fa-brands fa-square-instagram', label: 'Instagram' },
+        { href: 'https://www.tiktok.com/@rieltor_olga_lida',      icon: 'fa-brands fa-tiktok',           label: 'TikTok' },
+      );
+    }
+
+    if (!links.length) return '';
+    return links.map(l =>
+      `<a href="${safe(l.href)}" target="_blank" rel="noopener noreferrer" aria-label="${safe(l.label)}">
+        <i class="${safe(l.icon)}" aria-hidden="true"></i>
+      </a>`
+    ).join('');
+  };
+
+  /* ── Render info boxes (2×2 grid) ── */
+  const renderInfoBoxes = m => {
+    const email     = m.email    || (m.isManager ? 'olgaturko1975@gmail.com' : '—');
+    const phone     = m.phone    || (m.isManager ? '+375 29 180 95 16'       : '—');
+    const location  = m.city    ? `г. ${m.city}`                              : '—';
+    const exp       = m.experience ? `${m.experience}+ лет`                   : '—';
+
+    return `
+      <div class="td-info-box">
+        <div class="td-info-box-label">Email</div>
+        <div class="td-info-box-value">${safe(email)}</div>
+      </div>
+      <div class="td-info-box">
+        <div class="td-info-box-label">Телефон</div>
+        <div class="td-info-box-value">${safe(phone)}</div>
+      </div>
+      <div class="td-info-box">
+        <div class="td-info-box-label">Город</div>
+        <div class="td-info-box-value">${safe(location)}</div>
+      </div>
+      <div class="td-info-box">
+        <div class="td-info-box-label">Опыт</div>
+        <div class="td-info-box-value">${safe(exp)}</div>
+      </div>`;
+  };
+
+  /* ── Render skill bars ── */
+  const renderSkillBars = skills => skills.map(s => `
+    <div class="td-skill-item td-reveal">
+      <div class="td-skill-header">
+        <span class="td-skill-name">${safe(s.name)}</span>
+        <span class="td-skill-pct">${s.pct}%</span>
+      </div>
+      <div class="td-skill-track">
+        <div class="td-skill-bar" data-pct="${s.pct}"></div>
+      </div>
+    </div>`).join('');
+
+  /* ── Main render ── */
+  const render = (m, slug) => {
+    /* Hide skeleton */
+    const skel = $('#heroSkeleton');
+    if (skel) skel.hidden = true;
+
+    /* --- Hero --- */
+    const heroWrap = $('#heroContent');
+    const contactHref = m.phone
+      ? `tel:${m.phone.replace(/\s/g, '')}`
+      : (m.isManager ? 'tel:+375291809516' : '#ctaSection');
+
+    const photoInner = m.photo
+      ? `<img src="${safe(m.photo)}" alt="${safe(m.name)}" loading="eager" fetchpriority="high" />`
+      : `<div class="td-photo-placeholder"><i class="fa-solid fa-user" aria-hidden="true"></i></div>`;
+
+    const socials = renderSocials(m);
+    const desc = m.description ||
+      `Профессиональный риэлтер с ${m.experience || 0}-летним опытом работы. Специализация: ${m.specialization || 'сделки с недвижимостью'}. Провёл(а) более ${m.deals || 0} успешных сделок.`;
+
+    heroWrap.innerHTML = `
+      <div class="td-hero">
+        <div class="td-photo-card td-reveal">
+          <div class="td-photo-wrap">${photoInner}</div>
+          ${socials ? `<div class="td-photo-socials">${socials}</div>` : ''}
+        </div>
+        <div class="td-info-panel td-reveal">
+          <h1 class="td-info-heading">ПРИВЕТ! Я ${safe(m.name)}<br>${safe(m.position || 'Риэлтер')}</h1>
+          <p class="td-info-role">${safe(m.specialization || m.position || 'Специалист по недвижимости')}</p>
+          <p class="td-info-desc">${safe(desc)}</p>
+          <div class="td-info-boxes">${renderInfoBoxes(m)}</div>
+          <a class="td-contact-btn" href="${safe(contactHref)}">Связаться со мной</a>
+        </div>
+      </div>`;
+    heroWrap.hidden = false;
+
+    /* --- Experiences --- */
+    const expSection = $('#experiencesSection');
+    if (expSection) {
+      const skills = buildSkills(m);
+      $('#skillBars').innerHTML = renderSkillBars(skills);
+      $('#expDesc').textContent = `Многолетний опыт на рынке недвижимости позволяет решать задачи любой сложности — от первичного подбора до юридического сопровождения сделки. Работаю честно, прозрачно и в интересах клиента.`;
+      expSection.hidden = false;
+    }
+
+    /* --- Stats --- */
+    const statsSection = $('#statsSection');
+    if (statsSection && (m.deals || m.experience)) {
+      const items = [
+        { label: 'Сделок завершено',    value: m.deals      || 0 },
+        { label: 'Лет опыта',           value: m.experience || 0 },
+        { label: 'Довольных клиентов',  value: m.clients    || Math.round((m.deals || 0) * 0.92) },
+        { label: 'Объектов продано',    value: m.sold       || Math.round((m.deals || 0) * 0.7) },
+      ];
+      $('#statsGrid').innerHTML = items.map(it => `
+        <div class="td-stat-card td-reveal">
+          <span class="td-stat-number" data-count="${it.value}">0</span>
+          <span class="td-stat-label">${safe(it.label)}</span>
+        </div>`).join('');
+      statsSection.hidden = false;
+    }
+
+    /* --- CTA --- */
+    const ctaSection = $('#ctaSection');
+    if (ctaSection) ctaSection.hidden = false;
+
+    updateMeta(m, slug);
+    initReveal();
+    initCounters();
+
+    /* Bars animate after a short delay so transition is visible */
+    setTimeout(animateBars, 300);
+
+    /* CTA form handler */
+    const form = $('#ctaForm');
+    if (form) {
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+        const msg = $('#ctaFormMsg');
+        const btn = form.querySelector('button[type=submit]');
+        btn.disabled = true;
+        try {
+          const payload = {
+            name:    form.name.value.trim(),
+            phone:   form.phone.value.trim(),
+            comment: (form.comment?.value || '').trim(),
+            source:  `team-detail:${slug}`,
+          };
+          const res = await fetch('/api/client-quiz.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+          if (res.ok) {
+            msg.textContent = 'Заявка отправлена! Мы свяжемся с вами в ближайшее время.';
+            msg.className = 'td-form-msg td-form-msg--ok';
+            form.reset();
+          } else {
+            throw new Error('server');
+          }
+        } catch {
+          msg.textContent = 'Не удалось отправить. Позвоните нам: +375 29 180 95 16';
+          msg.className = 'td-form-msg td-form-msg--err';
+        } finally {
+          msg.hidden = false;
+          btn.disabled = false;
+        }
+      });
+    }
+  };
+
+  /* ── Not-found fallback ── */
+  const showFallback = () => {
+    const skel = $('#heroSkeleton');
+    if (skel) skel.hidden = true;
+    const hero = $('#heroContent');
+    if (hero) {
+      hero.innerHTML = `
+        <div class="td-not-found">
+          <h1>Специалист не найден</h1>
+          <p>Проверьте ссылку или вернитесь на главную страницу.</p>
+          <a class="td-contact-btn" href="/">На главную</a>
+        </div>`;
+      hero.hidden = false;
+    }
+  };
+
+  /* ── Bootstrap ── */
   (async () => {
     try {
       const slug = parseSlug();
-      const team = await getTeam();
-      const normalized = team.map((m) => ({ ...m, slug: m.slug || slugify(m.name) }));
-      const decodedSlug = decodeURIComponent(slug || '').trim().toLowerCase();
-      let member = normalized.find((m) => (m.slug || '').toLowerCase() === decodedSlug);
+      const team = await fetchTeam();
+      const withSlugs = team.map(m => ({ ...m, slug: m.slug || slugify(m.name) }));
 
-      // If slug is empty (?slug=) or not found, render a graceful default profile instead of blank page.
-      if (!member) {
-        member = normalized.find((m) => m.isManager) || normalized[0] || null;
-      }
+      let member = withSlugs.find(m => m.slug.toLowerCase() === slug.toLowerCase());
+      if (!member) member = withSlugs.find(m => m.isManager) || withSlugs[0] || null;
+      if (!member) return showFallback();
 
-      if (!member) return fallback();
-      render(member);
-    } catch (e) { console.error(e); fallback(); }
+      render(member, member.slug);
+    } catch (err) {
+      console.error('[team-detail]', err);
+      showFallback();
+    }
   })();
 })();
