@@ -10,7 +10,28 @@
   const safe = (v = '') => String(v).replace(/[<>&"']/g, (m) => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[m]));
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const getTeam = async () => (window.teamService ? teamService.getAll() : (await fetch('/data/team.json')).json());
+  const TEAM_ENDPOINTS = ['/data/team.json', '/team.json', './team.json'];
+  const normalizeTeamPayload = (payload) => Array.isArray(payload) ? payload : (payload && Array.isArray(payload.team) ? payload.team : []);
+  const getTeam = async () => {
+    if (typeof teamService !== 'undefined' && teamService?.getAll) {
+      try {
+        const serviceData = await teamService.getAll();
+        const normalizedServiceData = normalizeTeamPayload(serviceData);
+        if (normalizedServiceData.length) return normalizedServiceData;
+      } catch (_) {}
+    }
+    let lastError = null;
+    for (const url of TEAM_ENDPOINTS) {
+      try {
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`${url}: ${res.status}`);
+        const payload = await res.json();
+        const normalized = normalizeTeamPayload(payload);
+        if (normalized.length) return normalized;
+      } catch (e) { lastError = e; }
+    }
+    throw lastError || new Error('Team JSON unavailable');
+  };
 
   const animateReveal = () => {
     const nodes = document.querySelectorAll('.reveal');
@@ -74,7 +95,8 @@
       const slug = parseSlug();
       const team = await getTeam();
       const normalized = team.map((m) => ({ ...m, slug: m.slug || slugify(m.name) }));
-      const member = normalized.find((m) => m.slug === slug);
+      const decodedSlug = decodeURIComponent(slug || '').trim().toLowerCase();
+      const member = normalized.find((m) => (m.slug || '').toLowerCase() === decodedSlug);
       if (!member) return fallback();
       render(member);
     } catch (e) { console.error(e); fallback(); }
