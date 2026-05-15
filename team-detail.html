@@ -1,240 +1,109 @@
 <!doctype html>
 <html lang="ru">
-
 <head>
-    <!-- ==============================================
-       1. BASE META
-    =============================================== -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#006064">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#006064">
 
-    <!-- ==============================================
-       2. SEO (dynamic, set by JS)
-    =============================================== -->
-    <title id="pageTitle">Специалист по недвижимости | Лида</title>
-    <meta name="description" id="pageDescription" content="Специалист по недвижимости в Лиде с опытом и профессиональным подходом к каждой сделке.">
-    <meta name="author" content="ГермесГрупп">
-    <meta name="robots" content="index, follow">
+  <title id="pageTitle">Специалист по недвижимости | ГермесГрупп</title>
+  <meta name="description" id="pageDescription" content="Профессиональный риэлтер: сопровождение сделок, консультации и подбор объектов.">
+  <link rel="canonical" id="canonicalLink" href="">
 
-    <link rel="canonical" id="canonicalLink" href="">
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="turko.by">
+  <meta property="og:title" id="ogTitle" content="Специалист по недвижимости">
+  <meta property="og:description" id="ogDescription" content="Профессиональная помощь в сделках с недвижимостью">
+  <meta property="og:url" id="ogUrl" content="">
+  <meta property="og:image" id="ogImage" content="">
 
-    <!-- ==============================================
-       3. OPEN GRAPH / SOCIAL
-    =============================================== -->
-    <meta property="og:type" content="profile">
-    <meta property="og:site_name" content="turko.by">
-    <meta property="og:title" id="ogTitle" content="Специалист по недвижимости">
-    <meta property="og:description" id="ogDescription" content="Профессиональная помощь в сделках с недвижимостью">
-    <meta property="og:url" id="ogUrl" content="">
-    <meta property="og:image" id="ogImage" content="">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:locale" content="ru_BY">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="twitterTitle" content="Специалист по недвижимости">
+  <meta name="twitter:description" id="twitterDescription" content="Профессиональная помощь в сделках с недвижимостью">
+  <meta name="twitter:image" id="twitterImage" content="">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" id="twitterTitle" content="Специалист по недвижимости">
-    <meta name="twitter:description" id="twitterDescription" content="Профессиональная помощь в сделках с недвижимостью">
-    <meta name="twitter:image" id="twitterImage" content="">
-
-    <!-- ==============================================
-       4. FAVICONS
-    =============================================== -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-    <!-- ==============================================
-       5. PERFORMANCE
-    =============================================== -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preload" href="/fonts/inter/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fonts/inter/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fonts/montserrat/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin>
-
-    <!-- ==============================================
-       6. VERSIONING
-    =============================================== -->
-    <script src="/site-version.php"></script>
-
-    <!-- ==============================================
-       7. CRITICAL CSS
-    =============================================== -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css" data-versioned>
-
-    <!-- ==============================================
-       8. NON-CRITICAL CSS
-    =============================================== -->
-    <link rel="preload" href="/css/swiper-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/swiper.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-
-    <link rel="preload" href="/css/fontawesome/css/fontawesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/fontawesome/css/brands.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/fontawesome/css/solid.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-
-    <link rel="preload" href="/css/flaticon.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/blog-badge.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-
-    <noscript>
-        <link rel="stylesheet" href="/css/swiper-bundle.css">
-        <link rel="stylesheet" href="/css/swiper.css">
-        <link rel="stylesheet" href="/css/fontawesome/css/fontawesome.min.css">
-        <link rel="stylesheet" href="/css/fontawesome/css/brands.min.css">
-        <link rel="stylesheet" href="/css/fontawesome/css/solid.min.css">
-        <link rel="stylesheet" href="/css/flaticon.min.css">
-        <link rel="stylesheet" href="/css/blog-badge.css">
-    </noscript>
-
-    <link rel="stylesheet" href="/css/contact-widget.css">
-    <link rel="stylesheet" href="/css/team-section.css" data-versioned>
-    <style id="team-detail-styles"></style>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css" data-versioned>
+  <link rel="stylesheet" href="/css/contact-widget.css">
+  <link rel="stylesheet" href="/css/team-section.css" data-versioned>
+  <link rel="stylesheet" href="/css/team-detail-page.css" data-versioned>
+  <script src="/site-version.php"></script>
 </head>
-
 <body>
-    <!-- Page wrapper -->
-    <div class="page-wraper">
-        <!-- Header (can be loaded from separate file or included) -->
-        <header id="site-header" class="site-header header-style-1">
-            <!-- Header will be loaded dynamically if needed -->
-        </header>
-
-        <!-- Main Content -->
-        <main class="site-main">
-            <!-- Hero Section -->
-            <section id="team-hero" class="sx-bnr-inr" style="background-image: url(/images/background/bg-1.webp); background-size: cover; background-position: center; position: relative; padding: 6rem 0 3rem;">
-                <div class="container">
-                    <div class="page-intro-content">
-                        <div class="page-intro-breadcrumb">
-                            <ul>
-                                <li><a href="/">Главная</a></li>
-                                <li><a href="/">Команда</a></li>
-                                <li><span id="breadcrumb-name">Специалист</span></li>
-                            </ul>
-                        </div>
-                        <h1 id="team-hero-name" style="font-size: clamp(2rem, 5vw, 3.5rem); margin: 1rem 0; font-weight: 700;">Специалист по недвижимости</h1>
-                        <p id="team-hero-position" style="font-size: 1.25rem; color: var(--color-text-light); margin: 0;">Риэлтер</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Team Member Details -->
-            <section id="team-detail-content" class="section-full mobile-page-padding p-t80 p-b80 bg-white">
-                <div class="container">
-                    <div id="team-member-loading" style="text-align: center; padding: 3rem;">
-                        <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: var(--color-primary);"></i>
-                        <p style="margin-top: 1rem; color: var(--color-text-light);">Загрузка информации...</p>
-                    </div>
-                    <div id="team-member-content" style="display: none;"></div>
-                </div>
-            </section>
-
-            <!-- Other Team Members -->
-            <section id="other-team-section" class="section-full mobile-page-padding p-t80 p-b80 bg-gray bg-repeat" style="background-image: url(/images/background/bg-5.png);">
-                <div class="container">
-                    <header class="section-head section-head--bracket">
-                        <h2 class="section-title">Другие специалисты</h2>
-                    </header>
-                    <div id="other-team-members" class="row"></div>
-                </div>
-            </section>
-
-            <!-- CTA Section -->
-            <section class="section-full mobile-page-padding p-t80 p-b80" style="background: linear-gradient(135deg, var(--color-primary) 0%, #0d4838 100%);">
-                <div class="container">
-                    <div style="text-align: center; color: var(--color-white);">
-                        <h2 style="color: var(--color-white); margin-bottom: 1.5rem;">Готовы начать сотрудничество?</h2>
-                        <p style="font-size: 1.125rem; margin-bottom: 2rem; opacity: 0.95;">
-                            Свяжитесь с нашим специалистом для подробной консультации
-                        </p>
-                        <div id="team-member-cta-buttons" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;"></div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer class="site-footer footer-large footer-dark footer-wide" id="site-footer">
-            <!-- Footer will be loaded dynamically if needed -->
-        </footer>
-    </div>
-
-    <!-- Contact Widget -->
-    <div class="contact-widget" id="contact-widget">
-        <button
-            class="cw__fab"
-            type="button"
-            aria-label="Открыть способы связи"
-            aria-haspopup="dialog"
-            aria-controls="cw-modal"
-            aria-expanded="false"
-            data-cw-open
-        >
-            <span class="cw__fab-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
-                    <path d="M4 5.5C4 4.12 5.12 3 6.5 3h11C18.88 3 20 4.12 20 5.5v8c0 1.38-1.12 2.5-2.5 2.5H10l-4.5 4v-4H6.5A2.5 2.5 0 0 1 4 13.5v-8Zm2.5-.5a.5.5 0 0 0-.5.5v8c0 .28.22.5.5.5h1.5c.55 0 1 .45 1 1v.56l2.8-2.49A1 1 0 0 1 12.46 13h5.04a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-11Z"/>
-                </svg>
-            </span>
-        </button>
-
-        <div class="cw__overlay" data-cw-overlay hidden>
-            <section
-                id="cw-modal"
-                class="cw__modal"
-                role="dialog"
-                aria-modal="true"
-                aria-labelledby="cw-title"
-                aria-describedby="cw-desc"
-                tabindex="-1"
-            >
-                <button class="cw__close" type="button" aria-label="Закрыть окно" data-cw-close>
-                    <span aria-hidden="true">×</span>
-                </button>
-
-                <h2 id="cw-title" class="cw__title">Я всегда на связи</h2>
-                <p id="cw-desc" class="cw__subtitle">
-                    Напишите мне — подскажу по покупке или продаже и помогу разобраться в вашей ситуации
-                </p>
-
-                <div class="cw__content">
-                    <section class="cw__qr" aria-label="QR для быстрого перехода">
-                        <h3 class="cw__qr-title">Сканируйте QR с телефона</h3>
-                        <div class="cw__qr-frame">
-                            <img
-                                id="cw-qr-image"
-                                class="cw__qr-image"
-                                src="/images/placeholder.webp"
-                                width="240"
-                                height="240"
-                                loading="lazy"
-                                decoding="async"
-                                alt="QR-код"
-                            >
-                        </div>
-                    </section>
-
-                    <nav class="cw__actions" id="cw-actions-container" aria-label="Способы связи">
-                        <!-- Actions will be populated dynamically -->
-                    </nav>
-                </div>
-
-                <a id="cw-phone-link" class="cw__phone" href="tel:">
-                    <span class="cw__phone-caption">Предпочитаете звонить?</span>
-                    <span class="cw__phone-number"></span>
-                </a>
-            </section>
+<div class="page-wraper">
+  <header class="site-header header-style-1 nav-wide mobile-sider-drawer-menu">
+    <div class="sticky-header main-bar-wraper navbar-expand-lg">
+      <div class="main-bar">
+        <div class="container header-middle clearfix">
+          <div class="logo-header">
+            <a href="/">
+              <img src="/images/logo-dark.svg" alt="ГермесГрупп" class="site-logo site-logo--dark">
+            </a>
+          </div>
+          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Открыть меню">
+            <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+          </button>
+          <div class="header-nav navbar-collapse collapse" id="mainNav">
+            <ul class="nav navbar-nav">
+              <li><a href="/">Главная</a></li>
+              <li><a href="/rieltor-lida">Услуги</a></li>
+              <li><a href="/objects">Объекты</a></li>
+              <li><a href="/contact">Контакты</a></li>
+            </ul>
+          </div>
         </div>
+      </div>
     </div>
+  </header>
+  <main class="site-main team-detail-page">
+    <section class="team-detail-hero">
+      <div class="container">
+        <nav class="team-breadcrumbs" aria-label="Хлебные крошки">
+          <ol id="breadcrumbsList" itemscope itemtype="https://schema.org/BreadcrumbList"></ol>
+        </nav>
+        <div id="heroSkeleton" class="skeleton-block"></div>
+        <div id="heroContent" class="hero-grid" hidden></div>
+      </div>
+    </section>
 
-    <!-- Scripts -->
-    <script src="/js/sw-register.js" defer></script>
-    <script src="contact-widget.js" defer></script>
-    <script src="/js/nav-market-status.js" defer></script>
+    <section class="team-about section-full mobile-page-padding p-t80 p-b40">
+      <div class="container">
+        <div id="aboutContent"></div>
+      </div>
+    </section>
 
-    <!-- Team Detail Scripts -->
-    <script src="/js/services/team-service.js" defer></script>
-    <script src="/js/team-detail-page.js" defer></script>
+    <section class="team-stats section-full mobile-page-padding p-t40 p-b40">
+      <div class="container"><div id="statsGrid" class="stats-grid"></div></div>
+    </section>
+
+    <section class="team-objects section-full mobile-page-padding p-t40 p-b80 bg-gray">
+      <div class="container">
+        <h2 class="section-title">Объекты риэлтера</h2>
+        <div id="objectsGrid" class="objects-grid"></div>
+      </div>
+    </section>
+
+    <section class="team-cta section-full mobile-page-padding p-t80 p-b80">
+      <div class="container"><div id="ctaContent"></div></div>
+    </section>
+  </main>
+  <footer class="site-footer footer-large footer-dark footer-wide">
+    <div class="footer-bottom overlay-wraper">
+      <div class="overlay-main"></div>
+      <div class="container p-t30">
+        <div class="row">
+          <div class="sx-footer-bot-left">
+            <span class="copyrights-text">© 2026 ГермесГрупп. Все права защищены.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+<script>document.body.classList.add("loaded");</script>
+<script src="/js/optimize.js" defer data-versioned></script>
+<script src="/js/services/team-service.js" defer></script>
+<script src="/js/team-detail-page.js" defer></script>
 </body>
-
 </html>
