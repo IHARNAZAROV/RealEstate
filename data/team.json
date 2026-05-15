@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "slug": "olga-turko",
     "name": "Ольга Турко",
     "position": "Руководитель филиала",
     "specialization": "Эксперт по недвижимости Лиды",
@@ -13,6 +14,7 @@
   },
   {
     "id": 2,
+    "slug": "artyom-lisovskiy",
     "name": "Артём Лисовский",
     "position": "Риэлтер",
     "specialization": "Новостройки и инвестиции",
@@ -25,6 +27,7 @@
   },
   {
     "id": 3,
+    "slug": "marina-kravchuk",
     "name": "Марина Кравчук",
     "position": "Риэлтер",
     "specialization": "Семейные квартиры",
@@ -37,6 +40,7 @@
   },
   {
     "id": 4,
+    "slug": "dmitriy-yarosh",
     "name": "Дмитрий Ярош",
     "position": "Риэлтер",
     "specialization": "Загородные дома",
@@ -49,6 +53,7 @@
   },
   {
     "id": 5,
+    "slug": "ekaterina-poleshchuk",
     "name": "Екатерина Полещук",
     "position": "Риэлтер",
     "specialization": "Коммерческая недвижимость",
@@ -61,6 +66,7 @@
   },
   {
     "id": 6,
+    "slug": "ilya-selivon",
     "name": "Илья Селивон",
     "position": "Риэлтер",
     "specialization": "Премиальные объекты",
@@ -73,6 +79,7 @@
   },
   {
     "id": 7,
+    "slug": "anastasiya-chayka",
     "name": "Анастасия Чайка",
     "position": "Риэлтер",
     "specialization": "Вторичный рынок",
@@ -85,6 +92,7 @@
   },
   {
     "id": 8,
+    "slug": "kirill-romanov",
     "name": "Кирилл Романов",
     "position": "Риэлтер",
     "specialization": "Срочный выкуп и обмен",
@@ -97,6 +105,7 @@
   },
   {
     "id": 9,
+    "slug": "veronika-lappo",
     "name": "Вероника Лаппо",
     "position": "Риэлтер",
     "specialization": "Аренда бизнес-площадей",
@@ -109,6 +118,7 @@
   },
   {
     "id": 10,
+    "slug": "nikita-doroshevich",
     "name": "Никита Дорошевич",
     "position": "Риэлтер",
     "specialization": "Квартиры в новостройках",
@@ -121,6 +131,7 @@
   },
   {
     "id": 11,
+    "slug": "polina-romanyuk",
     "name": "Полина Романюк",
     "position": "Риэлтер",
     "specialization": "Юридически сложные сделки",
@@ -133,6 +144,7 @@
   },
   {
     "id": 12,
+    "slug": "vladislav-baran",
     "name": "Владислав Баран",
     "position": "Риэлтер",
     "specialization": "Коттеджи и таунхаусы",
@@ -145,6 +157,7 @@
   },
   {
     "id": 13,
+    "slug": "svetlana-taras",
     "name": "Светлана Тарас",
     "position": "Риэлтер",
     "specialization": "Инвестиции в доходные объекты",
