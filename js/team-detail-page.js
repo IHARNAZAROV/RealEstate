@@ -96,7 +96,13 @@
       const team = await getTeam();
       const normalized = team.map((m) => ({ ...m, slug: m.slug || slugify(m.name) }));
       const decodedSlug = decodeURIComponent(slug || '').trim().toLowerCase();
-      const member = normalized.find((m) => (m.slug || '').toLowerCase() === decodedSlug);
+      let member = normalized.find((m) => (m.slug || '').toLowerCase() === decodedSlug);
+
+      // If slug is empty (?slug=) or not found, render a graceful default profile instead of blank page.
+      if (!member) {
+        member = normalized.find((m) => m.isManager) || normalized[0] || null;
+      }
+
       if (!member) return fallback();
       render(member);
     } catch (e) { console.error(e); fallback(); }
