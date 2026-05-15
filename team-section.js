@@ -65,7 +65,7 @@
         <div><span class="stat-label">Сделки</span><span class="stat-value">${safe(agent.deals)}</span></div>
         <div><span class="stat-label">Город</span><span class="stat-value">${safe(agent.city)}</span></div>
       </div>
-      <a href="#" class="card-link" aria-label="Подробнее о ${safe(agent.name)}">Подробнее <span aria-hidden="true">→</span></a>
+      <a href="/team-detail.html?slug=${safe(agent.slug || agent.name.toLowerCase().replace(/[^\p{L}\p{N}]+/gu,'-').replace(/(^-|-$)/g,''))}" class="card-link" aria-label="Подробнее о ${safe(agent.name)}">Подробнее <span aria-hidden="true">→</span></a>
     </div>`;
 
   const buildSlides = (agents) => {
