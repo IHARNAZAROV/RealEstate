@@ -28,18 +28,18 @@
   <link rel="manifest" href="/site.webmanifest" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-  <script src="/site-version.php"></script>
+  <script src="/site-version.js"></script>
 
   <link rel="preload" href="/fonts/inter/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/inter/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/montserrat/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin>
 
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="print" onload="this.media='all'" />
-  <link rel="stylesheet" type="text/css" href="css/style.css" media="print" onload="this.media='all'" />
-  <link rel="stylesheet" href="/css/fontawesome/css/fontawesome.min.css" />
-  <link rel="stylesheet" href="/css/fontawesome/css/brands.min.css" />
-  <link rel="stylesheet" href="/css/fontawesome/css/solid.min.css" />
-  <link rel="stylesheet" href="/css/contact-widget.css" />
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="print" onload="this.media='all'" data-versioned />
+  <link rel="stylesheet" type="text/css" href="css/style.css" media="print" onload="this.media='all'" data-versioned />
+  <link rel="stylesheet" href="/css/fontawesome/css/fontawesome.min.css" data-versioned />
+  <link rel="stylesheet" href="/css/fontawesome/css/brands.min.css" data-versioned />
+  <link rel="stylesheet" href="/css/fontawesome/css/solid.min.css" data-versioned />
+  <link rel="stylesheet" href="/css/contact-widget.css" data-versioned />
   <link rel="stylesheet" href="/css/team-detail-page.css" data-versioned />
 </head>
 
@@ -102,25 +102,29 @@
   </nav>
   <!-- MOBILE MENU END -->
 
-  <!-- PAGE BANNER -->
-  <section class="td-banner">
+  <!-- PAGE INTRO -->
+  <section class="page-intro">
     <div class="container">
-      <nav class="td-breadcrumb" aria-label="Хлебные крошки">
-        <ol id="breadcrumbsList" itemscope itemtype="https://schema.org/BreadcrumbList">
-          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href="/"><span itemprop="name">Главная</span></a>
-            <meta itemprop="position" content="1">
-          </li>
-          <li aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></li>
-          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <span itemprop="name" id="breadcrumbName">Специалист</span>
-            <meta itemprop="position" content="2">
-          </li>
-        </ol>
-      </nav>
+      <div class="page-intro-inner">
+        <span class="page-intro-eyebrow" id="pageIntroEyebrow">Наша команда</span>
+
+        <h1 class="page-intro-title" id="pageIntroTitle">Загрузка...</h1>
+
+        <p class="page-intro-description" id="pageIntroDescription">Риэлтер</p>
+
+        <div class="page-intro-divider"></div>
+
+        <nav class="page-intro-breadcrumb" aria-label="Хлебные крошки">
+          <ul>
+            <li><a href="/">Главная</a></li>
+            <li>Команда</li>
+            <li id="breadcrumbName">Специалист</li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </section>
-  <!-- PAGE BANNER END -->
+  <!-- PAGE INTRO END -->
 
   <!-- MAIN CONTENT -->
   <main class="site-main">
@@ -336,10 +340,10 @@
 
 </div>
 
-<script src="/js/optimize.js" defer></script>
-<script src="/js/footer-post.js" defer></script>
-<script src="/js/team-detail-page.js" defer></script>
-<script src="/js/sw-register.js" defer></script>
-<script src="contact-widget.js" defer></script>
+<script src="/js/optimize.js" defer data-versioned></script>
+<script src="/js/footer-post.js" defer data-versioned></script>
+<script src="/js/team-detail-page.js" defer data-versioned></script>
+<script src="/js/sw-register.js" defer data-versioned></script>
+<script src="contact-widget.js" defer data-versioned></script>
 </body>
 </html>

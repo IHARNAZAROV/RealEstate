@@ -103,6 +103,11 @@
     set('#canonicalLink',      'href', canonical);
     set('#ogUrl',              'content', canonical);
     set('#breadcrumbName',     'textContent', m.name);
+    
+    /* Page intro section */
+    set('#pageIntroEyebrow',     'textContent', 'Специалист');
+    set('#pageIntroTitle',       'textContent', m.name);
+    set('#pageIntroDescription', 'textContent', m.position);
 
     /* Schema.org Person */
     const sc = document.createElement('script');
