@@ -17,20 +17,12 @@
   };
 
   /* ── Fetch team data ── */
-  const ENDPOINTS = ['/data/team.json', '/team.json'];
   const normalise = p => Array.isArray(p) ? p : (p && Array.isArray(p.team) ? p.team : []);
 
   const fetchTeam = async () => {
-    let last;
-    for (const url of ENDPOINTS) {
-      try {
-        const r = await fetch(url, { cache: 'no-store' });
-        if (!r.ok) throw new Error(`${r.status}`);
-        const list = normalise(await r.json());
-        if (list.length) return list;
-      } catch (e) { last = e; }
-    }
-    throw last || new Error('team.json unavailable');
+    const r = await fetch('/data/team.json', { cache: 'no-store' });
+    if (!r.ok) throw new Error(`${r.status}`);
+    return normalise(await r.json());
   };
 
   /* ── Reveal on scroll ── */
