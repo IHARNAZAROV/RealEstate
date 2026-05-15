@@ -109,7 +109,7 @@
         <link rel="stylesheet" href="/css/nav-market-status.css?v=8">
     </noscript>
     <link rel="stylesheet" href="/css/contact-widget.css">
-    <link rel="stylesheet" href="/css/team-section.css" data-versioned>
+    <link rel="stylesheet" href="/team-section.css">
     <style>
         .nav-market-status-li{list-style:none;padding:0;margin-left:14px;align-self:center!important;margin-top:8px!important}
         .nav-market-status{display:flex!important;align-items:center!important;padding:5px 14px!important;background:rgba(61,214,176,.07)!important;border:1px solid rgba(61,214,176,.25)!important}
@@ -909,6 +909,33 @@
                     <a href="/nedvizhimost-lida" class="site-button-secondry btn-half"><span> Все объекты на продажу</span></a>
                 </div>
             </div>
+            <section class="team-section" aria-labelledby="team-section-title">
+                <div class="team-section__shell">
+                    <header class="team-section__header">
+                        <p class="team-section__eyebrow">Наша команда</p>
+                        <h2 id="team-section-title">Специалисты агентства</h2>
+                        <p class="team-section__subtitle">Профессионалы, которые сопровождают каждую сделку с точностью, экспертизой и вниманием к деталям.</p>
+                        <div class="team-section__controls" aria-label="Навигация по слайдам специалистов">
+                            <button class="team-nav team-nav--prev" type="button" aria-label="Предыдущий слайд специалистов">
+                                <span aria-hidden="true">←</span>
+                            </button>
+                            <button class="team-nav team-nav--next" type="button" aria-label="Следующий слайд специалистов">
+                                <span aria-hidden="true">→</span>
+                            </button>
+                        </div>
+                    </header>
+                    <div class="team-section__layout">
+                        <article class="manager-card" aria-live="polite"></article>
+                        <div class="agents-slider" tabindex="0" role="region" aria-label="Слайдер специалистов">
+                            <div class="agents-slider__viewport">
+                                <div class="agents-slider__track"></div>
+                            </div>
+                            <div class="agents-slider__pagination" aria-label="Пагинация слайдов"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <script id="team-data" type="application/json">[{"id":1,"name":"Ольга Турко","position":"Руководитель филиала","specialization":"Эксперт по недвижимости Лиды","experience":12,"deals":340,"city":"Лида","photo":"/images/team/olga-turko.webp","isManager":true,"description":"Эксперт по недвижимости Лиды с 12-летним опытом. Провела более 340 успешных сделок."},{"id":2,"name":"Артём Лисовский","position":"Риэлтер","specialization":"Новостройки и инвестиции","experience":8,"deals":188,"city":"Гродно","photo":"/images/main-slider/3.webp","isManager":false,"description":""},{"id":3,"name":"Марина Кравчук","position":"Риэлтер","specialization":"Семейные квартиры","experience":6,"deals":145,"city":"Лида","photo":"/images/main-slider/3.webp","isManager":false,"description":""},{"id":4,"name":"Дмитрий Ярош","position":"Риэлтер","specialization":"Загородные дома","experience":10,"deals":231,"city":"Щучин","photo":"/images/main-slider/3.webp","isManager":false,"description":""},{"id":5,"name":"Екатерина Полещук","position":"Риэлтер","specialization":"Коммерческая недвижимость","experience":9,"deals":164,"city":"Волковыск","photo":"/images/main-slider/3.webp","isManager":false,"description":""},{"id":6,"name":"Илья Селивон","position":"Риэлтер","specialization":"Премиальные объекты","experience":7,"deals":121,"city":"Гродно","photo":"/images/main-slider/3.webp","isManager":false,"description":""},{"id":7,"name":"Анастасия Чайка","position":"Риэлтер","specialization":"Вторичный рынок","experience":5,"deals":116,"city":"Лида","photo":"/images/main-slider/3.webp","isManager":false,"description":""},{"id":8,"name":"Кирилл Романов","position":"Риэлтер","specialization":"Срочный выкуп и обмен","experience":11,"deals":279,"city":"Мосты","photo":"/images/main-slider/3.webp","isManager":false,"description":""},{"id":9,"name":"Вероника Лаппо","position":"Риэлтер","specialization":"Аренда бизнес-площадей","experience":4,"deals":98,"city":"Лида","photo":"/images/main-slider/3.webp","isManager":false,"description":""},{"id":10,"name":"Никита Дорошевич","position":"Риэлтер","specialization":"Квартиры в новостройках","experience":6,"deals":132,"city":"Слоним","photo":"/images/main-slider/3.webp","isManager":false,"description":""},{"id":11,"name":"Полина Романюк","position":"Риэлтер","specialization":"Юридически сложные сделки","experience":13,"deals":305,"city":"Гродно","photo":"/images/main-slider/3.webp","isManager":false,"description":""},{"id":12,"name":"Владислав Баран","position":"Риэлтер","specialization":"Коттеджи и таунхаусы","experience":7,"deals":149,"city":"Берёзовка","photo":"/images/main-slider/3.webp","isManager":false,"description":""},{"id":13,"name":"Светлана Тарас","position":"Риэлтер","specialization":"Инвестиции в доходные объекты","experience":9,"deals":212,"city":"Лида","photo":"/images/main-slider/3.webp","isManager":false,"description":""}]</script>
             <!-- OUR SERVICES END -->
             <!-- SECTION: Market analytics -->
             <div class="section-full mobile-page-padding p-t80 p-b50 bg-gray">
@@ -1139,25 +1166,6 @@
 
         <!-- ==============================================
            CONTENT END
-      =============================================== -->
-        <!-- ==============================================
-           TEAM SECTION START
-      =============================================== -->
-        <section class="team-section">
-            <div class="team-section__container">
-                <div class="team-section__header">
-                    <h2 class="team-section__subtitle">Наша команда</h2>
-                    <h2 class="team-section__title">Профессиональный коллектив риэлтеров</h2>
-                    <p class="team-section__description">
-                        Команда опытных специалистов, готовых помочь вам в любом вопросе недвижимости. 
-                        Каждый член нашей команды привносит свой опыт и знания для достижения ваших целей.
-                    </p>
-                </div>
-                <div id="team-section"></div>
-            </div>
-        </section>
-        <!-- ==============================================
-           TEAM SECTION END
       =============================================== -->
         <!-- ==============================================
            FOOTER START
@@ -1641,26 +1649,8 @@
     </div>
     <script src="/js/sw-register.js" defer></script>
     <script src="contact-widget.js" defer></script>
+    <script src="/team-section.js" defer></script>
     <script src="/js/nav-market-status.js" defer></script>
-    <!-- Team Section Scripts -->
-    <script src="/js/services/team-service.js" defer></script>
-    <script src="/js/team-slider.js" defer></script>
-    <script src="/js/team-renderer.js" defer></script>
-    <script defer>
-        document.addEventListener('DOMContentLoaded', function() {
-            const sectionElement = document.getElementById('team-section');
-            if (sectionElement) {
-                const renderer = new TeamRenderer({
-                    sectionId: 'team-section',
-                    teamService: teamService,
-                    lazyLoadImages: true
-                });
-                renderer.render().catch(err => {
-                    console.error('Failed to render team section:', err);
-                });
-            }
-        });
-    </script>
 </body>
 
 </html>

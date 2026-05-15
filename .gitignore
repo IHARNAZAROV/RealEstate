@@ -1,3 +1,5 @@
+# This .gitignore is appropriate for repositories deployed to GitHub Pages and using
+# a Gemfile as specified at https://github.com/github/pages-gem#conventional
 # Logs
 logs
 *.log
@@ -81,7 +83,6 @@ out
 # Nuxt.js build / generate output
 .nuxt
 dist
-.output
 
 # Gatsby files
 .cache/
@@ -92,8 +93,9 @@ dist
 # vuepress build output
 .vuepress/dist
 
-# vuepress v2.x temp directory
+# vuepress v2.x temp and cache directory
 .temp
+.cache
 
 # Sveltekit cache directory
 .svelte-kit/
@@ -125,9 +127,6 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
-# pnpm
-.pnpm-store
-
 # yarn v3
 .pnp.*
 .yarn/*
@@ -137,7 +136,8 @@ dist
 !.yarn/sdks
 !.yarn/versions
 
-# Vite files
+# Vite logs files
 vite.config.js.timestamp-*
-vite.config.ts.timestamp-*
-.vite/
+vite.config.ts.timestamp-*node_modules/
+
+adminka_objects/.htaccess

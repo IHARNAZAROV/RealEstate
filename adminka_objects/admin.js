@@ -360,6 +360,7 @@ const previewImages = {
   "dom-ogorodniki-molodezhnaya-24": "/images/objects/pic60.webp",
   "dom-lida-ul-dobrolyubova": "/images/objects/pic59.webp",
   "dom-lida-ul-proletarskaya-sloboda": "/images/objects/pic61.webp",
+  "kvartira-lida-ul-tavlaya-35-k1": "/images/objects/pic62.webp",
 };
 
 /* ======================================================
