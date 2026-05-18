@@ -66,7 +66,7 @@
 - **Lazy loading** и `decoding="async"` для изображений на ключевых шаблонах
 - **Производительность:** preload шрифтов и LCP-изображения, отложенная загрузка части CSS, service worker для статики
 - **SEO:** `meta`, canonical, `robots.txt`, `sitemap.xml`, Open Graph / Twitter Card, JSON-LD (в т.ч. `Product`, `FAQPage`, хлебные крошики на карточке объекта)
-- **Доступность:** осмысленные `alt`, `aria-label` на контролах слайдеров, блокировка скролла и ловушка фокуса в контактной панели (`js/optimize.js`, `js/contact-widget.js`)
+- **Доступность:** осмысленные `alt`, `aria-label` на контролах слайдеров, блокировка скролла и ловушка фокуса в контактной панели (`js/optimize.js`, `contact-widget.js`)
 - Онлайн-калькулятор ипотеки, квиз, чеклисты документов — отдельные JS-модули под страницы
 
 ---
@@ -90,9 +90,9 @@ realter/
 ├── index.html, *.html      # Статические страницы
 ├── object-detail.php       # Карточка объекта по slug
 ├── blog-detail.php, raion.php, services-detail.php …
-├── js/sw.js                   # Service Worker (кеш только статики)
+├── sw.js                   # Service Worker (кеш только статики)
 ├── site-version.php        # Cache-busting: window.SITE_VERSION (mtime .deploy или time)
-├── js/generate-rss.js         # Генерация rss.xml
+├── generate-rss.js         # Генерация rss.xml
 ├── sitemap.xml             # Результат generate-sitemap.cjs (коммитится/обновляется скриптом)
 └── robots.txt
 ```
@@ -104,7 +104,7 @@ realter/
 ### Требования
 
 - **PHP 8.1+** (в проекте ориентир на 8.2 — см. `.replit`)
-- **Node.js 18+** — только если нужны скрипты в `scripts/` и `js/generate-rss.js`
+- **Node.js 18+** — только если нужны скрипты в `scripts/` и `generate-rss.js`
 
 ### Клонирование
 
@@ -147,7 +147,7 @@ node scripts/update-all.cjs
 RSS:
 
 ```bash
-node js/generate-rss.js
+node generate-rss.js
 ```
 
 ---
@@ -165,7 +165,7 @@ node js/generate-rss.js
 | `node scripts/update-meta-descriptions.cjs` | Обновление мета-описаний из данных |
 | `node scripts/update-prices-byn.cjs` | Пересчёт цен в BYN по курсу НБРБ |
 | `node scripts/generate-sitemap.cjs` | Генерация `sitemap.xml` |
-| `node js/generate-rss.js` | Генерация `rss.xml` |
+| `node generate-rss.js` | Генерация `rss.xml` |
 
 ---
 
@@ -174,7 +174,7 @@ node js/generate-rss.js
 - **LCP / приоритеты:** `preload` для ключевого hero-изображения и шрифтов (`index.html` и др.).
 - **CSS:** критичные стили подключаются сразу; часть стилей Swiper подгружается с паттерном `preload` → `stylesheet` on load.
 - **Изображения:** формат **WebP** в слайдерах и контенте; `loading="lazy"` и `decoding="async"` на ряде шаблонов.
-- **Service Worker (`js/sw.js`):** кешируется только статика (шрифты, иконки, логотипы); JSON и картинки объектов идут в сеть — актуальность данных не страдает.
+- **Service Worker (`sw.js`):** кешируется только статика (шрифты, иконки, логотипы); JSON и картинки объектов идут в сеть — актуальность данных не страдает.
 - **Версионирование статики:** `data-versioned` / `SITE_VERSION` для сброса кеша браузера после деплоя.
 - **Минификация:** используются готовые `.min.css` / `.min.js` для крупных библиотек; отдельного webpack/vite в репозитории нет (**tree shaking / code splitting как у фреймворчного бандла не применяются**).
 
@@ -187,7 +187,7 @@ node js/generate-rss.js
 - **`robots.txt`** с `Sitemap:` и правилами для служебных путей
 - **`sitemap.xml`** — генерация из статических URL и JSON (`scripts/generate-sitemap.cjs`)
 - **Структурированные данные** Schema.org (JSON-LD + микроразметка FAQ на карточке объекта)
-- **RSS** (`js/generate-rss.js` → `rss.xml`)
+- **RSS** (`generate-rss.js` → `rss.xml`)
 - **PWA:** `site.webmanifest`, иконки
 
 ---
