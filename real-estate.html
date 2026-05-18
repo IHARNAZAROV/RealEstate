@@ -15,11 +15,11 @@
     />
     <meta name="robots" content="index, follow" />
     <!-- Canonical Link -->
-    <link rel="canonical" href="https://turko.by/faq" />
+    <link rel="canonical" href="https://turko.by/rynok-nedvizhimosti-lida/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Вопросы и ответы о недвижимости в Лиде — Ольга Турко" />
     <meta property="og:description" content="Частые вопросы клиентов: продажа квартиры, покупка жилья, проверка документов и сопровождение сделки в Лиде." />
-    <meta property="og:url" content="https://turko.by/faq" />
+    <meta property="og:url" content="https://turko.by/rynok-nedvizhimosti-lida/" />
     <meta property="og:image" content="https://turko.by/images/main-slider/2.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Вопросы и ответы о недвижимости в Лиде — Ольга Турко" />
@@ -115,7 +115,7 @@
             "@type": "ListItem",
             "position": 2,
             "name": "Вопросы",
-            "item": "https://turko.by/faq"
+            "item": "https://turko.by/rynok-nedvizhimosti-lida/"
           }
         ]
       }
@@ -200,7 +200,8 @@
             <li><a href="/">Главная</a></li>
             <li><a href="/rieltor-lida">Обо мне</a></li>
             <li><a href="/nedvizhimost-lida">Объекты</a></li>
-            <li><a href="/blog">Блог</a></li>
+            <li><a href="/rynok-nedvizhimosti-lida/">Аналитика</a></li>
+                    <li><a href="/blog">Блог</a></li>
             <li><a href="/faq">Вопросы</a></li>
             <li><a href="/contact">Контакты</a></li>
           </ul>
@@ -239,9 +240,14 @@
   </li>
 
   <li>
+    <a href="/rynok-nedvizhimosti-lida/" data-path="/rynok-nedvizhimosti-lida/">
+      <i class="fa-solid fa-chart-line"></i>
+      <span>Аналитика</span>
+    </a>
+  </li>
+
+  <li>
     <a href="/blog" data-path="/blog">
-      <i class="fa-solid fa-pen-nib"></i>
-      <span>Блог</span>
     </a>
   </li>
 
@@ -273,226 +279,307 @@
          CONTENT START
          ========================================= -->
       <div class="page-content">
-        <!-- Inner Banner -->
+      <section class="page-intro">
+        <div class="container">
+          <div class="page-intro-inner">
+            <span class="page-intro-eyebrow">Аналитика рынка</span>
+            <h1 class="page-intro-title">Рынок недвижимости Лиды</h1>
+            <p class="page-intro-description">Актуальные цены, аналитика, обзоры и статистика рынка недвижимости в Лиде.</p>
+            <div class="page-intro-divider"></div>
+            <nav class="page-intro-breadcrumb" aria-label="breadcrumb"><ul><li><a href="/">Главная</a></li><li>Рынок недвижимости Лиды</li></ul></nav>
+            
+          </div>
+        </div>
+      </section>
+                    </div>
+                </div>
+            </section>
+
+            <!-- OUR SERVICES END -->
+            <!-- SECTION: Market analytics -->
+            <div class="section-full mobile-page-padding p-t80 p-b50 bg-gray">
+                <div class="container">
+                    <header class="section-head section-head--bracket m-b30">
+                        <h2 class="section-title">Средние цены недвижимости в Лиде</h2>
+                    </header>
+
+                    <div class="market-analytics" id="market-analytics">
+                        <div class="market-analytics__stats">
+                            <article class="market-card" data-kind="apartment">
+                                <p class="market-card__label">Средняя стоимость квартир</p>
+                                <p class="market-card__price" id="avg-apartment-price">—</p>
+                                <p class="market-card__sqm" id="avg-apartment-sqm">—</p>
+                            </article>
+
+                            <article class="market-card market-card--trend" data-kind="trend">
+                                <p class="market-card__label">Индикатор тренда</p>
+                                <p class="market-card__trend" id="market-trend">—</p>
+                                <p class="market-card__sqm" id="market-trend-details">—</p>
+                            </article>
+
+                            <article class="market-card" data-kind="room-1">
+                                <p class="market-card__label">1-комнатные квартиры</p>
+                                <p class="market-card__price" id="avg-room-1-price">—</p>
+                                <p class="market-card__sqm" id="avg-room-1-sqm">—</p>
+                            </article>
+
+                            <article class="market-card" data-kind="room-2">
+                                <p class="market-card__label">2-комнатные квартиры</p>
+                                <p class="market-card__price" id="avg-room-2-price">—</p>
+                                <p class="market-card__sqm" id="avg-room-2-sqm">—</p>
+                            </article>
+
+                            <article class="market-card" data-kind="room-3">
+                                <p class="market-card__label">3-комнатные квартиры</p>
+                                <p class="market-card__price" id="avg-room-3-price">—</p>
+                                <p class="market-card__sqm" id="avg-room-3-sqm">—</p>
+                            </article>
+
+                            <article class="market-card" data-kind="room-4">
+                                <p class="market-card__label">4-комнатные квартиры</p>
+                                <p class="market-card__price" id="avg-room-4-price">—</p>
+                                <p class="market-card__sqm" id="avg-room-4-sqm">—</p>
+                            </article>
+                        </div>
+
+                        <div class="market-analytics__chart-wrap">
+                            <canvas id="market-price-chart" aria-label="График динамики средней стоимости квартир в Лиде" role="img"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      <!-- =========================================
+         DELAY CALCULATOR SECTION
+         ========================================= -->
 
 
-<section class="page-intro">
-  <div class="container">
-
-    <div class="page-intro-inner">
-
-      <span class="page-intro-eyebrow">
-       Частые вопросы клиентов
-      </span>
-
-      <h1 class="page-intro-title">
-        Что спрашивают мои клиенты
-      </h1>
-
-      <p class="page-intro-description">
-Здесь собраны вопросы, с которых начинается почти каждая сделка.<br>
-        Если вы впервые сталкиваетесь с недвижимостью — начните с этого раздела.
-        Спокойно. По шагам.
-      </p>
-
-      <div class="page-intro-divider"></div>
-
-      <nav class="page-intro-breadcrumb" aria-label="breadcrumb">
-        <ul>
-          <li><a href="/">Главная</a></li>
-          <li>Вопросы</li>
-        </ul>
-      </nav>
-
-    </div>
-
-  </div>
-</section>
-
-        <!-- FAQ Section -->
-        <div class="section-full bg-white bg-gray p-t80 p-b80 inner-page-padding">
-          <div class="container">
-            <div class="faq-1">
-              <!-- Section Head -->
-<header class="section-head section-head--bracket">
-  <h2 class="section-title">Часто задаваемые вопросы</h2>
+      <section class="delay-calc" id="delay-calculator" aria-label="Калькулятор откладывания покупки">
+         <header class="section-head section-head--bracket">
+  <h2 class="section-title">Интерактивный калькулятор</h2>
 </header>
-              <div class="row">
-                <!-- Column Left: Original Text -->
-                <div class="col-md-6 faq-list">
-                  <div>
-                    <h4>С чего начать, если хочу продать квартиру?</h4>
-                    <p>
-                      Начните с консультации. Позвоните или напишите — и мы
-                      договоримся о встрече. Я приеду, посмотрю вашу квартиру,
-                      объясню, как правильно оценить её стоимость без завышений
-                      и занижений. Подскажу, какие документы нужно подготовить,
-                      что можно привести в порядок перед показами. Никакой
-                      спешки — всё по шагам, с разъяснениями и с учётом вашей
-                      ситуации. Даже если вы просто «приглядываетесь», — лучше
-                      спросить, чем гадать.
-                    </p>
-                  </div>
-                  <div>
-                    <h4>А вы берёте деньги с покупателя?</h4>
-                    <p>
-                      Если вы покупатель — платить мне ничего не нужно. Я
-                      получаю оплату от продавца, а вам помогаю бесплатно:
-                      подбираю подходящие варианты, хожу на просмотры, объясняю
-                      плюсы и минусы, проверяю документы на объект. Отвечаю на
-                      вопросы и сопровождаю сделку до конца. Иногда люди не
-                      понимают, зачем нужен риэлтор, если «всё есть в
-                      интернете». Но на деле — я рядом на каждом шаге, чтобы вы
-                      не потеряли деньги, время и нервы.
-                    </p>
-                  </div>
-                  <div>
-                    <h4>Какая сейчас цена «реальная» на мою квартиру?</h4>
-                    <p>
-                      Честная цена — это та, за которую вашу квартиру реально
-                      готовы купить в ближайшее время. Я не ориентируюсь на
-                      объявления, которые висят по полгода без движения.
-                      Сравниваю с реальными продажами в Лиде, учитываю этаж,
-                      состояние, район, спрос на данный тип жилья. Говорю не ту
-                      цифру, которая «приятная», а ту, которая даст результат. А
-                      дальше уже решаете вы: продавать, подождать или, может,
-                      сначала что-то улучшить.
-                    </p>
+
+        <div class="container">
+          <div class="delay-calc__inner">
+
+            <span class="delay-calc__eyebrow">Интерактивный калькулятор</span>
+            <h2 class="delay-calc__title">Что я теряю, если отложу покупку на год?</h2>
+            <p class="delay-calc__subtitle">
+              Введите данные — калькулятор покажет полную картину потерь и честный контраргумент.
+              Цифры основаны на актуальных данных по Беларуси&nbsp;2026.
+            </p>
+
+            <form id="delayCalcForm" novalidate>
+              <div class="delay-calc__fields">
+
+                <div class="delay-calc__field delay-calc__field--full">
+                  <label class="delay-calc__label" for="dcBudget">
+                    Стоимость жилья
+                    <span class="delay-calc__label-note">обязательно</span>
+                  </label>
+                  <div class="delay-calc__input-wrap">
+                    <input type="number" id="dcBudget" name="budget"
+                      placeholder="85 000" min="1000" step="1000"
+                      autocomplete="off" inputmode="numeric" />
+                    <span class="delay-calc__currency">BYN</span>
                   </div>
                 </div>
-                <!-- Column Right: Original Accordion Structure -->
-                <div class="col-md-6">
-                  <div class="sx-accordion acc-bg-gray" id="accordion5">
-                    <div class="panel sx-panel">
-                      <div class="acod-head acc-actives">
-                        <h4 class="acod-title">
-                          <a>
-                            Сколько времени занимает продажа?
-                            <span class="indicator"
-                              >
-                            </span>
-                          </a>
-                        </h4>
-                      </div>
-                      <div class="acod-body">
-                        <div class="acod-content p-tb15">
-                          По опыту — от пары недель до нескольких месяцев.
-                          Быстрее всего продаются «готовые» объекты: с чистыми
-                          документами, адекватной ценой и хорошей презентацией.
-                          Но многое зависит и от времени года, и от ситуации на
-                          рынке. Я никогда не обещаю «за три дня» — зато честно
-                          говорю, что можно сделать, чтобы ускорить процесс. И
-                          веду вас на каждом этапе: показы, торг, задаток,
-                          оформление. Вы не останетесь один на один с
-                          бюрократией.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="panel sx-panel">
-                      <div class="acod-head">
-                        <h4 class="acod-title">
-                          <a>
-                            Как проверить, всё ли с документами нормально?
-                            <span class="indicator"
-                              >                            </span>
-                          </a>
-                        </h4>
-                      </div>
-                      <div class="acod-body">
-                        <div class="acod-content p-tb15">
-                          Это первое, что я делаю, когда берусь за объект.
-                          Проверяю свидетельство, выписку, историю владения,
-                          наличие долгов, арестов, несовершеннолетних,
-                          приватизацию и всё остальное. Если есть проблемы — я
-                          не скрываю. Мы вместе решаем, как это всё можно
-                          привести в порядок: через БТИ, суд или другие
-                          инстанции. Главное — не тянуть и не делать вид, что
-                          «само пройдёт». Всё решаемо, если начать вовремя.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="panel sx-panel">
-                      <div class="acod-head">
-                        <h4 class="acod-title">
-                          <a>
-                            Что входит в вашу работу? Что вы вообще делаете?
-                            <span class="indicator"
-                              >
-                            </span>
-                          </a>
-                        </h4>
-                      </div>
-                      <div class="acod-body">
-                        <div class="acod-content p-tb15">
-                          Моя работа — это не просто «дать объявление». Я
-                          начинаю с оценки, делаю фотографии, описываю объект
-                          понятным языком, размещаю рекламу, веду переговоры с
-                          покупателями, торгуюсь, проверяю документы,
-                          договариваюсь с нотариусом, заполняю всё до мелочей,
-                          контролирую БТИ и расчёты. Иногда — буквально держу за
-                          руку на сделке. Вы можете заниматься своей жизнью — я
-                          беру на себя весь процесс, как будто продаю свою
-                          квартиру.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="panel sx-panel">
-                      <div class="acod-head">
-                        <h4 class="acod-title">
-                          <a>
-                            Стоит ли сейчас вообще продавать или лучше
-                            подождать?
-                            <span class="indicator"
-                              ></span>
-                          </a>
-                        </h4>
-                      </div>
-                      <div class="acod-body">
-                        <div class="acod-content p-tb15">
-                          Это зависит от вашей личной ситуации. Если вы
-                          планируете улучшение, переезд, или хотите
-                          «зафиксировать» цену — возможно, стоит продавать
-                          сейчас. Если просто «на всякий случай» — лучше пока не
-                          дергаться. Я не подталкиваю к сделке, если вижу, что
-                          клиент не готов. Мы обсуждаем всё открыто, взвешенно и
-                          по-человечески. Иногда лучший риэлтор — это тот, кто
-                          отговорил вас продавать.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="panel sx-panel">
-                      <div class="acod-head">
-                        <h4 class="acod-title">
-                          <a>
-                            Какие квартиры сейчас покупают чаще всего?
-                            <span class="indicator"
-                              ></span>
-                          </a>
-                        </h4>
-                      </div>
-                      <div class="acod-body">
-                        <div class="acod-content p-tb15">
-                          Сейчас спрос в Лиде на двухкомнатные квартиры с
-                          обычным ремонтом, «панельки» на средних этажах. Также
-                          стабильно интересуются однушками в центре — для сдачи
-                          в аренду. Трёшки идут хуже, если только не по очень
-                          привлекательной цене. Всё, что без вложений и с
-                          чистыми документами — продаётся быстрее. Я всегда
-                          отслеживаю, что реально покупают — не по слухам, а по
-                          фактам.
-                        </div>
-                      </div>
-                    </div>
+
+                <div class="delay-calc__field">
+                  <label class="delay-calc__label" for="dcRent">
+                    Аренда сейчас
+                    <span class="delay-calc__label-note">в месяц</span>
+                  </label>
+                  <div class="delay-calc__input-wrap">
+                    <input type="number" id="dcRent" name="rent"
+                      placeholder="400" min="0" step="50"
+                      autocomplete="off" inputmode="numeric" />
+                    <span class="delay-calc__currency">BYN</span>
+                  </div>
+                </div>
+
+                <div class="delay-calc__field">
+                  <label class="delay-calc__label" for="dcRenov">
+                    Бюджет ремонта
+                    <span class="delay-calc__label-note">если планируется</span>
+                  </label>
+                  <div class="delay-calc__input-wrap">
+                    <input type="number" id="dcRenov" name="renov"
+                      placeholder="20 000" min="0" step="1000"
+                      autocomplete="off" inputmode="numeric" />
+                    <span class="delay-calc__currency">BYN</span>
+                  </div>
+                </div>
+
+                <div class="delay-calc__field delay-calc__submit-row">
+                  <label class="delay-calc__label" style="visibility:hidden">.</label>
+                  <button type="submit" class="delay-calc__btn">Посчитать</button>
+                </div>
+
+              </div>
+            </form>
+
+            <!-- RESULTS -->
+            <div class="delay-calc__results" id="delayCalcResults" aria-live="polite" aria-atomic="true">
+
+              <div class="delay-calc__divider"></div>
+
+              <!-- GROUP 1: Рыночные потери -->
+              <div class="delay-calc__group">
+                <div class="delay-calc__group-header">
+                  <div class="delay-calc__group-icon delay-calc__group-icon--loss">📈</div>
+                  <p class="delay-calc__group-title">Рыночные потери — рост цен и ипотека</p>
+                </div>
+                <div class="delay-calc__cards delay-calc__cards--2">
+                  <div class="delay-calc__card delay-calc__card--price">
+                    <div class="delay-calc__card-label">Рост цен на жильё · 8%/год</div>
+                    <div class="delay-calc__card-value"><span id="dcPriceVal">0</span> <em>BYN</em></div>
+                    <div class="delay-calc__card-note">Та же квартира через год будет стоить дороже</div>
+                  </div>
+                  <div class="delay-calc__card delay-calc__card--mortgage">
+                    <div class="delay-calc__card-label">Переплата по ипотеке · 15%, 20 лет</div>
+                    <div class="delay-calc__card-value"><span id="dcMortgageVal">0</span> <em>BYN</em></div>
+                    <div class="delay-calc__card-note">Итоговая переплата на выросшую часть цены</div>
                   </div>
                 </div>
               </div>
+
+              <!-- GROUP 2: Текущие расходы -->
+              <div class="delay-calc__group">
+                <div class="delay-calc__group-header">
+                  <div class="delay-calc__group-icon delay-calc__group-icon--spend">💸</div>
+                  <p class="delay-calc__group-title">Деньги, которые уходят пока вы ждёте</p>
+                </div>
+                <div class="delay-calc__cards delay-calc__cards--3">
+                  <div class="delay-calc__card delay-calc__card--inflation">
+                    <div class="delay-calc__card-label">Инфляция · 6%/год</div>
+                    <div class="delay-calc__card-value"><span id="dcInflationVal">0</span> <em>BYN</em></div>
+                    <div class="delay-calc__card-note">Обесценивание ваших накоплений</div>
+                  </div>
+                  <div class="delay-calc__card delay-calc__card--rent" id="dcGroupRent">
+                    <div class="delay-calc__card-label">Аренда за год</div>
+                    <div class="delay-calc__card-value"><span id="dcRentVal">0</span> <em>BYN</em></div>
+                    <div class="delay-calc__card-note">Деньги, которые вы отдаёте чужому собственнику</div>
+                  </div>
+                  <div class="delay-calc__card delay-calc__card--renov" id="dcGroupRenov">
+                    <div class="delay-calc__card-label">Рост стоимости ремонта · 12%/год</div>
+                    <div class="delay-calc__card-value"><span id="dcRenovVal">0</span> <em>BYN</em></div>
+                    <div class="delay-calc__card-note">Стройматериалы дорожают быстрее инфляции</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- BAR CHART -->
+              <div class="delay-calc__chart">
+                <p class="delay-calc__chart-title">Структура потерь — наглядно</p>
+                <div class="delay-calc__bars">
+                  <div class="delay-calc__bar-row">
+                    <div class="delay-calc__bar-label">Рост цен</div>
+                    <div class="delay-calc__bar-track"><div class="delay-calc__bar-fill delay-calc__bar-fill--price" id="dcBarPrice"></div></div>
+                    <div class="delay-calc__bar-amount" id="dcBarPriceAmt"></div>
+                  </div>
+                  <div class="delay-calc__bar-row">
+                    <div class="delay-calc__bar-label">Ипотека</div>
+                    <div class="delay-calc__bar-track"><div class="delay-calc__bar-fill delay-calc__bar-fill--mortgage" id="dcBarMortgage"></div></div>
+                    <div class="delay-calc__bar-amount" id="dcBarMortgageAmt"></div>
+                  </div>
+                  <div class="delay-calc__bar-row" id="dcBarRowRent">
+                    <div class="delay-calc__bar-label">Аренда</div>
+                    <div class="delay-calc__bar-track"><div class="delay-calc__bar-fill delay-calc__bar-fill--rent" id="dcBarRent"></div></div>
+                    <div class="delay-calc__bar-amount" id="dcBarRentAmt"></div>
+                  </div>
+                  <div class="delay-calc__bar-row">
+                    <div class="delay-calc__bar-label">Инфляция</div>
+                    <div class="delay-calc__bar-track"><div class="delay-calc__bar-fill delay-calc__bar-fill--inflation" id="dcBarInflation"></div></div>
+                    <div class="delay-calc__bar-amount" id="dcBarInflationAmt"></div>
+                  </div>
+                  <div class="delay-calc__bar-row" id="dcBarRowRenov">
+                    <div class="delay-calc__bar-label">Ремонт</div>
+                    <div class="delay-calc__bar-track"><div class="delay-calc__bar-fill delay-calc__bar-fill--renov" id="dcBarRenov"></div></div>
+                    <div class="delay-calc__bar-amount" id="dcBarRenovAmt"></div>
+                  </div>
+                  <div class="delay-calc__bar-separator"></div>
+                  <div class="delay-calc__bar-row delay-calc__bar-row--deposit">
+                    <div class="delay-calc__bar-label" style="color:#1e7a4e">Вклад 10%</div>
+                    <div class="delay-calc__bar-track"><div class="delay-calc__bar-fill delay-calc__bar-fill--deposit" id="dcBarDeposit"></div></div>
+                    <div class="delay-calc__bar-amount" style="color:#1e7a4e" id="dcBarDepositAmt"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- GROUP 3: Контраргумент -->
+              <div class="delay-calc__group">
+                <div class="delay-calc__group-header">
+                  <div class="delay-calc__group-icon delay-calc__group-icon--gain">✅</div>
+                  <p class="delay-calc__group-title">Честный контраргумент — что даёт ожидание</p>
+                </div>
+                <div class="delay-calc__cards delay-calc__cards--2">
+                  <div class="delay-calc__card delay-calc__card--deposit">
+                    <div class="delay-calc__card-label">Доход по вкладу · 10%/год</div>
+                    <div class="delay-calc__card-value">+<span id="dcDepositVal">0</span> <em>BYN</em></div>
+                    <div class="delay-calc__card-note">Если деньги лежат на депозите в банке РБ</div>
+                  </div>
+                  <div class="delay-calc__card" style="background:#fff8f0;border-left:3px solid #e8944a">
+                    <div class="delay-calc__card-label">Вклад не перекрывает потери</div>
+                    <div class="delay-calc__card-value" style="color:#c05c5c"><span id="dcNetVal">0</span> <em>BYN</em></div>
+                    <div class="delay-calc__card-note">Чистые потери после вычета дохода от депозита</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ИТОГИ -->
+              <div class="delay-calc__totals">
+                <div class="delay-calc__total-box delay-calc__total-box--gross">
+                  <div class="delay-calc__total-box-label">Всего потерь за год</div>
+                  <div class="delay-calc__total-box-value"><span id="dcTotalVal">0</span> <em>BYN</em></div>
+                  <div class="delay-calc__total-box-sub">рост цен + ипотека + аренда + инфляция + ремонт</div>
+                </div>
+                <div class="delay-calc__total-box delay-calc__total-box--net">
+                  <div class="delay-calc__total-box-label">Чистые потери (за минусом вклада)</div>
+                  <div class="delay-calc__total-box-value"><span id="dcNetVal2">0</span> <em>BYN</em></div>
+                  <div class="delay-calc__total-box-sub">реальная цена одного года ожидания</div>
+                </div>
+              </div>
+
+              <!-- МЕТРИКИ -->
+              <div class="delay-calc__metrics">
+                <div class="delay-calc__metric" id="dcMetricRent">
+                  <div class="delay-calc__metric-value"><span id="dcMetricRentVal">—</span></div>
+                  <div class="delay-calc__metric-label" id="dcMetricRentLbl">месяцев аренды = ваши потери</div>
+                </div>
+                <div class="delay-calc__metric">
+                  <div class="delay-calc__metric-value"><span id="dcMetricPctVal">—</span>%</div>
+                  <div class="delay-calc__metric-label">потерь остаётся после учёта дохода от вклада</div>
+                </div>
+                <div class="delay-calc__metric">
+                  <div class="delay-calc__metric-value"><span id="dcMetricSavingVal">—</span></div>
+                  <div class="delay-calc__metric-label">BYN в день — стоимость одного дня ожидания</div>
+                </div>
+              </div>
+
+              <p class="delay-calc__disclaimer">
+                Расчёт ознакомительный. Данные по Беларуси 2026: инфляция — прогноз НБРБ (6%), рост цен на жильё — тренд рынка 2024–2025 гг. (8%),
+                ставка ипотеки — средняя по коммбанкам РБ (15%, 20 лет), рост стоимости стройматериалов — Белстат (12%), ставка по вкладу — средняя по коммбанкам РБ (10%).
+                Хотите разобраться в своей ситуации? <a href="/contact">Напишите мне</a> — обсудим бесплатно.
+              </p>
+
             </div>
+            <!-- RESULTS END -->
+
           </div>
         </div>
-      </div>
+      </section>
+      <!-- DELAY CALCULATOR END -->
 
 
       <!-- CONTENT END -->
+      <section class="section-full mobile-page-padding p-t80 p-b50 bg-gray" id="market-news-analytics">
+        <div class="container">
+          <header class="section-head section-head--bracket m-b30">
+            <h2 class="section-title">Аналитика и тренды рынка</h2>
+          </header>
+          <div class="row" id="analyticsNewsGrid"></div>
+        </div>
+      </section>
       <!-- =========================================
          FOOTER START
          ========================================= -->
@@ -665,6 +752,9 @@
     <script src="/js/analytics-consent-loader.js" defer></script>
     <script src="/js/cookie-consent.js" defer></script>
     <script src="/js/footer-post.js" defer></script>
+    <script src="/js/live-price.js?v=20260417-2" defer></script>
+    <script src="/js/lazy-loaders.js?v=20260424-3" defer></script>
+    <script src="/js/delay-calc.js" defer data-versioned></script>
       <!-- Contact widget -->
     <div class="cw" data-cw-root>
       <button
@@ -742,5 +832,29 @@
       </div>
     </div>
     <script src="contact-widget.js" defer></script>
+
+    <script>
+      (function(){
+        var grid=document.getElementById('analyticsNewsGrid');
+        if(!grid) return;
+        fetch('/data/real-estate-analytics.json',{cache:'no-store'})
+          .then(function(r){return r.json();})
+          .then(function(data){
+            var items=(data && data.articles)||[];
+            grid.innerHTML=items.map(function(a){
+              return '<div class="col-lg-4 col-md-6 m-b30">' +
+                '<article class="sx-icon-box-wraper icon-count-2-outer service-hover-card">' +
+                '<div class="icon-count-2 bg-white">' +
+                '<div class="icon-content">' +
+                '<p class="text-uppercase" style="font-size:12px;color:#6b7280;margin-bottom:8px;">'+(a.category||'Обзор')+' · '+(a.date||'')+' · '+(a.read||'')+'</p>' +
+                '<h4 class="sx-tilte">'+(a.title||'Обзор рынка недвижимости Лиды')+'</h4>' +
+                '<a href="/blog" class="site-button-link">Читать подробнее</a>' +
+                '</div></div></article></div>';
+            }).join('');
+          })
+          .catch(function(){ grid.innerHTML=''; });
+      })();
+    </script>
+
 </body>
 </html>
