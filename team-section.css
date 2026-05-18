@@ -57,7 +57,10 @@
 .card-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; border-top:1px solid var(--team-divider); padding-top:14px; margin-top:14px; }
 .stat-label { display:block; color:#7a8784; font-size:12px; margin-bottom:2px; }
 .stat-value { font-weight:700; font-size:14px; }
-.card-link { margin-top:18px; color:var(--team-primary); font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:6px; transition:gap .2s; }
+.card-phone { display:flex; align-items:center; gap:7px; margin-top:14px; color:var(--team-primary); font-weight:600; font-size:14px; text-decoration:none; border-top:1px solid var(--team-divider); padding-top:14px; }
+.card-phone:hover { color:var(--team-primary-strong); }
+.card-phone__icon { width:15px; height:15px; flex-shrink:0; }
+.card-link { margin-top:12px; color:var(--team-primary); font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:6px; transition:gap .2s; }
 .card-link:hover { gap: 10px; }
 
 .agents-slider__viewport { overflow: hidden; }

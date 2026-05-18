@@ -8,6 +8,7 @@
     "experience": 12,
     "deals": 340,
     "city": "Лида",
+    "phone": "+375291809516",
     "photo": "/images/team/olga-turko-cover.webp",
     "isManager": true,
     "description": "Эксперт по недвижимости Лиды с 12-летним опытом. Провела более 340 успешных сделок."
@@ -21,6 +22,7 @@
     "experience": 8,
     "deals": 188,
     "city": "Гродно",
+    "phone": "+375291809516",
     "photo": "/images/main-slider/3.webp",
     "isManager": false,
     "description": ""
@@ -34,6 +36,7 @@
     "experience": 6,
     "deals": 145,
     "city": "Лида",
+    "phone": "+375291809516",
     "photo": "/images/main-slider/3.webp",
     "isManager": false,
     "description": ""
@@ -47,6 +50,7 @@
     "experience": 10,
     "deals": 231,
     "city": "Щучин",
+    "phone": "+375291809516",
     "photo": "/images/main-slider/3.webp",
     "isManager": false,
     "description": ""
@@ -60,6 +64,7 @@
     "experience": 9,
     "deals": 164,
     "city": "Волковыск",
+    "phone": "+375291809516",
     "photo": "/images/main-slider/3.webp",
     "isManager": false,
     "description": ""
@@ -73,6 +78,7 @@
     "experience": 7,
     "deals": 121,
     "city": "Гродно",
+    "phone": "+375291809516",
     "photo": "/images/main-slider/3.webp",
     "isManager": false,
     "description": ""
