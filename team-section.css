@@ -67,8 +67,8 @@
 .agents-slider__viewport { overflow: hidden; }
 .agents-slider__track { display: flex; width: 100%; min-height: 200px; transition: transform .7s cubic-bezier(.22,.61,.36,1); }
 .team-slide { min-width: 100%; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
-.agent-card { cursor: pointer; transition: transform .32s ease, box-shadow .32s ease; }
-.agent-card:hover { transform: translateY(-6px); box-shadow: 0 24px 45px rgba(16,38,32,.12); }
+.agent-card { cursor: pointer; }
+.agent-card:hover { }
 .agent-card .card-name { font-size:22px; }
 .agent-card .card-media { height: 190px; aspect-ratio: auto; }
 
