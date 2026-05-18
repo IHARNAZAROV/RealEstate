@@ -112,3 +112,6 @@
   background: #efece8;
   border-radius: 16px;
 }
+
+/* Font Awesome fallback: chart-line mapping for mobile nav analytics item */
+.fa-chart-line::before{content:"\f201"}
