@@ -31,6 +31,7 @@ if (preg_match('#^/team/([a-zA-Z0-9_\-]+)/?$#u', $uri, $m)) {
 
 // Clean URL aliases for static HTML pages
 $htmlMap = [
+    '/team'              => 'team.html',
     '/nedvizhimost-lida' => 'nedvizhimost-lida.html',
     '/rieltor-lida'      => 'rieltor-lida.html',
     '/blog'              => 'blog.html',

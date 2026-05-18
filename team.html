@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#006064">
+
+  <title>Наша команда — Специалисты агентства | Ольга Турко</title>
+  <meta name="description" content="Познакомьтесь с командой риэлторов агентства Ольги Турко в Лиде. Профессионалы с опытом в продаже квартир, домов и коммерческой недвижимости.">
+  <meta name="author" content="Ольга Турко, риэлтер в Лиде, Беларусь">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://turko.by/team">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Наша команда — Специалисты агентства | Ольга Турко">
+  <meta property="og:description" content="Профессиональные риэлторы агентства Ольги Турко. Опыт, экспертиза и внимание к каждой сделке.">
+  <meta property="og:url" content="https://turko.by/team">
+  <meta property="og:image" content="https://turko.by/images/main-slider/2.webp">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <script src="/site-version.php"></script>
+  <link rel="preconnect" href="https://api.qrserver.com" crossorigin>
+  <link rel="preload" href="/fonts/inter/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/montserrat/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css" data-versioned>
+  <link rel="preload" href="/css/fontawesome/css/fontawesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/fontawesome/css/brands.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/fontawesome/css/solid.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="/css/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/css/fontawesome/css/brands.min.css">
+    <link rel="stylesheet" href="/css/fontawesome/css/solid.min.css">
+  </noscript>
+  <link rel="stylesheet" href="/css/contact-widget.css">
+
+  <style>
+    :root {
+      --team-bg: #f7f5ef;
+      --team-card: #ffffff;
+      --team-primary: #133d34;
+      --team-primary-strong: #0f2f29;
+      --team-muted: #667572;
+      --team-divider: #e5e8e4;
+      --team-shadow: 0 20px 55px rgba(15,28,24,.08);
+      --team-radius: 26px;
+    }
+    .team-page { background: radial-gradient(circle at top right,#fefdfb 0%,var(--team-bg) 65%); padding: 60px 20px 80px; min-height: 60vh; }
+    .team-page *, .team-page { box-sizing: border-box; }
+    .team-page__shell { max-width: 1320px; margin: 0 auto; }
+    .team-page__header { margin-bottom: 48px; }
+    .team-page__eyebrow { text-transform: uppercase; letter-spacing: .18em; font-size: 12px; color: #71847f; margin: 0 0 10px; font-family: "Inter","Segoe UI",sans-serif; }
+    .team-page__header h1 { margin: 0 0 12px; font-size: clamp(28px,4vw,44px); line-height: 1.08; color: var(--team-primary); font-family: "Montserrat","Segoe UI",sans-serif; font-weight: 700; }
+    .team-page__subtitle { margin: 0; font-size: 16px; line-height: 1.55; color: var(--team-muted); max-width: 640px; font-family: "Inter","Segoe UI",sans-serif; }
+
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .team-grid .manager-card-full { grid-column: 1 / -1; display: grid; grid-template-columns: 340px 1fr; background: var(--team-card); border: 1px solid var(--team-divider); border-radius: var(--team-radius); overflow: hidden; box-shadow: var(--team-shadow); }
+    .team-grid .manager-card-full .tg-photo { height: 100%; min-height: 260px; }
+    .team-grid .manager-card-full .tg-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .team-grid .manager-card-full .tg-body { padding: 36px 40px; display: flex; flex-direction: column; justify-content: center; font-family: "Inter","Segoe UI",sans-serif; }
+
+    .tg-card { background: var(--team-card); border: 1px solid var(--team-divider); border-radius: var(--team-radius); overflow: hidden; box-shadow: var(--team-shadow); transition: transform .32s ease, box-shadow .32s ease; cursor: pointer; font-family: "Inter","Segoe UI",sans-serif; }
+    .tg-card:hover { transform: translateY(-6px); box-shadow: 0 24px 45px rgba(16,38,32,.12); }
+    .tg-card:hover .tg-photo img { transform: scale(1.04); }
+    .tg-photo { overflow: hidden; }
+    .tg-photo img { width: 100%; height: 220px; object-fit: cover; display: block; transition: transform .55s ease; }
+    .tg-body { padding: 22px 24px 24px; }
+    .tg-label { display: inline-flex; padding: 6px 12px; border-radius: 999px; background: #e9f0ee; color: #1e4d44; font-weight: 600; font-size: 12px; letter-spacing: .06em; margin-bottom: 14px; }
+    .tg-name { margin: 0 0 6px; font-size: 22px; line-height: 1.2; color: var(--team-primary); font-weight: 700; }
+    .tg-name--lg { font-size: 32px; }
+    .tg-role { margin: 0 0 10px; color: var(--team-muted); font-size: 15px; }
+    .tg-desc { margin: 0 0 20px; color: #5b6764; line-height: 1.6; font-size: 15px; }
+    .tg-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; border-top: 1px solid var(--team-divider); padding-top: 14px; margin-top: 14px; }
+    .tg-stat-label { display: block; color: #7a8784; font-size: 12px; margin-bottom: 2px; }
+    .tg-stat-value { font-weight: 700; font-size: 14px; color: var(--team-primary); }
+    .tg-link { margin-top: 20px; color: var(--team-primary); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-size: 15px; transition: gap .2s; }
+    .tg-link:hover { gap: 10px; }
+
+    @media (max-width: 1024px) {
+      .team-grid { grid-template-columns: repeat(2,1fr); }
+      .team-grid .manager-card-full { grid-column: 1 / -1; grid-template-columns: 260px 1fr; }
+    }
+    @media (max-width: 700px) {
+      .team-grid { grid-template-columns: 1fr; }
+      .team-grid .manager-card-full { grid-template-columns: 1fr; }
+      .team-grid .manager-card-full .tg-photo { min-height: 220px; }
+      .team-grid .manager-card-full .tg-body { padding: 24px; }
+      .tg-name--lg { font-size: 26px; }
+    }
+
+    .page-intro { padding: 36px 0 24px; background: #f7f5ef; border-bottom: 1px solid #e5e8e4; }
+    .page-intro .container { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-family: "Inter","Segoe UI",sans-serif; font-size: 14px; color: #71847f; }
+    .page-intro a { color: var(--team-primary); text-decoration: none; }
+    .page-intro a:hover { text-decoration: underline; }
+    .page-intro span { color: #aab5b2; }
+  </style>
+</head>
+<body>
+<div class="page-wraper">
+
+  <header class="site-header nav-wide nav-transparent">
+    <div class="sticky-header is-stuck main-bar-wraper navbar-expand-lg">
+      <div class="main-bar">
+        <div class="container clearfix">
+          <div class="logo-header">
+            <div class="logo-header-inner logo-header-one">
+              <a href="/">
+                <img src="/images/logo-light.svg" class="site-logo site-logo--light" alt="Ольга Турко — риэлтер в Лиде" width="180" height="48" loading="lazy" decoding="async">
+              </a>
+            </div>
+          </div>
+
+          <button id="mobile-side-drawer" type="button" class="navbar-toggler" aria-label="Открыть меню">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar icon-bar-first"></span>
+            <span class="icon-bar icon-bar-two"></span>
+            <span class="icon-bar icon-bar-three"></span>
+          </button>
+
+          <div class="header-nav nav-dark justify-content-start">
+            <ul class="nav navbar-nav">
+              <li><a href="/">Главная</a></li>
+              <li><a href="/rieltor-lida">Обо мне</a></li>
+              <li><a href="/nedvizhimost-lida">Объекты</a></li>
+              <li><a href="/blog">Блог</a></li>
+              <li><a href="/faq">Вопросы</a></li>
+              <li><a href="/contact">Контакты</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="mnav-overlay" id="mnavOverlay"></div>
+  <nav class="mnav" id="mnav">
+    <div class="mnav-header">
+      <div class="mnav-name">Ольга Турко · Риэлтер · Лида</div>
+    </div>
+    <ul class="mnav-list">
+      <li><a href="/" data-path="/"><i class="fa-solid fa-house"></i><span>Главная</span></a></li>
+      <li><a href="/rieltor-lida" data-path="/rieltor-lida"><i class="fa-solid fa-user"></i><span>Обо мне</span></a></li>
+      <li><a href="/nedvizhimost-lida" data-path="/nedvizhimost-lida"><i class="fa-solid fa-building"></i><span>Объекты</span></a></li>
+      <li><a href="/blog" data-path="/blog"><i class="fa-solid fa-pen-nib"></i><span>Блог</span></a></li>
+      <li><a href="/faq" data-path="/faq"><i class="fa-solid fa-circle-question"></i><span>Вопросы</span></a></li>
+      <li><a href="/contact" data-path="/contact"><i class="fa-solid fa-phone"></i><span>Контакты</span></a></li>
+    </ul>
+    <div class="mnav-cta">
+      <a href="tel:+375291809516" class="mnav-cta-btn"><i class="fa-solid fa-phone"></i> Позвонить мне</a>
+    </div>
+  </nav>
+
+  <div class="page-content">
+
+    <nav class="page-intro" aria-label="Хлебные крошки">
+      <div class="container">
+        <a href="/">Главная</a>
+        <span>›</span>
+        <span>Наша команда</span>
+      </div>
+    </nav>
+
+    <section class="team-page" aria-labelledby="team-page-title">
+      <div class="team-page__shell">
+        <header class="team-page__header">
+          <p class="team-page__eyebrow">Наша команда</p>
+          <h1 id="team-page-title">Специалисты агентства</h1>
+          <p class="team-page__subtitle">Профессионалы, которые сопровождают каждую сделку с точностью, экспертизой и вниманием к деталям.</p>
+        </header>
+
+        <div class="team-grid" id="teamGrid">
+          <p style="color:#71847f;font-family:'Inter',sans-serif;">Загрузка специалистов…</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="cw" data-cw-root>
+    <button class="cw__fab" type="button" aria-label="Открыть способы связи" aria-haspopup="dialog" aria-controls="cw-modal" aria-expanded="false" data-cw-open>
+      <span class="cw__fab-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+          <path d="M4 5.5C4 4.12 5.12 3 6.5 3h11C18.88 3 20 4.12 20 5.5v8c0 1.38-1.12 2.5-2.5 2.5H10l-4.5 4v-4H6.5A2.5 2.5 0 0 1 4 13.5v-8Zm2.5-.5a.5.5 0 0 0-.5.5v8c0 .28.22.5.5.5h1.5c.55 0 1 .45 1 1v.56l2.8-2.49A1 1 0 0 1 12.46 13h5.04a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-11Z"/>
+        </svg>
+      </span>
+    </button>
+    <div class="cw__overlay" data-cw-overlay hidden>
+      <section id="cw-modal" class="cw__modal" role="dialog" aria-modal="true" aria-labelledby="cw-title" aria-describedby="cw-desc" tabindex="-1">
+        <button class="cw__close" type="button" aria-label="Закрыть окно" data-cw-close><span aria-hidden="true">×</span></button>
+        <h2 id="cw-title" class="cw__title">Я всегда на связи</h2>
+        <p id="cw-desc" class="cw__subtitle">Напишите мне — подскажу по покупке или продаже и помогу разобраться в вашей ситуации</p>
+        <div class="cw__content">
+          <section class="cw__qr" aria-label="QR для быстрого перехода в Telegram">
+            <h3 class="cw__qr-title">Сканируйте QR с телефона</h3>
+            <div class="cw__qr-frame">
+              <img class="cw__qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A%2F%2Ft.me%2FTurkoOlga" width="240" height="240" loading="lazy" decoding="async" alt="QR-код для быстрого открытия Telegram">
+            </div>
+          </section>
+          <nav class="cw__actions" aria-label="Способы связи">
+            <a class="cw__action cw__action--whatsapp" href="https://wa.me/375291809516" target="_blank" rel="noopener noreferrer"><span class="cw__action-icon" aria-hidden="true">✆</span><span class="cw__action-label">WhatsApp</span></a>
+            <a class="cw__action cw__action--telegram" href="https://t.me/TurkoOlga" target="_blank" rel="noopener noreferrer"><span class="cw__action-icon" aria-hidden="true">➤</span><span class="cw__action-label">Telegram</span></a>
+            <a class="cw__action cw__action--viber" href="viber://chat?number=%2B375291809516"><span class="cw__action-icon" aria-hidden="true">◉</span><span class="cw__action-label">Viber</span></a>
+          </nav>
+        </div>
+        <a class="cw__phone" href="tel:+375291809516"><span class="cw__phone-caption">Предпочитаете звонить?</span><span class="cw__phone-number">+375291809516</span></a>
+      </section>
+    </div>
+  </div>
+
+</div>
+
+<script src="/js/sw-register.js" defer></script>
+<script src="/contact-widget.js" defer></script>
+<script src="/js/cookie-consent.js" defer></script>
+<script src="/js/analytics-consent-loader.js" defer></script>
+
+<script>
+(() => {
+  const grid = document.getElementById('teamGrid');
+  const FALLBACK = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='420'%3E%3Crect width='100%25' height='100%25' fill='%23e8ecea'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23687a75' font-family='Arial' font-size='24'%3EФото недоступно%3C/text%3E%3C/svg%3E";
+
+  const safe = (v) => String(v ?? '').replace(/[<>&"']/g, m => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[m]));
+
+  const slugify = (name) => name.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '-').replace(/(^-|-$)/g, '');
+
+  const managerCard = (p) => `
+    <article class="manager-card-full">
+      <div class="tg-photo">
+        <img src="${safe(p.photo)}" alt="${safe(p.name)}" loading="eager" decoding="async">
+      </div>
+      <div class="tg-body">
+        <span class="tg-label">РУКОВОДИТЕЛЬ</span>
+        <h2 class="tg-name tg-name--lg">${safe(p.name)}</h2>
+        <p class="tg-role">${safe(p.specialization || p.position)}</p>
+        ${p.description ? `<p class="tg-desc">${safe(p.description)}</p>` : ''}
+        <div class="tg-stats">
+          <div><span class="tg-stat-label">Опыт</span><span class="tg-stat-value">${safe(p.experience)} лет</span></div>
+          <div><span class="tg-stat-label">Сделки</span><span class="tg-stat-value">${safe(p.deals)}</span></div>
+          <div><span class="tg-stat-label">Город</span><span class="tg-stat-value">${safe(p.city)}</span></div>
+        </div>
+        <a href="/team/${safe(p.slug || slugify(p.name))}" class="tg-link">Подробнее <span aria-hidden="true">→</span></a>
+      </div>
+    </article>`;
+
+  const agentCard = (p) => `
+    <article class="tg-card" onclick="location.href='/team/${safe(p.slug || slugify(p.name))}'">
+      <div class="tg-photo">
+        <img src="${safe(p.photo)}" alt="${safe(p.name)}" loading="lazy" decoding="async">
+      </div>
+      <div class="tg-body">
+        <h2 class="tg-name">${safe(p.name)}</h2>
+        <p class="tg-role">${safe(p.specialization || p.position)}</p>
+        <div class="tg-stats">
+          <div><span class="tg-stat-label">Опыт</span><span class="tg-stat-value">${safe(p.experience)} лет</span></div>
+          <div><span class="tg-stat-label">Сделки</span><span class="tg-stat-value">${safe(p.deals)}</span></div>
+          <div><span class="tg-stat-label">Город</span><span class="tg-stat-value">${safe(p.city)}</span></div>
+        </div>
+        <a href="/team/${safe(p.slug || slugify(p.name))}" class="tg-link" tabindex="-1">Подробнее <span aria-hidden="true">→</span></a>
+      </div>
+    </article>`;
+
+  fetch('/data/team.json', { cache: 'no-store' })
+    .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(data => {
+      const manager = data.find(p => p.isManager) || data[0];
+      const agents = data.filter(p => !p.isManager);
+      grid.innerHTML = managerCard(manager) + agents.map(agentCard).join('');
+
+      grid.querySelectorAll('img').forEach(img => {
+        img.addEventListener('error', () => { img.src = FALLBACK; }, { once: true });
+      });
+    })
+    .catch(() => {
+      grid.innerHTML = '<p style="color:#71847f;font-family:Inter,sans-serif;grid-column:1/-1">Не удалось загрузить данные команды.</p>';
+    });
+})();
+</script>
+</body>
+</html>
