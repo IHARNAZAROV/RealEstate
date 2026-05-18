@@ -644,7 +644,7 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
 <script src="/js/cookie-consent.js" defer></script>
 <script src="/js/footer-post.js" defer></script>
 <script src="/js/sw-register.js" defer></script>
-<script src="/contact-widget.js" defer></script>
+<script src="/js/contact-widget.js" defer></script>
 <script>
 window.addEventListener('unhandledrejection', function (event) {
   if (!event || !event.reason) return;
