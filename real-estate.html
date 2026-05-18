@@ -570,6 +570,16 @@
       </section>
       <!-- DELAY CALCULATOR END -->
 
+
+      <section class="section-full mobile-page-padding p-t80 p-b50 bg-gray" id="market-news-analytics">
+        <div class="container">
+          <header class="section-head section-head--bracket m-b30">
+            <h2 class="section-title">Аналитика и тренды рынка</h2>
+          </header>
+          <div class="row" id="analyticsNewsGrid">
+          </div>
+        </div>
+      </section>
       <!-- CONTENT END -->
       <!-- =========================================
          FOOTER START
@@ -616,7 +626,27 @@
                         href="https://t.me/TurkoOlga"
                         target="_blank"
 
-      <!-- CONTENT END -->      <!-- CONTENT END -->
+
+      <section class="section-full mobile-page-padding p-t80 p-b50 bg-gray" id="market-news-analytics">
+        <div class="container">
+          <header class="section-head section-head--bracket m-b30">
+            <h2 class="section-title">Аналитика и тренды рынка</h2>
+          </header>
+          <div class="row" id="analyticsNewsGrid">
+          </div>
+        </div>
+      </section>
+      <!-- CONTENT END -->
+      <section class="section-full mobile-page-padding p-t80 p-b50 bg-gray" id="market-news-analytics">
+        <div class="container">
+          <header class="section-head section-head--bracket m-b30">
+            <h2 class="section-title">Аналитика и тренды рынка</h2>
+          </header>
+          <div class="row" id="analyticsNewsGrid">
+          </div>
+        </div>
+      </section>
+      <!-- CONTENT END -->
       <!-- =========================================
          FOOTER START
          ========================================= -->
@@ -869,5 +899,29 @@
       </div>
     </div>
     <script src="contact-widget.js" defer></script>
+
+    <script>
+      (function(){
+        var grid=document.getElementById('analyticsNewsGrid');
+        if(!grid) return;
+        fetch('/data/real-estate-analytics.json',{cache:'no-store'})
+          .then(function(r){return r.json();})
+          .then(function(data){
+            var items=(data && data.articles)||[];
+            grid.innerHTML=items.map(function(a){
+              return '<div class="col-lg-4 col-md-6 m-b30">' +
+                '<article class="sx-icon-box-wraper icon-count-2-outer service-hover-card">' +
+                '<div class="icon-count-2 bg-white">' +
+                '<div class="icon-content">' +
+                '<p class="text-uppercase" style="font-size:12px;color:#6b7280;margin-bottom:8px;">'+(a.category||'Обзор')+' · '+(a.date||'')+' · '+(a.read||'')+'</p>' +
+                '<h4 class="sx-tilte">'+(a.title||'Обзор рынка недвижимости Лиды')+'</h4>' +
+                '<a href="/blog" class="site-button-link">Читать подробнее</a>' +
+                '</div></div></article></div>';
+            }).join('');
+          })
+          .catch(function(){ grid.innerHTML=''; });
+      })();
+    </script>
+
 </body>
 </html>
