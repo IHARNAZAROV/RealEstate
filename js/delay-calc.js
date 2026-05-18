@@ -194,22 +194,6 @@
         }
       });
     });
-
-    var quickForm = document.getElementById('delayQuickForm');
-    var quickBudgetEl = document.getElementById('dqBudget');
-    var quickResultEl = document.getElementById('delayQuickResult');
-    if (quickForm && quickBudgetEl && quickResultEl) {
-      quickForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var budget = getNum(quickBudgetEl);
-        if (budget < 1000) return;
-        var quick = calculate(budget, 0, 0);
-        quickResultEl.textContent =
-          'Если отложить покупку на год: ориентировочные потери ≈ ' +
-          fmt(quick.netLoss) +
-          ' BYN (без учета аренды и ремонта).';
-      });
-    }
   }
 
   if (document.readyState === 'loading') {

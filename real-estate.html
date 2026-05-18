@@ -424,16 +424,6 @@
           </div>
 
           <div class="market-analytics__chart-wrap">
-            <div
-              class="market-analytics__periods"
-              role="group"
-              aria-label="Выбор периода графика"
-              style="display:flex;gap:8px;justify-content:flex-end;margin-bottom:12px;flex-wrap:wrap;"
-            >
-              <button class="site-button-link market-period-btn is-active" data-period="30" type="button">30 дней</button>
-              <button class="site-button-link market-period-btn" data-period="90" type="button">90 дней</button>
-              <button class="site-button-link market-period-btn" data-period="180" type="button">180 дней</button>
-            </div>
             <canvas
               id="market-price-chart"
               aria-label="График динамики средней стоимости квартир в Лиде"
@@ -444,43 +434,8 @@
       </div>
     </div>
     <!-- =========================================
-         MARKET NEWS ANALYTICS
-         ========================================= -->
-    <section
-      class="section-full mobile-page-padding p-t80 p-b50 bg-gray"
-      id="market-news-analytics"
-    >
-      <div class="container">
-        <header class="section-head section-head--bracket m-b30">
-          <h2 class="section-title">Аналитика и тренды рынка</h2>
-        </header>
-        <div class="row" id="analyticsNewsGrid"></div>
-      </div>
-    </section>
-    <!-- =========================================
          DELAY CALCULATOR SECTION
          ========================================= -->
-
-    <section class="delay-calc p-t40" aria-label="Быстрый расчет потерь">
-      <div class="container">
-        <div class="delay-calc__inner" style="padding:24px;">
-          <h3 class="delay-calc__title" style="font-size:26px;margin-bottom:10px;">Быстрый мини-расчет</h3>
-          <p class="delay-calc__subtitle" style="margin-bottom:16px;">
-            Узнайте ориентировочные потери за 1 год, если отложить покупку.
-          </p>
-          <form id="delayQuickForm" class="delay-calc__fields" style="align-items:end;">
-            <div class="delay-calc__field">
-              <label class="delay-calc__label" for="dqBudget">Стоимость жилья, BYN</label>
-              <input type="number" id="dqBudget" class="delay-calc__input" min="1000" step="1000" placeholder="Например: 180000" required />
-            </div>
-            <div class="delay-calc__field delay-calc__submit-row">
-              <button type="submit" class="delay-calc__btn">Быстро посчитать</button>
-            </div>
-          </form>
-          <p id="delayQuickResult" class="delay-calc__metric-label" style="margin-top:14px;font-size:16px;"></p>
-        </div>
-      </div>
-    </section>
 
     <section
       class="delay-calc"
@@ -863,6 +818,17 @@
     <!-- DELAY CALCULATOR END -->
 
     <!-- CONTENT END -->
+    <section
+      class="section-full mobile-page-padding p-t80 p-b50 bg-gray"
+      id="market-news-analytics"
+    >
+      <div class="container">
+        <header class="section-head section-head--bracket m-b30">
+          <h2 class="section-title">Аналитика и тренды рынка</h2>
+        </header>
+        <div class="row" id="analyticsNewsGrid"></div>
+      </div>
+    </section>
     <!-- =========================================
          FOOTER START
          ========================================= -->
@@ -1152,15 +1118,13 @@
           .then(function (data) {
             var items = (data && data.articles) || [];
             grid.innerHTML = items
-              .map(function (a, idx) {
-                var isLead = idx === 0;
+              .map(function (a) {
                 return (
                   '<div class="col-lg-4 col-md-6 m-b30">' +
-                  '<article class="sx-icon-box-wraper icon-count-2-outer service-hover-card' + (isLead ? ' service-hover-card--lead' : '') + '">' +
+                  '<article class="sx-icon-box-wraper icon-count-2-outer service-hover-card">' +
                   '<div class="icon-count-2 bg-white">' +
                   '<div class="icon-content">' +
                   '<p class="text-uppercase" style="font-size:12px;color:#6b7280;margin-bottom:8px;">' +
-                  (isLead ? "ИНСАЙТ НЕДЕЛИ · " : "") +
                   (a.category || "Обзор") +
                   " · " +
                   (a.date || "") +
