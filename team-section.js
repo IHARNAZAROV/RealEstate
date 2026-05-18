@@ -9,7 +9,7 @@
   const nextBtn = section.querySelector('.team-nav--next');
   const sliderRegion = section.querySelector('.agents-slider');
 
-  const chunkSize = () => (window.innerWidth <= 700 ? 1 : 4);
+  const chunkSize = () => (window.innerWidth <= 700 ? 1 : 2);
   const FALLBACK_IMAGE = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='420'%3E%3Crect width='100%25' height='100%25' fill='%23e8ecea'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23687a75' font-family='Arial' font-size='24'%3EФото недоступно%3C/text%3E%3C/svg%3E";
   let slides = [];
   let current = 0;
