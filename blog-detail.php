@@ -775,6 +775,6 @@ $ctaJson = $ctaBlock ? json_encode($ctaBlock, JSON_UNESCAPED_UNICODE | JSON_UNES
       </div>
     </div>
     <script src="/js/sw-register.js" defer></script>
-    <script src="contact-widget.js" defer></script>
+    <script src="js/contact-widget.js" defer></script>
 </body>
 </html>

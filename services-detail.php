@@ -658,6 +658,6 @@ if (is_array($currentService)) {
       </div>
     </div>
     <script src="/js/sw-register.js" defer></script>
-    <script src="contact-widget.js" defer></script>
+    <script src="js/contact-widget.js" defer></script>
 </body>
 </html>
