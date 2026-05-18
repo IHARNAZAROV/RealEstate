@@ -229,48 +229,55 @@ if (is_array($currentService)) {
                <div class="mnav-name">Ольга Турко · Риэлтер · Лида</div>
             </div>
             <ul class="mnav-list">
-               <li>
-                  <a href="/" data-path="/">
-                     <i class="fa-solid fa-house"></i>
-                     <span>Главная</span>
-                  </a>
-               </li>
+          <li>
+            <a href="/" data-path="/">
+              <i class="fa-solid fa-house"></i>
+              <span>Главная</span>
+            </a>
+          </li>
 
-               <li>
-                  <a href="/rieltor-lida" data-path="/rieltor-lida">
-                     <i class="fa-solid fa-user"></i>
-                     <span>Обо мне</span>
-                  </a>
-               </li>
+          <li>
+            <a href="/rieltor-lida" data-path="/rieltor-lida">
+              <i class="fa-solid fa-user"></i>
+              <span>Обо мне</span>
+            </a>
+          </li>
 
-               <li>
-                  <a href="/nedvizhimost-lida" data-path="/nedvizhimost-lida">
-                     <i class="fa-solid fa-building"></i>
-                     <span>Объекты</span>
-                  </a>
-               </li>
+          <li>
+            <a href="/nedvizhimost-lida" data-path="/nedvizhimost-lida">
+              <i class="fa-solid fa-building"></i>
+              <span>Объекты</span>
+            </a>
+          </li>
 
-               <li>
-                  <a href="/blog" data-path="/blog">
-                     <i class="fa-solid fa-pen-nib"></i>
-                     <span>Блог</span>
-                  </a>
-               </li>
+          <li>
+            <a href="/rynok-nedvizhimosti-lida/" data-path="/rynok-nedvizhimosti-lida/">
+              <i class="fa-solid fa-chart-line"></i>
+              <span>Аналитика</span>
+            </a>
+          </li>
 
-               <li>
-                  <a href="/faq" data-path="/faq">
-                     <i class="fa-solid fa-circle-question"></i>
-                     <span>Вопросы</span>
-                  </a>
-               </li>
+          <li>
+            <a href="/blog" data-path="/blog">
+              <i class="fa-solid fa-pen-nib"></i>
+              <span>Блог</span>
+            </a>
+          </li>
 
-               <li>
-                  <a href="/contact" data-path="/contact">
-                     <i class="fa-solid fa-phone"></i>
-                     <span>Контакты</span>
-                  </a>
-               </li>
-            </ul>
+          <li>
+            <a href="/faq" data-path="/faq">
+              <i class="fa-solid fa-circle-question"></i>
+              <span>Вопросы</span>
+            </a>
+          </li>
+
+          <li class="mnav-list__full">
+            <a href="/contact" data-path="/contact">
+              <i class="fa-solid fa-phone"></i>
+              <span>Контакты</span>
+            </a>
+          </li>
+        </ul>
 
             <!-- CTA -->
             <div class="mnav-cta">
