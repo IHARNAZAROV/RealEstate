@@ -581,9 +581,7 @@
 
 /* layout fixes after UX review */
 #statsSection {
-  background: var(--color-gray-bg);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg-light);
 }
 
 .td-achievements + .td-contact-btn {
