@@ -71,8 +71,20 @@
 
   const buildSlides = (agents) => {
     const size = chunkSize();
+    if (!agents.length) return [];
+
+    const normalizedAgents = [...agents];
+    if (size > 1 && normalizedAgents.length % size !== 0) {
+      const missing = size - (normalizedAgents.length % size);
+      for (let i = 0; i < missing; i += 1) {
+        normalizedAgents.push(agents[i % agents.length]);
+      }
+    }
+
     const grouped = [];
-    for (let i = 0; i < agents.length; i += size) grouped.push(agents.slice(i, i + size));
+    for (let i = 0; i < normalizedAgents.length; i += size) {
+      grouped.push(normalizedAgents.slice(i, i + size));
+    }
     return grouped;
   };
 
