@@ -1,0 +1,289 @@
+/* ==========================================================
+   SCROLL-DRIVEN ANIMATIONS — Premium analytics page
+   Inspired by Apple / Stripe / Linear / TradingView
+   ========================================================== */
+
+/* ----------------------------------------------------------
+   CSS VARIABLES
+   ---------------------------------------------------------- */
+:root {
+  --sa-ease-out-expo: cubic-bezier(.16, 1, .3, 1);
+  --sa-ease-out-quart: cubic-bezier(.22, .61, .36, 1);
+  --sa-ease-in-out: cubic-bezier(.4, 0, .2, 1);
+  --sa-duration-fast: 420ms;
+  --sa-duration-base: 650ms;
+  --sa-duration-slow: 900ms;
+  --sa-stagger-base: 80ms;
+  --sa-translate-sm: 18px;
+  --sa-translate-md: 30px;
+  --sa-glow-primary: rgba(0, 89, 255, .14);
+  --sa-glow-green: rgba(0, 167, 121, .16);
+  --sa-glow-accent: rgba(0, 89, 255, .08);
+}
+
+/* ----------------------------------------------------------
+   REVEAL — base hidden / visible states
+   ---------------------------------------------------------- */
+[data-sa-reveal],
+[data-sa-stagger-child] {
+  opacity: 0;
+  transform: translate3d(0, var(--sa-translate-sm), 0);
+  transition:
+    opacity var(--sa-duration-base) var(--sa-ease-out-expo),
+    transform var(--sa-duration-base) var(--sa-ease-out-expo),
+    filter var(--sa-duration-base) var(--sa-ease-out-expo);
+  filter: blur(2px);
+  will-change: opacity, transform, filter;
+}
+
+[data-sa-reveal].sa-visible,
+[data-sa-stagger-child].sa-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+}
+
+/* Stagger delays via CSS custom property */
+[data-sa-stagger-child].sa-visible {
+  transition-delay: calc(var(--sa-i, 0) * var(--sa-stagger-base));
+}
+
+/* ----------------------------------------------------------
+   SECTION GLOW — subtle illumination on entry
+   ---------------------------------------------------------- */
+[data-sa-glow] {
+  transition: box-shadow var(--sa-duration-slow) var(--sa-ease-in-out);
+}
+[data-sa-glow].sa-glowing {
+  box-shadow: 0 0 80px 0 var(--sa-glow-accent);
+}
+
+/* ----------------------------------------------------------
+   CHART REVEAL — overlay that wipes away
+   ---------------------------------------------------------- */
+.sa-chart-wrap {
+  position: relative;
+}
+.sa-chart-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, var(--sa-glow-primary) 50%, transparent 100%);
+  transform-origin: left center;
+  transform: scaleX(1);
+  pointer-events: none;
+  z-index: 5;
+  transition: transform var(--sa-duration-slow) var(--sa-ease-out-expo),
+              opacity 200ms ease 700ms;
+  opacity: 1;
+  border-radius: inherit;
+}
+.sa-chart-wrap.sa-chart-revealed .sa-chart-overlay {
+  transform: scaleX(0);
+  opacity: 0;
+}
+
+/* ----------------------------------------------------------
+   COUNT-UP — number flash on change
+   ---------------------------------------------------------- */
+.sa-countup-flash {
+  animation: sa-flash 400ms var(--sa-ease-out-quart);
+}
+@keyframes sa-flash {
+  0%   { color: #0059ff; text-shadow: 0 0 16px rgba(0,89,255,.5); }
+  100% { color: inherit; text-shadow: none; }
+}
+
+/* ----------------------------------------------------------
+   LIVE / PULSE INDICATOR
+   ---------------------------------------------------------- */
+.sa-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #1e7a4e;
+  background: rgba(0, 167, 121, .08);
+  border: 1px solid rgba(0, 167, 121, .22);
+  border-radius: 100px;
+  padding: 3px 10px 3px 7px;
+  margin-bottom: 10px;
+}
+.sa-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00a779;
+  flex-shrink: 0;
+  animation: sa-pulse 1.8s ease-in-out infinite;
+}
+@keyframes sa-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 167, 121, .4); }
+  50%       { opacity: .7; box-shadow: 0 0 0 5px rgba(0, 167, 121, 0); }
+}
+
+/* ----------------------------------------------------------
+   TREND ARROW — animated up/down arrow
+   ---------------------------------------------------------- */
+.sa-trend-arrow {
+  display: inline-block;
+  animation: sa-arrow-bob 2s ease-in-out infinite;
+}
+@keyframes sa-arrow-bob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-3px); }
+}
+
+/* ----------------------------------------------------------
+   MARKET TICKER — soft number highlight on update
+   ---------------------------------------------------------- */
+.sa-ticker-highlight {
+  animation: sa-ticker 600ms var(--sa-ease-out-quart);
+}
+@keyframes sa-ticker {
+  0%   { background: rgba(0, 89, 255, .12); border-radius: 4px; }
+  100% { background: transparent; }
+}
+
+/* ----------------------------------------------------------
+   PARALLAX ELEMENTS
+   ---------------------------------------------------------- */
+[data-sa-parallax] {
+  will-change: transform;
+  transition: transform 50ms linear;
+}
+
+/* Glow orb parallax */
+.hai-glow-orb[data-sa-parallax] {
+  will-change: transform;
+}
+
+/* ----------------------------------------------------------
+   BAR FILL ANIMATION
+   ---------------------------------------------------------- */
+.sa-bar-animated .delay-calc__bar-fill {
+  width: 0 !important;
+  transition: width 900ms var(--sa-ease-out-expo) !important;
+}
+.sa-bar-animated.sa-bars-revealed .delay-calc__bar-fill {
+  width: var(--sa-bar-target, 0%) !important;
+}
+
+/* ----------------------------------------------------------
+   SECTION SMART HIGHLIGHT
+   ---------------------------------------------------------- */
+.sa-section-focus {
+  transition: background 600ms var(--sa-ease-in-out);
+}
+
+/* ----------------------------------------------------------
+   TIMELINE REVEAL
+   ---------------------------------------------------------- */
+.hai-timeline-item {
+  opacity: 0;
+  transform: translate3d(-12px, 0, 0);
+  transition: opacity var(--sa-duration-base) var(--sa-ease-out-expo),
+              transform var(--sa-duration-base) var(--sa-ease-out-expo);
+}
+.hai-timeline-item.sa-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* ----------------------------------------------------------
+   HOVER ENHANCEMENTS
+   ---------------------------------------------------------- */
+.market-card {
+  transition: transform 250ms var(--sa-ease-out-quart),
+              box-shadow 250ms var(--sa-ease-out-quart) !important;
+}
+.market-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, .1), 0 0 0 1px rgba(0, 89, 255, .08) !important;
+}
+.market-card--trend:hover {
+  box-shadow: 0 12px 36px rgba(0, 167, 121, .12), 0 0 0 1px rgba(0, 167, 121, .15) !important;
+}
+
+.hai-stat-card {
+  transition: transform 250ms var(--sa-ease-out-quart),
+              box-shadow 250ms var(--sa-ease-out-quart) !important;
+}
+.hai-stat-card:hover {
+  transform: translateY(-3px) !important;
+}
+
+.rem-price-card {
+  transition: transform 280ms var(--sa-ease-out-quart),
+              box-shadow 280ms var(--sa-ease-out-quart) !important;
+}
+.rem-price-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .1) !important;
+}
+
+/* ----------------------------------------------------------
+   CHART CANVAS GLOW ON HOVER
+   ---------------------------------------------------------- */
+.market-analytics__chart-wrap,
+.hai-canvas-wrap {
+  transition: filter 350ms var(--sa-ease-out-quart);
+}
+.market-analytics__chart-wrap:hover,
+.hai-canvas-wrap:hover {
+  filter: drop-shadow(0 0 18px rgba(0, 89, 255, .12));
+}
+
+/* ----------------------------------------------------------
+   SMART VISUAL FEEDBACK — section illumination
+   ---------------------------------------------------------- */
+.hai-section[data-sa-section-active] .hai-glow-orb {
+  opacity: 1 !important;
+  transform: scale(1.15) !important;
+  transition: opacity 800ms ease, transform 800ms var(--sa-ease-out-expo) !important;
+}
+
+/* ----------------------------------------------------------
+   MOBILE ADJUSTMENTS
+   ---------------------------------------------------------- */
+@media (max-width: 768px) {
+  :root {
+    --sa-translate-sm: 12px;
+    --sa-translate-md: 18px;
+    --sa-duration-base: 500ms;
+    --sa-duration-slow: 700ms;
+  }
+  [data-sa-reveal],
+  [data-sa-stagger-child] {
+    filter: none;
+  }
+  .sa-live-badge { font-size: 10px; }
+}
+
+/* ----------------------------------------------------------
+   REDUCED MOTION
+   ---------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  [data-sa-reveal],
+  [data-sa-stagger-child],
+  .hai-timeline-item {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+  .sa-chart-overlay { display: none !important; }
+  [data-sa-parallax] { transform: none !important; }
+  .sa-live-dot { animation: none !important; }
+  .sa-trend-arrow { animation: none !important; }
+  .sa-bar-animated .delay-calc__bar-fill {
+    transition: none !important;
+  }
+  .market-card,
+  .hai-stat-card,
+  .rem-price-card {
+    transition: none !important;
+  }
+}

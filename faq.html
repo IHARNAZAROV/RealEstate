@@ -159,6 +159,8 @@
     <link rel="preload" href="/css/fontawesome/css/brands.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="/css/fontawesome/css/solid.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="/css/contact-widget.css">
+    <!-- Legal & Compliance -->
+    <link rel="stylesheet" href="/css/agency-legal.css">
     <link rel="stylesheet" href="/css/delay-calc.css" data-versioned>
 </head>
 
@@ -200,6 +202,7 @@
             <li><a href="/">Главная</a></li>
             <li><a href="/rieltor-lida">Обо мне</a></li>
             <li><a href="/nedvizhimost-lida">Объекты</a></li>
+            <li><a href="/rynok-nedvizhimosti-lida">Аналитика</a></li>
             <li><a href="/blog">Блог</a></li>
             <li><a href="/faq">Вопросы</a></li>
             <li><a href="/contact">Контакты</a></li>
@@ -217,55 +220,55 @@
   <div class="mnav-name">Ольга Турко · Риэлтер · Лида</div>
 </div>
 <ul class="mnav-list">
-          <li>
-            <a href="/" data-path="/">
-              <i class="fa-solid fa-house"></i>
-              <span>Главная</span>
-            </a>
-          </li>
+  <li>
+    <a href="/" data-path="/">
+      <i class="fa-solid fa-house"></i>
+      <span>Главная</span>
+    </a>
+  </li>
 
-          <li>
-            <a href="/rieltor-lida" data-path="/rieltor-lida">
-              <i class="fa-solid fa-user"></i>
-              <span>Обо мне</span>
-            </a>
-          </li>
+  <li>
+    <a href="/rieltor-lida" data-path="/rieltor-lida">
+      <i class="fa-solid fa-user"></i>
+      <span>Обо мне</span>
+    </a>
+  </li>
 
-          <li>
-            <a href="/nedvizhimost-lida" data-path="/nedvizhimost-lida">
-              <i class="fa-solid fa-building"></i>
-              <span>Объекты</span>
-            </a>
-          </li>
+  <li>
+    <a href="/nedvizhimost-lida" data-path="/nedvizhimost-lida">
+      <i class="fa-solid fa-building"></i>
+      <span>Объекты</span>
+    </a>
+  </li>
 
-          <li>
-            <a href="/rynok-nedvizhimosti-lida/" data-path="/rynok-nedvizhimosti-lida/">
-              <i class="fa-solid fa-chart-line"></i>
-              <span>Аналитика</span>
-            </a>
-          </li>
+  <li>
+    <a href="/rynok-nedvizhimosti-lida" data-path="/rynok-nedvizhimosti-lida">
+      <i class="fa-solid fa-chart-line"></i>
+      <span>Аналитика</span>
+    </a>
+  </li>
 
-          <li>
-            <a href="/blog" data-path="/blog">
-              <i class="fa-solid fa-pen-nib"></i>
-              <span>Блог</span>
-            </a>
-          </li>
+  <li>
+    <a href="/blog" data-path="/blog">
+      <i class="fa-solid fa-pen-nib"></i>
+      <span>Блог</span>
+    </a>
+  </li>
 
-          <li>
-            <a href="/faq" data-path="/faq">
-              <i class="fa-solid fa-circle-question"></i>
-              <span>Вопросы</span>
-            </a>
-          </li>
+  <li>
+    <a href="/faq" data-path="/faq">
+      <i class="fa-solid fa-circle-question"></i>
+      <span>Вопросы</span>
+    </a>
+  </li>
 
-          <li class="mnav-list__full">
-            <a href="/contact" data-path="/contact">
-              <i class="fa-solid fa-phone"></i>
-              <span>Контакты</span>
-            </a>
-          </li>
-        </ul>
+  <li>
+    <a href="/contact" data-path="/contact">
+      <i class="fa-solid fa-phone"></i>
+      <span>Контакты</span>
+    </a>
+  </li>
+</ul>
 
 
   <!-- CTA -->
@@ -498,6 +501,12 @@
         </div>
       </div>
 
+      <!-- =========================================
+         DELAY CALCULATOR SECTION
+         ========================================= -->
+
+
+      <!-- DELAY CALCULATOR MOVED TO /rynok-nedvizhimosti-lida -->
 
       <!-- CONTENT END -->
       <!-- =========================================
@@ -576,6 +585,7 @@
                   <ul>
                     <li><a href="/rieltor-lida">Обо мне</a></li>
                     <li><a href="/nedvizhimost-lida">Объекты</a></li>
+                    <li><a href="/rynok-nedvizhimosti-lida">Аналитика</a></li>
                     <li><a href="/blog">Блог</a></li>
                     <li><a href="/contact">Контакты</a></li>
                     <li><a href="/Privacy">Политика конфиденциальности</a></li>
@@ -672,6 +682,7 @@
     <script src="/js/analytics-consent-loader.js" defer></script>
     <script src="/js/cookie-consent.js" defer></script>
     <script src="/js/footer-post.js" defer></script>
+    <script src="/js/delay-calc.js" defer data-versioned></script>
       <!-- Contact widget -->
     <div class="cw" data-cw-root>
       <button
@@ -749,5 +760,8 @@
       </div>
     </div>
     <script src="contact-widget.js" defer></script>
+    <!-- Legal & Compliance Components -->
+    <script src="/js/agency-legal-block.js" defer></script>
+    <script src="/js/consent-checkbox.js" defer></script>
 </body>
 </html>

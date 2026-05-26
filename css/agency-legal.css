@@ -1,0 +1,321 @@
+/* ========================================================
+   AGENCY LEGAL BLOCK
+   Premium real estate style - minimal, elegant, accessible
+   ======================================================== */
+
+/* Main container */
+.agency-legal-block {
+  padding: 24px;
+  margin-top: 32px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 13px;
+  line-height: 1.7;
+  color: #666;
+  background: transparent;
+}
+
+.agency-legal-block p {
+  margin: 0 0 12px;
+  padding: 0;
+}
+
+.agency-legal-block p:last-child {
+  margin-bottom: 0;
+}
+
+/* Disclaimer text */
+.agency-legal-disclaimer {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  font-size: 12px;
+  line-height: 1.7;
+  color: #999;
+}
+
+.agency-legal-disclaimer p {
+  margin: 0 0 10px;
+}
+
+.agency-legal-disclaimer p:last-child {
+  margin-bottom: 0;
+}
+
+/* Links in disclaimer */
+.agency-legal-disclaimer a {
+  color: #006064;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.agency-legal-disclaimer a:hover,
+.agency-legal-disclaimer a:focus {
+  color: #00797a;
+  outline: none;
+}
+
+/* Footer variant */
+.footer-legal-block {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-legal-block__item {
+  margin: 8px 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-legal-block__item:first-child {
+  margin-top: 0;
+}
+
+.footer-legal-block__item:last-child {
+  margin-bottom: 0;
+}
+
+.footer-legal-block__item strong {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.footer-legal-block__divider {
+  margin: 16px 0;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ========================================================
+   CONSENT CHECKBOX
+   ======================================================== */
+
+.consent-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.consent-checkbox {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.consent-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  margin: 0;
+}
+
+.consent-checkbox__box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #d0d0d0;
+  border-radius: 3px;
+  background-color: #fff;
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+.consent-checkbox input[type="checkbox"]:focus ~ .consent-checkbox__box {
+  outline: 2px solid #006064;
+  outline-offset: 2px;
+}
+
+.consent-checkbox input[type="checkbox"]:checked ~ .consent-checkbox__box {
+  border-color: #006064;
+  background-color: #006064;
+}
+
+.consent-checkbox__checkmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 10px;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.consent-checkbox input[type="checkbox"]:checked ~ .consent-checkbox__checkmark {
+  opacity: 1;
+}
+
+.consent-label {
+  flex: 1;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #666;
+  cursor: pointer;
+  user-select: none;
+}
+
+.consent-label a {
+  color: #006064;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+  font-weight: 500;
+}
+
+.consent-label a:hover,
+.consent-label a:focus {
+  color: #00797a;
+  outline: none;
+}
+
+/* Error state */
+.consent-group.error .consent-checkbox__box {
+  border-color: #d32f2f;
+}
+
+.consent-group.error .consent-checkbox input[type="checkbox"]:focus ~ .consent-checkbox__box {
+  outline-color: #d32f2f;
+}
+
+/* ========================================================
+   AGENT INFO BLOCK
+   ======================================================== */
+
+.agent-info-block {
+  padding: 24px;
+  margin: 32px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 14px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.agent-info-block__title {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #999;
+}
+
+.agent-info-block__name {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+
+.agent-info-block__role {
+  margin: 0 0 16px;
+  font-size: 13px;
+  color: #006064;
+}
+
+/* ========================================================
+   RESPONSIVE
+   ======================================================== */
+
+@media (max-width: 768px) {
+  .agency-legal-block {
+    padding: 16px;
+    margin-top: 24px;
+    font-size: 12px;
+  }
+
+  .agency-legal-disclaimer {
+    margin-top: 12px;
+    padding-top: 12px;
+    font-size: 11px;
+  }
+
+  .consent-group {
+    gap: 8px;
+  }
+
+  .consent-checkbox {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+  }
+
+  .consent-label {
+    font-size: 12px;
+  }
+
+  .agent-info-block {
+    padding: 16px;
+    margin: 24px 0;
+    font-size: 13px;
+  }
+
+  .agent-info-block__name {
+    font-size: 15px;
+  }
+
+  .agent-info-block__role {
+    font-size: 12px;
+  }
+}
+
+/* ========================================================
+   DARK MODE (Footer variant)
+   ======================================================== */
+
+.footer-legal-block {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-legal-block__item {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.footer-legal-block__item strong {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.footer-legal-block__divider {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================================
+   ANIMATIONS & INTERACTIONS
+   ======================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  .consent-checkbox__box,
+  .consent-checkbox__checkmark,
+  .consent-label a {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* Accessibility: Focus visible */
+.consent-label:focus-visible {
+  outline: 2px solid #006064;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+  .agency-legal-block {
+    border-top-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .consent-checkbox__box {
+    border-width: 3px;
+  }
+
+  .consent-label a {
+    font-weight: 600;
+  }
+}

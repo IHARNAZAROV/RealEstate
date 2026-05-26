@@ -240,6 +240,8 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
   <link rel="stylesheet" href="/css/flaticon.min.css" data-versioned />
   <link rel="stylesheet" href="/css/district-info.css" data-versioned />
   <link rel="stylesheet" href="/css/contact-widget.css" data-versioned />
+  <!-- Legal & Compliance -->
+  <link rel="stylesheet" href="/css/agency-legal.css">
 </head>
 <body id="bg">
 <div class="page-wraper">
@@ -655,5 +657,8 @@ window.addEventListener('unhandledrejection', function (event) {
   }
 });
 </script>
+<!-- Legal & Compliance Components -->
+<script src="/js/agency-legal-block.js" defer></script>
+<script src="/js/consent-checkbox.js" defer></script>
 </body>
 </html>

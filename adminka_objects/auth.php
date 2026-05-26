@@ -11,8 +11,8 @@
  * 3) Existing PHP session flag ($_SESSION['is_admin'] === true)
  */
 
-// 1) File-based token (change this value on production).
-const REALTER_ADMIN_SAVE_TOKEN = 'aygUcRRst1iJcXr1zHBQ4F5orgVZMgiR5XUJ1Ua0B46p9ctvyeu6BjkaAYFR26jk';
+// Token must be set via REALTER_ADMIN_TOKEN environment variable (Replit Secrets).
+const REALTER_ADMIN_SAVE_TOKEN = '';
 
 function realterReadBearerToken(): ?string {
   $header = $_SERVER['HTTP_AUTHORIZATION'] ?? $_SERVER['Authorization'] ?? '';

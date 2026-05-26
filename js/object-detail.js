@@ -941,6 +941,8 @@ function renderSidebarFooter(obj) {
       <div class="sidebar-agency-address">
         г. Лида, б-р Князя Гедимина, дом 12, помещение 9.
       </div>
+      <div>УНП 193776843</div>
+      <div>Страховой полис Серия БР № 0004927,<br> с 10.08.2025 по 09.08.2026</div>
       ${contract}
     </div>
   `;

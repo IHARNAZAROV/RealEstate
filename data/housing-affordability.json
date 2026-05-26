@@ -1,0 +1,79 @@
+[
+  {
+    "year": 2020,
+    "averageSalary": 1208,
+    "averageApartmentPrice": 72000,
+    "pricePerSqm": 1440,
+    "yearsToSave": 4.97,
+    "yearsToSaveRealistic": 14.19,
+    "affordabilityStatus": "stable",
+    "inflationRate": 5.5,
+    "cumulativeInflation": 1.0
+  },
+  {
+    "year": 2021,
+    "averageSalary": 1457,
+    "averageApartmentPrice": 84000,
+    "pricePerSqm": 1680,
+    "yearsToSave": 4.81,
+    "yearsToSaveRealistic": 13.73,
+    "affordabilityStatus": "improving",
+    "inflationRate": 9.9,
+    "cumulativeInflation": 1.099
+  },
+  {
+    "year": 2022,
+    "averageSalary": 1658,
+    "averageApartmentPrice": 90000,
+    "pricePerSqm": 1800,
+    "yearsToSave": 4.52,
+    "yearsToSaveRealistic": 12.93,
+    "affordabilityStatus": "improving",
+    "inflationRate": 12.8,
+    "cumulativeInflation": 1.239
+  },
+  {
+    "year": 2023,
+    "averageSalary": 1918,
+    "averageApartmentPrice": 102000,
+    "pricePerSqm": 2040,
+    "yearsToSave": 4.43,
+    "yearsToSaveRealistic": 12.66,
+    "affordabilityStatus": "improving",
+    "inflationRate": 3.9,
+    "cumulativeInflation": 1.288
+  },
+  {
+    "year": 2024,
+    "averageSalary": 2257,
+    "averageApartmentPrice": 114000,
+    "pricePerSqm": 2280,
+    "yearsToSave": 4.21,
+    "yearsToSaveRealistic": 12.03,
+    "affordabilityStatus": "improving",
+    "inflationRate": 5.9,
+    "cumulativeInflation": 1.364
+  },
+  {
+    "year": 2025,
+    "averageSalary": 2520,
+    "averageApartmentPrice": 126000,
+    "pricePerSqm": 2520,
+    "yearsToSave": 4.17,
+    "yearsToSaveRealistic": 11.90,
+    "affordabilityStatus": "improving",
+    "inflationRate": 6.0,
+    "cumulativeInflation": 1.446
+  },
+  {
+    "year": 2026,
+    "averageSalary": 2750,
+    "averageApartmentPrice": 138000,
+    "pricePerSqm": 2760,
+    "yearsToSave": 4.18,
+    "yearsToSaveRealistic": 11.95,
+    "affordabilityStatus": "declining",
+    "inflationRate": 6.0,
+    "cumulativeInflation": 1.533
+  }
+]

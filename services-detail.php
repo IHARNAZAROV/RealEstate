@@ -166,6 +166,8 @@ if (is_array($currentService)) {
       <link rel="stylesheet" href="/css/fontawesome/css/brands.min.css" />
       <link rel="stylesheet" href="/css/fontawesome/css/solid.min.css" />
     <link rel="stylesheet" href="/css/contact-widget.css">
+    <!-- Legal & Compliance -->
+    <link rel="stylesheet" href="/css/agency-legal.css">
 </head>
 
    <body>
@@ -229,55 +231,48 @@ if (is_array($currentService)) {
                <div class="mnav-name">Ольга Турко · Риэлтер · Лида</div>
             </div>
             <ul class="mnav-list">
-          <li>
-            <a href="/" data-path="/">
-              <i class="fa-solid fa-house"></i>
-              <span>Главная</span>
-            </a>
-          </li>
+               <li>
+                  <a href="/" data-path="/">
+                     <i class="fa-solid fa-house"></i>
+                     <span>Главная</span>
+                  </a>
+               </li>
 
-          <li>
-            <a href="/rieltor-lida" data-path="/rieltor-lida">
-              <i class="fa-solid fa-user"></i>
-              <span>Обо мне</span>
-            </a>
-          </li>
+               <li>
+                  <a href="/rieltor-lida" data-path="/rieltor-lida">
+                     <i class="fa-solid fa-user"></i>
+                     <span>Обо мне</span>
+                  </a>
+               </li>
 
-          <li>
-            <a href="/nedvizhimost-lida" data-path="/nedvizhimost-lida">
-              <i class="fa-solid fa-building"></i>
-              <span>Объекты</span>
-            </a>
-          </li>
+               <li>
+                  <a href="/nedvizhimost-lida" data-path="/nedvizhimost-lida">
+                     <i class="fa-solid fa-building"></i>
+                     <span>Объекты</span>
+                  </a>
+               </li>
 
-          <li>
-            <a href="/rynok-nedvizhimosti-lida/" data-path="/rynok-nedvizhimosti-lida/">
-              <i class="fa-solid fa-chart-line"></i>
-              <span>Аналитика</span>
-            </a>
-          </li>
+               <li>
+                  <a href="/blog" data-path="/blog">
+                     <i class="fa-solid fa-pen-nib"></i>
+                     <span>Блог</span>
+                  </a>
+               </li>
 
-          <li>
-            <a href="/blog" data-path="/blog">
-              <i class="fa-solid fa-pen-nib"></i>
-              <span>Блог</span>
-            </a>
-          </li>
+               <li>
+                  <a href="/faq" data-path="/faq">
+                     <i class="fa-solid fa-circle-question"></i>
+                     <span>Вопросы</span>
+                  </a>
+               </li>
 
-          <li>
-            <a href="/faq" data-path="/faq">
-              <i class="fa-solid fa-circle-question"></i>
-              <span>Вопросы</span>
-            </a>
-          </li>
-
-          <li class="mnav-list__full">
-            <a href="/contact" data-path="/contact">
-              <i class="fa-solid fa-phone"></i>
-              <span>Контакты</span>
-            </a>
-          </li>
-        </ul>
+               <li>
+                  <a href="/contact" data-path="/contact">
+                     <i class="fa-solid fa-phone"></i>
+                     <span>Контакты</span>
+                  </a>
+               </li>
+            </ul>
 
             <!-- CTA -->
             <div class="mnav-cta">
@@ -658,6 +653,7 @@ if (is_array($currentService)) {
       </div>
     </div>
     <script src="/js/sw-register.js" defer></script>
-    <script src="contact-widget.js" defer></script>
-</body>
+    <script src="contact-widget.js" defer></script>      <!-- Legal & Compliance Components -->
+      <script src="/js/agency-legal-block.js" defer></script>
+      <script src="/js/consent-checkbox.js" defer></script></body>
 </html>
