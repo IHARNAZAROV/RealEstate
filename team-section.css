@@ -5,7 +5,6 @@
   --team-primary-strong: #0f2f29;
   --team-muted: #667572;
   --team-divider: #e5e8e4;
-  --team-shadow: 0 20px 55px rgba(15, 28, 24, 0.08);
   --team-radius: 26px;
 }
 
@@ -14,7 +13,6 @@
   position: relative;
   z-index: 120;
   isolation: isolate;
-  background: radial-gradient(circle at top right, #fefdfb 0%, var(--team-bg) 65%);
   padding: 72px 20px;
   color: var(--team-primary);
   font-family: "Inter", "Segoe UI", sans-serif;
