@@ -172,6 +172,20 @@
       </div>`;
   };
 
+
+
+  const renderAchievements = m => {
+    const years = m.experience || 0;
+    const deals = m.deals || 0;
+    const area = m.city || 'регионе';
+    const items = [
+      { icon: 'fa-solid fa-circle-half-stroke', text: `Экспертный подход и персональная стратегия под вашу задачу.` },
+      { icon: 'fa-solid fa-building', text: `Проведено ${deals}+ сделок с прозрачным сопровождением на всех этапах.` },
+      { icon: 'fa-solid fa-house', text: `Глубокая экспертиза в ${area} и практический опыт ${years}+ лет.` },
+    ];
+    return `<div class="td-achievements">${items.map(it => `<div class="td-achievement td-reveal"><i class="${safe(it.icon)}" aria-hidden="true"></i><span>${safe(it.text)}</span></div>`).join('')}</div>`;
+  };
+
   /* ── Render skill bars ── */
   const renderSkillBars = skills => skills.map(s => `
     <div class="td-skill-item td-reveal">
@@ -215,7 +229,8 @@
           <p class="td-info-role">${safe(m.specialization || m.position || 'Специалист по недвижимости')}</p>
           <p class="td-info-desc">${safe(desc)}</p>
           <div class="td-info-boxes">${renderInfoBoxes(m)}</div>
-          <a class="td-contact-btn" href="${safe(contactHref)}">Связаться со мной</a>
+          ${renderAchievements(m)}
+          <a class="td-contact-btn" href="${safe(contactHref)}"><i class="fa-solid fa-phone" aria-hidden="true"></i>Связаться со мной</a>
         </div>
       </div>`;
     heroWrap.hidden = false;
