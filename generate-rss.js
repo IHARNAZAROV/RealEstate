@@ -4,9 +4,9 @@ const path = require('path');
 const MAX_RSS_SIZE_BYTES = 10 * 1024 * 1024;
 const SITE_URL = 'https://turko.by';
 const BLOG_PATH_PREFIX = '/blog';
-const DEFAULT_AUTHOR = 'ГермесГрупп';
+const DEFAULT_AUTHOR = 'ГермесГарант';
 const DEFAULT_CATEGORY = 'Недвижимость';
-const CHANNEL_TITLE = 'Блог агентства недвижимости ГермесГрупп';
+const CHANNEL_TITLE = 'Блог агентства недвижимости ГермесГарант';
 const CHANNEL_DESCRIPTION =
   'Статьи о недвижимости, покупке, продаже квартир и рынке недвижимости Лиды';
 

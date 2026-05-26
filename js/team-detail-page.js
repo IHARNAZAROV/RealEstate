@@ -79,8 +79,8 @@
   /* ── Meta & breadcrumb update ── */
   const updateMeta = (m, slug) => {
     const canonical = `${location.origin}/team/${slug}`;
-    const title = `${m.name} — ${m.position} | ГермесГрупп`;
-    const desc = m.description || `${m.name} — риэлтер агентства недвижимости ГермесГрупп. Опыт ${m.experience || 0} лет, более ${m.deals || 0} сделок.`;
+    const title = `${m.name} — ${m.position} | ГермесГарант`;
+    const desc = m.description || `${m.name} — риэлтер агентства недвижимости ГермесГарант. Опыт ${m.experience || 0} лет, более ${m.deals || 0} сделок.`;
 
     document.title = title;
     const set = (id, attr, val) => { const el = $(id); if (el) el[attr] = val; };
