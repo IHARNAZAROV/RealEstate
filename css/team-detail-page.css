@@ -53,7 +53,7 @@
 .td-skeleton--photo {
   width: 100%;
   aspect-ratio: 3 / 4;
-  border-radius: 8px;
+  border-radius: 18px;
 }
 
 .td-skeleton-text { display: flex; flex-direction: column; gap: 14px; padding-top: 10px; }
@@ -553,3 +553,27 @@
   .td-reveal { opacity: 1; transform: none; }
   .td-skill-bar { transition: none !important; }
 }
+
+
+/* modern enhancements */
+.td-hero, .td-exp-grid, .td-cta-wrap { position: relative; }
+.td-photo-card,.td-info-boxes,.td-stat-card,.td-cta-form{background:#fff;box-shadow:0 8px 30px rgba(21,89,69,.08);border:1px solid rgba(21,89,69,.12);}
+.td-photo-card{transition:transform .35s ease,box-shadow .35s ease;}
+.td-photo-card:hover{transform:translateY(-6px);box-shadow:0 16px 44px rgba(21,89,69,.16);}
+.td-info-panel{padding:18px 18px 12px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(246,251,249,.92));border:1px solid rgba(21,89,69,.12);}
+.td-info-box{transition:background .25s ease, transform .25s ease;}
+.td-info-box:hover{background:#f4faf7;transform:translateY(-2px);}
+.td-stat-card{border-radius:16px;overflow:hidden;position:relative;}
+.td-stat-card::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--color-primary),var(--accent-color));transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
+.td-stat-card:hover::after{transform:scaleX(1);}
+.td-contact-btn{box-shadow:0 10px 24px rgba(21,89,69,.25);}
+.td-contact-btn i{margin-right:8px;}
+.td-achievements{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:22px 0 0;}
+.td-achievement{display:flex;align-items:flex-start;gap:10px;padding:12px;border-radius:12px;background:#fff;border:1px solid rgba(21,89,69,.12);box-shadow:0 6px 18px rgba(21,89,69,.08);}
+.td-achievement i{color:var(--color-primary);font-size:1rem;margin-top:2px;}
+.td-achievement span{font-size:.84rem;line-height:1.45;color:var(--color-text-main);}
+@keyframes tdFloatIn{from{opacity:0;transform:translateY(24px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+.td-photo-card,.td-info-panel,.td-stat-card,.td-achievement{animation:tdFloatIn .55s ease both;}
+.td-stat-card:nth-child(2){animation-delay:.08s}.td-stat-card:nth-child(3){animation-delay:.14s}.td-stat-card:nth-child(4){animation-delay:.2s}
+@media (max-width: 991px){.td-achievements{grid-template-columns:1fr 1fr;}}
+@media (max-width: 767px){.td-info-panel{padding:14px}.td-achievements{grid-template-columns:1fr;}}
