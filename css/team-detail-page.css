@@ -577,3 +577,43 @@
 .td-stat-card:nth-child(2){animation-delay:.08s}.td-stat-card:nth-child(3){animation-delay:.14s}.td-stat-card:nth-child(4){animation-delay:.2s}
 @media (max-width: 991px){.td-achievements{grid-template-columns:1fr 1fr;}}
 @media (max-width: 767px){.td-info-panel{padding:14px}.td-achievements{grid-template-columns:1fr;}}
+
+
+/* layout fixes after UX review */
+#statsSection {
+  background: var(--color-gray-bg);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.td-achievements + .td-contact-btn {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.td-cta-wrap {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 72px;
+  align-items: start;
+}
+
+.td-cta-left {
+  padding-right: 8px;
+}
+
+.td-cta-right,
+.td-cta-form {
+  min-width: 0;
+}
+
+@media (max-width: 1199px) {
+  .td-cta-wrap {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .td-cta-left {
+    padding-right: 0;
+  }
+}
