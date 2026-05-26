@@ -904,7 +904,7 @@ function renderRightText(obj) {
 
       blocks.push(`
         <p style="margin-top:14px">
-          📍 Агентство недвижимости «ГермесГрупп»<br>
+          📍 Агентство недвижимости «ГермесГарант»<br>
           г. Лида, б-р Князя Гедимина, 12, пом. 9.
         </p>
       `);
@@ -936,7 +936,7 @@ function renderSidebarFooter(obj) {
   box.innerHTML = `
     <div class="sidebar-agency">
       <div class="sidebar-agency-title">
-        📍 Агентство недвижимости «ГермесГрупп»
+        📍 Агентство недвижимости «ГермесГарант»
       </div>
       <div class="sidebar-agency-address">
         г. Лида, б-р Князя Гедимина, дом 12, помещение 9.

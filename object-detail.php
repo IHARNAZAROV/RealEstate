@@ -689,7 +689,7 @@ $ogDescriptionEsc = htmlspecialchars($ogDescription, ENT_QUOTES);
                         <!-- FOOTER -->
                         <div class="sidebar-footer" data-sidebar-footer>
                           <p>
-                            📍 Агентство недвижимости «ГермесГрупп»<br />
+                            📍 Агентство недвижимости «ГермесГарант»<br />
                             г. Лида, б-р Князя Гедимина, 12, пом. 9.
                           </p>
                         </div>
@@ -963,7 +963,7 @@ $ogDescriptionEsc = htmlspecialchars($ogDescription, ENT_QUOTES);
 
             <p>
               Услуги по сопровождению сделок с недвижимостью оказываются через
-              лицензированное агентство недвижимости «ГермесГрупп».
+              лицензированное агентство недвижимости «ГермесГарант».
             </p>
 
             <p>
