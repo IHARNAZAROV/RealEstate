@@ -82,7 +82,7 @@ if (is_array($currentArticle)) {
         'author' => [
             '@type' => 'Person',
             'name' => 'Ольга Турко',
-            'url' => 'https://turko.by/rieltor-lida',
+            'url' => 'https://turko.by/about',
         ],
         'publisher' => [
             '@type' => 'Organization',
@@ -263,7 +263,7 @@ $ctaJson = $ctaBlock ? json_encode($ctaBlock, JSON_UNESCAPED_UNICODE | JSON_UNES
         <div class="header-nav nav-dark justify-content-start">
           <ul class="nav navbar-nav">
             <li><a href="/">Главная</a></li>
-            <li><a href="/rieltor-lida">Обо мне</a></li>
+            <li><a href="/about">Обо мне</a></li>
             <li><a href="/nedvizhimost-lida">Объекты</a></li>
             <li><a href="/blog">Блог</a></li>
             <li><a href="/faq">Вопросы</a></li>
@@ -295,7 +295,7 @@ $ctaJson = $ctaBlock ? json_encode($ctaBlock, JSON_UNESCAPED_UNICODE | JSON_UNES
   </li>
 
   <li>
-    <a href="/rieltor-lida" data-path="/rieltor-lida">
+    <a href="/about" data-path="/about">
       <i class="fa-solid fa-user"></i>
       <span>Обо мне</span>
     </a>
@@ -581,7 +581,7 @@ $ctaJson = $ctaBlock ? json_encode($ctaBlock, JSON_UNESCAPED_UNICODE | JSON_UNES
                 <h5 class="widget-title">Полезные ссылки</h5>
                 <ul>
                   <li>
-                    <a href="/rieltor-lida">Обо мне</a>
+                    <a href="/about">Обо мне</a>
                   </li>
                   <li>
                     <a href="/nedvizhimost-lida">Объекты</a>

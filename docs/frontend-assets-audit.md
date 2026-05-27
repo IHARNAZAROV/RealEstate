@@ -236,7 +236,7 @@
 
 ---
 
-## PAGE: rieltor-lida.html
+## PAGE: about.html
 
 ### JS — все используются
 
@@ -380,7 +380,7 @@
 | `blog-detail.php` | `js/blog-smart-badge.js`, `css/flaticon.min.css` |
 | `object-detail.php` | `js/objects-smart-badge.js`, `css/swiper.css` (только `swiper-bundle.css` нужен), `css/flaticon.min.css` |
 | `services-detail.php` | `css/flaticon.min.css` |
-| `rieltor-lida.html` | `css/flaticon.min.css` |
+| `about.html` | `css/flaticon.min.css` |
 | `contact.html` | `css/flaticon.min.css` |
 | `faq.html` | `css/flaticon.min.css` |
 | `404.html` | (всё нужно) |
@@ -415,7 +415,7 @@
 | `js/delay-calc.js` | faq.html |
 | `js/live-price.js` | index + nedvizhimost + object-detail |
 | `css/blog-badge.css`, `css/client-quiz.css`, `css/documents-checklist.css`, `css/swiper.css`, `css/swiper-bundle.css`, `css/nav-market-status.css` | index.html |
-| `css/Hub.css`, `css/about-video-premium.css`, `css/client-trust-wall.css` | rieltor-lida.html |
+| `css/Hub.css`, `css/about-video-premium.css`, `css/client-trust-wall.css` | about.html |
 | `css/object-share.css` | object-detail.php |
 | `css/blog-tags.css`, `css/blog-views.css` | blog.html + blog-detail.php |
 | `css/blog-related.css` | blog-detail.php |
@@ -469,7 +469,7 @@ URL разные → браузер скачает файл дважды. При
 
 - `regular` (`.far`) почти не используется — проверить grep'ом по реальным иконкам.
 - `brands` (`.fab`) нужен только там, где есть соц-иконки (`fa-brand-whatsapp` и т.п.).
-- На `services-detail.php`, `faq.html`, `rieltor-lida.html`, `contact.html`, `nedvizhimost-lida.html` — оставить только `fontawesome.min.css` + `solid.min.css`.
+- На `services-detail.php`, `faq.html`, `about.html`, `contact.html`, `nedvizhimost-lida.html` — оставить только `fontawesome.min.css` + `solid.min.css`.
 
 **Эффект:** ~60–80 KB на страницу.
 
@@ -477,7 +477,7 @@ URL разные → браузер скачает файл дважды. При
 
 - `404.html` — нет `bootstrap.min.css` и `style.css`. Если в разметке используются `.container`, `.row` — они «лысые».
 - `services-detail.php`, `blog.html` — нет `style.css`. Возможно стили общего хедера/футера лежат в `bootstrap.min.css` или инлайн, но это нетипично.
-- `rieltor-lida.html` — есть классы `.about-video-premium__*` и `.client-trust-wall__*`, но соответствующие CSS-файлы не подключены. Стили могут уже быть скопированы в `style.css` — проверить, иначе блоки ломаются.
+- `about.html` — есть классы `.about-video-premium__*` и `.client-trust-wall__*`, но соответствующие CSS-файлы не подключены. Стили могут уже быть скопированы в `style.css` — проверить, иначе блоки ломаются.
 - `faq.html` — нет `sw-register.js` (на всех остальных есть).
 
 ### 6. Стратегия загрузки JS

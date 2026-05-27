@@ -4,7 +4,7 @@
 
 ### Структура и архитектура
 - Текущий стек: мультистраничный сайт на HTML/PHP + ванильный JS + CSS, без сборщика и без компонентной системы.
-- Контентные страницы: `index.html`, `nedvizhimost-lida.html`, `rieltor-lida.html`, `faq.html`, `contact.html`, блог и детальные страницы (`blog.html`, `blog-detail.php`, `object-detail.php`).
+- Контентные страницы: `index.html`, `nedvizhimost-lida.html`, `about.html`, `faq.html`, `contact.html`, блог и детальные страницы (`blog.html`, `blog-detail.php`, `object-detail.php`).
 - Данные объектов и блога лежат в JSON (`data/objects.json`, `data/objects-list.json`, `data/blog-articles.json`), фронт подтягивает их через `fetch`.
 - Админка отделена в `adminka_objects/*` (собственные CSS/JS/PHP-endpoints).
 

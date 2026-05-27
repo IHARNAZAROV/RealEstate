@@ -265,7 +265,7 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
         <div class="header-nav nav-dark justify-content-start">
           <ul class="nav navbar-nav">
             <li><a href="/">Главная</a></li>
-            <li><a href="/rieltor-lida">Обо мне</a></li>
+            <li><a href="/about">Обо мне</a></li>
             <li><a href="/nedvizhimost-lida">Объекты</a></li>
             <li><a href="/blog">Блог</a></li>
             <li><a href="/faq">Вопросы</a></li>
@@ -285,7 +285,7 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
   </div>
   <ul class="mnav-list">
     <li><a href="/"                   data-path="/"><i class="fa-solid fa-house"></i><span>Главная</span></a></li>
-    <li><a href="/rieltor-lida"       data-path="/rieltor-lida"><i class="fa-solid fa-user"></i><span>Обо мне</span></a></li>
+    <li><a href="/about"       data-path="/about"><i class="fa-solid fa-user"></i><span>Обо мне</span></a></li>
     <li><a href="/nedvizhimost-lida"  data-path="/nedvizhimost-lida"><i class="fa-solid fa-building"></i><span>Объекты</span></a></li>
     <li><a href="/blog"               data-path="/blog"><i class="fa-solid fa-pen-nib"></i><span>Блог</span></a></li>
     <li><a href="/faq"                data-path="/faq"><i class="fa-solid fa-circle-question"></i><span>Вопросы</span></a></li>
@@ -462,7 +462,7 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
             <div class="district-internal-links__title">Смотрите также</div>
             <ul class="district-internal-links__list">
               <li><a href="/nedvizhimost-lida">Вся недвижимость в Лиде</a></li>
-              <li><a href="/rieltor-lida">Риэлтер в Лиде</a></li>
+              <li><a href="/about">Риэлтер в Лиде</a></li>
               <li><a href="/contact">Связаться с риэлтером</a></li>
               <li><a href="/#services">Услуги</a></li>
               <li><a href="/faq">Частые вопросы</a></li>
@@ -565,7 +565,7 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
             <div class="widget widget_services inline-links">
               <h5 class="widget-title">Полезные ссылки</h5>
               <ul>
-                <li><a href="/rieltor-lida">Обо мне</a></li>
+                <li><a href="/about">Обо мне</a></li>
                 <li><a href="/nedvizhimost-lida">Объекты</a></li>
                 <li><a href="/blog">Блог</a></li>
                 <li><a href="/contact">Контакты</a></li>

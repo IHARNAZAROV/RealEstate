@@ -1,6 +1,11 @@
 <?php
 $uri = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
+if ($uri === '/rieltor-lida' || $uri === '/rieltor-lida/' || $uri === '/rieltor-lida.html') {
+    header('Location: /about', true, 301);
+    exit;
+}
+
 // /raion/{slug} → raion.php
 if (preg_match('#^/raion/([a-zA-Z0-9_\-]+)/?$#', $uri, $m)) {
     $_GET['slug'] = $m[1];
@@ -33,7 +38,7 @@ if (preg_match('#^/team/([a-zA-Z0-9_\-]+)/?$#u', $uri, $m)) {
 $htmlMap = [
     '/team'              => 'team.html',
     '/nedvizhimost-lida' => 'nedvizhimost-lida.html',
-    '/rieltor-lida'      => 'rieltor-lida.html',
+    '/about'      => 'about.html',
     '/blog'              => 'blog.html',
     '/contact'           => 'contact.html',
     '/faq'               => 'faq.html',

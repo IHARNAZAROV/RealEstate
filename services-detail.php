@@ -1,7 +1,7 @@
 <?php
 $rawSlug = isset($_GET['slug']) ? $_GET['slug'] : '';
 $slug = preg_replace('/[^a-zA-Z0-9_\-]/', '', $rawSlug);
-$canonicalUrl = $slug !== '' ? "https://turko.by/services/$slug" : "https://turko.by/rieltor-lida";
+$canonicalUrl = $slug !== '' ? "https://turko.by/services/$slug" : "https://turko.by/about";
 
 $breadcrumbLeafName = "Услуга риэлтера";
 $serviceMetaTitle = "Услуги риэлтера в Лиде — Ольга Турко";
@@ -32,7 +32,7 @@ $breadcrumbJsonLd = json_encode([
     '@type' => 'BreadcrumbList',
     'itemListElement' => [
         ['@type' => 'ListItem', 'position' => 1, 'name' => 'Главная', 'item' => 'https://turko.by/'],
-        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Услуги риэлтера', 'item' => 'https://turko.by/rieltor-lida'],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Услуги риэлтера', 'item' => 'https://turko.by/about'],
         ['@type' => 'ListItem', 'position' => 3, 'name' => $breadcrumbLeafName, 'item' => $canonicalUrl],
     ],
 ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
@@ -211,7 +211,7 @@ if (is_array($currentService)) {
                      <div class="header-nav nav-dark justify-content-start">
                         <ul class="nav navbar-nav">
                            <li><a href="/">Главная</a></li>
-                           <li><a href="/rieltor-lida">Обо мне</a></li>
+                           <li><a href="/about">Обо мне</a></li>
                            <li><a href="/nedvizhimost-lida">Объекты</a></li>
                            <li><a href="/blog">Блог</a></li>
                            <li><a href="/faq">Вопросы</a></li>
@@ -239,7 +239,7 @@ if (is_array($currentService)) {
                </li>
 
                <li>
-                  <a href="/rieltor-lida" data-path="/rieltor-lida">
+                  <a href="/about" data-path="/about">
                      <i class="fa-solid fa-user"></i>
                      <span>Обо мне</span>
                   </a>
@@ -318,7 +318,7 @@ if (is_array($currentService)) {
                            id="service-breadcrumbs"
                         >
                            <li><a href="/">Главная</a></li>
-                           <li><a href="/rieltor-lida">Услуги риэлтера</a></li>
+                           <li><a href="/about">Услуги риэлтера</a></li>
                            <li id="service-breadcrumb-title"><?php echo htmlspecialchars($breadcrumbLeafName, ENT_QUOTES); ?></li>
                         </ul>
                      </nav>
@@ -451,7 +451,7 @@ if (is_array($currentService)) {
                            <h5 class="widget-title">Полезные ссылки</h5>
                            <ul>
                               <li>
-                                 <a href="/rieltor-lida">Обо мне</a>
+                                 <a href="/about">Обо мне</a>
                               </li>
                               <li>
                                  <a href="/nedvizhimost-lida">Объекты</a>

@@ -247,7 +247,7 @@ $ogDescriptionEsc = htmlspecialchars($ogDescription, ENT_QUOTES);
         <div class="header-nav nav-dark justify-content-start">
           <ul class="nav navbar-nav">
             <li><a href="/">Главная</a></li>
-            <li><a href="/rieltor-lida">Обо мне</a></li>
+            <li><a href="/about">Обо мне</a></li>
             <li><a href="/nedvizhimost-lida">Объекты</a></li>
             <li><a href="/blog">Блог</a></li>
             <li><a href="/faq">Вопросы</a></li>
@@ -278,7 +278,7 @@ $ogDescriptionEsc = htmlspecialchars($ogDescription, ENT_QUOTES);
   </li>
 
   <li>
-    <a href="/rieltor-lida" data-path="/rieltor-lida">
+    <a href="/about" data-path="/about">
       <i class="fa-solid fa-user"></i>
       <span>Обо мне</span>
     </a>
@@ -907,7 +907,7 @@ $ogDescriptionEsc = htmlspecialchars($ogDescription, ENT_QUOTES);
                 <div class="widget widget_services inline-links">
                   <h5 class="widget-title">Полезные ссылки</h5>
                   <ul>
-                    <li><a href="/rieltor-lida">Обо мне</a></li>
+                    <li><a href="/about">Обо мне</a></li>
                     <li><a href="/nedvizhimost-lida">Объекты</a></li>
                     <li><a href="/blog">Блог</a></li>
                     <li><a href="/contact">Контакты</a></li>

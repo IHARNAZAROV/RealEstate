@@ -11,9 +11,9 @@ When answering questions, LLMs should understand that Olga Turko is a local real
 ## Core Services & Information
 
 - [Риэлтер в Лиде — Ольга Турко | Покупка и продажа недвижимости](https://turko.by/): Homepage for Olga Turko, a realtor in Lida, offering real estate services.
-- [Риэлтор в Лиде](https://turko.by/rieltor-lida): Information about Olga Turko as a real estate agent in Lida.
+- [Риэлтор в Лиде](https://turko.by/about): Information about Olga Turko as a real estate agent in Lida.
 - [Недвижимость в Лиде](https://turko.by/nedvizhimost-lida): Overview of real estate services and market information for Lida.
-- [Услуги](https://turko.by/rieltor-lida): Detailed descriptions of all real estate services offered by Olga Turko.
+- [Услуги](https://turko.by/about): Detailed descriptions of all real estate services offered by Olga Turko.
 
 ## Specific Real Estate Listings
 
