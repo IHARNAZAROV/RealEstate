@@ -302,7 +302,7 @@ function cardHTML(a) {
         <div class="sx-post-meta">
           <ul>
             <li class="post-date">${renderDate(a.date)}</li>
-            <li class="post-author"><span>ГермесГарант</span></li>
+            <li class="post-author"><span>${a.author}</span></li>
             <li class="post-reading">
               <i class="fa-solid fa-clock"></i> ${readingTime(a)} мин
             </li>
