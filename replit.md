@@ -70,7 +70,7 @@ Full audit lives at `docs/frontend-assets-audit.md`. Safe optimizations applied 
 - Removed `<script src="/js/blog-smart-badge.js">` from `blog.html`, `blog-detail.php` (only `index.html` has `#blogBadge`).
 - Removed `<script src="/js/objects-smart-badge.js">` from `nedvizhimost-lida.html`, `object-detail.php` (only `index.html` has `#objectsBadge`).
 - Removed unused `<link rel="preload" href="/css/swiper.css">` from `object-detail.php` (only `swiper-bundle.css` is needed).
-- Removed `css/flaticon.min.css` link from 8 pages where flaticon classes are not used: `404.html`, `blog.html`, `contact.html`, `faq.html`, `nedvizhimost-lida.html`, `rieltor-lida.html`, `blog-detail.php`, `object-detail.php`, `services-detail.php`. It is still loaded on `index.html`.
+- Removed `css/flaticon.min.css` link from 8 pages where flaticon classes are not used: `404.html`, `blog.html`, `contact.html`, `faq.html`, `nedvizhimost-lida.html`, `about.html`, `blog-detail.php`, `object-detail.php`, `services-detail.php`. It is still loaded on `index.html`.
 - Aligned `nav-market-status.css` cache version in `index.html` `<noscript>` fallback (`?v=8`) with the preload above.
 - Deleted dead files: `js/blog-list.js` (never referenced — `js/calendar-sidebar.js` has its own `fetch` fallback) and `css/privacy.css` (never referenced).
 
@@ -110,9 +110,9 @@ Audit of actual icon-class usage across pages:
 - **Regular** (`far` / `fa-regular`) — used only on `nedvizhimost-lida.html` (`fa-regular fa-heart` favorites icon + `js/filters.js` line 762 dynamically toggles `fa-regular`) and `object-detail.php`.
 - **Solid** + base `fontawesome.min.css` — required everywhere.
 
-Removed `regular.min.css` `<link>` (preload + noscript fallback where present) from 8 pages that never use it: `index.html`, `404.html`, `blog.html`, `blog-detail.php`, `contact.html`, `faq.html`, `rieltor-lida.html`, `services-detail.php`. Saves a CSS request and prevents `fa-regular-400.woff2` font download on those pages. Kept on `nedvizhimost-lida.html` and `object-detail.php`.
+Removed `regular.min.css` `<link>` (preload + noscript fallback where present) from 8 pages that never use it: `index.html`, `404.html`, `blog.html`, `blog-detail.php`, `contact.html`, `faq.html`, `about.html`, `services-detail.php`. Saves a CSS request and prevents `fa-regular-400.woff2` font download on those pages. Kept on `nedvizhimost-lida.html` and `object-detail.php`.
 
-Note: a previous audit recommendation to also remove `brands.min.css` from `services-detail.php`, `faq.html`, `rieltor-lida.html`, `contact.html`, `nedvizhimost-lida.html` was rejected after verification — every one of those pages contains the social-media block and would lose the brand icons.
+Note: a previous audit recommendation to also remove `brands.min.css` from `services-detail.php`, `faq.html`, `about.html`, `contact.html`, `nedvizhimost-lida.html` was rejected after verification — every one of those pages contains the social-media block and would lose the brand icons.
 
 ### Bugfix: «Чеклист документов» modal didn't open (April 24, 2026)
 After the lazy-load refactor, clicking «Чеклист документов» in the header did nothing. Root cause: `js/documents-checklist.js` wrapped all setup (including `setupModal()` which binds the open-button click handler) in `document.addEventListener("DOMContentLoaded", ...)`. The lazy-loader fetches this script only on first user click — long after `DOMContentLoaded` has fired — so the listener never ran and the synthetic `button.click()` re-dispatched by `js/lazy-loaders.js` had no handler to open the modal.

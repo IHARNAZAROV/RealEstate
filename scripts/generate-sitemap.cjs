@@ -18,7 +18,7 @@ const OUTPUT_SITEMAP = path.join(ROOT, "sitemap.xml");
 const STATIC_PAGES = [
   { loc: "/",                    priority: "1.0", changefreq: "daily"   },
   { loc: "/nedvizhimost-lida",   priority: "0.9", changefreq: "daily"   },
-  { loc: "/rieltor-lida",        priority: "0.8", changefreq: "monthly" },
+  { loc: "/about",        priority: "0.8", changefreq: "monthly" },
   { loc: "/blog",                priority: "0.8", changefreq: "weekly"  },
   { loc: "/faq",                 priority: "0.6", changefreq: "monthly" },
   { loc: "/contact",             priority: "0.6", changefreq: "monthly" },
