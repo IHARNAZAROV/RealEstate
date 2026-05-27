@@ -28,6 +28,9 @@ RewriteRule \.json$ - [L]
 # LEGACY URL REDIRECTS
 # -------------------------------------------------
 
+# Market analytics page rename
+RewriteRule ^rynok-nedvizhimosti-lida(?:\.html)?/?$ https://turko.by/analytics [R=301,L,NC]
+
 # Only act on the original external request (avoids infinite loops on LiteSpeed
 # where THE_REQUEST gets rewritten on internal subrequests).
 RewriteCond %{ENV:REDIRECT_STATUS} ^$

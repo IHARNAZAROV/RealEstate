@@ -42,7 +42,7 @@ $htmlMap = [
     '/blog'              => 'blog.html',
     '/contact'           => 'contact.html',
     '/faq'               => 'faq.html',
-    '/rynok-nedvizhimosti-lida' => 'rynok-nedvizhimosti-lida.html',
+    '/analytics' => 'analytics.html',
     '/Privacy'           => 'Privacy.html',
     '/cookies-policy'    => 'cookies-policy.html',
 ];
