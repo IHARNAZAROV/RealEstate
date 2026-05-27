@@ -19,7 +19,7 @@ function loadFooterPosts(){fetch("/data/blog-articles.json").then(t=>{if(!t.ok)t
               <ul>
                 <li class="post-author">
                   <i class="fa fa-user"></i>
-                  ${t.author||"Ольга Турко"}
+                  ${"ГермесГарант"}
                 </li>
               </ul>
             </div>
