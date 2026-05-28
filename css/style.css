@@ -116,8 +116,8 @@
 /* ── Logo germes: constrain by height so it fits in the 70px main-bar ── */
 .logo-header .site-logo {
   width: auto !important;
-  height: 66px !important;
-  max-height: 66px;
+  height: 76px !important;
+  max-height: 76px;
 }
 .header-style-1 .header-left-gray-block .logo-header {
   width: auto;
@@ -134,7 +134,7 @@
   .main-bar .logo-header {
     flex: 0 0 auto;
     float: none !important;
-    height: 70px;
+    height: 82px;
     display: flex;
     align-items: center;
     margin-right: 1rem;
