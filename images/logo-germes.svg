@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg"
-     height="1484"
-     viewBox="0.078 -2.183 1728 1484"
-     width="1728">
+     viewBox="380 190 870 950"
+     width="870"
+     height="950">
   <rect fill="transparent" height="1484" width="1728" x="0" y="0"/>
   <polygon fill="rgb(171,141,116)" points="634.184 1101.65 634.184 1105.65 636.184 1106.65 939.184 1105.65 938.184 1100.65" stroke="none"/>
   <polygon fill="rgb(163,133,94)" points="766,723 766,762 805,762 805,723" stroke="none"/>

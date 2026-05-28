@@ -112,3 +112,67 @@
   background: #efece8;
   border-radius: 16px;
 }
+
+/* ── Logo germes: constrain by height so it fits in the 70px main-bar ── */
+.logo-header .site-logo {
+  width: auto !important;
+  height: 54px !important;
+  max-height: 54px;
+}
+.header-style-1 .header-left-gray-block .logo-header {
+  width: auto;
+  min-width: 48px;
+}
+
+/* ── One-line header: logo + nav + CTA in a single flex row ── */
+@media (min-width: 992px) {
+  .main-bar .container.clearfix {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+  }
+  .main-bar .logo-header {
+    flex: 0 0 auto;
+    float: none !important;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    padding-right: 0;
+  }
+  .main-bar .header-nav {
+    flex: 1 1 auto;
+    float: none !important;
+    clear: none !important;
+    border-bottom: none !important;
+    margin: 0 !important;
+  }
+  .main-bar .extra-nav {
+    flex: 0 0 auto;
+    float: none !important;
+    height: 70px;
+    display: flex !important;
+    align-items: center;
+  }
+  .main-bar .navbar-toggler {
+    display: none !important;
+  }
+}
+
+/* ── Checklist button in large-title-info styled like site-button-link ── */
+.large-title-info .documents-checklist-launch__btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  animation: none !important;
+  box-shadow: none !important;
+  color: inherit;
+  width: auto !important;
+}
+.large-title-info .documents-checklist-launch__btn:hover {
+  color: var(--color-primary);
+  box-shadow: none !important;
+}
