@@ -89,7 +89,7 @@ if (is_array($currentArticle)) {
             'name' => 'Ольга Турко — Риэлтер в Лиде',
             'logo' => [
                 '@type' => 'ImageObject',
-                'url' => 'https://turko.by/images/logo-dark.webp',
+                'url' => 'https://turko.by/images/logo-text.svg',
             ],
         ],
         'mainEntityOfPage' => $canonicalUrl,
@@ -241,7 +241,7 @@ $ctaJson = $ctaBlock ? json_encode($ctaBlock, JSON_UNESCAPED_UNICODE | JSON_UNES
         <div class="logo-header">
           <div class="logo-header-inner logo-header-one">
             <a href="/">
-              <img src="images/logo-light.svg" class="site-logo site-logo--light" alt="Ольга Турко — риэлтер в Лиде" width="180" height="48" loading="lazy" decoding="async" />
+              <img src="images/logo-text-light.svg" class="site-logo site-logo--light" alt="ГермесГарант — агентство недвижимости в Лиде" width="180" height="48" loading="lazy" decoding="async" />
             </a>
           </div>
         </div>
@@ -518,7 +518,7 @@ $ctaJson = $ctaBlock ? json_encode($ctaBlock, JSON_UNESCAPED_UNICODE | JSON_UNES
               <div class="widget widget_about">
                 <div class="logo-footer clearfix p-b15">
                   <a href="/">
-                    <img src="images/logo-light.svg" class="site-logo site-logo--light" alt="Ольга Турко — риэлтер в Лиде" width="180" height="48" loading="lazy" decoding="async" />
+                    <img src="images/logo-text-light.svg" class="site-logo site-logo--light" alt="ГермесГарант — агентство недвижимости в Лиде" width="180" height="48" loading="lazy" decoding="async" />
                   </a>
                 </div>
                 <p>

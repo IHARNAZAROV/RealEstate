@@ -186,7 +186,7 @@ if (is_array($currentService)) {
                         <div class="logo-header-inner logo-header-one">
                            <a href="/">
                               <img
-                                 src="images/logo-light.svg"
+                                 src="images/logo-text-light.svg"
                                  class="site-logo site-logo--light"
                                  alt="logo"
                               />
@@ -383,7 +383,7 @@ if (is_array($currentService)) {
                            <div class="logo-footer clearfix p-b15">
                               <a href="/">
                                  <img
-                                    src="images/logo-light.svg"
+                                    src="images/logo-text-light.svg"
                                     class="site-logo site-logo--light"
                                     alt="logo"
                                  />

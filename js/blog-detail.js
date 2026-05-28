@@ -304,7 +304,7 @@ function renderSchema(article) {
       name: "turko.by",
       logo: {
         "@type": "ImageObject",
-        url: "https://turko.by/images/logo-dark.svg",
+        url: "https://turko.by/images/logo-text.svg",
       },
     },
   };

@@ -4,7 +4,7 @@
  * JSON данные и изображения — всегда напрямую с сервера, без кеширования.
  */
 
-const CACHE_STATIC = 'sw-static-v4';
+const CACHE_STATIC = 'sw-static-v5';
 
 /* ─── App Shell: шрифты и иконки, кешируем при установке ─── */
 const APP_SHELL = [
@@ -20,10 +20,9 @@ const APP_SHELL = [
   '/css/fontawesome/webfonts/fa-solid-900.woff2',
   '/css/fontawesome/webfonts/fa-regular-400.woff2',
   '/css/fontawesome/webfonts/fa-brands-400.woff2',
-  '/images/logo-dark.svg',
-  '/images/logo-light.svg',
-  '/images/logo-dark.webp',
-  '/images/logo-light.webp',
+  '/images/logo-text.svg',
+  '/images/logo-text-light.svg',
+  '/images/logo-germes.svg',
   '/favicon.ico',
   '/favicon.svg',
   '/apple-touch-icon.png',

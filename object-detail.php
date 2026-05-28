@@ -225,7 +225,7 @@ $ogDescriptionEsc = htmlspecialchars($ogDescription, ENT_QUOTES);
         <div class="logo-header">
           <div class="logo-header-inner logo-header-one">
             <a href="/">
-              <img src="images/logo-light.svg" class="site-logo site-logo--light" alt="Ольга Турко — риэлтер в Лиде" width="180" height="48" loading="lazy" decoding="async" />
+              <img src="images/logo-text-light.svg" class="site-logo site-logo--light" alt="ГермесГарант — агентство недвижимости в Лиде" width="180" height="48" loading="lazy" decoding="async" />
             </a>
           </div>
         </div>
@@ -846,7 +846,7 @@ $ogDescriptionEsc = htmlspecialchars($ogDescription, ENT_QUOTES);
                 <div class="widget widget_about">
                   <div class="logo-footer clearfix p-b15">
                     <a href="/"
-                      ><img src="images/logo-light.svg" class="site-logo site-logo--light" alt="Ольга Турко — риэлтер в Лиде" width="180" height="48" loading="lazy" decoding="async" />
+                      ><img src="images/logo-text-light.svg" class="site-logo site-logo--light" alt="ГермесГарант — агентство недвижимости в Лиде" width="180" height="48" loading="lazy" decoding="async" />
                     </a>
                   </div>
                   <p>

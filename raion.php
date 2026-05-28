@@ -253,7 +253,7 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
       <div class="container clearfix">
         <div class="logo-header">
           <div class="logo-header-inner logo-header-one">
-            <a href="/"><img src="/images/logo-light.svg" class="site-logo site-logo--light" alt="Ольга Турко — риэлтер в Лиде" width="180" height="48" loading="lazy" decoding="async" /></a>
+            <a href="/"><img src="/images/logo-text-light.svg" class="site-logo site-logo--light" alt="ГермесГарант — агентство недвижимости в Лиде" width="180" height="48" loading="lazy" decoding="async" /></a>
           </div>
         </div>
         <button id="mobile-side-drawer" type="button" class="navbar-toggler" aria-label="Открыть меню">
@@ -479,7 +479,7 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
               <div class="agent-avatar" style="margin-bottom:12px;">
                 <img src="/images/about-slider/1-ab.webp"
                      onerror="this.style.display='none'"
-                     alt="Ольга Турко — риэлтер в Лиде"
+                     alt="ГермесГарант — агентство недвижимости в Лиде"
                      width="80" height="80"
                      style="border-radius:50%;width:80px;height:80px;object-fit:cover;"
                      loading="lazy" />
@@ -538,7 +538,7 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
           <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="widget widget_about">
               <div class="logo-footer clearfix p-b15">
-                <a href="/"><img src="/images/logo-light.svg" class="site-logo site-logo--light" alt="Ольга Турко — риэлтер в Лиде" width="180" height="48" loading="lazy" decoding="async" /></a>
+                <a href="/"><img src="/images/logo-text-light.svg" class="site-logo site-logo--light" alt="ГермесГарант — агентство недвижимости в Лиде" width="180" height="48" loading="lazy" decoding="async" /></a>
               </div>
               <p><b>Найти квартиру — легко. Найти свою — искусство.</b><br>Я подбираю не абстрактные "варианты", а то самое жильё, где совпадают цена, планировка и ощущение "моё".</p>
               <ul class="social-icons sx-social-links">

@@ -1,6 +1,6 @@
 {
-  "name": "Turko",
-  "short_name": "Turko",
+  "name": "ГермесГарант",
+  "short_name": "ГермесГарант",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -27,7 +27,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#006064",
+  "theme_color": "#052c1a",
   "background_color": "#ffffff",
   "display": "standalone",
   "start_url": "/"
