@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1400"
+     height="420"
+     viewBox="0 0 1400 420">
+
+  <rect width="100%" height="100%" fill="transparent"/>
+
+  <!-- MAIN TITLE -->
+  <text x="700"
+        y="190"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="118"
+        fill="#052c1a"
+        letter-spacing="-1.5">
+    ГермесГарант
+  </text>
+
+  <!-- SUBTITLE -->
+  <text x="700"
+        y="295"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="36"
+        fill="#111111"
+        letter-spacing="14">
+    АГЕНТСТВО НЕДВИЖИМОСТИ
+  </text>
+
+  <!-- Decorative line -->
+  <line x1="585"
+        y1="360"
+        x2="815"
+        y2="360"
+        stroke="#9c6f42"
+        stroke-width="4"/>
+
+</svg>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg baseProfile="full" height="1484" version="1.1" viewBox="0.078 -2.183 1728 1484" width="1728" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <bx:export>
+      <bx:file format="svg" href="#object-0" excluded="true"/>
+    </bx:export>
+  </defs>
+  <rect fill="#f2f2f2" height="1484" width="1728" x="0" y="0" id="object-0"/>
+  <polygon fill="rgb(171,141,116)" points="634.184 1101.65 634.184 1105.65 636.184 1106.65 939.184 1105.65 938.184 1100.65" stroke="none"/>
+  <polygon fill="rgb(163,133,94)" points="766,723 766,762 805,762 805,723" stroke="none"/>
+  <polygon fill="rgb(15,49,27)" points="808,533 929,682 1028,799 981,596 972,547 921,541" stroke="none"/>
+  <polygon fill="rgb(14,50,28)" points="1181,231 466,461 677,720 733,501 1073,305 807,529 971,542" stroke="none"/>
+  <text x="799.218" y="918.797" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="104" letter-spacing="-1" fill="#062f1d" style="white-space: pre; stroke-width: 1; font-size: 104px;" transform="matrix(1.344238, 0, 0, 1.674667, -254.23259, -617.409302)">
+    ГермесГарант
+  </text>
+  <text x="819.197" y="1007.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" letter-spacing="12" fill="#111111" style="white-space: pre; stroke-width: 1; font-size: 34px;" transform="matrix(1.079003, 0, 0, 1.18922, -52.912369, -162.85199)">
+    АГЕНТСТВО НЕДВИЖИМОСТИ
+  </text>
+  <polygon fill="rgb(163,133,94)" points="766.328 672.079 766.328 711.079 805.328 711.079 805.328 672.079" stroke="none" style="stroke-width: 1;"/>
+  <polygon fill="rgb(163,133,94)" points="814.959 672.079 814.959 711.079 853.959 711.079 853.959 672.079" stroke="none" style="stroke-width: 1;"/>
+  <polygon fill="rgb(163,133,94)" points="815.538 723.025 815.538 762.025 854.538 762.025 854.538 723.025" stroke="none" style="stroke-width: 1;"/>
+</svg>
