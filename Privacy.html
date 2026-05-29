@@ -43,7 +43,6 @@ ul{margin:0 0 12px;padding-left:18px}
 </style>
 <link rel="stylesheet" href="/css/fontawesome/css/fontawesome.min.css" />
 <link rel="stylesheet" href="/css/fontawesome/css/solid.min.css" />
-    <link rel="stylesheet" href="/css/contact-widget.css">
     <!-- Legal & Compliance -->
     <link rel="stylesheet" href="/css/agency-legal.css">
 <!-- Breadcrumbs (JSON-LD) -->
@@ -260,82 +259,6 @@ Email: <a href="mailto:olgaturko1975@gmail.com">olgaturko1975@gmail.com</a>
 </main>
 
 <script>document.getElementById("year").textContent=new Date().getFullYear()</script>
-    <!-- Contact widget -->
-    <div class="cw" data-cw-root>
-      <button
-        class="cw__fab"
-        type="button"
-        aria-label="Открыть способы связи"
-        aria-haspopup="dialog"
-        aria-controls="cw-modal"
-        aria-expanded="false"
-        data-cw-open
-      >
-        <span class="cw__fab-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
-            <path d="M4 5.5C4 4.12 5.12 3 6.5 3h11C18.88 3 20 4.12 20 5.5v8c0 1.38-1.12 2.5-2.5 2.5H10l-4.5 4v-4H6.5A2.5 2.5 0 0 1 4 13.5v-8Zm2.5-.5a.5.5 0 0 0-.5.5v8c0 .28.22.5.5.5h1.5c.55 0 1 .45 1 1v.56l2.8-2.49A1 1 0 0 1 12.46 13h5.04a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-11Z"/>
-          </svg>
-        </span>
-      </button>
-
-      <div class="cw__overlay" data-cw-overlay hidden>
-        <section
-          id="cw-modal"
-          class="cw__modal"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="cw-title"
-          aria-describedby="cw-desc"
-          tabindex="-1"
-        >
-          <button class="cw__close" type="button" aria-label="Закрыть окно" data-cw-close>
-            <span aria-hidden="true">×</span>
-          </button>
-
-          <h2 id="cw-title" class="cw__title">Я всегда на связи</h2>
-          <p id="cw-desc" class="cw__subtitle">
-            Напишите мне — подскажу по покупке или продаже и помогу разобраться в вашей ситуации
-          </p>
-
-          <div class="cw__content">
-            <section class="cw__qr" aria-label="QR для быстрого перехода в Telegram">
-              <h3 class="cw__qr-title">Сканируйте QR с телефона</h3>
-              <div class="cw__qr-frame">
-                <img
-                  class="cw__qr-image"
-                  src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A%2F%2Ft.me%2FTurkoOlga"
-                  width="240"
-                  height="240"
-                  loading="lazy"
-                  decoding="async"
-                  alt="QR-код для быстрого открытия Telegram"
-                >
-              </div>
-            </section>
-
-            <nav class="cw__actions" aria-label="Способы связи">
-              <a class="cw__action cw__action--whatsapp" href="https://wa.me/375291809516" target="_blank" rel="noopener noreferrer">
-                <span class="cw__action-icon" aria-hidden="true">✆</span>
-                <span class="cw__action-label">WhatsApp</span>
-              </a>
-              <a class="cw__action cw__action--telegram" href="https://t.me/TurkoOlga" target="_blank" rel="noopener noreferrer">
-                <span class="cw__action-icon" aria-hidden="true">➤</span>
-                <span class="cw__action-label">Telegram</span>
-              </a>
-              <a class="cw__action cw__action--viber" href="viber://chat?number=%2B375291809516">
-                <span class="cw__action-icon" aria-hidden="true">◉</span>
-                <span class="cw__action-label">Viber</span>
-              </a>
-            </nav>
-          </div>
-
-          <a class="cw__phone" href="tel:+375291809516">
-            <span class="cw__phone-caption">Предпочитаете звонить?</span>
-            <span class="cw__phone-number">+375291809516</span>
-          </a>
-        </section>
-      </div>
-    </div>
     <script src="/js/sw-register.js" defer></script>
     <script src="contact-widget.js" defer></script>
     <!-- Legal & Compliance Components -->

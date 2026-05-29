@@ -1,5 +1,6 @@
 /*
   Contact widget behavior (vanilla JS)
+  - Self-injects HTML and CSS into the page (no need for HTML markup on each page)
   - Появление FAB через 3 секунды после window.load
   - requestIdleCallback + fallback setTimeout
   - FAB меняет иконку и цвет каждые 10 секунд (WA -> TG -> Viber)
@@ -56,6 +57,64 @@
   let fabIcon;
   let fabThemeIndex = 0;
   let fabThemeRotationIntervalId = null;
+
+  function injectAssets() {
+    if (!document.querySelector('link[href*="contact-widget.css"]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = '/css/contact-widget.css';
+      document.head.appendChild(link);
+    }
+
+    if (!document.querySelector('[data-cw-root]')) {
+      const wrapper = document.createElement('div');
+      wrapper.innerHTML = '<div class="cw" data-cw-root>' +
+        '<button class="cw__fab" type="button" aria-label="Открыть способы связи" aria-haspopup="dialog" aria-controls="cw-modal" aria-expanded="false" data-cw-open>' +
+          '<span class="cw__fab-icon" aria-hidden="true">' +
+            '<svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">' +
+              '<path d="M4 5.5C4 4.12 5.12 3 6.5 3h11C18.88 3 20 4.12 20 5.5v8c0 1.38-1.12 2.5-2.5 2.5H10l-4.5 4v-4H6.5A2.5 2.5 0 0 1 4 13.5v-8Zm2.5-.5a.5.5 0 0 0-.5.5v8c0 .28.22.5.5.5h1.5c.55 0 1 .45 1 1v.56l2.8-2.49A1 1 0 0 1 12.46 13h5.04a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-11Z"/>' +
+            '</svg>' +
+          '</span>' +
+        '</button>' +
+        '<div class="cw__overlay" data-cw-overlay hidden>' +
+          '<section id="cw-modal" class="cw__modal" role="dialog" aria-modal="true" aria-labelledby="cw-title" aria-describedby="cw-desc" tabindex="-1">' +
+            '<button class="cw__close" type="button" aria-label="Закрыть окно" data-cw-close>' +
+              '<span aria-hidden="true">\u00d7</span>' +
+            '</button>' +
+            '<h2 id="cw-title" class="cw__title">\u041c\u044b \u0432\u0441\u0435\u0433\u0434\u0430 \u043d\u0430 \u0441\u0432\u044f\u0437\u0438</h2>' +
+            '<p id="cw-desc" class="cw__subtitle">\u041d\u0430\u043f\u0438\u0448\u0438\u0442\u0435 \u0432 \u0430\u0433\u0435\u043d\u0442\u0441\u0442\u0432\u043e \u2014 \u043f\u043e\u043c\u043e\u0436\u0435\u043c \u0441 \u043f\u043e\u043a\u0443\u043f\u043a\u043e\u0439, \u043f\u0440\u043e\u0434\u0430\u0436\u0435\u0439, \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u043e\u0439 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u0432 \u0438 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u044b\u043c \u0441\u043e\u043f\u0440\u043e\u0432\u043e\u0436\u0434\u0435\u043d\u0438\u0435\u043c \u0441\u0434\u0435\u043b\u043a\u0438.</p>' +
+            '<div class="cw__content">' +
+              '<section class="cw__qr" aria-label="\u0051\u0052 \u0434\u043b\u044f \u0431\u044b\u0441\u0442\u0440\u043e\u0433\u043e \u043f\u0435\u0440\u0435\u0445\u043e\u0434\u0430 \u0432 \u0054\u0065\u006c\u0065\u0067\u0072\u0061\u006d">' +
+                '<h3 class="cw__qr-title">\u0421\u043a\u0430\u043d\u0438\u0440\u0443\u0439\u0442\u0435 QR \u0441 \u0442\u0435\u043b\u0435\u0444\u043e\u043d\u0430</h3>' +
+                '<div class="cw__qr-frame">' +
+                  '<img class="cw__qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A%2F%2Ft.me%2FTurkoOlga" width="240" height="240" loading="lazy" decoding="async" alt="QR-\u043a\u043e\u0434 \u0434\u043b\u044f \u0431\u044b\u0441\u0442\u0440\u043e\u0433\u043e \u043e\u0442\u043a\u0440\u044b\u0442\u0438\u044f Telegram"/>' +
+                '</div>' +
+              '</section>' +
+              '<nav class="cw__actions" aria-label="\u0421\u043f\u043e\u0441\u043e\u0431\u044b \u0441\u0432\u044f\u0437\u0438">' +
+                '<a class="cw__action cw__action--whatsapp" href="https://wa.me/375291809516" target="_blank" rel="noopener noreferrer">' +
+                  '<span class="cw__action-icon" aria-hidden="true">\u2706</span>' +
+                  '<span class="cw__action-label">WhatsApp</span>' +
+                '</a>' +
+                '<a class="cw__action cw__action--telegram" href="https://germesgarant.by" target="_blank" rel="noopener noreferrer">' +
+                  '<span class="cw__action-icon" aria-hidden="true">\u27a4</span>' +
+                  '<span class="cw__action-label">Telegram</span>' +
+                '</a>' +
+                '<a class="cw__action cw__action--viber" href="viber://chat?number=%2B375291809516">' +
+                  '<span class="cw__action-icon" aria-hidden="true">\u25c9</span>' +
+                  '<span class="cw__action-label">Viber</span>' +
+                '</a>' +
+              '</nav>' +
+            '</div>' +
+            '<a class="cw__phone" href="tel:+375445532553">' +
+              '<span class="cw__phone-caption">\u041f\u0440\u0435\u0434\u043f\u043e\u0447\u0438\u0442\u0430\u0435\u0442\u0435 \u0437\u0432\u043e\u043d\u0438\u0442\u044c?</span>' +
+              '<span class="cw__phone-number">+375445532553</span>' +
+            '</a>' +
+          '</section>' +
+        '</div>' +
+      '</div>';
+      document.body.appendChild(wrapper.firstElementChild);
+    }
+  }
 
   function getNow() {
     return Date.now();
@@ -271,10 +330,6 @@
   }
 
   function setupBehaviorTriggers() {
-    // Три сильных поведенческих триггера:
-    // 1) глубина скролла 70%
-    // 2) exit intent (курсор уходит вверх)
-    // 3) длительная неактивность
     setupScrollTrigger();
     setupExitIntentTrigger();
     setupInactivityTrigger();
@@ -287,6 +342,8 @@
 
   function initWidget() {
     if (widgetInitialized) return;
+
+    injectAssets();
 
     fab = document.querySelector('[data-cw-open]');
     overlay = document.querySelector('[data-cw-overlay]');

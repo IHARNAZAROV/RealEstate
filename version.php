@@ -1,11 +1,19 @@
 <?php
 // version.php — единый номер версии сайта
+// Uses the latest modification time of key asset files for automatic cache busting.
+// When style.css or other tracked files change, the version updates automatically.
 
-$deployFile = __DIR__ . '/.deploy';
+$trackedFiles = [
+    __DIR__ . '/css/style.css',
+    __DIR__ . '/css/contact-widget.css',
+    __DIR__ . '/.deploy',
+];
 
-if (file_exists($deployFile)) {
-    return (string) filemtime($deployFile);
+$times = [];
+foreach ($trackedFiles as $file) {
+    if (file_exists($file)) {
+        $times[] = filemtime($file);
+    }
 }
 
-// fallback, если файл случайно удалят
-return (string) time();
+return $times ? (string) max($times) : (string) time();
