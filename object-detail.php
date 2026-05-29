@@ -202,7 +202,7 @@ $ogDescriptionEsc = htmlspecialchars($ogDescription, ENT_QUOTES);
     <link rel="stylesheet" href="/css/fontawesome/css/regular.min.css">
     <link rel="stylesheet" href="/css/fontawesome/css/solid.min.css">
     <!-- Main Styles -->
-    <link rel="stylesheet" type="text/css" href="css/style.css" data-versioned/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" href="/css/object-share.css" />
     <link rel="stylesheet" href="/css/district-info.css" />
     <link rel="stylesheet" href="/css/object-faq.css" />
@@ -1003,7 +1003,7 @@ $ogDescriptionEsc = htmlspecialchars($ogDescription, ENT_QUOTES);
 
     <!-- JAVASCRIPT  FILES ========================================= -->
 
-      <script src="/js/optimize.js" defer data-versioned></script>
+      <script src="/js/optimize.js" defer></script>
     <script src="/js/live-price.js?v=20260417-2" defer></script>
     <script src="/js/object-detail.js?v=20260424-2" defer></script>
     <script src="/js/district-info.js" defer></script>

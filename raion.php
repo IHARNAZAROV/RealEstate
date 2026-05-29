@@ -236,9 +236,9 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
   <link rel="stylesheet" href="/css/fontawesome/css/brands.min.css">
   <link rel="stylesheet" href="/css/fontawesome/css/regular.min.css">
   <link rel="stylesheet" href="/css/fontawesome/css/solid.min.css">
-  <link rel="stylesheet" type="text/css" href="/css/style.css" data-versioned />
-  <link rel="stylesheet" href="/css/flaticon.min.css" data-versioned />
-  <link rel="stylesheet" href="/css/district-info.css" data-versioned />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/flaticon.min.css" />
+  <link rel="stylesheet" href="/css/district-info.css" />
   <!-- Legal & Compliance -->
   <link rel="stylesheet" href="/css/agency-legal.css">
 </head>
@@ -604,7 +604,7 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
 
 </div><!-- page-content -->
 </div><!-- page-wraper -->
-<script src="/js/optimize.js" defer data-versioned></script>
+<script src="/js/optimize.js" defer></script>
 <script src="/js/analytics-consent-loader.js" defer></script>
 <script src="/js/cookie-consent.js" defer></script>
 <script src="/js/footer-post.js" defer></script>

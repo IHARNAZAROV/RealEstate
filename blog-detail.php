@@ -216,7 +216,7 @@ $ctaJson = $ctaBlock ? json_encode($ctaBlock, JSON_UNESCAPED_UNICODE | JSON_UNES
        4. STYLESHEETS (CSS)
        ========================================= -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" data-versioned />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" href="/css/fontawesome/css/fontawesome.min.css">
     <link rel="stylesheet" href="/css/fontawesome/css/brands.min.css">
     <link rel="stylesheet" href="/css/fontawesome/css/solid.min.css">
@@ -685,12 +685,12 @@ $ctaJson = $ctaBlock ? json_encode($ctaBlock, JSON_UNESCAPED_UNICODE | JSON_UNES
        JAVASCRIPT FILES
        ========================================= -->
     <!-- 4. Page Specific Init -->
-    <script src="/js/optimize.js" defer data-versioned></script>
+    <script src="/js/optimize.js" defer></script>
     <script src="/js/blog-tags.js" defer></script>
     <script src="/js/blog-views.js" defer></script>
       <script src="/js/analytics-consent-loader.js" defer></script>
     <script src="/js/cookie-consent.js" defer></script>
-    <script src="/js/blog-detail.js" defer data-versioned></script>
+    <script src="/js/blog-detail.js" defer></script>
     <script src="/js/footer-post.js" defer></script>
     <script src="/js/sw-register.js" defer></script>
     <script src="contact-widget.js" defer></script>
