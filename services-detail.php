@@ -147,7 +147,6 @@ if (is_array($currentService)) {
       <!-- ==============================================
          SITE VERSION (AUTO CACHE BUSTING)
     =============================================== -->
-      <script src="/site-version.php"></script>
       <!-- Preload шрифты -->
       <link rel="preload" href="/fonts/inter/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
       <link rel="preload" href="/fonts/inter/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin>

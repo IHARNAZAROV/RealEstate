@@ -225,7 +225,6 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
   <meta name="theme-color" content="#006064" />
   <link rel="apple-touch-icon" href="https://turko.by/apple-touch-icon.png" />
 
-  <script src="/site-version.php"></script>
 
   <link rel="preload" href="/fonts/inter/Inter-Regular.woff2"       as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/inter/Inter-Medium.woff2"        as="font" type="font/woff2" crossorigin>

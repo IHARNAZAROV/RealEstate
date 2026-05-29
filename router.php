@@ -1,6 +1,43 @@
 <?php
 $uri = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
+// ── Static file handler with cache headers ──────────────────────────────────
+$ext = strtolower(pathinfo($uri, PATHINFO_EXTENSION));
+$staticFile = __DIR__ . $uri;
+
+if (in_array($ext, ['css', 'js', 'woff2', 'woff', 'ttf'], true) && is_file($staticFile)) {
+    $mimeTypes = [
+        'css'   => 'text/css; charset=utf-8',
+        'js'    => 'application/javascript; charset=utf-8',
+        'woff2' => 'font/woff2',
+        'woff'  => 'font/woff',
+        'ttf'   => 'font/ttf',
+    ];
+    header('Content-Type: ' . $mimeTypes[$ext]);
+
+    if ($ext === 'woff2' || $ext === 'woff' || $ext === 'ttf') {
+        // Шрифты: никогда не меняются — кешируем на год
+        header('Cache-Control: public, max-age=31536000, immutable');
+    } else {
+        // CSS/JS: всегда проверяем свежесть, но используем ETag
+        // чтобы не скачивать файл повторно если он не изменился
+        header('Cache-Control: no-cache, must-revalidate');
+    }
+
+    $etag = '"' . md5_file($staticFile) . '"';
+    header('ETag: ' . $etag);
+
+    if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && trim($_SERVER['HTTP_IF_NONE_MATCH']) === $etag) {
+        http_response_code(304);
+        exit;
+    }
+
+    readfile($staticFile);
+    exit;
+}
+// ────────────────────────────────────────────────────────────────────────────
+
+
 if ($uri === '/rieltor-lida' || $uri === '/rieltor-lida/' || $uri === '/rieltor-lida.html') {
     header('Location: /about', true, 301);
     exit;

@@ -250,24 +250,6 @@ function initServiceCardsAnimation() {
     observer.observe(aboutHome3);
   }
 }),
-  window.SITE_VERSION &&
-    (function () {
-      const e = (e, t) => {
-        const n = e.getAttribute(t);
-        if (!n) return;
-        try {
-          const o = new URL(n, window.location.origin);
-          if (o.searchParams.has("v")) return;
-          o.searchParams.set("v", window.SITE_VERSION);
-          const r = o.origin === window.location.origin ? `${o.pathname}${o.search}${o.hash}` : o.toString();
-          e.setAttribute(t, r);
-        } catch {
-          n.includes("?v=") || e.setAttribute(t, `${n}${n.includes("?") ? "&" : "?"}v=${window.SITE_VERSION}`);
-        }
-      };
-      document.querySelectorAll("link[data-versioned]").forEach((t) => e(t, "href"));
-      document.querySelectorAll("script[data-versioned]").forEach((t) => e(t, "src"));
-    })(),
   (function () {
     function e(e) {
       const t = e.querySelector(".modal-dialog");
