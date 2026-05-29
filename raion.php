@@ -36,7 +36,7 @@ $advantages  = $district['advantages'] ?? [];
 $stats       = $district['stats'] ?? [];
 $lat         = $district['coordinates']['lat'] ?? 53.8985;
 $lng         = $district['coordinates']['lng'] ?? 25.2975;
-$canonicalUrl = 'https://turko.by/raion/' . $slug;
+$canonicalUrl = 'https://germesgarant.by/raion/' . $slug;
 
 function districtStatIsZero($value) {
     if ($value === null || $value === '') {
@@ -183,8 +183,8 @@ $breadcrumbLd = json_encode([
     '@context' => 'https://schema.org',
     '@type'    => 'BreadcrumbList',
     'itemListElement' => [
-        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Главная',              'item' => 'https://turko.by/'],
-        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Недвижимость в Лиде', 'item' => 'https://turko.by/nedvizhimost-lida'],
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Главная',              'item' => 'https://germesgarant.by/'],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Недвижимость в Лиде', 'item' => 'https://germesgarant.by/nedvizhimost-lida'],
         ['@type' => 'ListItem', 'position' => 3, 'name' => $nameFull,              'item' => $canonicalUrl],
     ],
 ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
@@ -200,7 +200,7 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title><?= $metaTitleEsc ?></title>
-  <meta name="author"      content="Ольга Турко, риэлтер в Лиде, Беларусь" />
+  <meta name="author"      content="Агентство недвижимости «ГермесГарант», Лида, Беларусь" />
   <meta name="robots"      content="index, follow" />
   <meta name="description" content="<?= $metaDescEsc ?>" />
   <link rel="canonical"    href="<?= $canonicalEsc ?>" />
@@ -209,21 +209,21 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
   <meta property="og:title"       content="<?= $metaTitleEsc ?>" />
   <meta property="og:description" content="<?= $metaDescEsc ?>" />
   <meta property="og:url"         content="<?= $canonicalEsc ?>" />
-  <meta property="og:image"       content="https://turko.by/images/main-slider/2.webp" />
+  <meta property="og:image"       content="https://germesgarant.by/images/main-slider/2.webp" />
 
   <meta name="twitter:card"        content="summary_large_image" />
   <meta name="twitter:title"       content="<?= $metaTitleEsc ?>" />
   <meta name="twitter:description" content="<?= $metaDescEsc ?>" />
-  <meta name="twitter:image"       content="https://turko.by/images/main-slider/2.webp" />
+  <meta name="twitter:image"       content="https://germesgarant.by/images/main-slider/2.webp" />
 
   <script type="application/ld+json"><?= $schemaPlace ?></script>
   <script type="application/ld+json"><?= $breadcrumbLd ?></script>
 
-  <link rel="icon" href="https://turko.by/favicon.ico" sizes="any" />
-  <link rel="icon" type="image/svg+xml" href="https://turko.by/favicon.svg" />
-  <link rel="manifest" href="https://turko.by/site.webmanifest" />
+  <link rel="icon" href="https://germesgarant.by/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="https://germesgarant.by/favicon.svg" />
+  <link rel="manifest" href="https://germesgarant.by/site.webmanifest" />
   <meta name="theme-color" content="#006064" />
-  <link rel="apple-touch-icon" href="https://turko.by/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" href="https://germesgarant.by/apple-touch-icon.png" />
 
 
   <link rel="preload" href="/fonts/inter/Inter-Regular.woff2"       as="font" type="font/woff2" crossorigin>
@@ -263,7 +263,7 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
         <div class="header-nav nav-dark justify-content-start">
           <ul class="nav navbar-nav">
             <li><a href="/">Главная</a></li>
-            <li><a href="/about">Обо мне</a></li>
+            <li><a href="/about">О компании</a></li>
             <li><a href="/nedvizhimost-lida">Объекты</a></li>
             <li><a href="/blog">Блог</a></li>
             <li><a href="/faq">Вопросы</a></li>
@@ -279,18 +279,18 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
 <div class="mnav-overlay" id="mnavOverlay"></div>
 <nav class="mnav" id="mnav">
   <div class="mnav-header">
-    <div class="mnav-name">Ольга Турко · Риэлтер · Лида</div>
+    <div class="mnav-name">ГермесГарант · Недвижимость · Лида</div>
   </div>
   <ul class="mnav-list">
     <li><a href="/"                   data-path="/"><i class="fa-solid fa-house"></i><span>Главная</span></a></li>
-    <li><a href="/about"       data-path="/about"><i class="fa-solid fa-user"></i><span>Обо мне</span></a></li>
+    <li><a href="/about"       data-path="/about"><i class="fa-solid fa-user"></i><span>О компании</span></a></li>
     <li><a href="/nedvizhimost-lida"  data-path="/nedvizhimost-lida"><i class="fa-solid fa-building"></i><span>Объекты</span></a></li>
     <li><a href="/blog"               data-path="/blog"><i class="fa-solid fa-pen-nib"></i><span>Блог</span></a></li>
     <li><a href="/faq"                data-path="/faq"><i class="fa-solid fa-circle-question"></i><span>Вопросы</span></a></li>
     <li><a href="/contact"            data-path="/contact"><i class="fa-solid fa-phone"></i><span>Контакты</span></a></li>
   </ul>
   <div class="mnav-cta">
-    <a href="tel:+375291809516" class="mnav-cta-btn"><i class="fa-solid fa-phone"></i> Позвонить мне</a>
+    <a href="tel:+375445532553" class="mnav-cta-btn"><i class="fa-solid fa-phone"></i> Позвонить в агентство</a>
   </div>
 </nav>
 
@@ -460,8 +460,8 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
             <div class="district-internal-links__title">Смотрите также</div>
             <ul class="district-internal-links__list">
               <li><a href="/nedvizhimost-lida">Вся недвижимость в Лиде</a></li>
-              <li><a href="/about">Риэлтер в Лиде</a></li>
-              <li><a href="/contact">Связаться с риэлтером</a></li>
+              <li><a href="/about">Об агентстве</a></li>
+              <li><a href="/contact">Связаться с агентством</a></li>
               <li><a href="/#services">Услуги</a></li>
               <li><a href="/faq">Частые вопросы</a></li>
               <li><a href="/blog">Блог о недвижимости</a></li>
@@ -482,16 +482,16 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
                      style="border-radius:50%;width:80px;height:80px;object-fit:cover;"
                      loading="lazy" />
               </div>
-              <div class="agent-name" style="font-size:17px;font-weight:700;margin-bottom:2px;">Ольга Турко</div>
-              <div class="agent-role" style="font-size:13px;color:#787878;margin-bottom:10px;">Риэлтер в Лиде</div>
+              <div class="agent-name" style="font-size:17px;font-weight:700;margin-bottom:2px;">ГермесГарант</div>
+              <div class="agent-role" style="font-size:13px;color:#787878;margin-bottom:10px;">Агентство недвижимости, Лида</div>
               <p style="font-size:13px;color:#555;line-height:1.6;margin-bottom:16px;">
-                Помогу подобрать квартиру в <?= htmlspecialchars($nameFull, ENT_QUOTES, 'UTF-8') ?> по вашему бюджету и запросу. Более 10 лет опыта в недвижимости Лиды.
+                Специалисты агентства подберут квартиру в <?= htmlspecialchars($nameFull, ENT_QUOTES, 'UTF-8') ?> по вашему бюджету и запросу. Полное сопровождение сделки.
               </p>
-              <a href="tel:+375291809516" class="site-button" style="display:block;text-align:center;margin-bottom:10px;">
-                <i class="fa-solid fa-phone" style="margin-right:6px;"></i> Позвонить
+              <a href="tel:+375445532553" class="site-button" style="display:block;text-align:center;margin-bottom:10px;">
+                <i class="fa-solid fa-phone" style="margin-right:6px;"></i> Позвонить в агентство
               </a>
               <a href="/contact" class="site-button-secondry" style="display:block;text-align:center;">
-                Написать риэлтеру
+                Написать нам
               </a>
               <hr style="margin:20px 0;border-color:#eee;" />
               <div style="font-size:13px;color:#555;line-height:1.7;">
@@ -538,19 +538,13 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
               <div class="logo-footer clearfix p-b15">
                 <a href="/"><img src="/images/logo-text-light.svg" class="site-logo site-logo--light" alt="ГермесГарант — агентство недвижимости в Лиде" width="180" height="48" loading="lazy" decoding="async" /></a>
               </div>
-              <p><b>Найти квартиру — легко. Найти свою — искусство.</b><br>Я подбираю не абстрактные "варианты", а то самое жильё, где совпадают цена, планировка и ощущение "моё".</p>
+              <p><b>Ключи от новой жизни начинаются с правильного выбора.</b><br>Помогаем найти недвижимость в Лиде, которая подходит не только по цене, но и по ощущениям.</p>
               <ul class="social-icons sx-social-links">
-                <li><a href="viber://chat?number=%2B375291809516" target="_blank" rel="noopener noreferrer" class="fa-brands fa-viber" aria-label="Написать в Viber"></a></li>
-                <li><a href="https://www.tiktok.com/@rieltor_olga_lida" target="_blank" rel="noopener noreferrer" class="fab fa-tiktok" aria-label="TikTok"></a></li>
-                <li><a href="https://t.me/TurkoOlga" target="_blank" rel="noopener noreferrer" class="fa-brands fa-telegram" aria-label="Написать в Telegram"></a></li>
-                <li><a href="https://www.instagram.com/rielter_olga_lida" target="_blank" rel="noopener noreferrer" class="fa-brands fa-square-instagram" aria-label="Instagram"></a></li>
+                <li><a href="viber://chat?number=%2B375445532553" target="_blank" rel="noopener noreferrer" class="fa-brands fa-viber" aria-label="Написать в Viber"></a></li>
+                <li><a href="https://germesgarant.by" target="_blank" rel="noopener noreferrer" class="fab fa-tiktok" aria-label="TikTok"></a></li>
+                <li><a href="https://germesgarant.by" target="_blank" rel="noopener noreferrer" class="fa-brands fa-telegram" aria-label="Написать в Telegram"></a></li>
+                <li><a href="https://germesgarant.by" target="_blank" rel="noopener noreferrer" class="fa-brands fa-square-instagram" aria-label="Instagram"></a></li>
               </ul>
-              <span>Практикующий эксперт по эмоциональному позиционированию объектов недвижимости</span>
-              <div class="footer-legal-info">
-                <p>Свидетельство об аттестации риэлтера № 1931 от 29.02.2024</p>
-                <p>Услуги по сопровождению сделок с недвижимостью оказываются через лицензированное агентство недвижимости «ГермесГарант».</p>
-                <p>Лицензия Министерства юстиции Республики Беларусь на осуществление риэлтерской деятельности № 02240/487 от 07.08.2024</p>
-              </div>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-6">
@@ -563,13 +557,14 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
             <div class="widget widget_services inline-links">
               <h5 class="widget-title">Полезные ссылки</h5>
               <ul>
-                <li><a href="/about">Обо мне</a></li>
+                <li><a href="/about">О компании</a></li>
                 <li><a href="/nedvizhimost-lida">Объекты</a></li>
+                <li><a href="/analytics">Аналитика</a></li>
                 <li><a href="/blog">Блог</a></li>
                 <li><a href="/contact">Контакты</a></li>
                 <li><a href="/Privacy">Политика конфиденциальности</a></li>
                 <li><a href="/cookies-policy">Политика использования cookies</a></li>
-                </ul>
+              </ul>
               </div>
             </div>
           </div>
@@ -577,11 +572,11 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
             <div class="widget widget_address_outer">
               <h5 class="widget-title">Пора поговорить о вашем доме</h5>
               <ul class="widget_address">
-                <li>город Лида, бульвар Князя Гедимина, 12</li>
-                <li><a href="mailto:olgaturko1975@gmail.com">olgaturko1975@gmail.com</a></li>
-                <li><a href="tel:+375291809516">(+375) 29 180 95 16</a></li>
-                <li><a href="tel:+375445019090">(+375) 44 501 90 90</a></li>
-                </ul>
+                <li>Беларусь, г. Лида, бул. Князя Гедимина, 12, помещение 9</li>
+                <li><a href="mailto:mail@germesgarant.by">mail@germesgarant.by</a></li>
+                <li><a href="tel:+375445532553">+375 44 553-25-53</a></li>
+                <li><a href="https://germesgarant.by" target="_blank" rel="noopener noreferrer">germesgarant.by</a></li>
+              </ul>
               </div>
             </div>
           </div>
@@ -593,8 +588,8 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
       <div class="container">
         <div class="row">
           <div class="sx-footer-bot-left">
-            <span class="copyrights-text">© 2025 Ольга Турко. Designed By INazarov.</span>
-            <span>Интернет-ресурс turko.by зарегистрирован в Республике Беларусь. Номер ресурса: 212210 Дата регистрации: 12.01.2026</span>
+            <span class="copyrights-text">© 2025 ГермесГарант. Designed By INazarov.</span>
+            <span>Интернет-ресурс germesgarant.by зарегистрирован в Республике Беларусь. Номер ресурса: 212210 Дата регистрации: 12.01.2026</span>
           </div>
         </div>
       </div>
