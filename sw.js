@@ -4,7 +4,7 @@
  * JSON данные и изображения — всегда напрямую с сервера, без кеширования.
  */
 
-const CACHE_STATIC = 'sw-static-v6';
+const CACHE_STATIC = 'sw-static-v7';
 
 /* ─── App Shell: шрифты и иконки, кешируем при установке ─── */
 const APP_SHELL = [
@@ -111,7 +111,11 @@ async function cacheFirst(request) {
 /* ─── Network First ─── */
 async function networkFirst(request) {
   try {
-    const response = await fetch(request);
+    // cache: 'no-cache' — всегда идём на сервер, игнорируем HTTP-кеш браузера.
+    // Если сервер вернёт 304 Not Modified (через ETag) — браузер не скачивает файл заново.
+    // Работает корректно и с PHP-сервером (router.php + ETag), и с VSCode Live Server.
+    const networkRequest = new Request(request, { cache: 'no-cache' });
+    const response = await fetch(networkRequest);
     if (response.ok) {
       const cache = await caches.open(CACHE_STATIC);
       cache.put(request, response.clone());
