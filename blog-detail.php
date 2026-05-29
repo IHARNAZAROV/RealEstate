@@ -217,9 +217,9 @@ $ctaJson = $ctaBlock ? json_encode($ctaBlock, JSON_UNESCAPED_UNICODE | JSON_UNES
        ========================================= -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" data-versioned />
-    <link rel="preload" href="/css/fontawesome/css/fontawesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/fontawesome/css/brands.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/fontawesome/css/solid.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/css/fontawesome/css/brands.min.css">
+    <link rel="stylesheet" href="/css/fontawesome/css/solid.min.css">
     <link rel="stylesheet" href="/css/blog-tags.css" />
     <link rel="stylesheet" href="/css/blog-views.css" />
     <link rel="stylesheet" href="/css/blog-related.css" />

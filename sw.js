@@ -4,7 +4,7 @@
  * JSON данные и изображения — всегда напрямую с сервера, без кеширования.
  */
 
-const CACHE_STATIC = 'sw-static-v5';
+const CACHE_STATIC = 'sw-static-v6';
 
 /* ─── App Shell: шрифты и иконки, кешируем при установке ─── */
 const APP_SHELL = [
@@ -69,9 +69,14 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  /* Cache First: CSS, JS, шрифты, библиотеки */
+  /* Network First: CSS — всегда берём свежую версию с сервера */
+  if (url.pathname.startsWith('/css/')) {
+    event.respondWith(networkFirst(request));
+    return;
+  }
+
+  /* Cache First: шрифты и библиотеки (никогда не меняются) */
   if (
-    url.pathname.startsWith('/css/') ||
     url.pathname.startsWith('/fonts/') ||
     url.pathname.startsWith('/libs/')
   ) {
@@ -100,5 +105,20 @@ async function cacheFirst(request) {
     return response;
   } catch {
     return new Response('', { status: 503 });
+  }
+}
+
+/* ─── Network First ─── */
+async function networkFirst(request) {
+  try {
+    const response = await fetch(request);
+    if (response.ok) {
+      const cache = await caches.open(CACHE_STATIC);
+      cache.put(request, response.clone());
+    }
+    return response;
+  } catch {
+    const cached = await caches.match(request);
+    return cached || new Response('', { status: 503 });
   }
 }

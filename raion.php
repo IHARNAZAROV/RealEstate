@@ -232,10 +232,10 @@ $canonicalEsc = htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8');
   <link rel="preload" href="/fonts/montserrat/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin>
 
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
-  <link rel="preload" href="/css/fontawesome/css/fontawesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="/css/fontawesome/css/brands.min.css"      as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="/css/fontawesome/css/regular.min.css"     as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="/css/fontawesome/css/solid.min.css"       as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="/css/fontawesome/css/fontawesome.min.css">
+  <link rel="stylesheet" href="/css/fontawesome/css/brands.min.css">
+  <link rel="stylesheet" href="/css/fontawesome/css/regular.min.css">
+  <link rel="stylesheet" href="/css/fontawesome/css/solid.min.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css" data-versioned />
   <link rel="stylesheet" href="/css/flaticon.min.css" data-versioned />
   <link rel="stylesheet" href="/css/district-info.css" data-versioned />
