@@ -123,49 +123,86 @@
       var images = JSON.parse(wrap.dataset.images || "[]");
       if (images.length <= 1) return;
 
-      var imgA  = wrap.querySelector(".fp-img-a");
-      var imgB  = wrap.querySelector(".fp-img-b");
-      var dots  = wrap.querySelectorAll(".fp-dot");
-      var idx   = 0;
-      var busy  = false;
+      var imgA = wrap.querySelector(".fp-img-a");
+      var imgB = wrap.querySelector(".fp-img-b");
+      var dots = wrap.querySelectorAll(".fp-dot");
+      var idx  = 0;
+      var busy = false;
+
+      /**
+       * Returns a Promise that resolves once `img` has src=url and is
+       * fully decoded (pixel-ready). Falls back to a plain resolve if
+       * decode() is unsupported or the image errors.
+       */
+      function loadInto(img, url) {
+        return new Promise(function (resolve) {
+          /* Already showing the right image and fully loaded — no work needed */
+          if (img.src === url && img.complete && img.naturalWidth > 0) {
+            resolve();
+            return;
+          }
+
+          function decoded() { resolve(); }
+
+          img.onload = function () {
+            img.onload  = null;
+            img.onerror = null;
+            if (img.decode) {
+              img.decode().then(decoded, decoded);
+            } else {
+              decoded();
+            }
+          };
+          img.onerror = function () {
+            img.onload  = null;
+            img.onerror = null;
+            resolve(); /* proceed even on error */
+          };
+
+          img.src = url;
+
+          /* For cache hits the browser may not fire onload — check synchronously */
+          if (img.complete) {
+            img.onload  = null;
+            img.onerror = null;
+            if (img.decode) {
+              img.decode().then(decoded, decoded);
+            } else {
+              decoded();
+            }
+          }
+        });
+      }
 
       function goTo(next) {
         if (busy) return;
+        var newIdx = (next + images.length) % images.length;
+        if (newIdx === idx) return;
         busy = true;
 
-        var newIdx = (next + images.length) % images.length;
-        if (newIdx === idx) { busy = false; return; }
-
-        /* Figure out which layer is currently on top */
         var topImg  = imgA.classList.contains("fp-img-top") ? imgA : imgB;
         var backImg = imgA.classList.contains("fp-img-top") ? imgB : imgA;
 
-        /* Load the next image into the back layer, then crossfade */
-        backImg.src = images[newIdx];
-
-        /* Wait one frame so the browser registers src change */
-        requestAnimationFrame(function () {
-          /* Move back to top (fade in), push current top behind */
+        /* Load new image into the hidden back layer first, THEN swap */
+        loadInto(backImg, images[newIdx]).then(function () {
+          /* Pixels are ready — swap layers: back fades in, top fades out */
           backImg.classList.add("fp-img-top");
           topImg.classList.remove("fp-img-top");
 
-          /* Update dots */
           dots.forEach(function (d, i) { d.classList.toggle("is-active", i === newIdx); });
           idx = newIdx;
           wrap.dataset.index = idx;
 
-          /* Unlock after transition completes */
-          setTimeout(function () { busy = false; }, 350);
+          /* Unlock after CSS opacity transition finishes */
+          setTimeout(function () { busy = false; }, 420);
         });
       }
 
       wrap.querySelector(".fp-slide-prev").addEventListener("click", function (e) {
-        e.preventDefault(); e.stopPropagation();
-        goTo(idx - 1);
+        e.preventDefault(); e.stopPropagation(); goTo(idx - 1);
       });
       wrap.querySelector(".fp-slide-next").addEventListener("click", function (e) {
-        e.preventDefault(); e.stopPropagation();
-        goTo(idx + 1);
+        e.preventDefault(); e.stopPropagation(); goTo(idx + 1);
       });
     });
   }

@@ -106,6 +106,14 @@
 }
 
 /* ── Two-layer crossfade images ── */
+.fp-card__img-link {
+  transition: transform 0.4s ease;
+}
+
+.fp-card:hover .fp-card__img-link {
+  transform: scale(1.04);
+}
+
 .fp-card__img {
   position: absolute;
   inset: 0;
@@ -113,8 +121,9 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  /* opacity-only transition — no transform, avoids flicker during layer swap */
+  transition: opacity 0.38s ease;
   opacity: 0;
-  transition: opacity 0.35s ease, transform 0.4s ease;
 }
 
 /* Top layer = visible */
@@ -126,11 +135,6 @@
 /* Back layer sits behind */
 .fp-card__img:not(.fp-img-top) {
   z-index: 1;
-}
-
-/* Gentle zoom on hover (applied to the top image) */
-.fp-card:hover .fp-card__img.fp-img-top {
-  transform: scale(1.04);
 }
 
 /* ── Deal badge (top-left) ── */
