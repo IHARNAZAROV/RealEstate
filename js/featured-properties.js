@@ -25,7 +25,7 @@
     }
     if (obj.id) {
       const num = obj.id.replace("obj-", "");
-      return `/images/objects/pic${num}.webp`;
+      return "/images/objects/pic" + num + ".webp";
     }
     return "/images/objects/placeholder.webp";
   }
@@ -38,22 +38,12 @@
   }
 
   function getObjectPrice(obj) {
-    const p = obj.livePriceBYN || obj.priceBYN || 0;
-    return Number(p) || 0;
+    return Number(obj.livePriceBYN || obj.priceBYN || 0) || 0;
   }
 
-  function isNewObject(obj, days) {
-    days = days || 7;
+  function isNewObject(obj) {
     if (!obj.publishedAt) return false;
-    return (Date.now() - new Date(obj.publishedAt).getTime()) / 86400000 <= days;
-  }
-
-  function renderBadges(obj) {
-    let html = "";
-    if (obj.recommended === true) html += '<span class="badge badge-featured">Рекомендуемый</span>';
-    if (isNewObject(obj))          html += '<span class="badge badge-new">Новинка</span>';
-    if (!html) return "";
-    return '<div class="object-badges">' + html + "</div>";
+    return (Date.now() - new Date(obj.publishedAt).getTime()) / 86400000 <= 7;
   }
 
   function matchesTab(obj, tabMatch) {
@@ -65,32 +55,52 @@
   }
 
   function buildCard(obj) {
-    const imgSrc       = getPreviewImage(obj);
-    const area         = getObjectArea(obj);
-    const price        = getObjectPrice(obj);
-    const pricePerM    = area && price > 0 ? Math.round(price / area) : null;
-    const badgesHTML   = renderBadges(obj);
-    const slug         = obj.slug || "";
-    const url          = "/objects/" + slug;
+    const imgSrc  = getPreviewImage(obj);
+    const area    = getObjectArea(obj);
+    const price   = getObjectPrice(obj);
+    const slug    = obj.slug || "";
+    const url     = "/objects/" + slug;
+    const city    = obj.city || "";
+    const address = obj.address || "";
+    const location = [city ? "г. " + city : "", address].filter(Boolean).join(", ");
+
+    const dealBadge = obj.dealType || "Продажа";
+    const isNew     = isNewObject(obj);
+    const rooms     = obj.rooms ? Number(obj.rooms) : null;
+
+    const roomsLabel = rooms
+      ? (rooms === 1 ? "1 комн." : rooms === 2 ? "2 комн." : rooms === 3 ? "3 комн." : rooms + " комн.")
+      : null;
+
+    const areaLabel = area ? area + " м²" : null;
+
+    const specsHTML = [
+      roomsLabel
+        ? '<span class="fp-card-spec"><i class="fa-solid fa-door-open" aria-hidden="true"></i>' + roomsLabel + "</span>"
+        : "",
+      areaLabel
+        ? '<span class="fp-card-spec"><i class="fa-solid fa-ruler-combined" aria-hidden="true"></i>' + areaLabel + "</span>"
+        : "",
+    ].join("");
 
     return (
-      '<li class="object-item featured-prop-item" data-slug="' + slug + '">' +
-        '<div class="project-mas hover-shadow">' +
-          '<a href="' + url + '" class="card-link-overlay" aria-label="Открыть объект ' + (obj.title || "") + '"></a>' +
-          '<div class="image-effect-one">' +
-            badgesHTML +
-            '<img loading="lazy" src="' + imgSrc + '" alt="' + (obj.title || "") + '">' +
-          "</div>" +
-          '<div class="project-info p-a20 bg-gray">' +
-            '<h4 class="sx-tilte m-t0"><a href="' + url + '">' + (obj.title || "") + "</a></h4>" +
-            (obj.cardDescription ? "<p>" + obj.cardDescription + "</p>" : "") +
-            '<div class="object-meta">' +
-              (price > 0 ? '<span class="object-price">' + formatPrice(price) + " BYN</span>" : "") +
-              (pricePerM ? "<span>" + formatPrice(pricePerM) + " BYN / м²</span>" : "") +
+      '<li class="featured-prop-item" data-slug="' + slug + '">' +
+        '<article class="fp-card">' +
+          '<a href="' + url + '" class="fp-card__img-wrap" aria-label="' + (obj.title || "") + '" tabindex="-1">' +
+            '<img loading="lazy" src="' + imgSrc + '" alt="' + (obj.title || "") + '" class="fp-card__img">' +
+            '<span class="fp-card__deal-badge">' + dealBadge + '</span>' +
+            (isNew ? '<span class="fp-card__new-badge">Новинка</span>' : "") +
+          "</a>" +
+          '<div class="fp-card__body">' +
+            '<h4 class="fp-card__title"><a href="' + url + '">' + (obj.title || "") + "</a></h4>" +
+            (location ? '<p class="fp-card__location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>' + location + "</p>" : "") +
+            (specsHTML ? '<div class="fp-card__specs">' + specsHTML + "</div>" : "") +
+            '<div class="fp-card__footer">' +
+              (price > 0 ? '<span class="fp-card__price">' + formatPrice(price) + " BYN</span>" : "") +
+              '<a href="' + url + '" class="fp-card__btn">Подробнее</a>' +
             "</div>" +
-            '<a href="' + url + '" class="site-button btn-effect sx-btn-primary m-t15">Подробнее</a>' +
           "</div>" +
-        "</div>" +
+        "</article>" +
       "</li>"
     );
   }
@@ -104,8 +114,12 @@
 
     if (items.length === 0) {
       grid.innerHTML = filtered.map(buildCard).join("");
-      grid.querySelectorAll(".featured-prop-item").forEach(function (el) {
-        el.classList.add("is-visible");
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          grid.querySelectorAll(".featured-prop-item").forEach(function (el) {
+            el.classList.add("is-visible");
+          });
+        });
       });
       return;
     }
@@ -131,9 +145,9 @@
   }
 
   function init() {
-    const section    = document.getElementById("featured-properties");
-    const tabsEl     = document.getElementById("fp-tabs");
-    const grid       = document.getElementById("fp-grid");
+    const section = document.getElementById("featured-properties");
+    const tabsEl  = document.getElementById("fp-tabs");
+    const grid    = document.getElementById("fp-grid");
 
     if (!section || !tabsEl || !grid) return;
 
@@ -141,14 +155,13 @@
       .then(function (r) { return r.json(); })
       .then(function (data) {
         const allRecs = data.filter(function (obj) { return obj.recommended === true; });
-
         let activeKey = "all";
 
         tabsEl.innerHTML = TABS.map(function (tab) {
           return (
-            '<button class="fp-tab' + (tab.key === "all" ? " is-active" : "") + '" data-key="' + tab.key + '">' +
-              tab.label +
-            "</button>"
+            '<button class="fp-tab' + (tab.key === "all" ? " is-active" : "") +
+            '" data-key="' + tab.key + '" role="tab" aria-selected="' + (tab.key === "all") + '">' +
+            tab.label + "</button>"
           );
         }).join("");
 
@@ -157,16 +170,14 @@
         tabsEl.addEventListener("click", function (e) {
           const btn = e.target.closest(".fp-tab");
           if (!btn) return;
-
           const key = btn.dataset.key;
           if (key === activeKey) return;
-
           activeKey = key;
-
           tabsEl.querySelectorAll(".fp-tab").forEach(function (b) {
-            b.classList.toggle("is-active", b.dataset.key === key);
+            const active = b.dataset.key === key;
+            b.classList.toggle("is-active", active);
+            b.setAttribute("aria-selected", active);
           });
-
           const tab = TABS.find(function (t) { return t.key === key; });
           applyFilter(grid, allRecs, tab ? tab.match : null);
         });
