@@ -107,6 +107,7 @@
         <link rel="stylesheet" href="/css/nav-market-status.css">
     </noscript>
     <link rel="stylesheet" href="/team-section.css">
+    <link rel="stylesheet" href="/css/featured-properties.css">
     <style>
         .nav-market-status-li{list-style:none;padding:0;margin-left:14px;align-self:center!important;margin-top:8px!important}
         .nav-market-status{display:flex!important;align-items:center!important;padding:5px 14px!important;background:rgba(61,214,176,.07)!important;border:1px solid rgba(61,214,176,.25)!important}
@@ -943,7 +944,29 @@
             </section>
 
             <!-- OUR SERVICES END -->
-            <!-- SECTION: All Services -->
+
+        </div><!-- /.section-full bg-change-section -->
+
+        <!-- FEATURED PROPERTIES START -->
+        <section id="featured-properties" class="section-full mobile-page-padding p-t80 p-b80 bg-white">
+            <div class="container">
+                <header class="section-head section-head--bracket">
+                    <h2 class="section-title">Рекомендуемые объекты недвижимости</h2>
+                    <p class="section-subtitle">Актуальные предложения квартир, домов и участков в Лиде и Лидском районе.</p>
+                </header>
+
+                <div id="fp-tabs" class="fp-tabs" role="tablist" aria-label="Фильтр объектов"></div>
+
+                <ul id="fp-grid" class="fp-grid list-unstyled clearfix"></ul>
+
+                <div class="btn-center m-t40">
+                    <a href="/nedvizhimost-lida" class="site-button-secondry btn-half"><span>Все объекты</span></a>
+                </div>
+            </div>
+        </section>
+        <!-- FEATURED PROPERTIES END -->
+
+        <!-- SECTION: All Services -->
             <div class="section-full mobile-page-padding p-t80 p-b50 bg-gray">
                 <div class="section-content">
                     <div class="container">
@@ -1529,6 +1552,7 @@
     <script src="contact-widget.js" defer></script>
     <script src="/team-section.js" defer></script>
     <script src="/js/nav-market-status.js" defer></script>
+    <script src="/js/featured-properties.js" defer></script>
 </body>
 
 </html>
