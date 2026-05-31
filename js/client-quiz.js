@@ -149,7 +149,7 @@
   const contactStep = {
     key: "contact",
     title: "Шаг 6. Контакты",
-    hint: "Оставьте телефон — подготовлю персональный план и свяжусь с вами.",
+    hint: "Оставьте телефон — мы подготовим персональный план и свяжемся с вами.",
     type: "contact",
   };
 
@@ -339,7 +339,7 @@
         throw new Error("REQUEST_FAILED");
       }
 
-      setFeedback("Спасибо! Получила ваши ответы и скоро свяжусь с вами.", "success");
+      setFeedback("Спасибо! Получили ваши ответы и скоро свяжемся с вами.", "success");
       nextButton.textContent = "Готово";
       setTimeout(closeModal, 900);
     } catch (error) {
