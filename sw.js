@@ -1,5 +1,5 @@
 /*
- * Service Worker — turko.by
+ * Service Worker — germesgarant.by
  * Кешируем ТОЛЬКО статику: CSS, JS, шрифты, иконки.
  * JSON данные и изображения — всегда напрямую с сервера, без кеширования.
  */

@@ -268,7 +268,7 @@
 
   function toAbsoluteUrl(url) {
     if (!isFilled(url)) return null;
-    return String(url).startsWith("http") ? String(url) : `https://turko.by${url}`;
+    return String(url).startsWith("http") ? String(url) : `https://germesgarant.by${url}`;
   }
 
   function normalizeType(value) {
@@ -320,7 +320,7 @@
   function generateObjectSchema(obj) {
     if (!obj) return;
 
-    const canonicalUrl = `https://turko.by/objects/${obj.slug}`;
+    const canonicalUrl = `https://germesgarant.by/objects/${obj.slug}`;
     const pageUrl = window.location.href;
     const schemaPrice = getDisplayBynPrice(obj) || obj.priceBYN;
     const area = getObjectArea(obj);
@@ -353,7 +353,7 @@
       seller: {
         "@type": "RealEstateAgent",
         name: "Ольга Турко",
-        url: "https://turko.by",
+        url: "https://germesgarant.by",
         telephone: "+375291416605",
         areaServed: "BY",
         address: {
@@ -526,8 +526,8 @@
     const AGENT_PHONE = "+375291809516";
     const title = `${obj.title} — Ольга Турко`;
     const firstImage = Array.isArray(obj.images) && obj.images.length
-      ? (obj.images[0].startsWith("http") ? obj.images[0] : `https://turko.by${obj.images[0]}`)
-      : "https://turko.by/images/main-slider/2.webp";
+      ? (obj.images[0].startsWith("http") ? obj.images[0] : `https://germesgarant.by${obj.images[0]}`)
+      : "https://germesgarant.by/images/main-slider/2.webp";
 
     const shortDescription = obj.metaDescription
       || obj.cardDescription
@@ -537,7 +537,7 @@
     const bynPrice = getDisplayBynPrice(obj);
     const priceText = typeof bynPrice === "number" ? `${formatPrice(bynPrice)} BYN` : "Цена по запросу";
     const desc = `${shortDescription}. Цена: ${priceText}. Телефон: ${AGENT_PHONE}`;
-    const url = `https://turko.by/objects/${obj.slug}`;
+    const url = `https://germesgarant.by/objects/${obj.slug}`;
 
     document.title = title;
 
@@ -550,7 +550,7 @@
       { attr: "property", key: "og:image", content: firstImage },
       { attr: "property", key: "og:image:alt", content: obj.title },
       { attr: "property", key: "og:url", content: url },
-      { attr: "property", key: "og:site_name", content: "turko.by" },
+      { attr: "property", key: "og:site_name", content: "germesgarant.by" },
       { attr: "property", key: "og:phone_number", content: AGENT_PHONE },
       { attr: "property", key: "product:price:amount", content: typeof bynPrice === "number" ? String(bynPrice) : "" },
       { attr: "property", key: "product:price:currency", content: "BYN" },
@@ -1704,7 +1704,7 @@ function initObjectMap(obj) {
     const block = document.getElementById("object-share-block");
     if (!block) return;
 
-    const pageUrl = `https://turko.by/objects/${obj.slug}`;
+    const pageUrl = `https://germesgarant.by/objects/${obj.slug}`;
     const title = obj.title || "Объект недвижимости в Лиде";
     const shareText = `${title} — ${pageUrl}`;
 

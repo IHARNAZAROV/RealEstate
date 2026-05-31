@@ -173,7 +173,7 @@ function renderMeta(article) {
 
   const canonical = document.querySelector('link[rel="canonical"]');
   if (canonical && article.slug) {
-    canonical.href = `https://turko.by/blog/${article.slug}`;
+    canonical.href = `https://germesgarant.by/blog/${article.slug}`;
   }
 
   const ogTitle = document.querySelector('meta[property="og:title"]');
@@ -188,7 +188,7 @@ function renderMeta(article) {
 
   const ogUrl = document.querySelector('meta[property="og:url"]');
   if (ogUrl && article.slug) {
-    ogUrl.setAttribute("content", `https://turko.by/blog/${article.slug}`);
+    ogUrl.setAttribute("content", `https://germesgarant.by/blog/${article.slug}`);
   }
 
   const twitterTitle = document.querySelector('meta[name="twitter:title"]');
@@ -293,18 +293,18 @@ function renderSchema(article) {
     },
     datePublished: article.date,
     dateModified: article.date,
-    image: article.image ? `https://turko.by${article.image}` : undefined,
+    image: article.image ? `https://germesgarant.by${article.image}` : undefined,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://turko.by/blog/${article.slug}`,
+      "@id": `https://germesgarant.by/blog/${article.slug}`,
     },
-    url: `https://turko.by/blog/${article.slug}`,
+    url: `https://germesgarant.by/blog/${article.slug}`,
     publisher: {
       "@type": "Organization",
-      name: "turko.by",
+      name: "germesgarant.by",
       logo: {
         "@type": "ImageObject",
-        url: "https://turko.by/images/logo-text.svg",
+        url: "https://germesgarant.by/images/logo-text.svg",
       },
     },
   };

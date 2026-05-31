@@ -1,10 +1,10 @@
 <?php
 $rawSlug = isset($_GET['slug']) ? $_GET['slug'] : '';
 $slug = preg_replace('/[^a-zA-Z0-9_\-]/', '', $rawSlug);
-$canonicalUrl = $slug !== '' ? "https://turko.by/blog/$slug" : "https://turko.by/blog";
+$canonicalUrl = $slug !== '' ? "https://germesgarant.by/blog/$slug" : "https://germesgarant.by/blog";
 
 // Resolve OG image, title and description from blog-articles.json by slug
-$ogImage = "https://turko.by/images/main-slider/2.webp";
+$ogImage = "https://germesgarant.by/images/main-slider/2.webp";
 $ogTitle = "Статья о недвижимости в Лиде — Ольга Турко";
 $ogDescription = "Читайте разборы и рекомендации по рынку недвижимости Лиды: документы, этапы сделки и важные нюансы.";
 $breadcrumbLeafName = "Статья";
@@ -24,7 +24,7 @@ if ($slug !== '') {
                         } else {
                             if ($imgPath[0] !== '/') { $imgPath = '/' . $imgPath; }
                             if (is_file(__DIR__ . $imgPath)) {
-                                $ogImage = "https://turko.by{$imgPath}";
+                                $ogImage = "https://germesgarant.by{$imgPath}";
                             }
                         }
                     }
@@ -48,8 +48,8 @@ $breadcrumbJsonLd = json_encode([
     '@context' => 'https://schema.org',
     '@type' => 'BreadcrumbList',
     'itemListElement' => [
-        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Главная', 'item' => 'https://turko.by/'],
-        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Блог', 'item' => 'https://turko.by/blog'],
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Главная', 'item' => 'https://germesgarant.by/'],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Блог', 'item' => 'https://germesgarant.by/blog'],
         ['@type' => 'ListItem', 'position' => 3, 'name' => $breadcrumbLeafName, 'item' => $canonicalUrl],
     ],
 ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
@@ -63,7 +63,7 @@ if (is_array($currentArticle)) {
         if ($articleImage[0] !== '/') {
             $articleImage = '/' . $articleImage;
         }
-        $articleImage = 'https://turko.by' . $articleImage;
+        $articleImage = 'https://germesgarant.by' . $articleImage;
     }
 
     $articleDescription = $currentArticle['excerpt'] ?? ($currentArticle['metaDescription'] ?? '');
@@ -82,14 +82,14 @@ if (is_array($currentArticle)) {
         'author' => [
             '@type' => 'Person',
             'name' => 'Ольга Турко',
-            'url' => 'https://turko.by/about',
+            'url' => 'https://germesgarant.by/about',
         ],
         'publisher' => [
             '@type' => 'Organization',
             'name' => 'Ольга Турко — Риэлтер в Лиде',
             'logo' => [
                 '@type' => 'ImageObject',
-                'url' => 'https://turko.by/images/logo-text.svg',
+                'url' => 'https://germesgarant.by/images/logo-text.svg',
             ],
         ],
         'mainEntityOfPage' => $canonicalUrl,
@@ -671,7 +671,7 @@ $ctaJson = $ctaBlock ? json_encode($ctaBlock, JSON_UNESCAPED_UNICODE | JSON_UNES
                 >© 2025 Ольга Турко. Designed By INazarov.</span
               >
               <span
-                >Интернет-ресурс turko.by зарегистрирован в Республике Беларусь.
+                >Интернет-ресурс germesgarant.by зарегистрирован в Республике Беларусь.
                 Номер ресурса: 212210 Дата регистрации: 12.01.2026</span
               >
             </div>

@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const MAX_RSS_SIZE_BYTES = 10 * 1024 * 1024;
-const SITE_URL = 'https://turko.by';
+const SITE_URL = 'https://germesgarant.by';
 const BLOG_PATH_PREFIX = '/blog';
 const DEFAULT_AUTHOR = 'ГермесГарант';
 const DEFAULT_CATEGORY = 'Недвижимость';

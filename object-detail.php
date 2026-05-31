@@ -1,10 +1,10 @@
 <?php
 $rawSlug = isset($_GET['slug']) ? $_GET['slug'] : '';
 $slug = preg_replace('/[^a-zA-Z0-9_\-]/', '', $rawSlug);
-$canonicalUrl = $slug !== '' ? "https://turko.by/objects/$slug" : "https://turko.by/objects";
+$canonicalUrl = $slug !== '' ? "https://germesgarant.by/objects/$slug" : "https://germesgarant.by/objects";
 
 // Resolve OG image and title from objects.json by slug
-$ogImage = "https://turko.by/images/main-slider/2.webp";
+$ogImage = "https://germesgarant.by/images/main-slider/2.webp";
 $ogTitle = "Объект недвижимости в Лиде — Ольга Турко";
 $ogDescription = "Детальная карточка объекта недвижимости в Лиде: фото, параметры, цена и консультация риэлтера Ольги Турко.";
 $breadcrumbLeafName = "Объект недвижимости";
@@ -20,7 +20,7 @@ if ($slug !== '') {
                     if (isset($obj['id']) && preg_match('/(\d+)/', (string)$obj['id'], $m)) {
                         $picPath = "/images/objects/pic{$m[1]}.webp";
                         if (is_file(__DIR__ . $picPath)) {
-                            $ogImage = "https://turko.by{$picPath}";
+                            $ogImage = "https://germesgarant.by{$picPath}";
                         }
                     }
                     if (!empty($obj['title'])) {
@@ -47,7 +47,7 @@ if (is_array($currentObject)) {
                 return null;
             }
 
-            return 'https://turko.by' . $path;
+            return 'https://germesgarant.by' . $path;
         },
         $currentObject['images'] ?? []
     )));
@@ -65,7 +65,7 @@ if (is_array($currentObject)) {
         'brand' => [
             '@type' => 'RealEstateAgent',
             'name' => 'Ольга Турко',
-            'url' => 'https://turko.by/',
+            'url' => 'https://germesgarant.by/',
         ],
         'offers' => [
             '@type' => 'Offer',
@@ -105,8 +105,8 @@ $breadcrumbJsonLd = json_encode([
     '@context' => 'https://schema.org',
     '@type' => 'BreadcrumbList',
     'itemListElement' => [
-        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Главная', 'item' => 'https://turko.by/'],
-        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Недвижимость в Лиде', 'item' => 'https://turko.by/nedvizhimost-lida'],
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Главная', 'item' => 'https://germesgarant.by/'],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Недвижимость в Лиде', 'item' => 'https://germesgarant.by/nedvizhimost-lida'],
         ['@type' => 'ListItem', 'position' => 3, 'name' => $breadcrumbLeafName, 'item' => $canonicalUrl],
     ],
 ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
@@ -986,7 +986,7 @@ $ogDescriptionEsc = htmlspecialchars($ogDescription, ENT_QUOTES);
                   >© 2025 Ольга Турко. Designed By INazarov.</span
                 >
                 <span
-                  >Интернет-ресурс turko.by зарегистрирован в Республике
+                  >Интернет-ресурс germesgarant.by зарегистрирован в Республике
                   Беларусь. Номер ресурса: 212210 Дата регистрации:
                   12.01.2026</span
                 >

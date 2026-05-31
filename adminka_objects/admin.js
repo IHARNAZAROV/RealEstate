@@ -1724,7 +1724,7 @@ document.addEventListener("click", (e) => {
   if (!slug) return;
 
   window.open(
-    `https://turko.by/objects/${encodeURIComponent(slug)}`,
+    `https://germesgarant.by/objects/${encodeURIComponent(slug)}`,
     "_blank",
     "noopener",
   );

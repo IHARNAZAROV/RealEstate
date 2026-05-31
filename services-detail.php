@@ -1,7 +1,7 @@
 <?php
 $rawSlug = isset($_GET['slug']) ? $_GET['slug'] : '';
 $slug = preg_replace('/[^a-zA-Z0-9_\-]/', '', $rawSlug);
-$canonicalUrl = $slug !== '' ? "https://turko.by/services/$slug" : "https://turko.by/about";
+$canonicalUrl = $slug !== '' ? "https://germesgarant.by/services/$slug" : "https://germesgarant.by/about";
 
 $breadcrumbLeafName = "Услуга риэлтера";
 $serviceMetaTitle = "Услуги риэлтера в Лиде — Ольга Турко";
@@ -31,8 +31,8 @@ $breadcrumbJsonLd = json_encode([
     '@context' => 'https://schema.org',
     '@type' => 'BreadcrumbList',
     'itemListElement' => [
-        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Главная', 'item' => 'https://turko.by/'],
-        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Услуги ГермесГарант', 'item' => 'https://turko.by/about'],
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Главная', 'item' => 'https://germesgarant.by/'],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Услуги ГермесГарант', 'item' => 'https://germesgarant.by/about'],
         ['@type' => 'ListItem', 'position' => 3, 'name' => $breadcrumbLeafName, 'item' => $canonicalUrl],
     ],
 ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
@@ -64,7 +64,7 @@ if (is_array($currentService)) {
             '@type' => 'RealEstateAgent',
             'name' => 'Ольга Турко',
             'telephone' => '+375291809516',
-            'url' => 'https://turko.by/',
+            'url' => 'https://germesgarant.by/',
         ],
         'offers' => [
             '@type' => 'Offer',
@@ -104,11 +104,11 @@ if (is_array($currentService)) {
       <meta property="og:title" content="<?php echo htmlspecialchars($serviceMetaTitle, ENT_QUOTES, 'UTF-8'); ?>" />
       <meta property="og:description" content="<?php echo htmlspecialchars($serviceMetaDescription, ENT_QUOTES, 'UTF-8'); ?>" />
       <meta property="og:url" content="<?php echo htmlspecialchars($canonicalUrl, ENT_QUOTES); ?>" />
-      <meta property="og:image" content="https://turko.by/images/main-slider/2.webp" />
+      <meta property="og:image" content="https://germesgarant.by/images/main-slider/2.webp" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="<?php echo htmlspecialchars($serviceMetaTitle, ENT_QUOTES, 'UTF-8'); ?>" />
       <meta name="twitter:description" content="<?php echo htmlspecialchars($serviceMetaDescription, ENT_QUOTES, 'UTF-8'); ?>" />
-      <meta name="twitter:image" content="https://turko.by/images/main-slider/2.webp" />
+      <meta name="twitter:image" content="https://germesgarant.by/images/main-slider/2.webp" />
 
       <!-- Breadcrumbs (JSON-LD) -->
       <script type="application/ld+json"><?php echo $breadcrumbJsonLd; ?></script>
@@ -544,7 +544,7 @@ if (is_array($currentService)) {
                            >© 2025 Ольга Турко. Designed By INazarov.</span
                         >
                         <span
-                           >Интернет-ресурс turko.by зарегистрирован в
+                           >Интернет-ресурс germesgarant.by зарегистрирован в
                            Республике Беларусь. Номер ресурса: 212210 Дата
                            регистрации: 12.01.2026</span
                         >
