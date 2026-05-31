@@ -3,9 +3,9 @@ $rawSlug = isset($_GET['slug']) ? $_GET['slug'] : '';
 $slug = preg_replace('/[^a-zA-Z0-9_\-]/', '', $rawSlug);
 $canonicalUrl = $slug !== '' ? "https://germesgarant.by/services/$slug" : "https://germesgarant.by/about";
 
-$breadcrumbLeafName = "Услуга риэлтера";
-$serviceMetaTitle = "Услуги риэлтера в Лиде — Ольга Турко";
-$serviceMetaDescription = "Услуги риэлтера в Лиде: сопровождение сделок, продажа, покупка и консультации по недвижимости от Ольги Турко.";
+$breadcrumbLeafName = "Услуга агентства недвижимости";
+$serviceMetaTitle = "Услуги агентства недвижимости в Лиде — ГермесГарант";
+$serviceMetaDescription = "Услуги агентства недвижимости в Лиде: сопровождение сделок, продажа, покупка и консультации по недвижимости от ГермесГарант.";
 $currentService = null;
 if ($slug !== '') {
     $servicesFile = __DIR__ . '/data/services.json';
@@ -17,7 +17,7 @@ if ($slug !== '') {
                 $currentService = $svc;
                 if (!empty($svc['title'])) {
                     $breadcrumbLeafName = $svc['title'];
-                    $serviceMetaTitle = $svc['title'] . ' — услуги риэлтера в Лиде | Ольга Турко';
+                    $serviceMetaTitle = $svc['title'] . ' — услуги агентства недвижимости в Лиде | ГермесГарант';
                 }
                 if (!empty($svc['description'])) {
                     $serviceMetaDescription = mb_substr(trim(strip_tags((string)$svc['description'])), 0, 280);
@@ -209,7 +209,7 @@ if (is_array($currentService)) {
 
          <nav class="mnav" id="mnav">
             <div class="mnav-header">
-               <div class="mnav-name">Ольга Турко · Риэлтер · Лида</div>
+               <div class="mnav-name">ГермесГарант · Лида</div>
             </div>
             <ul class="mnav-list">
                <li>

@@ -272,7 +272,7 @@ $ctaJson = $ctaBlock ? json_encode($ctaBlock, JSON_UNESCAPED_UNICODE | JSON_UNES
 
 <nav class="mnav" id="mnav">
     <div class="mnav-header">
-  <div class="mnav-name">Ольга Турко · Риэлтер · Лида</div>
+  <div class="mnav-name">ГермесГарант · Лида</div>
 </div>
 <ul class="mnav-list">
   <li>

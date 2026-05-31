@@ -238,7 +238,7 @@ $ogDescriptionEsc = htmlspecialchars($ogDescription, ENT_QUOTES);
 
     <nav class="mnav" id="mnav">
       <div class="mnav-header">
-        <div class="mnav-name">Ольга Турко · Риэлтер · Лида</div>
+        <div class="mnav-name">ГермесГарант · Лида</div>
       </div>
       <ul class="mnav-list">
         <li>
