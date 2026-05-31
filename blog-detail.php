@@ -328,7 +328,7 @@ $ctaJson = $ctaBlock ? json_encode($ctaBlock, JSON_UNESCAPED_UNICODE | JSON_UNES
 
   <!-- CTA -->
 <div class="mnav-cta">
-  <a href="tel:+375291809516" class="mnav-cta-btn">
+  <a href="tel:+375445532553" class="mnav-cta-btn">
     <i class="fa-solid fa-phone"></i>
     Позвонить мне
   </a>
@@ -604,14 +604,14 @@ $ctaJson = $ctaBlock ? json_encode($ctaBlock, JSON_UNESCAPED_UNICODE | JSON_UNES
               <div class="widget widget_address_outer">
                 <h5 class="widget-title">Пора поговорить о вашем доме</h5>
                 <ul class="widget_address">
-                  <li>город Лида, бульвар Князя Гедимина, 12</li>
+                  <li>г. Лида, бул. Князя Гедимина, 12, пом. 9</li>
                   <li>
-                    <a href="mailto:olgaturko1975@gmail.com"
-                      >olgaturko1975@gmail.com</a
+                    <a href="mailto:mail@germesgarant.by"
+                      >mail@germesgarant.by</a
                     >
                   </li>
                   <li>
-                    <a href="tel:+375291809516">(+375) 29 180 95 16</a>
+                    <a href="tel:+375445532553">(+375) 29 180 95 16</a>
                   </li>
                   <li>
                     <a href="tel:+375445019090">(+375) 44 501 90 90</a>

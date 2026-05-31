@@ -91,7 +91,7 @@
                 '</div>' +
               '</section>' +
               '<nav class="cw__actions" aria-label="\u0421\u043f\u043e\u0441\u043e\u0431\u044b \u0441\u0432\u044f\u0437\u0438">' +
-                '<a class="cw__action cw__action--whatsapp" href="https://wa.me/375291809516" target="_blank" rel="noopener noreferrer">' +
+                '<a class="cw__action cw__action--whatsapp" href="https://wa.me/375445532553" target="_blank" rel="noopener noreferrer">' +
                   '<span class="cw__action-icon" aria-hidden="true">\u2706</span>' +
                   '<span class="cw__action-label">WhatsApp</span>' +
                 '</a>' +
