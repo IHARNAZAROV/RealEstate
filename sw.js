@@ -4,7 +4,7 @@
  * JSON данные и изображения — всегда напрямую с сервера, без кеширования.
  */
 
-const CACHE_STATIC = 'sw-static-v7';
+const CACHE_STATIC = 'sw-static-v8';
 
 /* ─── App Shell: шрифты и иконки, кешируем при установке ─── */
 const APP_SHELL = [
