@@ -539,55 +539,6 @@ $ogDescriptionEsc = htmlspecialchars($ogDescription, ENT_QUOTES);
   </button>
 </div>
 
-<!-- SHARE BLOCK -->
-<div class="object-share" id="object-share-block" style="display:none">
-  <div class="object-share__label">Поделиться объектом</div>
-  <div class="object-share__buttons">
-    <a class="share-btn share-btn--viber" id="share-viber" href="#" target="_blank" rel="noopener" aria-label="Отправить в Viber">
-      <i class="fa-brands fa-viber"></i> Viber
-    </a>
-    <a class="share-btn share-btn--telegram" id="share-telegram" href="#" target="_blank" rel="noopener" aria-label="Отправить в Telegram">
-      <i class="fa-brands fa-telegram"></i> Telegram
-    </a>
-    <button class="share-btn share-btn--copy" id="share-copy" type="button" aria-label="Скопировать ссылку">
-      <svg class="share-copy-icon" viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-        <rect x="7" y="1" width="11" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
-        <rect x="2" y="5" width="11" height="14" rx="1.5"/>
-        <rect x="3.5" y="6.5" width="8" height="1.5" rx=".75" fill="white"/>
-        <rect x="3.5" y="9.5" width="8" height="1.5" rx=".75" fill="white"/>
-        <rect x="3.5" y="12.5" width="5" height="1.5" rx=".75" fill="white"/>
-      </svg> Скопировать
-    </button>
-    <button class="share-btn share-btn--qr" id="share-qr" type="button" aria-label="Показать QR-код">
-      <svg class="share-qr-icon" viewBox="0 0 20 20" fill="currentColor" width="15" height="15" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1" y="1" width="7" height="7" rx="1"/>
-        <rect x="2.5" y="2.5" width="4" height="4" rx=".5" fill="white"/>
-        <rect x="12" y="1" width="7" height="7" rx="1"/>
-        <rect x="13.5" y="2.5" width="4" height="4" rx=".5" fill="white"/>
-        <rect x="1" y="12" width="7" height="7" rx="1"/>
-        <rect x="2.5" y="13.5" width="4" height="4" rx=".5" fill="white"/>
-        <rect x="10" y="1" width="1.5" height="1.5"/>
-        <rect x="10" y="4" width="1.5" height="1.5"/>
-        <rect x="10" y="7" width="1.5" height="1.5"/>
-        <rect x="1" y="10" width="1.5" height="1.5"/>
-        <rect x="4" y="10" width="1.5" height="1.5"/>
-        <rect x="7" y="10" width="1.5" height="1.5"/>
-        <rect x="10" y="10" width="1.5" height="1.5"/>
-        <rect x="12.5" y="10" width="1.5" height="1.5"/>
-        <rect x="15" y="10" width="1.5" height="1.5"/>
-        <rect x="17.5" y="10" width="1.5" height="1.5"/>
-        <rect x="12.5" y="12.5" width="1.5" height="1.5"/>
-        <rect x="15" y="12.5" width="1.5" height="1.5"/>
-        <rect x="17.5" y="12.5" width="1.5" height="1.5"/>
-        <rect x="12.5" y="15" width="1.5" height="1.5"/>
-        <rect x="17.5" y="15" width="1.5" height="1.5"/>
-        <rect x="12.5" y="17.5" width="1.5" height="1.5"/>
-        <rect x="15" y="17.5" width="1.5" height="1.5"/>
-        <rect x="17.5" y="17.5" width="1.5" height="1.5"/>
-      </svg> QR-код
-    </button>
-  </div>
-</div>
 
               </div>
 
@@ -688,8 +639,88 @@ $ogDescriptionEsc = htmlspecialchars($ogDescription, ENT_QUOTES);
                           </p>
                         </div>
 
+                        <!-- SIDEBAR FAQ -->
+                        <div class="sidebar-faq-block">
+                          <h6 class="sidebar-faq-block__title">Частые вопросы</h6>
+                          <div class="object-faq object-faq--sidebar">
+                            <details class="object-faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                              <summary class="object-faq__question" itemprop="name">Возможна ли ипотека?</summary>
+                              <div class="object-faq__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <p itemprop="text">Да, объект подходит под ипотеку Беларусбанка и Белагропромбанка. Взнос — от 20%. Риэлтер поможет с документами.</p>
+                              </div>
+                            </details>
+                            <details class="object-faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                              <summary class="object-faq__question" itemprop="name">Можно ли торговаться?</summary>
+                              <div class="object-faq__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <p itemprop="text">Торг уместен. Окончательная цена обсуждается с собственником после просмотра. Риэлтер поможет аргументировать скидку.</p>
+                              </div>
+                            </details>
+                            <details class="object-faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                              <summary class="object-faq__question" itemprop="name">Когда можно посмотреть?</summary>
+                              <div class="object-faq__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <p itemprop="text">В будни и выходные, в удобное время. Запишитесь через форму или позвоните — показ обычно за 1–2 дня.</p>
+                              </div>
+                            </details>
+                            <details class="object-faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                              <summary class="object-faq__question" itemprop="name">Во сколько обойдётся переоформление?</summary>
+                              <div class="object-faq__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <p itemprop="text">Госпошлина 0,1% от стоимости + нотариус + услуги риэлтера. Точный расчёт — при обращении.</p>
+                              </div>
+                            </details>
+                          </div>
+                        </div>
 
-
+                        <!-- SIDEBAR SHARE -->
+                        <div class="sidebar-share-block">
+                          <div class="object-share" id="object-share-block" style="display:none">
+                            <div class="object-share__label">Поделиться объектом</div>
+                            <div class="object-share__buttons">
+                              <a class="share-btn share-btn--viber" id="share-viber" href="#" target="_blank" rel="noopener" aria-label="Отправить в Viber">
+                                <i class="fa-brands fa-viber"></i> Viber
+                              </a>
+                              <a class="share-btn share-btn--telegram" id="share-telegram" href="#" target="_blank" rel="noopener" aria-label="Отправить в Telegram">
+                                <i class="fa-brands fa-telegram"></i> Telegram
+                              </a>
+                              <button class="share-btn share-btn--copy" id="share-copy" type="button" aria-label="Скопировать ссылку">
+                                <svg class="share-copy-icon" viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                  <rect x="7" y="1" width="11" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                                  <rect x="2" y="5" width="11" height="14" rx="1.5"/>
+                                  <rect x="3.5" y="6.5" width="8" height="1.5" rx=".75" fill="white"/>
+                                  <rect x="3.5" y="9.5" width="8" height="1.5" rx=".75" fill="white"/>
+                                  <rect x="3.5" y="12.5" width="5" height="1.5" rx=".75" fill="white"/>
+                                </svg> Скопировать
+                              </button>
+                              <button class="share-btn share-btn--qr" id="share-qr" type="button" aria-label="Показать QR-код">
+                                <svg class="share-qr-icon" viewBox="0 0 20 20" fill="currentColor" width="15" height="15" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                  <rect x="1" y="1" width="7" height="7" rx="1"/>
+                                  <rect x="2.5" y="2.5" width="4" height="4" rx=".5" fill="white"/>
+                                  <rect x="12" y="1" width="7" height="7" rx="1"/>
+                                  <rect x="13.5" y="2.5" width="4" height="4" rx=".5" fill="white"/>
+                                  <rect x="1" y="12" width="7" height="7" rx="1"/>
+                                  <rect x="2.5" y="13.5" width="4" height="4" rx=".5" fill="white"/>
+                                  <rect x="10" y="1" width="1.5" height="1.5"/>
+                                  <rect x="10" y="4" width="1.5" height="1.5"/>
+                                  <rect x="10" y="7" width="1.5" height="1.5"/>
+                                  <rect x="1" y="10" width="1.5" height="1.5"/>
+                                  <rect x="4" y="10" width="1.5" height="1.5"/>
+                                  <rect x="7" y="10" width="1.5" height="1.5"/>
+                                  <rect x="10" y="10" width="1.5" height="1.5"/>
+                                  <rect x="12.5" y="10" width="1.5" height="1.5"/>
+                                  <rect x="15" y="10" width="1.5" height="1.5"/>
+                                  <rect x="17.5" y="10" width="1.5" height="1.5"/>
+                                  <rect x="12.5" y="12.5" width="1.5" height="1.5"/>
+                                  <rect x="15" y="12.5" width="1.5" height="1.5"/>
+                                  <rect x="17.5" y="12.5" width="1.5" height="1.5"/>
+                                  <rect x="12.5" y="15" width="1.5" height="1.5"/>
+                                  <rect x="17.5" y="15" width="1.5" height="1.5"/>
+                                  <rect x="12.5" y="17.5" width="1.5" height="1.5"/>
+                                  <rect x="15" y="17.5" width="1.5" height="1.5"/>
+                                  <rect x="17.5" y="17.5" width="1.5" height="1.5"/>
+                                </svg> QR-код
+                              </button>
+                            </div>
+                          </div>
+                        </div>
 
                       </div>
                     </div>
@@ -726,30 +757,9 @@ $ogDescriptionEsc = htmlspecialchars($ogDescription, ENT_QUOTES);
   </details>
 
   <details class="object-faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-    <summary class="object-faq__question" itemprop="name">Есть ли задолженности по коммунальным платежам?</summary>
-    <div class="object-faq__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-      <p itemprop="text">Перед выходом на сделку риэлтер запрашивает справку об отсутствии задолженностей по ЖКУ и взносам. Передача объекта с долгами исключена — это обязательное условие любой сделки купли-продажи в Беларуси.</p>
-    </div>
-  </details>
-
-  <details class="object-faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-    <summary class="object-faq__question" itemprop="name">Сколько собственников у объекта?</summary>
-    <div class="object-faq__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-      <p itemprop="text">Информация о количестве собственников уточняется при первом обращении. Риэлтер проверяет выписку из ЕГРНИ (реестра прав на недвижимость), чтобы вы знали полный состав правообладателей и убедились в чистоте сделки.</p>
-    </div>
-  </details>
-
-  <details class="object-faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-    <summary class="object-faq__question" itemprop="name">Можно ли купить с использованием материнского капитала?</summary>
-    <div class="object-faq__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-      <p itemprop="text">Да, материнский капитал принимается в качестве части оплаты при соответствии объекта требованиям программы (жилое помещение, соответствующее санитарным нормам). Риэлтер заранее проконсультирует, подходит ли конкретный объект под эти условия.</p>
-    </div>
-  </details>
-
-  <details class="object-faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
     <summary class="object-faq__question" itemprop="name">Во сколько обойдётся переоформление?</summary>
     <div class="object-faq__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-      <p itemprop="text">Стандартные расходы покупателя при переоформлении: государственная пошлина за регистрацию права собственности (0,1% от стоимости объекта), нотариальное удостоверение договора (фиксированная ставка согласно тарифам) и услуги риэлтера. Точный расчёт — при обращении.</p>
+      <p itemprop="text">Стандартные расходы покупателя: госпошлина за регистрацию права собственности (0,1% от стоимости), нотариальное удостоверение договора и услуги риэлтера. Точный расчёт — при обращении.</p>
     </div>
   </details>
 </section>
