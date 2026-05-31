@@ -5,8 +5,8 @@ $canonicalUrl = $slug !== '' ? "https://germesgarant.by/objects/$slug" : "https:
 
 // Resolve OG image and title from objects.json by slug
 $ogImage = "https://germesgarant.by/images/main-slider/2.webp";
-$ogTitle = "Объект недвижимости в Лиде — Ольга Турко";
-$ogDescription = "Детальная карточка объекта недвижимости в Лиде: фото, параметры, цена и консультация риэлтера Ольги Турко.";
+$ogTitle = "Объект недвижимости в Лиде — ГермесГарант";
+$ogDescription = "Детальная карточка объекта недвижимости в Лиде: фото, параметры, цена и консультация риэлтеров ГермесГарант.";
 $breadcrumbLeafName = "Объект недвижимости";
 $currentObject = null;
 if ($slug !== '') {
@@ -24,7 +24,7 @@ if ($slug !== '') {
             }
           }
           if (!empty($obj['title'])) {
-            $ogTitle = $obj['title'] . ' — Ольга Турко, риэлтер в Лиде';
+            $ogTitle = $obj['title'] . ' — ГермесГарант, агентство недвижимости в Лиде';
             $breadcrumbLeafName = $obj['title'];
           }
           if (!empty($obj['cardDescription'])) {
