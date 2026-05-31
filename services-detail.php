@@ -32,7 +32,7 @@ $breadcrumbJsonLd = json_encode([
     '@type' => 'BreadcrumbList',
     'itemListElement' => [
         ['@type' => 'ListItem', 'position' => 1, 'name' => 'Главная', 'item' => 'https://turko.by/'],
-        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Услуги риэлтера', 'item' => 'https://turko.by/about'],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Услуги ГермесГарант', 'item' => 'https://turko.by/about'],
         ['@type' => 'ListItem', 'position' => 3, 'name' => $breadcrumbLeafName, 'item' => $canonicalUrl],
     ],
 ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
@@ -291,7 +291,7 @@ if (is_array($currentService)) {
 
                <div class="container">
                   <div class="page-intro-inner" id="page-eyebrow">
-                     <span class="page-intro-eyebrow">Обо мне</span>
+                     <span class="page-intro-eyebrow">О компании ГермесГарант</span>
 
                      <!-- TITLE + LEAD (из JSON) -->
                      <div class="banner-title-outer">
@@ -316,7 +316,7 @@ if (is_array($currentService)) {
                            id="service-breadcrumbs"
                         >
                            <li><a href="/">Главная</a></li>
-                           <li><a href="/about">Услуги риэлтера</a></li>
+                           <li><a href="/about">Услуги ГермесГарант</a></li>
                            <li id="service-breadcrumb-title"><?php echo htmlspecialchars($breadcrumbLeafName, ENT_QUOTES); ?></li>
                         </ul>
                      </nav>
@@ -335,14 +335,14 @@ if (is_array($currentService)) {
                         <div class="service-sidebar">
                            <div class="about4-section m-b20 bg-gray p-a20">
                               <div class="widget widget_services">
-                                 <h4 class="widget-title">Мои услуги</h4>
+                                 <h4 class="widget-title">Услуги ГермесГарант</h4>
                                  <ul class="bg-white" id="services-list"></ul>
                               </div>
 
                               <div class="about4-content m-t30">
-                                 <h4>Риэлтер Ольга Турко</h4>
+                                 <h4>Агентство недвижимости ГермесГарант</h4>
                                  <p>
-                                    Практикующий эксперт по эмоциональному
+                                    Практикующие эксперты по эмоциональному
                                     позиционированию объектов недвижимости
                                  </p>
                               </div>
@@ -508,11 +508,11 @@ if (is_array($currentService)) {
                         <div class="col-lg-7 col-md-6">
                            <div class="call-to-action-left">
                               <h5 class="text-uppercase m-b10 m-t0">
-                                 Риэлтер Ольга Турко
+                                 Агентство недвижимости ГермесГарант
                               </h5>
 
                               <span>
-                                 Практикующий эксперт по эмоциональному
+                                 Практикующие эксперты по эмоциональному
                                  позиционированию объектов недвижимости
                               </span>
 
