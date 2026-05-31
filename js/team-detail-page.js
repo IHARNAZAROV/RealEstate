@@ -102,21 +102,56 @@
     set('#pageIntroDescription', 'textContent', m.position);
 
     /* Schema.org Person */
-    const sc = document.createElement('script');
-    sc.type = 'application/ld+json';
-    sc.textContent = JSON.stringify({
+    const sameAs = [];
+    if (m.telegram)  sameAs.push(m.telegram);
+    if (m.instagram) sameAs.push(m.instagram);
+    if (m.tiktok)    sameAs.push(m.tiktok);
+    if (m.whatsapp)  sameAs.push(m.whatsapp);
+
+    const personSchema = {
       '@context': 'https://schema.org',
       '@type': ['Person', 'RealEstateAgent'],
       name: m.name,
       jobTitle: m.position,
-      image: m.photo,
-      telephone: m.phone || '',
-      email: m.email || '',
-      address: { '@type': 'PostalAddress', addressLocality: m.city || 'Лида' },
+      image: m.photo || '',
+      telephone: m.phone || (m.isManager ? '+375445532553' : ''),
+      email: m.email || (m.isManager ? 'mail@germesgarant.by' : ''),
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: m.city || 'Лида',
+        addressRegion: 'Гродненская область',
+        addressCountry: 'BY',
+      },
       url: canonical,
       description: desc,
-    });
+      worksFor: {
+        '@type': 'RealEstateAgent',
+        name: 'ГермесГарант',
+        url: 'https://germesgarant.by/',
+        telephone: '+375445532553',
+        email: 'mail@germesgarant.by',
+      },
+    };
+    if (sameAs.length) personSchema.sameAs = sameAs;
+
+    const sc = document.createElement('script');
+    sc.type = 'application/ld+json';
+    sc.textContent = JSON.stringify(personSchema);
     document.head.appendChild(sc);
+
+    /* BreadcrumbList */
+    const bc = document.createElement('script');
+    bc.type = 'application/ld+json';
+    bc.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Главная',     item: 'https://germesgarant.by/' },
+        { '@type': 'ListItem', position: 2, name: 'Команда',     item: 'https://germesgarant.by/team' },
+        { '@type': 'ListItem', position: 3, name: m.name,        item: canonical },
+      ],
+    });
+    document.head.appendChild(bc);
   };
 
   /* ── Render social icons for the photo card ── */
@@ -131,10 +166,8 @@
     /* Default fallbacks for manager */
     if (!links.length && m.isManager) {
       links.push(
-        { href: 'https://t.me/TurkoOlga',                         icon: 'fa-brands fa-telegram',         label: 'Telegram' },
-        { href: 'viber://chat?number=%2B375291809516',             icon: 'fa-brands fa-viber',            label: 'Viber' },
-        { href: 'https://www.instagram.com/rielter_olga_lida',    icon: 'fa-brands fa-square-instagram', label: 'Instagram' },
-        { href: 'https://www.tiktok.com/@rieltor_olga_lida',      icon: 'fa-brands fa-tiktok',           label: 'TikTok' },
+        { href: 'https://t.me/germesgarant',                      icon: 'fa-brands fa-telegram',         label: 'Telegram' },
+        { href: 'viber://chat?number=%2B375445532553',             icon: 'fa-brands fa-viber',            label: 'Viber' },
       );
     }
 
@@ -148,8 +181,8 @@
 
   /* ── Render info boxes (2×2 grid) ── */
   const renderInfoBoxes = m => {
-    const email     = m.email    || (m.isManager ? 'olgaturko1975@gmail.com' : '—');
-    const phone     = m.phone    || (m.isManager ? '+375 29 180 95 16'       : '—');
+    const email     = m.email    || (m.isManager ? 'mail@germesgarant.by' : '—');
+    const phone     = m.phone    || (m.isManager ? '+375 44 553 25 53'    : '—');
     const location  = m.city    ? `г. ${m.city}`                              : '—';
     const exp       = m.experience ? `${m.experience}+ лет`                   : '—';
 
@@ -208,7 +241,7 @@
     const heroWrap = $('#heroContent');
     const contactHref = m.phone
       ? `tel:${m.phone.replace(/\s/g, '')}`
-      : (m.isManager ? 'tel:+375291809516' : '#ctaSection');
+      : (m.isManager ? 'tel:+375445532553' : '#ctaSection');
 
     const photoInner = m.photo
       ? `<img src="${safe(m.photo)}" alt="${safe(m.name)}" loading="eager" fetchpriority="high" />`
@@ -300,7 +333,7 @@
             throw new Error('server');
           }
         } catch {
-          msg.textContent = 'Не удалось отправить. Позвоните нам: +375 29 180 95 16';
+          msg.textContent = 'Не удалось отправить. Позвоните нам: +375 44 553 25 53';
           msg.className = 'td-form-msg td-form-msg--err';
         } finally {
           msg.hidden = false;
