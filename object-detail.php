@@ -432,6 +432,107 @@ $ogDescriptionEsc = htmlspecialchars($ogDescription, ENT_QUOTES);
                   <div class="object-details-groups" data-object-details></div>
                 </div>
 
+                <!-- MORTGAGE CALCULATOR (moved from sidebar) -->
+                <div class="mortgage-calculator" data-mortgage-calculator>
+                  <div class="mortgage-calculator__head">
+                    <div class="mortgage-calculator__bank-brand">
+                      <h5 data-mortgage-bank-title>Ипотечный калькулятор — Беларусбанк</h5>
+                    </div>
+                    <p>
+                      Сравните условия ипотечных программ белорусских банков и получите ориентировочный платёж.
+                    </p>
+                  </div>
+
+                  <div class="mortgage-calculator__field">
+                    <label for="bankSelect">Банк</label>
+                    <select id="bankSelect" data-mortgage-bank></select>
+                  </div>
+
+                  <div class="mortgage-calculator__field">
+                    <label for="mortgageProgram">Программа</label>
+                    <select id="mortgageProgram" data-mortgage-program></select>
+                  </div>
+
+                  <p class="mortgage-calculator__program-description" data-mortgage-description>
+                    —
+                  </p>
+
+                  <div class="mortgage-calculator__grid">
+                    <div class="mortgage-calculator__field">
+                      <label for="mortgagePrice">Стоимость жилья, BYN</label>
+                      <input
+                        id="mortgagePrice"
+                        type="number"
+                        min="10000"
+                        step="1000"
+                        data-mortgage-price
+                      />
+                    </div>
+
+                    <div class="mortgage-calculator__field">
+                      <label for="mortgageDownPayment">Первоначальный взнос, BYN</label>
+                      <input
+                        id="mortgageDownPayment"
+                        type="number"
+                        min="0"
+                        step="500"
+                        data-mortgage-down-payment
+                      />
+                    </div>
+                  </div>
+
+                  <div class="mortgage-calculator__grid">
+                    <div class="mortgage-calculator__field">
+                      <label for="mortgageTerm">Срок, лет</label>
+                      <input
+                        id="mortgageTerm"
+                        type="number"
+                        min="1"
+                        max="30"
+                        step="1"
+                        data-mortgage-term
+                      />
+                    </div>
+
+                    <div class="mortgage-calculator__field">
+                      <label for="mortgageRate">Ставка, % годовых</label>
+                      <input
+                        id="mortgageRate"
+                        type="number"
+                        min="1"
+                        max="40"
+                        step="0.1"
+                        data-mortgage-rate
+                      />
+                    </div>
+                  </div>
+
+                  <div class="mortgage-calculator__results" data-mortgage-results>
+                    <div>
+                      <span>Сумма кредита, BYN</span>
+                      <strong data-mortgage-loan>—</strong>
+                    </div>
+                    <div>
+                      <span>Ежемесячный платёж, BYN</span>
+                      <strong data-mortgage-payment>—</strong>
+                    </div>
+                    <div>
+                      <span>Переплата за весь срок, BYN</span>
+                      <strong data-mortgage-overpay>—</strong>
+                    </div>
+                    <div>
+                      <span>Общая выплата банку, BYN</span>
+                      <strong data-mortgage-total>—</strong>
+                    </div>
+                  </div>
+
+                  <p class="mortgage-calculator__note">
+                    * Расчёт носит справочный характер. Перед сделкой
+                    уточняйте актуальные условия и доступность программ
+                    в выбранном банке.
+                  </p>
+                </div>
+
 <div class="booking-section booking-section--object">
   <button type="button" class="booking-open-btn" data-open-booking-modal>
     Записаться на просмотр
@@ -567,108 +668,6 @@ $ogDescriptionEsc = htmlspecialchars($ogDescription, ENT_QUOTES);
                               <i class="fa-brands fa-tiktok"></i>
                             </a>
                           </div>
-                        </div>
-
-                        <div class="mortgage-calculator" data-mortgage-calculator>
-                          <div class="mortgage-calculator__head">
-                            <div class="mortgage-calculator__bank-brand">
-                              <h5 data-mortgage-bank-title>Ипотечный калькулятор — Беларусбанк</h5>
-                            </div>
-                            <p>
-                              Сравните условия ипотечных программ белорусских банков и получите ориентировочный платёж.
-                            </p>
-                          </div>
-
-                          <div class="mortgage-calculator__field">
-                            <label for="bankSelect">Банк</label>
-                            <select id="bankSelect" data-mortgage-bank></select>
-                          </div>
-
-                          <div class="mortgage-calculator__field">
-                            <label for="mortgageProgram">Программа</label>
-                            <select id="mortgageProgram" data-mortgage-program></select>
-                          </div>
-
-                          <p class="mortgage-calculator__program-description" data-mortgage-description>
-                            —
-                          </p>
-
-                          <div class="mortgage-calculator__grid">
-                            <div class="mortgage-calculator__field">
-                              <label for="mortgagePrice">Стоимость жилья, BYN</label>
-                              <input
-                                id="mortgagePrice"
-                                type="number"
-                                min="10000"
-                                step="1000"
-                                data-mortgage-price
-                              />
-                            </div>
-
-                            <div class="mortgage-calculator__field">
-                              <label for="mortgageDownPayment"
-                                >Первоначальный взнос, BYN</label
-                              >
-                              <input
-                                id="mortgageDownPayment"
-                                type="number"
-                                min="0"
-                                step="500"
-                                data-mortgage-down-payment
-                              />
-                            </div>
-                          </div>
-
-                          <div class="mortgage-calculator__grid">
-                            <div class="mortgage-calculator__field">
-                              <label for="mortgageTerm">Срок, лет</label>
-                              <input
-                                id="mortgageTerm"
-                                type="number"
-                                min="1"
-                                max="30"
-                                step="1"
-                                data-mortgage-term
-                              />
-                            </div>
-
-                            <div class="mortgage-calculator__field">
-                              <label for="mortgageRate">Ставка, % годовых</label>
-                              <input
-                                id="mortgageRate"
-                                type="number"
-                                min="1"
-                                max="40"
-                                step="0.1"
-                                data-mortgage-rate
-                              />
-                            </div>
-                          </div>
-
-                          <div class="mortgage-calculator__results" data-mortgage-results>
-                            <div>
-                              <span>Сумма кредита, BYN</span>
-                              <strong data-mortgage-loan>—</strong>
-                            </div>
-                            <div>
-                              <span>Ежемесячный платёж, BYN</span>
-                              <strong data-mortgage-payment>—</strong>
-                            </div>
-                            <div>
-                              <span>Переплата за весь срок, BYN</span>
-                              <strong data-mortgage-overpay>—</strong>
-                            </div>
-                            <div>
-                              <span>Общая выплата банку, BYN</span>
-                              <strong data-mortgage-total>—</strong>
-                            </div>
-                          </div>
-
-                          <p class="mortgage-calculator__note">
-                            * Расчёт носит справочный характер. Перед сделкой
-                            уточняйте актуальные условия и доступность программ
-                            в выбранном банке.
-                          </p>
                         </div>
 
                         
