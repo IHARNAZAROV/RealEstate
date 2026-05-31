@@ -51,6 +51,19 @@
 
   const safe = (v) => String(v ?? '').replace(/[<>&"']/g, (m) => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[m]));
 
+  const renderCardSocials = (agent) => {
+    const links = [];
+    if (agent.telegram)  links.push({ href: agent.telegram,  icon: 'fa-brands fa-telegram',         label: 'Telegram' });
+    if (agent.viber)     links.push({ href: agent.viber,     icon: 'fa-brands fa-viber',            label: 'Viber' });
+    if (agent.instagram) links.push({ href: agent.instagram, icon: 'fa-brands fa-square-instagram', label: 'Instagram' });
+    if (!links.length) return '';
+    return `<div class="card-socials">${links.map(l =>
+      `<a href="${safe(l.href)}" class="card-social-link" target="_blank" rel="noopener noreferrer" aria-label="${safe(l.label)} ${safe(agent.name)}">
+        <i class="${l.icon}" aria-hidden="true"></i>
+      </a>`
+    ).join('')}</div>`;
+  };
+
   const cardTemplate = (agent, manager = false) => `
     <div class="card-media">
       <img src="${safe(agent.photo)}" alt="${safe(agent.name)} — ${safe(agent.position || agent.specialization)}" loading="lazy" decoding="async">
@@ -65,6 +78,7 @@
         <div><span class="stat-label">Сделки</span><span class="stat-value">${safe(agent.deals)}</span></div>
         <div><span class="stat-label">Город</span><span class="stat-value">${safe(agent.city)}</span></div>
       </div>
+      ${renderCardSocials(agent)}
       ${agent.phone ? `<a href="tel:${safe(agent.phone.replace(/\s/g,''))}" class="card-phone" aria-label="Позвонить ${safe(agent.name)}"><svg class="card-phone__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.4 2 2 0 0 1 3.62 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>${safe(agent.phone)}</a>` : ''}
       <a href="/team-detail.html?slug=${safe(agent.slug || agent.name.toLowerCase().replace(/[^\p{L}\p{N}]+/gu,'-').replace(/(^-|-$)/g,''))}" class="card-link" aria-label="Подробнее о ${safe(agent.name)}">Подробнее <span aria-hidden="true">→</span></a>
     </div>`;

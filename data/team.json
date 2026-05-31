@@ -11,7 +11,10 @@
     "phone": "+375291809516",
     "photo": "/images/team/olga-turko-cover.webp",
     "isManager": true,
-    "description": "Эксперт по недвижимости Лиды с 12-летним опытом. Провела более 340 успешных сделок."
+    "description": "Эксперт по недвижимости Лиды с 12-летним опытом. Провела более 340 успешных сделок.",
+    "telegram": "https://t.me/germesgarant",
+    "viber": "viber://chat?number=%2B375291809516",
+    "instagram": "https://www.instagram.com/germesgarant"
   },
   {
     "id": 2,
@@ -25,7 +28,10 @@
     "phone": "+375291809516",
     "photo": "/images/main-slider/3.webp",
     "isManager": false,
-    "description": ""
+    "description": "",
+    "telegram": "https://t.me/lisovskiy_realtor",
+    "viber": "viber://chat?number=%2B375291234567",
+    "instagram": "https://www.instagram.com/lisovskiy_realty"
   },
   {
     "id": 3,
@@ -39,7 +45,10 @@
     "phone": "+375291809516",
     "photo": "/images/main-slider/3.webp",
     "isManager": false,
-    "description": ""
+    "description": "",
+    "telegram": "https://t.me/marina_realty_lida",
+    "viber": "viber://chat?number=%2B375292345678",
+    "instagram": "https://www.instagram.com/marina_kravchuk_realtor"
   },
   {
     "id": 4,
@@ -53,7 +62,10 @@
     "phone": "+375291809516",
     "photo": "/images/main-slider/3.webp",
     "isManager": false,
-    "description": ""
+    "description": "",
+    "telegram": "https://t.me/yarosh_realty",
+    "viber": "viber://chat?number=%2B375293456789",
+    "instagram": "https://www.instagram.com/yarosh_realtor"
   },
   {
     "id": 5,
@@ -67,7 +79,10 @@
     "phone": "+375291809516",
     "photo": "/images/main-slider/3.webp",
     "isManager": false,
-    "description": ""
+    "description": "",
+    "telegram": "https://t.me/poleshchuk_realty",
+    "viber": "viber://chat?number=%2B375294567890",
+    "instagram": "https://www.instagram.com/poleshchuk_realty"
   },
   {
     "id": 6,
@@ -81,6 +96,9 @@
     "phone": "+375291809516",
     "photo": "/images/main-slider/3.webp",
     "isManager": false,
-    "description": ""
+    "description": "",
+    "telegram": "https://t.me/selivon_realty",
+    "viber": "viber://chat?number=%2B375295678901",
+    "instagram": "https://www.instagram.com/selivon_realtor"
   }
 ]

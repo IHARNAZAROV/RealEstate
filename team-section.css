@@ -55,6 +55,11 @@
 .card-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; border-top:1px solid var(--team-divider); padding-top:14px; margin-top:14px; }
 .stat-label { display:block; color:#7a8784; font-size:12px; margin-bottom:2px; }
 .stat-value { font-weight:700; font-size:14px; }
+.card-socials { display:flex; gap:8px; margin-top:14px; padding-top:14px; border-top:1px solid var(--team-divider); }
+.card-social-link { display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:50%; background:#f0f4f2; color:var(--team-primary); font-size:15px; text-decoration:none; transition:background .22s, color .22s, transform .18s; }
+.card-social-link:hover { background:var(--team-primary); color:#fff; transform:translateY(-2px); }
+.card-social-link .fa-brands { line-height:1; }
+
 .card-phone { display:flex; align-items:center; gap:7px; margin-top:14px; color:var(--team-primary); font-weight:600; font-size:14px; text-decoration:none; border-top:1px solid var(--team-divider); padding-top:14px; }
 .card-phone:hover { color:var(--team-primary-strong); }
 .card-phone__icon { width:15px; height:15px; flex-shrink:0; }
