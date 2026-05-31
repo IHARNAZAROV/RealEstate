@@ -381,16 +381,21 @@
     // Watch bar fills for inline style changes (delay-calc.js sets width%)
     const fills = barChart.querySelectorAll('.delay-calc__bar-fill');
     fills.forEach((fill) => {
+      let ignoreNext = false;
       const mo = new MutationObserver(() => {
         const w = fill.style.width;
+        if (ignoreNext) { ignoreNext = false; return; }
         if (w && w !== '0%') {
           fill.style.setProperty('--sa-bar-target', w);
+          ignoreNext = true;
           fill.style.width = '0%';
           requestAnimationFrame(() => {
             requestAnimationFrame(() => {
-              fill.style.width = w;
+              barChart.classList.add('sa-bars-revealed');
             });
           });
+        } else {
+          barChart.classList.remove('sa-bars-revealed');
         }
       });
       mo.observe(fill, { attributes: true, attributeFilter: ['style'] });
