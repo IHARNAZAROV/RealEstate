@@ -22,7 +22,7 @@ Disallow: /backups/
 Disallow: /scripts/
 
 # Карта сайта
-Sitemap: https://turko.by/sitemap.xml
+Sitemap: https://germesgarant.by/sitemap.xml
 
 
 # ================================

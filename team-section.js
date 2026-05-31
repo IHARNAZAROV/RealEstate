@@ -17,7 +17,7 @@
   let rawTeam = [];
   let resizeTimer = null;
   const AUTOPLAY_MS = 4500;
-  const TEAM_JSON_CANDIDATES = ['/team.json', './team.json', '/data/team.json'];
+  const TEAM_JSON_CANDIDATES = ['/data/team.json'];
 
   const loadTeamData = async () => {
     const inlineDataEl = document.getElementById('team-data');
