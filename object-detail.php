@@ -64,7 +64,7 @@ if (is_array($currentObject)) {
     'category' => $category,
     'brand' => [
       '@type' => 'RealEstateAgent',
-      'name' => 'Ольга Турко',
+      'name' => 'ГермесГарант',
       'url' => 'https://germesgarant.by/',
     ],
     'offers' => [
@@ -76,8 +76,9 @@ if (is_array($currentObject)) {
       'priceValidUntil' => date('Y-12-31'),
       'seller' => [
         '@type' => 'RealEstateAgent',
-        'name' => 'Ольга Турко',
-        'telephone' => '+375291809516',
+        'name' => 'ГермесГарант',
+        'telephone' => '+375445532553',
+        'url' => 'https://germesgarant.by/',
       ],
     ],
     'additionalProperty' => array_values(array_filter([
@@ -127,7 +128,7 @@ $ogDescriptionEsc = htmlspecialchars($ogDescription, ENT_QUOTES);
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- SEO Meta -->
   <title><?php echo $ogTitleEsc; ?></title>
-  <meta name="author" content="Ольга Турко, риэлтер в Лиде, Беларусь" />
+  <meta name="author" content="Агентство недвижимости «ГермесГарант», Лида, Беларусь" />
   <meta name="robots" content="index, follow" />
   <meta name="description" content="<?php echo $ogDescriptionEsc; ?>" />
   <link rel="canonical" href="<?php echo htmlspecialchars($canonicalUrl, ENT_QUOTES); ?>" />

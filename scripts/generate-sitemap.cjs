@@ -10,7 +10,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
-const SITE_URL = "https://turko.by";
+const SITE_URL = "https://germesgarant.by";
 const OUTPUT_SITEMAP = path.join(ROOT, "sitemap.xml");
 
 /* ===================== Статические страницы ===================== */

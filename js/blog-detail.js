@@ -163,7 +163,7 @@ function renderArticle(article) {
    ========================================================= */
 function renderMeta(article) {
   if (article.title) {
-    document.title = `${article.title} — Ольга Турко`;
+    document.title = `${article.title} — ГермесГарант`;
   }
 
   const description = document.querySelector('meta[name="description"]');
@@ -178,7 +178,7 @@ function renderMeta(article) {
 
   const ogTitle = document.querySelector('meta[property="og:title"]');
   if (ogTitle && article.title) {
-    ogTitle.setAttribute("content", `${article.title} — Ольга Турко`);
+    ogTitle.setAttribute("content", `${article.title} — ГермесГарант`);
   }
 
   const ogDescription = document.querySelector('meta[property="og:description"]');
@@ -193,7 +193,7 @@ function renderMeta(article) {
 
   const twitterTitle = document.querySelector('meta[name="twitter:title"]');
   if (twitterTitle && article.title) {
-    twitterTitle.setAttribute("content", `${article.title} — Ольга Турко`);
+    twitterTitle.setAttribute("content", `${article.title} — ГермесГарант`);
   }
 
   const twitterDescription = document.querySelector('meta[name="twitter:description"]');
@@ -284,12 +284,9 @@ function renderSchema(article) {
     headline: article.title,
     description: article.lead || article.metaDescription || article.conclusion || "",
     author: {
-      "@type": "Person",
-      name: article.author || "Ольга Турко",
-      sameAs: [
-        "https://www.instagram.com/rielter_olga_lida/",
-        "https://t.me/TurkoOlga",
-      ],
+      "@type": "Organization",
+      name: article.author || "ГермесГарант",
+      url: "https://germesgarant.by/",
     },
     datePublished: article.date,
     dateModified: article.date,

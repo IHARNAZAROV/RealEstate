@@ -352,9 +352,9 @@
       itemCondition: "https://schema.org/UsedCondition",
       seller: {
         "@type": "RealEstateAgent",
-        name: "Ольга Турко",
+        name: "ГермесГарант",
         url: "https://germesgarant.by",
-        telephone: "+375291416605",
+        telephone: "+375445532553",
         areaServed: "BY",
         address: {
           "@type": "PostalAddress",
@@ -523,8 +523,8 @@
   }
 
   function updatePageMeta(obj) {
-    const AGENT_PHONE = "+375291809516";
-    const title = `${obj.title} — Ольга Турко`;
+    const AGENT_PHONE = "+375445532553";
+    const title = `${obj.title} — ГермесГарант`;
     const firstImage = Array.isArray(obj.images) && obj.images.length
       ? (obj.images[0].startsWith("http") ? obj.images[0] : `https://germesgarant.by${obj.images[0]}`)
       : "https://germesgarant.by/images/main-slider/2.webp";
@@ -585,7 +585,7 @@ function renderTopTitle(obj) {
   const title = obj?.title || "Детали объекта";
 
   // <title> в head
-  document.title = `${title} — Ольга Турко`;
+  document.title = `${title} — ГермесГарант`;
 
   // PAGE INTRO TITLE
   const h = document.querySelector("[data-page-title]");

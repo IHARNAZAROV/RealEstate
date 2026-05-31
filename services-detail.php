@@ -62,8 +62,8 @@ if (is_array($currentService)) {
         ],
         'provider' => [
             '@type' => 'RealEstateAgent',
-            'name' => 'Ольга Турко',
-            'telephone' => '+375291809516',
+            'name' => 'ГермесГарант',
+            'telephone' => '+375445532553',
             'url' => 'https://germesgarant.by/',
         ],
         'offers' => [
@@ -93,7 +93,7 @@ if (is_array($currentService)) {
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title><?php echo htmlspecialchars($serviceMetaTitle, ENT_QUOTES, 'UTF-8'); ?></title>
-      <meta name="author" content="Ольга Турко, риэлтер в Лиде, Беларусь" />
+      <meta name="author" content="Агентство недвижимости «ГермесГарант», Лида, Беларусь" />
       <meta
          name="description"
          content="<?php echo htmlspecialchars($serviceMetaDescription, ENT_QUOTES, 'UTF-8'); ?>"

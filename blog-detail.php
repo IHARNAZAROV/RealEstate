@@ -5,7 +5,7 @@ $canonicalUrl = $slug !== '' ? "https://germesgarant.by/blog/$slug" : "https://g
 
 // Resolve OG image, title and description from blog-articles.json by slug
 $ogImage = "https://germesgarant.by/images/main-slider/2.webp";
-$ogTitle = "Статья о недвижимости в Лиде — Ольга Турко";
+$ogTitle = "Статья о недвижимости в Лиде — ГермесГарант";
 $ogDescription = "Читайте разборы и рекомендации по рынку недвижимости Лиды: документы, этапы сделки и важные нюансы.";
 $breadcrumbLeafName = "Статья";
 $currentArticle = null;
@@ -29,7 +29,7 @@ if ($slug !== '') {
                         }
                     }
                     if (!empty($art['title'])) {
-                        $ogTitle = $art['title'] . ' — Ольга Турко';
+                        $ogTitle = $art['title'] . ' — ГермесГарант';
                         $breadcrumbLeafName = $art['title'];
                     }
                     if (!empty($art['metaDescription'])) {
@@ -80,13 +80,13 @@ if (is_array($currentArticle)) {
         'datePublished' => $currentArticle['publishedAt'] ?? null,
         'dateModified' => $currentArticle['updatedAt'] ?? ($currentArticle['publishedAt'] ?? null),
         'author' => [
-            '@type' => 'Person',
-            'name' => 'Ольга Турко',
-            'url' => 'https://germesgarant.by/about',
+            '@type' => 'Organization',
+            'name' => 'ГермесГарант',
+            'url' => 'https://germesgarant.by/',
         ],
         'publisher' => [
             '@type' => 'Organization',
-            'name' => 'Ольга Турко — Риэлтер в Лиде',
+            'name' => 'ГермесГарант',
             'logo' => [
                 '@type' => 'ImageObject',
                 'url' => 'https://germesgarant.by/images/logo-text.svg',
@@ -159,7 +159,7 @@ $ctaJson = $ctaBlock ? json_encode($ctaBlock, JSON_UNESCAPED_UNICODE | JSON_UNES
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><?php echo $ogTitleEsc; ?></title>
-    <meta name="author" content="Ольга Турко, риэлтер в Лиде, Беларусь" />
+    <meta name="author" content="Агентство недвижимости «ГермесГарант», Лида, Беларусь" />
     <meta
       name="description"
       content="<?php echo $ogDescriptionEsc; ?>"
