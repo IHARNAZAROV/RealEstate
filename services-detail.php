@@ -209,8 +209,9 @@ if (is_array($currentService)) {
                      <div class="header-nav nav-dark justify-content-start">
                         <ul class="nav navbar-nav">
                            <li><a href="/">Главная</a></li>
-                           <li><a href="/about">Обо мне</a></li>
+                           <li><a href="/about">О компании</a></li>
                            <li><a href="/nedvizhimost-lida">Объекты</a></li>
+                           <li><a href="/analytics">Аналитика</a></li>
                            <li><a href="/blog">Блог</a></li>
                            <li><a href="/faq">Вопросы</a></li>
                            <li><a href="/contact">Контакты</a></li>
@@ -238,8 +239,8 @@ if (is_array($currentService)) {
 
                <li>
                   <a href="/about" data-path="/about">
-                     <i class="fa-solid fa-user"></i>
-                     <span>Обо мне</span>
+                     <i class="fa-solid fa-building-columns"></i>
+                     <span>О компании</span>
                   </a>
                </li>
 
@@ -247,6 +248,13 @@ if (is_array($currentService)) {
                   <a href="/nedvizhimost-lida" data-path="/nedvizhimost-lida">
                      <i class="fa-solid fa-building"></i>
                      <span>Объекты</span>
+                  </a>
+               </li>
+
+               <li>
+                  <a href="/analytics" data-path="/analytics">
+                     <i class="fa-solid fa-chart-line"></i>
+                     <span>Аналитика</span>
                   </a>
                </li>
 
@@ -449,10 +457,13 @@ if (is_array($currentService)) {
                            <h5 class="widget-title">Полезные ссылки</h5>
                            <ul>
                               <li>
-                                 <a href="/about">Обо мне</a>
+                                 <a href="/about">О компании</a>
                               </li>
                               <li>
                                  <a href="/nedvizhimost-lida">Объекты</a>
+                              </li>
+                              <li>
+                                 <a href="/analytics">Аналитика</a>
                               </li>
                               <li>
                                  <a href="/blog">Блог</a>
