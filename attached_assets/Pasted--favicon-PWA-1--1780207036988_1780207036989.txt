@@ -1,0 +1,80 @@
+Проведи полный аудит проекта на предмет подключения favicon и PWA-иконок.
+
+Задачи:
+
+1. Просканируй ВСЕ HTML, PHP и другие страницы проекта, включая:
+
+   * index.html
+   * blog.html
+   * about.html
+   * analytics.html
+   * contact.html
+   * faq.html
+   * services-detail.html
+   * все страницы объектов недвижимости
+   * все шаблоны, из которых могут генерироваться страницы
+
+2. Найди все подключения:
+
+   * favicon.ico
+   * favicon.svg
+   * favicon-16x16.png
+   * favicon-32x32.png
+   * apple-touch-icon.png
+   * android-chrome-192x192.png
+   * android-chrome-512x512.png
+   * web-app-manifest-192x192.png
+   * web-app-manifest-512x512.png
+   * site.webmanifest
+   * любые другие favicon или icon-файлы
+
+3. Проверь, нет ли:
+
+   * абсолютных URL вида:
+     https://germesgarant.by/favicon.ico
+     https://germesgarant.by/favicon.svg
+     и аналогичных;
+   * ссылок на старые favicon;
+   * дублирующихся подключений;
+   * конфликтующих подключений;
+   * ссылок на несуществующие файлы.
+
+4. Все favicon должны подключаться ТОЛЬКО локально из корня проекта.
+
+Использовать следующие пути:
+
+```html
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+```
+
+5. Проверь содержимое файла site.webmanifest:
+
+   * все пути к иконкам должны быть локальными;
+   * должны использоваться актуальные файлы из корня проекта;
+   * не должно быть ссылок на старые домены или старые иконки.
+
+6. Проверь наличие Service Worker:
+
+   * найди все регистрации service worker;
+   * проверь, не кэшируются ли favicon через Cache Storage;
+   * если favicon кэшируются вручную, обнови логику так, чтобы после изменения иконок пользователи получали новые версии.
+
+7. Проверь все SEO-шаблоны, генераторы head-секции и общие include-файлы:
+
+   * favicon должны подключаться единообразно на всех страницах;
+   * не должно быть различий между страницами.
+
+8. После проверки сформируй отчет:
+
+   * какие страницы были исправлены;
+   * какие неправильные подключения были найдены;
+   * какие абсолютные URL заменены;
+   * какие дубли удалены;
+   * какие изменения внесены в site.webmanifest;
+   * есть ли проблемы с кэшированием favicon.
+
+9. Не изменяй другие SEO-теги, OpenGraph, Twitter Cards и структуру head. Изменять только то, что относится к favicon, manifest и связанным PWA-иконкам.

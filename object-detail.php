@@ -166,23 +166,12 @@ $ogDescriptionEsc = htmlspecialchars($ogDescription, ENT_QUOTES);
     <script type="application/ld+json"><?php echo $jsonLdProduct; ?></script>
     <?php endif; ?>
     <!-- Favicons -->
-    <link rel="icon" href="https://turko.by/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/svg+xml" href="https://turko.by/favicon.svg" />
-    <link rel="manifest" href="https://turko.by/site.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#006064" />
-    <link rel="apple-touch-icon" href="https://turko.by/apple-touch-icon.png" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="https://turko.by/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="https://turko.by/web-app-manifest-192x192.png"
-    />
          <!-- ==============================================
          SITE VERSION (AUTO CACHE BUSTING)
     =============================================== -->
