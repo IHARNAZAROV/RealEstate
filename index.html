@@ -111,8 +111,8 @@
     <link rel="stylesheet" href="/team-section.css">
     <link rel="stylesheet" href="/css/featured-properties.css">
     <style>
-        .nav-market-status-li{list-style:none;padding:0;margin-left:14px;align-self:center!important;margin-top:8px!important}
-        .nav-market-status{display:flex!important;align-items:center!important;padding:5px 14px!important;background:rgba(61,214,176,.07)!important;border:1px solid rgba(61,214,176,.25)!important}
+        .nav-market-status-li{list-style:none;padding:0;margin-right:16px;align-self:center!important}
+        .nav-market-status{display:flex!important;align-items:center!important;padding:3px 12px!important;background:rgba(61,214,176,.07)!important;border:1px solid rgba(61,214,176,.25)!important}
         .status-text-wrapper{min-width:310px!important}
         .status-text{color:#2a3a33!important;text-transform:none!important}
         @media(max-width:1024px){.nav-market-status-li{display:none!important}}
@@ -199,7 +199,16 @@
             <div class="top-bar bg-gray">
                 <div class="container">
                     <div class="d-flex justify-content-end">
-                        <ul class="list-unstyled e-p-bx">
+                        <ul class="list-unstyled e-p-bx" style="align-items:center">
+                            <li class="nav-market-status-li">
+                                <div class="nav-market-status" id="marketStatus" aria-live="polite" aria-atomic="true">
+                                    <span class="status-indicator" aria-hidden="true"></span>
+                                    <div class="status-text-wrapper">
+                                        <div class="status-text current"></div>
+                                        <div class="status-text next"></div>
+                                    </div>
+                                </div>
+                            </li>
                             <li>
                                 <span>Email:</span>
                                 <a href="mailto:mail@germesgarant.by" style="color: var(--color-primary)">mail@germesgarant.by</a>
@@ -269,15 +278,6 @@
                                 </li>
                                 <li><a href="/faq">Вопросы</a></li>
                                 <li><a href="/contact">Контакты</a></li>
-                                <li class="nav-market-status-li">
-                                    <div class="nav-market-status" id="marketStatus" aria-live="polite" aria-atomic="true">
-                                        <span class="status-indicator" aria-hidden="true"></span>
-                                        <div class="status-text-wrapper">
-                                            <div class="status-text current"></div>
-                                            <div class="status-text next"></div>
-                                        </div>
-                                    </div>
-                                </li>
                             </ul>
                         </div>
                         <!-- Contact Slide Dropdown -->
